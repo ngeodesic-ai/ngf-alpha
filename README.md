@@ -15,9 +15,9 @@ The NGF follows a 10-step research plan, with 9 completed stages posted here. St
 | 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | pattern-completion/ |
 | 5 | [Higher-Dim Embeddings](higher-dim-embeddings/step5.ipynb) | higher-dim-embeddings/ |
 | 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | dynamic-intelligence/ |
-| 7 | Rudimentary ARC | rudimentary-arc/ |
-| 8 | LLM Latent Embedding with DR | llm-latent-embedding/ |
-| 9 | Warp LLM Interference | warp-interference/ |
+| 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | rudimentary-arc/ |
+| 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | llm-latent-embedding/ |
+| 9 | [Warp LLM Interference](warp-interference/step9.ipynb) | warp-interference/ |
 | 10 | Public Validation | main.py (full benchmark) |
 
 
