@@ -18,7 +18,7 @@ The NGF follows a 10-step research plan, with 9 completed stages posted here. St
 | 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/step9.ipynb) | warp-interference/ |
-| 10 | Public Validation | main.py (full benchmark) |
+| 10 | [Public Validation](main.ipynb) | main/ (full benchmark) |
 
 
 ## Requirements
