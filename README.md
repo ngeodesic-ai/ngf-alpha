@@ -36,7 +36,7 @@ Install dependencies:
 ```
 
 ## Hardware Notes
-Results validated on an NVIDIA A100 GPU (Colab Pro+). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
+Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
 
 ## Technical Paper
 A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_v8.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 15, 2025), subject to change. Feedback is welcome! Provisional patent filed as #63/864,726.
