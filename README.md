@@ -45,6 +45,6 @@ A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to
 A provisional patent was filed on August 15, 2025, with application number 63/864,726. Refinements will follow for a utility patent.
 
 ## Contribute
-This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ic3moor@gmail.com before submitting pull requests.**
+This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ic3moore@gmail.com before submitting pull requests.**
 
 If you find this helpful, please leave a ⭐!
