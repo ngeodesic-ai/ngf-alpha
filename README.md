@@ -4,6 +4,22 @@
 ## What’s This?
 NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge, tackling synthetic ARC patterns and MMLU challenges. It’s an alpha release—early, exciting, and open for collaboration!
 
+## Research Plan Stages
+The NGF follows a 10-step research plan, with 9 completed stages posted here. Step 9 is the public rollout with A100 results. Step 10 (milestone report) is in progress.
+
+| Stage | Description | Folder/Code |
+|-------|-------------|-------------|
+| 1 | Refine Toy Example | phase1-toy-example/ |
+| 2 | Embed Grid Intelligently | phase2-embed-grid/ |
+| 3 | Simulate Pattern Completion | phase3-pattern-completion/ |
+| 4 | Initial LLM Integration | llm-integration/ |
+| 5 | Nudge Mechanics | nudge-mechanics/ |
+| 6 | Benchmark Setup | benchmark-setup/ |
+| 7 | Strict Evaluation | strict-evaluation/ |
+| 8 | A100 Optimization | a100-optimization/ |
+| 9 | Public Validation | main.py (full benchmark) |
+
+
 ## Requirements
 - Python 3.x
 - `transformers==4.30.0`
