@@ -9,15 +9,16 @@ The NGF follows a 10-step research plan, with 9 completed stages posted here. St
 
 | Stage | Description | Folder/Code |
 |-------|-------------|-------------|
-| 1 | Refine Toy Example | phase1-toy-example/ |
-| 2 | Embed Grid Intelligently | phase2-embed-grid/ |
-| 3 | Simulate Pattern Completion | phase3-pattern-completion/ |
-| 4 | Initial LLM Integration | llm-integration/ |
-| 5 | Nudge Mechanics | nudge-mechanics/ |
-| 6 | Benchmark Setup | benchmark-setup/ |
-| 7 | Strict Evaluation | strict-evaluation/ |
-| 8 | A100 Optimization | a100-optimization/ |
-| 9 | Public Validation | main.py (full benchmark) |
+| 1 | [Refine Toy Example](toy-example/step1.ipynb) | toy-example/ |
+| 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | embed-grid/ |
+| 3 | Rotation Matrix Integration | rotation-matrix/ |
+| 4 | Simulate Pattern Completion | pattern-completion/ |
+| 5 | Higher-Dim Embeddings | higher-dim-embeddings/ |
+| 6 | Integrate Dynamic Intelligence | dynamic-intelligence/ |
+| 7 | Rudimentary ARC | rudimentary-arc/ |
+| 8 | LLM Latent Embedding with DR | llm-latent-embedding/ |
+| 9 | Warp LLM Interference | warp-interference/ |
+| 10 | Public Validation | main.py (full benchmark) |
 
 
 ## Requirements
