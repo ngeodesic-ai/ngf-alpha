@@ -16,6 +16,7 @@ NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge,
 Install dependencies:
 ```bash
 !pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
+```
 
 ## Contribute
 This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ic3moor@gmail.com before submitting pull requests.**
