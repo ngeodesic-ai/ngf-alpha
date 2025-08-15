@@ -21,8 +21,10 @@ Install dependencies:
 ## Hardware Notes
 Results validated on an NVIDIA A100 GPU (Colab Pro+). Testing on NVIDIA T4 (Colab Free) showed [insert results], and CPU runtime was [insert results]. Performance may vary; A100 recommended for optimal results.
 
+## Patent Status
+A provisional patent was filed on August 15, 2025, with application number 63/864,726. Refinements will follow for a utility patent.
+
 ## Contribute
 This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ic3moor@gmail.com before submitting pull requests.**
 
-## Patent Status
-A provisional patent was filed on August 15, 2025, with application number 63/864,726. Refinements will follow for a utility patent.
+If you find this helpful, please leave a ⭐!
