@@ -18,7 +18,7 @@ The NGF follows a 10-step research plan, with 9 completed stages posted here. St
 | 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/step9.ipynb) | warp-interference/ |
-| 10 | [Public Validation](main/main.ipynb) | main/ (full benchmark) |
+| 10 | [ARC/MMLU Benchmarks](main/main.ipynb) | main/ (full benchmark) |
 
 
 ## Requirements
@@ -40,9 +40,6 @@ Results validated on an NVIDIA A100 GPU (Colab Pro+). Testing on NVIDIA T4 (Cola
 
 ## Technical Paper
 A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_v8.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 15, 2025), subject to change. Feedback is welcome! Provisional patent filed as #63/864,726.
-
-## Patent Status
-A provisional patent was filed on August 15, 2025, with application number 63/864,726. Refinements will follow for a utility patent.
 
 ## Contribute
 This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ic3moore@gmail.com before submitting pull requests.**
