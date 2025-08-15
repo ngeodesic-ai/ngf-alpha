@@ -5,7 +5,7 @@
 NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge, which is linear approximation to geodesics (see paper), thus tackling synthetic ARC patterns and MMLU challenges. It’s an alpha release—early, exciting, and open for collaboration!
 
 ## Research Plan Stages
-The NGF follows a 10-step research plan, with 9 completed stages posted here. Step 9 is the public rollout with A100 results. Step 10 (milestone report) is in progress.
+The NGF follows a 12-step research plan, with 10 completed stages posted here. Step 10 is the public rollout with A100 results. Steps 11-12 (milestone reports) are in progress.
 
 | Stage | Description | Folder/Code |
 |-------|-------------|-------------|
