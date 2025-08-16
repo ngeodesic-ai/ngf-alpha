@@ -37,7 +37,7 @@ Install dependencies:
 
 Run latest benchmark:
 ```bash
-> python main-benckmark.py
+python main-benckmark.py
 ```
 
 ## Hardware Notes
