@@ -35,6 +35,11 @@ Install dependencies:
 !pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 ```
 
+Run latest benchmark:
+```bash
+> python main-benckmark.py
+```
+
 ## Hardware Notes
 Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
 
