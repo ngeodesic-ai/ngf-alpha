@@ -24,7 +24,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 
 This animation shows how warped paths converge to correct answers in high-dimensional semantic space:
 
-![NGF Warped vs Flat Paths](higher-dim-embeddings/ngf_warped_vs_flat.gif)
+![NGF Warped vs Flat Paths](higher-dim-embeddings/ngf_warped_geodesic_contour.gif)
 
 ## Requirements
 - Python 3.x
