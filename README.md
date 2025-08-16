@@ -9,7 +9,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 
 | Stage | Description | Folder/Code |
 |-------|-------------|-------------|
-| 1 | [Refine Toy Example](toy-example/step1.ipynb) | toy-example/ |
+| 1 | [Toy Example](toy-example/step1.ipynb) | toy-example/ |
 | 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | embed-grid/ |
 | 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | rotation-matrix/ |
 | 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | pattern-completion/ |
