@@ -46,6 +46,12 @@ Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on N
 ## Technical Paper
 A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_v8.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 15, 2025), subject to change. Feedback is welcome! Provisional patent filed as #63/864,726.
 
+
+## Medium Articles
+ * **Step 1: Toy Example in R^3**: [Warped Semantic Manifolds: A Geometric Approach to AI Reasoning](https://medium.com/@icmoore/warped-semantic-manifolds-a-new-path-to-flawless-ai-reasoning-d2328c91d920)
+ * **Step 5: Higher Dimensional Embeddings in R^9**: [How Semantic Mass Warps AI Thoughts to Flawless Convergence](https://medium.com/@icmoore/how-semantic-mass-warps-ai-thoughts-to-flawless-convergence-879e2f6f3373) 
+
+
 ## Contribute
 This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ic3moore@gmail.com before submitting pull requests.**
 
