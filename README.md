@@ -48,8 +48,8 @@ A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to
 
 
 ## Medium Articles
- * **Toy Example in R^3**: [Warped Semantic Manifolds: A Geometric Approach to AI Reasoning](https://medium.com/@icmoore/warped-semantic-manifolds-a-new-path-to-flawless-ai-reasoning-d2328c91d920)
- * **Higher Dimensional Embeddings in R^9**: [How Semantic Mass Warps AI Thoughts to Flawless Convergence](https://medium.com/@icmoore/how-semantic-mass-warps-ai-thoughts-to-flawless-convergence-879e2f6f3373) 
+ * **Toy Example in R^{3}**: [Warped Semantic Manifolds: A Geometric Approach to AI Reasoning](https://medium.com/@icmoore/warped-semantic-manifolds-a-new-path-to-flawless-ai-reasoning-d2328c91d920)
+ * **Higher Dimensional Embeddings in R^{9}**: [How Semantic Mass Warps AI Thoughts to Flawless Convergence](https://medium.com/@icmoore/how-semantic-mass-warps-ai-thoughts-to-flawless-convergence-879e2f6f3373) 
 
 
 ## Contribute
