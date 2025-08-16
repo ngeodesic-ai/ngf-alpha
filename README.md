@@ -20,7 +20,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 9 | [Warp LLM Interference](warp-interference/step9.ipynb) | warp-interference/ |
 | 10 | [ARC/MMLU Benchmark](main/main.ipynb) | benchmark/ (full benchmark) |
 
-## Illustration: NGF Warped vs Flat Paths
+## Illustration: NGF Warped vs Flat Paths (Re: stage 5)
 
 This animation shows how warped paths converge to correct answers in high-dimensional semantic space:
 
