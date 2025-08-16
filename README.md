@@ -1,5 +1,5 @@
 # Noetic Geodesic Framework (Alpha)
-🚀 **This is the Noetic Geodesic Framework (NGF)**, a pioneering approach to boost GPT-2's reasoning with symbolic nudging. Achieved 100.0% accuracy on 100 ARC and 100 MMLU tasks when nudged, with a 65.0% stock baseline on an A100 GPU.
+🚀 **This is the Noetic Geodesic Framework (NGF)**, a pioneering approach to stabilize AI reasoning to address the hallucination problem via geodisics. Achieved 100.0% accuracy on 100 ARC and 100 MMLU tasks when nudged, with a 65.0% stock baseline on an A100 GPU.
 
 ## What’s This?
 NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge, which is linear approximation to geodesics (see [technical draft](https://github.com/ngeodesic-ai/ngf-alpha/blob/main/docs/article_v8.pdf)), thus tackling synthetic ARC patterns and MMLU challenges. It’s an alpha release—early, exciting, and open for collaboration!
