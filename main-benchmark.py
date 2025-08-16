@@ -3,6 +3,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Copyright 2025 Ian C. Moore
 # Email: ic3moore@gmail.com
+# Provisional patent: filed as #63/864,726
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,16 +17,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License
 
-# **************************** 
+# ─────────────────────────────────────────────────────────────────────────────
 # Runtime environment
-# **************************** 
+# ─────────────────────────────────────────────────────────────────────────────
 # !apt-get update
 # !apt-get install -y build-essential libatlas-base-dev gfortran
 # !pip install --no-build-isolation --prefer-binary transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 
-# **************************** 
+# ─────────────────────────────────────────────────────────────────────────────
 # Benchmark Results:
-# **************************** 
+# ─────────────────────────────────────────────────────────────────────────────
 # ARC Task 1: Baseline = True, Nudged = True, Baseline Out = 'Apply to [[5, 8], [2, 7, 4]] results in [[4, 7, 2],...', Nudged Out = 'Apply to [[5, 8], [2, 7, 4]] results in [[4, 7, 2],...'
 # ARC Task 2: Baseline = False, Nudged = True, Baseline Out = 'Identify the pattern: Input grid [[9, 3], [6, 1, 8...', Nudged Out = 'Apply to [[9, 3], [6, 1, 8]] results in [[1, 6, 8...'
 # ARC Task 3: Baseline = False, Nudged = True, Baseline Out = 'Identify the pattern: Input grid [[7, 4], [3, 6, 2...', Nudged Out = 'Apply to [[7, 4], [3, 6, 2]] results in [[6, 3, 2...'
