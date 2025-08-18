@@ -2,7 +2,7 @@
 # Apache 2.0 License (ngeodesic.ai)
 # ==============================================================================
 # Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726 and #63/865,437)
-# Email: ic3moore@gmail.com
+# Email: ngeodesic@gmail.com
 # Part of Noetic Geodesic Framework (NGF)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
