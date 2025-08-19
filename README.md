@@ -48,7 +48,7 @@ python main-benchmark.py
 ## Hardware Notes
 Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
 
-## Technical Report - WORK IN PROGRESS, PRELIMINARY DRAFT
+## Technical Report - WORK IN PROGRESS
 A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_v9.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 15, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726 and #63/865,437.
 
 ## References
