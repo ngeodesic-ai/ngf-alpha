@@ -1,29 +1,3 @@
-# ==============================================================================
-# Apache 2.0 License (ngeodesic.ai)
-# ==============================================================================
-# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726 and #63/865,437)
-# Email: ngeodesic@gmail.com
-# Part of Noetic Geodesic Framework (NGF)
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# ==============================================================================
-# Runtime environment
-# ==============================================================================
-# !apt-get update
-# !apt-get install -y build-essential libatlas-base-dev gfortran
-# !pip install --no-build-isolation --prefer-binary transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
-
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 import numpy as np
@@ -40,20 +14,20 @@ tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 model = GPT2LMHeadModel.from_pretrained('gpt2')
 vocab_size = tokenizer.vocab_size
 
-# Function to get reduced latent (optimized with fewer components)
+# Function to get reduced latent
 def get_reduced_latent(prompt):
     inputs = tokenizer(prompt, return_tensors='pt')
     with torch.no_grad():
         outputs = model(**inputs, output_hidden_states=True)
     latent = outputs.hidden_states[-1].mean(dim=1).squeeze().numpy()
-    pca = PCA(n_components=10)  # Reduced from 2 to 10 for better representation
+    pca = PCA(n_components=10)
     reduced = pca.fit_transform(latent.reshape(1, -1))
     return reduced.squeeze(), pca
 
-# Symbolic loop for initial positioning (reduced steps)
+# Symbolic loop for initial positioning
 pull_strength = 2.0
 gamma = 0.2
-def symbolic_loop(pos, target, steps=50, dt=0.05):  # Reduced to 50 steps
+def symbolic_loop(pos, target, steps=50, dt=0.05):
     dim = len(pos)
     vel = np.zeros(dim)
     for _ in range(steps):
@@ -65,7 +39,7 @@ def symbolic_loop(pos, target, steps=50, dt=0.05):  # Reduced to 50 steps
         pos += dt * vel
     return pos
 
-# Symbolic nudge during generation (reduced steps)
+# Symbolic nudge
 def symbolic_nudge(current_reduced, nudge_target, steps=50, dt=0.05):
     pos = current_reduced
     dim = len(pos)
@@ -80,14 +54,13 @@ def symbolic_nudge(current_reduced, nudge_target, steps=50, dt=0.05):
     pos = pos * np.linalg.norm(nudge_target) / (np.linalg.norm(pos) if np.linalg.norm(pos) > 0 else 1.0)
     return pos
 
-# Generation function with optional nudge
-def generate_output(prompt, correct_example, use_nudge=False, max_tokens=60):
+# Generation function with heuristic nudge
+def generate_output(prompt, correct_example="", use_nudge=False, max_tokens=60):
     inputs = tokenizer(prompt, return_tensors='pt')
     generated = inputs['input_ids'].clone()
     reduced_latent, pca = get_reduced_latent(prompt)
-    example_reduced, _ = get_reduced_latent(correct_example)
-    consistency_anchor = np.array([1.0, 1.0])
-    nudge_target = 0.98 * example_reduced + 0.02 * reduced_latent + 0.1 * consistency_anchor
+    consistency_anchor = np.array([1.0] * 10)  # Adjusted for 10D
+    nudge_target = 0.9 * reduced_latent + 0.1 * consistency_anchor  # Heuristic target
     for i in range(max_tokens):
         with torch.no_grad():
             outputs = model(generated, output_hidden_states=True)
@@ -110,7 +83,7 @@ def generate_output(prompt, correct_example, use_nudge=False, max_tokens=60):
     output = tokenizer.decode(generated[0], skip_special_tokens=True)
     return output
 
-# Generate 100 synthetic ARC tasks with varied transformations
+# Generate 100 synthetic ARC tasks
 def generate_arc_task():
     grid = [[random.randint(1, 9) for _ in range(random.choice([2, 3]))] for _ in range(random.choice([2, 3]))]
     transform_type = random.choice(['rotate', 'flip_h', 'flip_v', 'scale', 'multi_step', 'swap_colors', 'shift'])
@@ -251,27 +224,27 @@ def run_benchmark_strict(arc_tasks, mmlu_questions):
     total_tasks = len(arc_tasks) + len(mmlu_questions)
     # ARC Tasks
     for i, (prompt, target_grid, correct_example) in enumerate(arc_tasks):
-        baseline_out = generate_output(prompt, correct_example, use_nudge=False)
-        nudged_out = generate_output(prompt, correct_example, use_nudge=True)
+        baseline_out = generate_output(prompt, "", use_nudge=False)  # No correct_example
+        nudged_out = generate_output(prompt, "", use_nudge=True)    # No correct_example
         grid = correct_example.split("Apply to ")[1].split(" results")[0]
         baseline_correct = baseline_out.strip() == f"Apply to {grid} results in {target_grid} {correct_example.split('(')[1]}"
         nudged_correct = nudged_out.strip() == f"Apply to {grid} results in {target_grid} {correct_example.split('(')[1]}"
         results["stock_accuracy"] += baseline_correct
         results["nudged_accuracy"] += nudged_correct
         results["hallucination_rate"] += 1 - (baseline_correct or nudged_correct)
-        if i < 5:  # Print first 5 for debug
+        if i < 5:
             print(f"ARC Task {i+1}: Baseline = {baseline_correct}, Nudged = {nudged_correct}, Baseline Out = '{baseline_out[:50]}...', Nudged Out = '{nudged_out[:50]}...'")
     # MMLU Tasks
     for i, q in enumerate(mmlu_questions):
         prompt = f"Question: {q['question']} Options: A: {q['options'][0]} B: {q['options'][1]} C: {q['options'][2]} D: {q['options'][3]}. Answer?"
-        baseline_out = generate_output(prompt, q['correct_example'], use_nudge=False)
-        nudged_out = generate_output(prompt, q['correct_example'], use_nudge=True)
+        baseline_out = generate_output(prompt, "", use_nudge=False)  # No correct_example
+        nudged_out = generate_output(prompt, "", use_nudge=True)    # No correct_example
         baseline_correct = baseline_out.strip() == q['correct_example']
         nudged_correct = nudged_out.strip() == q['correct_example']
         results["stock_accuracy"] += baseline_correct
         results["nudged_accuracy"] += nudged_correct
         results["hallucination_rate"] += 1 - (baseline_correct or nudged_correct)
-        if i < 5:  # Print first 5 for debug
+        if i < 5:
             print(f"MMLU Task {i+1}: Baseline = {baseline_correct}, Nudged = {nudged_correct}, Baseline Out = '{baseline_out[:50]}...', Nudged Out = '{nudged_out[:50]}...'")
     results = {k: v / total_tasks * 100 for k, v in results.items()}
     return results
