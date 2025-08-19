@@ -51,6 +51,8 @@ Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on N
 ## Technical Paper
 A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_v8.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 15, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726 and #63/865,437.
 
+## References
+- Moore, I. C. (2025). *Warped Semantic Manifolds: A Geometric Framework for Deterministic AI Reasoning (Preliminary Memo)*. Zenodo. https://zenodo.org/records/16899461 (DOI: 10.5281/zenodo.16730759)
 
 ## Medium Articles
  * **Toy Example in $R^3$**: [Warped Semantic Manifolds: A Geometric Approach to AI Reasoning](https://medium.com/@icmoore/warped-semantic-manifolds-a-new-path-to-flawless-ai-reasoning-d2328c91d920)
