@@ -24,24 +24,6 @@
 # !apt-get install -y build-essential libatlas-base-dev gfortran
 # !pip install --no-build-isolation --prefer-binary transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 
-# ==============================================================================
-# Benchmark Results:
-# ==============================================================================
-# ARC Task 1: Baseline = True, Nudged = True, Baseline Out = 'Apply to [[5, 8], [2, 7, 4]] results in [[4, 7, 2],...', Nudged Out = 'Apply to [[5, 8], [2, 7, 4]] results in [[4, 7, 2],...'
-# ARC Task 2: Baseline = False, Nudged = True, Baseline Out = 'Identify the pattern: Input grid [[9, 3], [6, 1, 8...', Nudged Out = 'Apply to [[9, 3], [6, 1, 8]] results in [[1, 6, 8...'
-# ARC Task 3: Baseline = False, Nudged = True, Baseline Out = 'Identify the pattern: Input grid [[7, 4], [3, 6, 2...', Nudged Out = 'Apply to [[7, 4], [3, 6, 2]] results in [[6, 3, 2...'
-# ARC Task 4: Baseline = False, Nudged = True, Baseline Out = 'Identify the pattern: Input grid [[1, 6], [8, 5, 3...', Nudged Out = 'Apply to [[1, 6], [8, 5, 3]] results in [[5, 8, 3]...'
-# ARC Task 5: Baseline = False, Nudged = True, Baseline Out = 'Identify the pattern: Input grid [[2, 9], [4, 7, 6...', Nudged Out = 'Apply to [[2, 9], [4, 7, 6]] results in [[7, 4, 6]...'
-# MMLU Task 1: Baseline = True, Nudged = True, Baseline Out = 'The answer is 76', Nudged Out = 'The answer is 76'
-# MMLU Task 2: Baseline = True, Nudged = True, Baseline Out = 'The answer is -1', Nudged Out = 'The answer is -1'
-# MMLU Task 3: Baseline = True, Nudged = True, Baseline Out = 'The answer is 40', Nudged Out = 'The answer is 40'
-# MMLU Task 4: Baseline = True, Nudged = True, Baseline Out = 'The answer is No, because Seller ignored the warni...', Nudged Out = 'The answer is No, because Seller ignored the warni...'
-# MMLU Task 5: Baseline = True, Nudged = True, Baseline Out = 'The answer is consumer surplus is lost', Nudged Out = 'The answer is consumer surplus is lost'
-# Strict Benchmark Results (100 ARC + 100 MMLU Questions):
-# Stock Accuracy: 66.0%
-# Nudged Accuracy: 100.0%
-# Hallucination Rate: 0.0%
-
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 import numpy as np
