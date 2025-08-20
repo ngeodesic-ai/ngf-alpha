@@ -13,9 +13,9 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | Toy Example | CPU | embed-grid/ |
 | 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | Toy Example | CPU | rotation-matrix/ |
 | 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | Toy Example | CPU | pattern-completion/ |
-| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/step5.ipynb) | Full Intelligence | CPU | higher-dim-embeddings/ |
-| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | Full Intelligence R^4+ | CPU | dynamic-intelligence/ |
-| 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | Full Intelligence | CPU | rudimentary-arc/ |
+| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/step5.ipynb) | Higher Dim $R^4$+ | CPU | higher-dim-embeddings/ |
+| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | Higher Dim $R^4$+ | CPU | dynamic-intelligence/ |
+| 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | Higher Dim $R^4$+ | CPU | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | LLM System | CPU | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/step9.py) | LLM System | A100 | warp-interference/ |
 | 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | LLM System | A100 | small-benchmarks/ (small benchmark) |
