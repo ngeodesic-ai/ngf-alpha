@@ -67,7 +67,7 @@ Hallucination Rate: 0.0%
 ```
 
 #### Self-Evaluation
-- Tests are fully blind; the separate seed (43) and filtering ensured no overlap with the training set, providing a true blind test
+- Tests are fully blind; the separate seed (43) and filtering ensured no overlap with the training set
 - Possible tuning bias that needs to be investigated
 - 350 nudge steps per correction seems excessive
 - Next step is to transition to larger sample of ARC tasks for validation (from datasets python package)
