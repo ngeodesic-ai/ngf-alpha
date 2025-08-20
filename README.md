@@ -47,9 +47,9 @@ python main-benchmark.py
 
 #### Benchmark results - ARC test
 ```
-Stock Accuracy: 67.0%
+Stock Accuracy: 65.0%
 Warped Accuracy: 100.0%
-Warped Semantic Similarity: 94.1%
+Warped Semantic Similarity: 93.7%
 Hallucination Rate: 0.0%
 ```
 
