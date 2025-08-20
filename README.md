@@ -71,9 +71,9 @@ Hallucination Rate: 0.0%
 - Possible tuning bias that needs to be investigated
 - 350 nudge steps per correction seems excessive
 - Small test set; next step is to transition to larger sample of ARC/MMLU tasks for validation (from datasets python package)
+- Tested on NVIDIA A100, need to test on NVIDIA T4
 - For ARC, the stock 65.0% and semantic similarity 93.7% are realistic
 - For MMLU, the stock 60.0% and semantic similarity 92.1% are realistic
-- Tested on NVIDIA A100 only, need to test on NVIDIA T4
 
 ## Hardware Notes
 Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
