@@ -69,7 +69,7 @@ Warped Semantic Similarity: 92.1%
 Hallucination Rate: 0.0%
 ```
 
-#### Self-Evaluation
+#### Self-Evaluation (latest)
 - Tests are fully blind; the separate seed (43) and filtering ensured no overlap with the training set
 - Possible tuning bias that needs to be investigated
 - 350 nudge steps per correction seems excessive
