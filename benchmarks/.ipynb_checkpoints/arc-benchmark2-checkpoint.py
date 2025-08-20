@@ -25,6 +25,13 @@
 # !pip install --no-build-isolation --prefer-binary transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 
 # ==============================================================================
+# Updates - v2
+# ==============================================================================
+# (1) Set Seeds: Ensured reproducible task generation and results, critical for validation.
+# (2) Robust Anchor: The weighted mean from 15 examples improved generalization, with higher weights on rotate (0.4) reflecting its frequency, contributing to the 95% accuracy.
+# (3) Stricter Evaluation: The exact match and semantic similarity metrics provided a rigorous test, with the 5% error likely from edge cases (e.g., multi_step or shift) where phrasing varied slightly.
+
+# ==============================================================================
 # Output
 # ==============================================================================
 # Task 1 Selected n_components: 4, Explained Variance: 0.9612
