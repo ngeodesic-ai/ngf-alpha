@@ -70,7 +70,7 @@ Hallucination Rate: 0.0%
 - Tests are fully blind; the separate seed (43) and filtering ensured no overlap with the training set
 - Possible tuning bias that needs to be investigated
 - 350 nudge steps per correction seems excessive
-- Next step is to transition to larger sample of ARC tasks for validation (from datasets python package)
+- Next step is to transition to larger sample of ARC/MMLU tasks for validation (from datasets python package)
 - For ARC, the stock 65.0% and semantic similarity 93.7% are realistic
 - For MMLU, the stock 60.0% and semantic similarity 92.1% are realistic
 
