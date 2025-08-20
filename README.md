@@ -42,7 +42,7 @@ Install dependencies:
 
 Run latest benchmark:
 ```bash
-python main-benchmark.py
+python main-arc-benchmark.py
 ```
 
 #### Benchmark results - ARC test
