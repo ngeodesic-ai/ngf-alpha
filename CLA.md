@@ -6,4 +6,4 @@ Thank you for contributing to the Noetic Geodesic Framework! By submitting a pul
 2. **Ownership**: You retain ownership of your contributions, but by submitting, you allow their use in this project and its derivatives.
 3. **Representation**: You represent that your contributions are your original work or that you have the right to submit them under this agreement.
 
-**Process**: Please sign this CLA by emailing a statement of agreement to ic3moore@gmail.com with your name and GitHub username before submitting pull requests. Example:
+**Process**: Please sign this CLA by emailing a statement of agreement to ngeodesic@gmail.com with your name and GitHub username before submitting pull requests. Example:
