@@ -20,7 +20,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 9 | [Warp LLM Interference](warp-interference/step9.py) | A100 | warp-interference/ |
 | 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | A100 | small-benchmarks/ (small benchmark) |
 | 11 | Large Benchmark (coming) | A100 | large-benchmarks/ (large benchmark) |
-| 12 | Milestone Benchmark (coming) | A100 | milestone-benchmark |
+| 12 | Milestone Benchmark (coming) | A100 | milestone-benchmark/ (milestone) |
 
 
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
