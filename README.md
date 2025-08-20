@@ -37,7 +37,7 @@ This animation shows how warped paths converge to correct answers in high-dimens
 ## Setup
 Install dependencies:
 ```bash
-!pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
+pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 ```
 
 #### Run latest ARC benchmark:
