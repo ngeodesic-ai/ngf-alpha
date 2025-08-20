@@ -7,20 +7,20 @@ NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge,
 ## Research Plan Stages
 The NGF follows a 12-step research plan, with 10 completed stages posted here. Step 10 is the public rollout with NVIDIA A100 results. Steps 11-12 (milestone reports) are in progress.
 
-| Stage | Description | Hardware | Folder/Code |
-|-------|-------------|-------------|-------------|
-| 1 | [Toy Example](toy-example/step1.ipynb) | CPU | toy-example/ |
-| 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | CPU | embed-grid/ |
-| 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | CPU | rotation-matrix/ |
-| 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | CPU | pattern-completion/ |
-| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/step5.ipynb) | CPU | higher-dim-embeddings/ |
-| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | CPU | dynamic-intelligence/ |
-| 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | CPU | rudimentary-arc/ |
-| 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | CPU | llm-latent-embedding/ |
-| 9 | [Warp LLM Interference](warp-interference/step9.py) | A100 | warp-interference/ |
-| 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | A100 | small-benchmarks/ (small benchmark) |
-| 11 | Large Benchmark (coming) | A100 | large-benchmarks/ (large benchmark) |
-| 12 | Milestone Benchmark (coming) | A100 | milestone-benchmark/ (milestone) |
+| Stage | Description | Phase | Hardware | Folder/Code |
+|-------|-------------|-------------|-------------|-------------|
+| 1 | [Toy Example](toy-example/step1.ipynb) | Toy Example | CPU | toy-example/ |
+| 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | Toy Example | CPU | embed-grid/ |
+| 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | Toy Example | CPU | rotation-matrix/ |
+| 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | Toy Example | CPU | pattern-completion/ |
+| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/step5.ipynb) | CPU | Full Intelligence R^4+ | higher-dim-embeddings/ |
+| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | Full Intelligence R^4+ | CPU | dynamic-intelligence/ |
+| 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | CPU | Full Intelligence R^4+ | rudimentary-arc/ |
+| 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | LLM System | CPU | llm-latent-embedding/ |
+| 9 | [Warp LLM Interference](warp-interference/step9.py) | LLM System | A100 | warp-interference/ |
+| 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | LLM System | A100 | small-benchmarks/ (small benchmark) |
+| 11 | Large Benchmark (coming) | LLM System | A100 | large-benchmarks/ (large benchmark) |
+| 12 | Milestone Benchmark (coming) | LLM System | A100 | milestone-benchmark/ (milestone) |
 
 
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
