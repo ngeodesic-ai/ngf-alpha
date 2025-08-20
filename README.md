@@ -9,10 +9,10 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 
 | Stage | Description | Phase | Hardware | Folder/Code |
 |-------|-------------|-------------|-------------|-------------|
-| 1 | [Toy Example](toy-example/step1.ipynb) | Toy Example | CPU | toy-example/ |
-| 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | Toy Example | CPU | embed-grid/ |
-| 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | Toy Example | CPU | rotation-matrix/ |
-| 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | Toy Example | CPU | pattern-completion/ |
+| 1 | [Toy Example](toy-example/step1.ipynb) | Toy Example $R^4$ | CPU | toy-example/ |
+| 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | Toy Example $R^4$ | CPU | embed-grid/ |
+| 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | Toy Example $R^4$ | CPU | rotation-matrix/ |
+| 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | Toy Example $R^4$ | CPU | pattern-completion/ |
 | 5 | [Higher-Dim Embeddings](higher-dim-embeddings/step5.ipynb) | Higher Dim $R^9$ | CPU | higher-dim-embeddings/ |
 | 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | Higher Dim $R^9$ | CPU | dynamic-intelligence/ |
 | 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | Higher Dim $R^9$ | CPU | rudimentary-arc/ |
