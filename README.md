@@ -2,7 +2,7 @@
 🚀 **This is the Noetic Geodesic Framework (NGF)**, a pioneering approach to stabilize AI reasoning to address the hallucination problem via geodisics.
 
 ## What’s This?
-NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge, which is linear approximation to geodesics (see [technical draft](https://github.com/ngeodesic-ai/ngf-alpha/blob/main/docs/article_v9.pdf)), thus tackling synthetic ARC patterns and MMLU challenges. It’s an alpha release—early, exciting, and open for collaboration!
+NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge, which is linear approximation to geodesics (see [technical draft](https://github.com/ngeodesic-ai/ngf-alpha/blob/main/docs/article_latest.pdf)), thus tackling synthetic ARC patterns and MMLU challenges. It’s an alpha release—early, exciting, and open for collaboration!
 
 ## Research Plan Stages
 The NGF follows a 12-step research plan, with 10 completed stages posted here. Step 10 is the public rollout with NVIDIA A100 results. Steps 11-12 (milestone reports) are in progress.
@@ -78,7 +78,7 @@ Hallucination Rate: 0.0%
 Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
 
 ## Technical Report - WORK IN PROGRESS
-A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_v9.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 15, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726 and #63/865,437.
+A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_latest.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 15, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726 and #63/865,437.
 
 ## References
 - Moore, I. C. (2025). *Warped Semantic Manifolds: A Geometric Framework for Deterministic AI Reasoning (Preliminary Memo)*. Zenodo. https://zenodo.org/records/16899461 (DOI: 10.5281/zenodo.16730759)
