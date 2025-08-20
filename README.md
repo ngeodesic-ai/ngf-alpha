@@ -18,7 +18,10 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | CPU | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | CPU | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/step9.py) | A100 | warp-interference/ |
-| 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | A100 | benchmark/ (full benchmark) |
+| 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | A100 | small-benchmarks/ (small benchmark) |
+| 11 | Large Benchmark (coming) | A100 | large-benchmarks/ (large benchmark) |
+| 12 | Milestone Benchmarks (coming) | A100 | milestone-benchmark |
+
 
 ## Illustration: NGF Warped vs Flat Paths (Re: stage 5)
 
