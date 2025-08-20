@@ -42,7 +42,7 @@ Install dependencies:
 
 #### Run ARC-test latest benchmark:
 ```bash
-python main-arc-benchmark.py
+python latest-arc-benchmark.py
 ```
 
 #### Benchmark results - ARC test
@@ -55,7 +55,7 @@ Hallucination Rate: 0.0%
 
 #### Run MMLU-test latest benchmark:
 ```bash
-python main-mmlu-benchmark.py
+python latest-mmlu-benchmark.py
 ```
 
 #### Benchmark results - MMLU test
