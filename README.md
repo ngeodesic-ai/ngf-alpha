@@ -8,7 +8,7 @@ NGF enhances GPT-2 by adjusting its latent space using PCA and a symbolic nudge,
 The NGF follows a 12-step research plan, with 10 completed stages posted here. Step 10 is the public rollout with NVIDIA A100 results. Steps 11-12 (milestone reports) are in progress.
 
 | Stage | Description | Hardware | Folder/Code |
-|-------|-------------|-------------|
+|-------|-------------|-------------|-------------|
 | 1 | [Toy Example](toy-example/step1.ipynb) | CPU | toy-example/ |
 | 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | CPU | embed-grid/ |
 | 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | CPU | rotation-matrix/ |
