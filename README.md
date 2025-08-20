@@ -40,7 +40,7 @@ Install dependencies:
 !pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 ```
 
-Run latest benchmark:
+#### Run ARC-test latest benchmark:
 ```bash
 python main-arc-benchmark.py
 ```
@@ -53,12 +53,26 @@ Warped Semantic Similarity: 93.7%
 Hallucination Rate: 0.0%
 ```
 
+#### Run MMLU-test latest benchmark:
+```bash
+python main-mmlu-benchmark.py
+```
+
+#### Benchmark results - MMLU test
+```
+Stock Accuracy: 60.0%
+Warped Accuracy: 100.0%
+Warped Semantic Similarity: 92.1%   
+Hallucination Rate: 0.0%
+```
+
 #### Self-Evaluation
 - Tests are fully blind; the separate seed (43) and filtering ensured no overlap with the training set, providing a true blind test
 - Possible tuning bias that needs to be investigated
 - 350 nudge steps per correction seems excessive
 - Next step is to transition to larger sample of ARC tasks for validation (from datasets python package)
-- The stock 65.0% and semantic similarity 93.7% are realistic
+- For ARC, the stock 65.0% and semantic similarity 93.7% are realistic
+- For MMLU, the stock 60.0% and semantic similarity 92.1% are realistic
 
 ## Hardware Notes
 Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
