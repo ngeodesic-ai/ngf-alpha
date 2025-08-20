@@ -40,7 +40,7 @@ Install dependencies:
 !pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 ```
 
-#### Run ARC-test latest benchmark:
+#### Run latest ARC benchmark:
 ```bash
 python latest-arc-benchmark.py
 ```
@@ -53,7 +53,7 @@ Warped Semantic Similarity: 93.7%
 Hallucination Rate: 0.0%
 ```
 
-#### Run MMLU-test latest benchmark:
+#### Run latest MMLU benchmark:
 ```bash
 python latest-mmlu-benchmark.py
 ```
