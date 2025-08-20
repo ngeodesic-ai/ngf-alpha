@@ -17,7 +17,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | dynamic-intelligence/ |
 | 7 | [Rudimentary ARC](rudimentary-arc/step7.ipynb) | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding with DR](llm-latent-embedding/step8.ipynb) | llm-latent-embedding/ |
-| 9 | [Warp LLM Interference](warp-interference/step9.ipynb) | warp-interference/ |
+| 9 | [Warp LLM Interference](warp-interference/step9.py) | warp-interference/ |
 | 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | benchmark/ (full benchmark) |
 
 ## Illustration: NGF Warped vs Flat Paths (Re: stage 5)
