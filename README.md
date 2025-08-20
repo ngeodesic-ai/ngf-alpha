@@ -72,9 +72,9 @@ Hallucination Rate: 0.0%
 #### Self-Evaluation (latest)
 - Tests are fully blind; the separate seed (43) and filtering ensured no overlap with the training set
 - Possible tuning bias that needs to be investigated
-- Using nudge approach to approximate geodesic path; this is good for now as per [benchmarks](small-benchmarks/benchmark-findings.ipynb); a hybrid approach using ODEs could address bias/variance issues
-- 350 nudge steps per correction seems excessive
 - Small synthetic test set; next step is to transition to larger sample of ARC/MMLU tasks for validation (eg, from datasets python package)
+- Using nudge approach to approximate geodesic path; this is good for now on synthetic tasks, as per [benchmarks](small-benchmarks/benchmark-findings.ipynb); a hybrid approach using ODEs could address bias/variance issues
+- 350 nudge steps per correction seems excessive
 - Tested on NVIDIA A100, need to test on NVIDIA T4
 - For ARC, the stock 65.0% and semantic similarity 93.7% are realistic
 - For MMLU, the stock 60.0% and semantic similarity 92.1% are realistic
