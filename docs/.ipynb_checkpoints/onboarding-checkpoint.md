@@ -64,25 +64,25 @@ The 12-step research plan (stages 1-10 completed; 11-12 planned for large benchm
 ### Phase 1: Foundational Concepts and Toy Models (Stages 1-4)
 This phase establishes the core physics-AI analogy using the minimal number of dimensions, R⁴. The focus: basic simulations in the lowest dimension (e.g., radial to R⁴ for 2x2 grids). The main finding; we establish that warping the latent space with semantic mass creates stable, deterministic geodesic paths that significantly reduce errors (akin to hallucinations) compared to flat space, where paths are prone to probabilistic drift and instability.
 
-- **Stage 1: Toy Example** (toy-example/step1.ipynb)
+- **Stage 1: Toy Example** ([toy-example/step1.ipynb](toy-example/step1.ipynb))
   - Thinking: Start with radial geodesics in a Schwarzschild-like metric to simulate basic convergence.
   - Key: Mass M warps space; flat paths drift (hallucinate), warped spiral to singularity.
   - Dim: Effective radial (visualized in 3D); precursor to R⁴.
   - Main Finding: Warping a latent space with a physics-inspired, Schwarzschild-like metric creates stable, deterministic geodesic paths that converge to a central point (akin to a noetic singularity), while flat (unwarped) spaces allow chaotic, drifting paths analogous to AI hallucinations. This finding validates the project’s foundational hypothesis: introducing GR-inspired curvature (semantic mass) into latent spaces can eliminate erratic reasoning paths, setting the stage for scaling to R⁴ embeddings (step2) and LLM integration (step8).
 
-- **Stage 2: Embed Grid** (embed-grid/step2.ipynb)
+- **Stage 2: Embed Grid** ([embed-grid/step2.ipynb](embed-grid/step2.ipynb)) 
   - Thinking: Embed simple structures (2x2 grids) into R⁴ vectors; test warping on real data.
   - Key: PCA projection to R³; logarithmic potential creates wells; geodesics guide to correct embeddings.
   - Evolution: Stage 2 introduces real data (2x2 grids, like ARC puzzles), unlike Stage 1’s abstract radial setup.
   - Main Finding: Warping R⁴ latent space with semantic mass (inspired by GR’s curvature) guides grid transformations (e.g., rotations, completions) along noetic geodesics, achieving ~75-100% accuracy on synthetic tasks, compared to ~75% in flat space. The use of structured grid data and feature embeddings allows the warped manifold to capture meaningful patterns, making correct paths more stable than in Stage 1’s abstract radial model.
 
-- **Stage 3: Rotation Matrix** (rotation-matrix/step3.ipynb)
+- **Stage 3: Rotation Matrix** ([rotation-matrix/step3.ipynb](rotation-matrix/step3.ipynb))
   - Thinking: Introduce transformations (90° rotations) along geodesics.
   - Key: Position-dependent mass M_eff; stabilizes against noise, like GR frame-dragging.
   - Evolution: Stage 3 introduces active operations (90° rotations) to manipulate grid embeddings, unlike Stage 2’s static mappings.
   - Main Finding: Incorporating dynamic transformations (rotations) into the warped R⁴ latent space significantly improves the robustness of reasoning tasks, as the position-dependent M_eff stabilizes paths against noise (e.g., rotational errors), achieving near-perfect accuracy (~99-100%) compared to Stage 2’s ~75-100%. The warping now dynamically adjusts to the transformation’s context, akin to GR’s frame-dragging, where rotating masses (like black holes) influence nearby geodesics.
 
-- **Stage 4: Pattern Completion** (pattern-completion/step4.ipynb)
+- **Stage 4: Pattern Completion** ([pattern-completion/step4.ipynb](pattern-completion/step4.ipynb))
   - Thinking: Use geodesics for inference (complete partial patterns).
   - Key: Damping (gamma) and target pull; R⁴ traversals correct errors.
   - Evolution: Stage 4 shifts to inferring missing grid elements, a more complex reasoning task than Stage 3’s application of known rotations.
@@ -91,19 +91,19 @@ This phase establishes the core physics-AI analogy using the minimal number of d
 ### Phase 2: Scaling to Higher Dimensions and Dynamics (Stages 5-7)
 Here, the idea matures where we generalize to higher dims (R⁹+), add intelligence-like behaviors, and tackle rudimentary reasoning tasks with the first real task integration (ie, ARC-like tasks). The focus: prove scalability without losing determinism. This means demonstrating that the framework’s core mechanism—warping high-dimensional latent spaces with semantic mass to guide reasoning along deterministic noetic geodesics—remains effective and reliable as the dimensionality and complexity of tasks increase (ie, from R⁴ in Phase 1 to R⁹ in Phase 2),
 
-- **Stage 5: Higher-Dim Embeddings** (higher-dim-embeddings/step5.ipynb)
+- **Stage 5: Higher-Dim Embeddings** ([higher-dim-embeddings/step5.ipynb](higher-dim-embeddings/step5.ipynb))
   - Thinking: Handle complex grids (3x3 in R⁹); use autoencoders for structure preservation.
   - Key: 9D geodesics; inverse square semantic mass; GIFs show warped vs. flat paths.
   - Evolution: Extends R⁴ from phase 1; multi-question setups for complex tasks, enhancing robustness and generalization while maintaining determinism.
   - Main Finding: Warping R⁹ spaces with autoencoders and multi-question setups maintains ~99-100% accuracy and zero hallucinations; this is critical, as it demonstrates the framework’s scalability to higher-dimensional, complex tasks (a critical step toward Phase 3’s LLM integration in step8).
 
-- **Stage 6: Dynamic Intelligence** (dynamic-intelligence/step6.ipynb)
+- **Stage 6: Dynamic Intelligence** ([dynamic-intelligence/step6.ipynb](dynamic-intelligence/step6.ipynb))
   - Thinking: Introduce adaptive warping for "intelligent" responses.
   - Key: Real-time mass adjustments; simulates cognitive flexibility.
   - Evolution: Enhances the ODE system with adaptive mass terms that update based on input context; this ensures geodesics remain stable across dynamic tasks, reducing potential drift.
   - Main Finding: Introduce real-time adaptive warping of the R⁹ latent space, through dynamic adjustments to semantic mass; this enhances the framework's ability to simulate cognitive flexibility, thus achieving robust convergence across varied tasks while maintaining near-perfect accuracy (~99-100%) and zero hallucination rates.
 
-- **Stage 7: Rudimentary ARC** (rudimentary-arc/step7.ipynb)
+- **Stage 7: Rudimentary ARC** ([rudimentary-arc/step7.ipynb](rudimentary-arc/step7.ipynb))
   - Thinking: Apply to Abstraction and Reasoning Corpus (ARC)-like puzzles.
   - Key: Grid transformations in higher dims; benchmarks show 100% warped accuracy.
   - Evolution: First real task integration (eg. ARC task); ties back to phase 1 toys.
@@ -112,19 +112,19 @@ Here, the idea matures where we generalize to higher dims (R⁹+), add intellige
 ### Phase 3: LLM Integration and Validation (Stages 8-12)
 In the final phase, we bridge to real AI models (GPT-2), handle interferences, and benchmark tasks like ARC and MMLU questions. Here we transition NGF from theoretical scalability (Phase 2) to practical LLM applications, proving that warping latent spaces can reduce hallucinations in real AI systems like GPT-2. The focus: empirical proof on synthetics, setting up for full-scale tests. 
 
-- **Stage 8: LLM Latent Embedding** (llm-latent-embedding/step8.ipynb)
+- **Stage 8: LLM Latent Embedding** ([llm-latent-embedding/step8.ipynb](llm-latent-embedding/step8.ipynb))
   - Thinking: Embed LLM outputs (e.g., GPT-2 tokens) into warped manifolds.
   - Key: Symbolic nudges approximate geodesics; reduces probabilistic drift.
   - Evolution: Transitioning from structured, abstract reasoning tasks (ARC puzzles) to integrating the warped manifold framework with real-world LLMs, adapting the warping mechanism to handle probabilistic, unstructured data like text.
   - Main Finding: Warping GPT-2 embeddings with symbolic nudges reduces hallucinations in NLP—demonstrates the framework’s practical applicability to real-world language models; this represents a major leap from Stage 7’s abstract puzzles
 
-- **Stage 9: Warp Interference** (warp-interference/step9.py)
+- **Stage 9: Warp Interference** ([warp-interference/step9.py](warp-interference/step9.py))
   - Thinking: Manage multiple warps (e.g., conflicting masses).
   - Key: Interference resolution via hybrid ODEs; ensures stability.
   - Evolution: Transitioning from single-concept LLM warping to managing complex, multi-concept interactions by synthesizing multiple geodesic paths into one, thus handling multiple semantic masses at once.
   - Main Finding: Hybrid ODEs resolve multi-mass interference while maintaining ~99-100% accuracy and near-zero hallucinations—demonstrates the framework’s ability to handle real-world NLP complexities.
 
-- **Stage 10: Small Benchmarks** (small-benchmarks/latest-arc-benchmark.py & latest-mmlu-benchmark.py)
+- **Stage 10: Small Benchmarks** ([./latest-arc-benchmark.py](./latest-arc-benchmark.py) & [./latest-mmlu-benchmark.py](./latest-mmlu-benchmark.py))
   - Thinking: Validate on synthetic ARC/MMLU tasks.
   - Key: 100% warped accuracy, 0% hallucinations; compares stock vs. warped GPT-2.
   - Evolution: Transition from interference resolution in abstract NLP tasks to validating the framework on standardized AI benchmarks, ensuring empirical robustness and generalizability, while intriducing blind testing.
