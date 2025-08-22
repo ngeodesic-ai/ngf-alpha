@@ -59,7 +59,7 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
 Once comfortable, dive into the code—start with step1.ipynb and build up.
 
 ## Project Progression: Three Overarching Phases
-The 12-step research plan (stages 1-10 completed; 11-12 planned for large benchmarks) evolved organically. It began with simple GR-inspired toys to prove warping reduces drift, then scaled to structured data and LLMs. We've grouped the 10 stages into three phases for clarity:
+The 12-step research plan (stages 1-10 completed; 11-12 planned for large benchmarks) evolved organically. It began with simple GR-inspired toys to prove warping reduces drift, then scaled to structured data and LLMs. We've grouped the 12 stages into three phases for clarity:
 
 ### Phase 1: Foundational Concepts and Toy Models (Stages 1-4)
 This phase establishes the core physics-AI analogy using the minimal number of dimensions, R⁴. The focus; basic simulations in the lowest dimension (e.g., radial to R⁴ for 2x2 grids). The main finding; we establish that warping the latent space with semantic mass creates stable, deterministic geodesic paths that significantly reduce errors (akin to hallucinations) compared to flat space, where paths are prone to probabilistic drift and instability.
