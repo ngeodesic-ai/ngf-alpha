@@ -2,7 +2,7 @@
 
 Welcome to the NGF-alpha project! This onboarding document is designed to help new contributors quickly get up to speed. Since the techniques here blend uncommon concepts from differential geometry, general relativity (GR), and AI latent spaces, we'll start with essential background knowledge. Then, we'll walk through the project's conceptual progression across its 10 completed stages, grouped into three overarching phases. This structure reflects how the idea evolved: from foundational proofs-of-concept to scalable embeddings and finally to LLM integration and validation.
 
-The project aims to reduce AI hallucinations by warping semantic manifolds with physics-inspired curvature, guiding reasoning along deterministic "noetic geodesics" to truth-aligned outcomes. If you're familiar with GR's spacetime warping or geometric deep learning, you'll catch on fast—otherwise, the resources below will help.
+The project aims to reduce AI hallucinations by warping semantic manifolds with physics-inspired curvature, guiding reasoning along deterministic "noetic geodesics" to truth-aligned outcomes. If you're familiar with GR's spacetime warping or geometric deep learning, you'll catch on fast; otherwise, the resources provided below will help.
 
 ## Prerequisites and Background Knowledge
 To contribute effectively, you'll need a basic grasp of these areas. We've kept it concise with recommended resources (free where possible). Aim to spend 4-8 hours reviewing if you're new to any.
