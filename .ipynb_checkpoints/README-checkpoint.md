@@ -93,8 +93,10 @@ A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to
  * **Higher Dimensional Embeddings in $R^9$**: [How Semantic Mass Shapes AI Reasoning in R^9](https://medium.com/@icmoore/how-semantic-mass-warps-ai-thoughts-to-flawless-convergence-879e2f6f3373) 
 
 
-## Onboarding / Contribute
-* As these techniques are uncommon in AI, onboarding requires some prerequisites background knowledge in physics and differential geometry, coupled with a good understanding of the objectives behind each of the steps in the 12-staged research plan. If this interests you, please see the **[onboarding docs](docs/onboarding.md)** for further detail.
-* This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ngeodesic@gmail.com before submitting pull requests.**
+## Onboarding
+As these techniques are uncommon in AI, onboarding requires some prerequisites background knowledge in physics and differential geometry, coupled with a good understanding of the objectives behind each of the steps in the 12-staged research plan. If this interests you, please see the **[onboarding docs](docs/onboarding.md)** for further detail.
+
+## Contribute
+This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ngeodesic@gmail.com before submitting pull requests.**
 
 If you find this helpful, please leave a ⭐!
