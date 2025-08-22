@@ -53,7 +53,7 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
    - **Resources:** If new to Jupyter, [Quickstart Guide](https://jupyter.org/install).
 
 ### 5. **Project-Specific Reading**
-   - Read the repo's [../README.md](README.md) and [/docs/article_latest.pdf](/docs/article_latest.pdf) (latest draft paper).
+   - Read the repo's [README.md](../README.md) and [/docs/article_latest.pdf](/docs/article_latest.pdf) (latest draft paper).
    - Zenodo memo: [Warped Semantic Manifolds](https://zenodo.org/records/16908227) for conceptual overview.
 
 Once comfortable, dive into the code, start with [toy-example/step1.ipynb](toy-example/step1.ipynb) and build up!
