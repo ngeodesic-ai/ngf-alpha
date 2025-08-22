@@ -16,7 +16,6 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
          - [Differential Geometry in Under 15 Minutes](https://www.youtube.com/watch?v=oH0XZfnAbxQ)
          - [What is a manifold?](https://www.youtube.com/watch?v=zIjBArHTPZ4)
          - [Riemannian Manifolds in 12 Minutes](https://www.youtube.com/watch?v=jpjt08HkOzA)
-         - [The Maths of General Relativity (3/8) - Geodesics](https://www.youtube.com/watch?v=3NnZzRb7L58)
          - [Conceptualizing the Christoffel Symbols](https://www.youtube.com/watch?v=TvFvL_sMg4g)
      - Book: [Introduction to Smooth Manifolds](https://julianchaidez.net/materials/reu/lee_smooth_manifolds.pdf) by John M. Lee (skim chapters 1-3; PDF often available via academic libraries).
 
@@ -24,9 +23,16 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
    - **Why?** The core analogy: Semantic mass warps latent spaces like mass-energy curves spacetime, making wrong paths "geometrically unstable."
    - **Key Concepts:** Spacetime as a 4D manifold, Schwarzschild metric (for black hole-like wells), geodesic equations, gravitational time dilation, worldlines.
    - **Resources:**
-     - [Einstein's General Relativity Explained](https://www.youtube.com/watch?v=1YFrBalAmKQ) (PBS Space Time video; 15 min).
-     - [Gravity Visualized](https://www.youtube.com/watch?v=MTY1Kje0yLg) (rubber sheet analogy; 10 min).
-     - Free notes: [Sean Carroll's GR Notes](https://preposterousuniverse.com/wp-content/uploads/GRNotes-All.pdf) (skim intro and geodesic sections).
+     - Free notes: [Sean Carroll's GR Notes](https://archive.org/details/arxiv-gr-qc9712019) (skim intro and geodesic sections).
+     - Youtube Videos:
+         - [Einstein's General Relativity Explained](https://www.youtube.com/watch?v=AwhKZ3fd9JA) (PBS Space Time video; 15 min).
+         - [Gravity Visualized](https://www.youtube.com/watch?v=MTY1Kje0yLg) (rubber sheet analogy; 10 min).
+         - [The 4th Dimension in Relativity isn't Time - it's Space](https://www.youtube.com/watch?v=JFEMgaAusic)
+         - [What Causes Gravitational Time Dilation?](https://www.youtube.com/watch?v=DjwQsKMh2v8)
+         - [The Maths of General Relativity (1/8) - Spacetime and Worldlines](https://www.youtube.com/watch?v=xodtfM1r9FA)
+         - [The Maths of General Relativity (3/8) - Geodesics](https://www.youtube.com/watch?v=3NnZzRb7L58)
+         - [The Mathematics Behind the Schwarzschild Solution](https://www.youtube.com/watch?v=D-RTa_LCEvI)
+         - [The Schwarzschild Metric: Complete Derivation | General Relativity](https://www.youtube.com/watch?v=6cSYZMM0wU4)
 
 ### 3. **AI Latent Spaces and Embeddings**
    - **Why?** NGF warps high-dimensional embeddings (e.g., R⁴ for 2x2 grids) to enforce determinism in models like GPT-2.
