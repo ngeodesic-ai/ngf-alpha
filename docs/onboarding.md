@@ -56,7 +56,7 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
    - Read the repo's README.md and [/docs/article_latest.pdf](/docs/article_latest.pdf) (latest draft paper).
    - Zenodo memo: [Warped Semantic Manifolds](https://zenodo.org/records/16731201) for conceptual overview.
 
-Once comfortable, dive into the code, start with step1.ipynb and build up!
+Once comfortable, dive into the code, start with [toy-example/step1.ipynb](toy-example/step1.ipynb) and build up!
 
 ## Project Progression: Three Overarching Phases
 The 12-step research plan (stages 1-10 completed; 11-12 planned for large benchmarks) evolved organically. It began with simple GR-inspired toys to prove warping reduces drift, then scaled to structured data and LLMs. We've grouped the 12 stages into three phases for clarity:
