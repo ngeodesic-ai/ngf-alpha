@@ -38,9 +38,13 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
    - **Why?** NGF warps high-dimensional embeddings (e.g., R⁴ for 2x2 grids) to enforce determinism in models like GPT-2.
    - **Key Concepts:** Latent representations in transformers/LLMs, PCA for dimensionality reduction, hallucinations as probabilistic drift, symbolic nudging.
    - **Resources:**
-     - [Understanding Latent Space in Machine Learning](https://towardsdatascience.com/understanding-latent-space-in-machine-learning-de5a7c687d8) (article; 10 min).
+     - [Latent Space in Deep Learning - Baeldung on Computer Science](https://www.baeldung.com/cs/dl-latent-space) (article; 10 min).
      - Hugging Face docs on [Transformers Embeddings](https://huggingface.co/docs/transformers/model_doc/gpt2) (focus on GPT-2).
-     - Paper: "Visualizing the Loss Landscape of Neural Nets" (arXiv:1712.09913; skim for geometry in AI).
+     - YouTube Videos
+         - [What are Word Embeddings?](https://www.youtube.com/watch?v=wgfSDrqYMJ4)
+         - [Autoencoders | Deep Learning Animated](https://www.youtube.com/watch?v=hZ4a4NgM3u0)
+         - [AI Hallucinations Explained - The Probability Problem](https://www.youtube.com/watch?v=u8tjByJtFrg)
+     - Paper: [Visualizing the Loss Landscape of Neural Nets](https://arxiv.org/abs/1712.09913) (arXiv:1712.09913; skim for geometry in AI).
 
 ### 4. **Python and Tools Setup**
    - **Why?** All code is in Python; you'll run notebooks for simulations.
