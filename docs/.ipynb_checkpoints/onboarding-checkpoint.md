@@ -1,6 +1,6 @@
 # Onboarding Guide for NGF-alpha
 
-🚀 Welcome to the NGF-alpha project! This onboarding document is designed to help new contributors quickly get up to speed. Since the techniques here blend uncommon concepts from differential geometry, general relativity (GR), and AI latent spaces, we'll start with essential background knowledge. Then, we'll walk through the project's conceptual progression across its 10 completed stages, grouped into three overarching phases. This structure reflects how the idea evolved: from foundational proofs-of-concept to scalable embeddings and finally to LLM integration and validation.
+🚀 Welcome to the NGF-alpha project! This onboarding document is designed to help new contributors quickly get up to speed. Since the techniques here blend uncommon concepts from differential geometry, general relativity (GR), and applications of AI latent spaces combined with differential geometry and GR concepts; we'll start with essential background knowledge. Then, we'll walk through the project's conceptual progression across its 10 completed stages, grouped into three overarching phases. This structure reflects how the idea evolved: from foundational proofs-of-concept to scalable embeddings and finally to LLM integration and validation.
 
 The project aims to reduce AI hallucinations by warping semantic manifolds with physics-inspired curvature, guiding reasoning along deterministic "noetic geodesics" to truth-aligned outcomes. If you're familiar with GR's spacetime warping or geometric deep learning, you'll catch on fast; otherwise, the resources provided below will help.
 
@@ -128,7 +128,7 @@ In the final phase, we bridge to real AI models (GPT-2), handle interferences, a
   - Thinking: Validate on synthetic ARC/MMLU tasks.
   - Key: 100% warped accuracy, 0% hallucinations; compares stock vs. warped GPT-2.
   - Evolution: Transition from interference resolution in abstract NLP tasks to validating the framework on standardized AI benchmarks, ensuring empirical robustness and generalizability, while intriducing blind testing.
-  - Main Finding: Warping achieves 100% accuracy and zero hallucinations on synthetic ARC/MMLU tasks, thus validating the framework’s real-world applicability and trigging the public rollout.
+  - Main Finding: Warping achieves 100% accuracy and zero hallucinations on synthetic ARC/MMLU tasks, thus validating the framework’s real-world applicability, thus trigging the public rollout of NFG-alpha.
  
 - **Stage 11: Large Benchmarks (Coming)** (large-benchmarks/)
   - Thinking: Scaling the framework to real-world, large-scale datasets.
