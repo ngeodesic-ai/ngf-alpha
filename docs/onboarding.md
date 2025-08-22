@@ -141,9 +141,9 @@ In the final phase, we bridge to real AI models (GPT-2), handle interferences, a
   - Expected Finding: Warping high-dimensional latent spaces (e.g., R⁶⁴ or R¹²⁸) with hybrid ODEs achieves near-perfect accuracy (~95-100%) and near-zero hallucination rates across diverse AI benchmarks (e.g., BIG-Bench, CommonsenseQA). 
 
 ## Next Steps for Contributors
-1. **Run the Code:** Start with phase 1 notebooks on Colab (A100 GPU for speed).
+1. **Run the Code:** Start with phase 1/step 1 and progress through to phase 3/step 10 using notebooks on Colab (A100 GPU for speed).
 2. **Contribute:** Sign the CLA (CLA.md) and email to ngeodesic@gmail.com. Focus on stages 11-12 (large benchmarks) or extensions (e.g., R¹⁶ for 4x4 grids).
 3. **Feedback:** Join discussions via issues/PRs. Questions? Post in the repo or email.
-4. **Future Phases:** Stages 11-12: Full ARC/MMLU; potential neuroscience ties.
+4. **Future Phases:** Stages 11-12: Full ARC/MMLU; refine the math
 
 Thanks for your interest—let's warp AI reasoning together! 🚀
