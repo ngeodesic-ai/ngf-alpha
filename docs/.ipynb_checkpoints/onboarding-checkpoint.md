@@ -53,8 +53,8 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
    - **Resources:** If new to Jupyter, [Quickstart Guide](https://jupyter.org/install).
 
 ### 5. **Project-Specific Reading**
-   - Read the repo's README.md and /docs/article_latest.pdf (draft paper).
-   - Zenodo memo: "Warped Semantic Manifolds" for conceptual overview.
+   - Read the repo's README.md and [/docs/article_latest.pdf](/docs/article_latest.pdf) (latest draft paper).
+   - Zenodo memo: [Warped Semantic Manifolds](https://zenodo.org/records/16731201) for conceptual overview.
 
 Once comfortable, dive into the code—start with step1.ipynb and build up.
 
@@ -110,22 +110,35 @@ Here, the idea matures: Generalize to higher dims (R⁹+), add intelligence-like
   - Main Finding: Warping R⁹ spaces achieves 100% accuracy and zero hallucinations on ARC-like puzzles—demonstrates the framework’s practical applicability to complex, reasoning-intensive AI tasks, a significant step beyond Stage 6’s abstract flexibility.
 
 ### Phase 3: LLM Integration and Validation (Stages 8-10)
-Final phase: Bridge to real AI models (GPT-2), handle interferences, and benchmark tasks like ARC and MMLU questions. Here we transition NGF from theoretical scalability (Phase 2) to practical LLM applications, proving that warping latent spaces can reduce hallucinations in real AI systems like GPT-2. The focus; empirical proof on synthetics, setting up for full-scale tests. 
+In the final phase, we bridge to real AI models (GPT-2), handle interferences, and benchmark tasks like ARC and MMLU questions. Here we transition NGF from theoretical scalability (Phase 2) to practical LLM applications, proving that warping latent spaces can reduce hallucinations in real AI systems like GPT-2. The focus; empirical proof on synthetics, setting up for full-scale tests. 
 
 - **Stage 8: LLM Latent Embedding** (llm-latent-embedding/step8.ipynb)
   - Thinking: Embed LLM outputs (e.g., GPT-2 tokens) into warped manifolds.
   - Key: Symbolic nudges approximate geodesics; reduces probabilistic drift.
-  - Evolution: Applies phase 2 scaling to NLP; first hallucination tests.
+  - Evolution: Transitioning from structured, abstract reasoning tasks (ARC puzzles) to integrating the warped manifold framework with real-world LLMs, adapting the warping mechanism to handle probabilistic, unstructured data like text.
+  - Main Finding: Warping GPT-2 embeddings with symbolic nudges reduces hallucinations in NLP—demonstrates the framework’s practical applicability to real-world language models; this represents a major leap from Stage 7’s abstract puzzles
 
 - **Stage 9: Warp Interference** (warp-interference/step9.py)
   - Thinking: Manage multiple warps (e.g., conflicting masses).
   - Key: Interference resolution via hybrid ODEs; ensures stability.
-  - Evolution: Addresses real-world complexity in LLM spaces.
+  - Evolution: Transitioning from single-concept LLM warping to managing complex, multi-concept interactions by synthesizing multiple geodesic paths into one, thus handling multiple semantic masses at once.
+  - Main Finding: Hybrid ODEs resolve multi-mass interference while maintaining ~99-100% accuracy and near-zero hallucinations—demonstrates the framework’s ability to handle real-world NLP complexities.
 
 - **Stage 10: Small Benchmarks** (small-benchmarks/latest-arc-benchmark.py & latest-mmlu-benchmark.py)
   - Thinking: Validate on synthetic ARC/MMLU tasks.
   - Key: 100% warped accuracy, 0% hallucinations; compares stock vs. warped GPT-2.
-  - Evolution: Culminates prior phases; blind tests highlight bias mitigation.
+  - Evolution: Transition from interference resolution in abstract NLP tasks to validating the framework on standardized AI benchmarks, ensuring empirical robustness and generalizability, while intriducing blind testing.
+  - Main Finding: Warping achieves 100% accuracy and zero hallucinations on synthetic ARC/MMLU tasks, thus validating the framework’s real-world applicability and trigging the public rollout.
+ 
+- **Stage 11: Large Benchmarks (Coming)** (large-benchmarks/)
+  - Thinking: Scaling the framework to real-world, large-scale datasets.
+  - Evolution: Address the limitation on small synthetic datasets.
+  - Expected Finding: Warping higher-dimensional latent spaces (e.g., R¹⁶ or beyond) with hybrid ODEs achieves near-perfect accuracy (~95-100%) and near-zero hallucination rates on full-scale ARC and MMLU datasets, significantly outperforming stock LLMs (e.g., ~60-70% for GPT-3 on ARC, ~80% on MMLU).
+ 
+- **Stage 12: Milestone Benchmarks (Coming)** (milestone-benchmarks/)
+  - Thinking: Final culmination of the project’s 12-step research plan.
+  - Evolution: Moving from large-scale validation on standardized datasets (ARC, MMLU) to achieving a milestone benchmark using more advanced models.
+  - Expected Finding: Warping high-dimensional latent spaces (e.g., R⁶⁴ or R¹²⁸) with hybrid ODEs achieves near-perfect accuracy (~95-100%) and near-zero hallucination rates across diverse AI benchmarks (e.g., BIG-Bench, CommonsenseQA). 
 
 ## Next Steps for Contributors
 1. **Run the Code:** Start with phase 1 notebooks on Colab (A100 GPU for speed).
