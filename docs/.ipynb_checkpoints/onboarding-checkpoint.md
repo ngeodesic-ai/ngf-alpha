@@ -11,9 +11,14 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
    - **Why?** NGF treats latent spaces as curved manifolds, using geodesics (shortest paths in curved space) and metrics (e.g., Christoffel symbols) to simulate warping.
    - **Key Concepts:** Manifolds, Riemannian metrics, geodesics, curvature (e.g., Ricci scalar), Christoffel symbols for ODE-based path solving.
    - **Resources:**
-     - [Differential Geometry for Beginners](https://math.mit.edu/~gs/reading/DG/) (MIT notes; free PDF).
-     - Khan Academy or 3Blue1Brown videos on "Curves and Surfaces" (10-20 min each).
-     - Book: "Introduction to Smooth Manifolds" by John M. Lee (skim chapters 1-3; PDF often available via academic libraries).
+     - [Differential Geometry | MIT OpenCourseWare](https://ocw.mit.edu/courses/18-950-differential-geometry-fall-2008/) (MIT notes; free PDF).
+     - Youtube Videos:
+         - [Differential Geometry in Under 15 Minutes](https://www.youtube.com/watch?v=oH0XZfnAbxQ)
+         - [What is a manifold?](https://www.youtube.com/watch?v=zIjBArHTPZ4)
+         - [Riemannian Manifolds in 12 Minutes](https://www.youtube.com/watch?v=jpjt08HkOzA)
+         - [The Maths of General Relativity (3/8) - Geodesics](https://www.youtube.com/watch?v=3NnZzRb7L58)
+         - [Conceptualizing the Christoffel Symbols](https://www.youtube.com/watch?v=TvFvL_sMg4g)
+     - Book: [Introduction to Smooth Manifolds](https://julianchaidez.net/materials/reu/lee_smooth_manifolds.pdf) by John M. Lee (skim chapters 1-3; PDF often available via academic libraries).
 
 ### 2. **General Relativity (GR) Fundamentals**
    - **Why?** The core analogy: Semantic mass warps latent spaces like mass-energy curves spacetime, making wrong paths "geometrically unstable."
