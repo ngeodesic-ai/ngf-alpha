@@ -62,7 +62,7 @@ Once comfortable, dive into the code—start with step1.ipynb and build up.
 The 12-step research plan (stages 1-10 completed; 11-12 planned for large benchmarks) evolved organically. It began with simple GR-inspired toys to prove warping reduces drift, then scaled to structured data and LLMs. We've grouped the 12 stages into three phases for clarity:
 
 ### Phase 1: Foundational Concepts and Toy Models (Stages 1-4)
-This phase establishes the core physics-AI analogy using the minimal number of dimensions, R⁴. The focus; basic simulations in the lowest dimension (e.g., radial to R⁴ for 2x2 grids). The main finding; we establish that warping the latent space with semantic mass creates stable, deterministic geodesic paths that significantly reduce errors (akin to hallucinations) compared to flat space, where paths are prone to probabilistic drift and instability.
+This phase establishes the core physics-AI analogy using the minimal number of dimensions, R⁴. The focus: basic simulations in the lowest dimension (e.g., radial to R⁴ for 2x2 grids). The main finding; we establish that warping the latent space with semantic mass creates stable, deterministic geodesic paths that significantly reduce errors (akin to hallucinations) compared to flat space, where paths are prone to probabilistic drift and instability.
 
 - **Stage 1: Toy Example** (toy-example/step1.ipynb)
   - Thinking: Start with radial geodesics in a Schwarzschild-like metric to simulate basic convergence.
@@ -89,7 +89,7 @@ This phase establishes the core physics-AI analogy using the minimal number of d
   - Main Finding: Stage 4’s finding—that warped R⁴ spaces with damping and target pull enable near-perfect pattern completion—demonstrates the framework’s ability to handle generative reasoning tasks, a significant step beyond Stage 3’s transformation focus; first hallucination reduction demo with ~99% accuracy.
 
 ### Phase 2: Scaling to Higher Dimensions and Dynamics (Stages 5-7)
-Here, the idea matures: Generalize to higher dims (R⁹+), add intelligence-like behaviors, and tackle rudimentary reasoning tasks with the first real task integration (ie, ARC-like tasks). Focus: Prove scalability without losing determinism. This means demonstrating that the framework’s core mechanism—warping high-dimensional latent spaces with semantic mass to guide reasoning along deterministic noetic geodesics—remains effective and reliable as the dimensionality and complexity of tasks increase (ie, from R⁴ in Phase 1 to R⁹ in Phase 2),
+Here, the idea matures where we generalize to higher dims (R⁹+), add intelligence-like behaviors, and tackle rudimentary reasoning tasks with the first real task integration (ie, ARC-like tasks). The focus: prove scalability without losing determinism. This means demonstrating that the framework’s core mechanism—warping high-dimensional latent spaces with semantic mass to guide reasoning along deterministic noetic geodesics—remains effective and reliable as the dimensionality and complexity of tasks increase (ie, from R⁴ in Phase 1 to R⁹ in Phase 2),
 
 - **Stage 5: Higher-Dim Embeddings** (higher-dim-embeddings/step5.ipynb)
   - Thinking: Handle complex grids (3x3 in R⁹); use autoencoders for structure preservation.
@@ -109,8 +109,8 @@ Here, the idea matures: Generalize to higher dims (R⁹+), add intelligence-like
   - Evolution: First real task integration (eg. ARC task); ties back to phase 1 toys.
   - Main Finding: Warping R⁹ spaces achieves 100% accuracy and zero hallucinations on ARC-like puzzles—demonstrates the framework’s practical applicability to complex, reasoning-intensive AI tasks, a significant step beyond Stage 6’s abstract flexibility.
 
-### Phase 3: LLM Integration and Validation (Stages 8-10)
-In the final phase, we bridge to real AI models (GPT-2), handle interferences, and benchmark tasks like ARC and MMLU questions. Here we transition NGF from theoretical scalability (Phase 2) to practical LLM applications, proving that warping latent spaces can reduce hallucinations in real AI systems like GPT-2. The focus; empirical proof on synthetics, setting up for full-scale tests. 
+### Phase 3: LLM Integration and Validation (Stages 8-12)
+In the final phase, we bridge to real AI models (GPT-2), handle interferences, and benchmark tasks like ARC and MMLU questions. Here we transition NGF from theoretical scalability (Phase 2) to practical LLM applications, proving that warping latent spaces can reduce hallucinations in real AI systems like GPT-2. The focus: empirical proof on synthetics, setting up for full-scale tests. 
 
 - **Stage 8: LLM Latent Embedding** (llm-latent-embedding/step8.ipynb)
   - Thinking: Embed LLM outputs (e.g., GPT-2 tokens) into warped manifolds.
