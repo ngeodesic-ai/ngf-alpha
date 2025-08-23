@@ -15,6 +15,7 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
      - Youtube Videos:
          - [Differential Geometry in Under 15 Minutes](https://www.youtube.com/watch?v=oH0XZfnAbxQ)
          - [What is a manifold?](https://www.youtube.com/watch?v=zIjBArHTPZ4)
+         - [How to Get to Manifolds Naturally](https://www.youtube.com/watch?v=lEX4kSB5CAI)
          - [Riemannian Manifolds in 12 Minutes](https://www.youtube.com/watch?v=jpjt08HkOzA)
          - [Conceptualizing the Christoffel Symbols](https://www.youtube.com/watch?v=TvFvL_sMg4g)
      - Book: [Introduction to Smooth Manifolds](https://julianchaidez.net/materials/reu/lee_smooth_manifolds.pdf) by John M. Lee (skim chapters 1-3; PDF often available via academic libraries).
@@ -121,7 +122,7 @@ In the final phase, we bridge to real AI models (GPT-2), handle interferences, a
 - **Stage 9: Warp Interference** ([warp-interference/step9.py](../warp-interference/step9.py))
   - Thinking: Manage multiple warps (e.g., conflicting masses).
   - Key: Interference resolution via hybrid ODEs; ensures stability.
-  - Evolution: Transitioning from single-concept LLM warping to managing complex, multi-concept interactions by synthesizing multiple geodesic paths into one, thus handling multiple semantic masses at once. In this stage, instead of solving ODEs to follow the geodesic path (as we have done from stages 1-8), we transition to using the '**nudge technique** (as per paper), which we have found reduces computational overhead, while achieving superior results, see [benchmark-findings](../small-benchmarks/benchmark-findings.ipynb). 
+  - Evolution: Transitioning from single-concept LLM warping to managing complex, multi-concept interactions by synthesizing multiple geodesic paths into one, thus handling multiple semantic masses at once. In this stage, instead of solving ODEs to follow the geodesic path (as we have done from stages 1-8), we transition to using the **nudge technique** (as per paper), which we have found reduces computational overhead, while achieving superior results, see [benchmark-findings](../small-benchmarks/benchmark-findings.ipynb). 
   - Main Finding: Hybrid ODEs resolve multi-mass interference while maintaining ~99-100% accuracy and near-zero hallucinations—demonstrates the framework’s ability to handle real-world NLP complexities.
 
 - **Stage 10: Small Benchmarks** ([latest-arc-benchmark.py](../latest-arc-benchmark.py) & [latest-mmlu-benchmark.py](../latest-mmlu-benchmark.py))
