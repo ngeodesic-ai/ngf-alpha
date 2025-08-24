@@ -1,32 +1,7 @@
-# ==============================================================================
-# Apache 2.0 License (ngeodesic.ai)
-# ==============================================================================
-# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726 and #63/865,437)
-# Email: ngeodesic@gmail.com
-# Part of Noetic Geodesic Framework (NGF)
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# ==============================================================================
-# Runtime environment
-# ==============================================================================
-# !apt-get update
-# !apt-get install -y build-essential libatlas-base-dev gfortran
-# !pip install --no-build-isolation --prefer-binary transformers==4.55.2 torch==2.8.0+cu126 numpy==2.0.2 scikit-learn==1.0.0
-
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
+import numpy
 import torch
-import numpy as np
+import transformers
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from sklearn.decomposition import PCA
 
 # Load tokenizer and model
@@ -55,13 +30,13 @@ correct_inputs = tokenizer(correct_example, return_tensors='pt')
 with torch.no_grad():
     correct_outputs = model(**correct_inputs, output_hidden_states=True)
 correct_latent = correct_outputs.hidden_states[-1].mean(dim=1).squeeze().numpy()
-# Normalize correct_latent
-# correct_latent = correct_latent / np.linalg.norm(correct_latent)
-
+# Uncommented and applied normalization
+correct_latent = correct_latent / np.linalg.norm(correct_latent)
 task_target_reduced = pca.transform(correct_latent.reshape(1, -1)).squeeze()
+print(f"Raw correct_latent norm: {np.linalg.norm(correct_outputs.hidden_states[-1].mean(dim=1).squeeze().numpy()):.4f}")
 print(f"Task Target Norm: {np.linalg.norm(task_target_reduced):.4f}")
 
-def symbolic_loop(reduced_latent, target, steps=1100, dt=0.05, damping=0.2):
+def symbolic_loop(reduced_latent, target, steps=1500, dt=0.05, damping=0.2):
     pos = reduced_latent * 15.0
     vel = np.zeros(dim)
     for _ in range(steps):
@@ -73,7 +48,7 @@ def symbolic_loop(reduced_latent, target, steps=1100, dt=0.05, damping=0.2):
         pos += dt * vel
     return pos
 
-pull_strength = 3.2  # Increased pull strength
+pull_strength = 3.7  # Increased pull strength
 gamma = 0.2
 final_pos = symbolic_loop(reduced_latent, task_target_reduced)
 error = np.linalg.norm(final_pos - task_target_reduced)
@@ -97,7 +72,7 @@ for example in train_examples:
 anchor_reduced /= len(train_examples)
 nudge_target = anchor_reduced
 
-def symbolic_nudge(current_reduced, nudge_target, steps=1100, dt=0.05, damping=0.2):
+def symbolic_nudge(current_reduced, nudge_target, steps=1500, dt=0.05, damping=0.2):
     pos = current_reduced
     vel = np.zeros(dim)
     for _ in range(steps):
@@ -137,7 +112,8 @@ for i in range(max_tokens):
         nudged_hidden = torch.from_numpy(nudged_latent).unsqueeze(0).unsqueeze(0).to(torch.float32)
         nudged_logits = model.lm_head(nudged_hidden)[:, 0, :]
         nudged_logits = torch.clamp(nudged_logits, min=-100.0, max=100.0)
-        nudged_logits = torch.nn.functional.softmax(nudged_logits, dim=-1) * 100.0
+        nudged_logits = torch.nn.functional.softmax(nudged_logits, dim=-1) * 5.0
+        nudged_logits = torch.clamp(nudged_logits, max=0.2)  # Tighter clamp
         print(f"Nudge logits shape: {nudged_logits.shape}, min: {torch.min(nudged_logits)}, max: {torch.max(nudged_logits)}")
         next_token = torch.argmax(nudged_logits, dim=-1).unsqueeze(0)
         if next_token.item() >= vocab_size or torch.all(nudged_logits == nudged_logits[0, 0]):
