@@ -22,7 +22,6 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 11 | Large Benchmark (coming) | LLM System | A100 | large-benchmarks/ |
 | 12 | Milestone Benchmark (coming) | LLM System | A100 | milestone-benchmark/ |
 
-
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
 
 This animation shows how warped paths converge to correct answers in high-dimensional semantic space:
