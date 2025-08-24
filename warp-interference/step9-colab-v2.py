@@ -1,12 +1,12 @@
 # =====================================================================
 # Setup
 # =====================================================================
-# !pip -q install transformers==4.30.0 scikit-learn==1.0.2
+# numpy: 2.0.2, torch: 2.8.0+cu126, sklearn: 1.6.1, CUDA: True, transformers 4.55.2
 
 import torch, numpy as np, re
 from collections import Counter
 from sklearn.decomposition import PCA
-from transformers import GPT2Tokenizer, GPT2LM HeadModel
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
