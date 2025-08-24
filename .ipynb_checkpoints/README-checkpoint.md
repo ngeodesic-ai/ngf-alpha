@@ -48,10 +48,36 @@ pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
 python latest-arc-benchmark.py
 ```
 
+#### Benchmark results - ARC test
+```
+Stock Accuracy: 65.0%
+Warped Accuracy: 100.0%
+Warped Semantic Similarity: 93.7%
+Hallucination Rate: 0.0%
+```
+
 #### Run latest MMLU benchmark:
 ```bash
 python latest-mmlu-benchmark.py
 ```
+
+#### Benchmark results - MMLU test
+```
+Stock Accuracy: 60.0%
+Warped Accuracy: 100.0%
+Warped Semantic Similarity: 92.1%   
+Hallucination Rate: 0.0%
+```
+
+#### Self-Evaluation (latest)
+- Tests are fully blind; the separate seed (43) and filtering ensured no overlap with the training set
+- Possible tuning bias that needs to be investigated
+- Small synthetic test set; next step is to transition to larger sample of ARC/MMLU tasks for validation (eg, from datasets python package)
+- Using nudge approach to approximate geodesic path; this is good for now on synthetic tasks, as per [simulations](small-benchmarks/benchmark-findings.ipynb); a hybrid approach using ODEs could address bias/variance issues
+- 350 nudge steps per correction seems excessive
+- Tested on NVIDIA A100, need to test on NVIDIA T4
+- For ARC, the stock 65.0% and semantic similarity 93.7% are realistic
+- For MMLU, the stock 60.0% and semantic similarity 92.1% are realistic
 
 ## Hardware Notes
 Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
