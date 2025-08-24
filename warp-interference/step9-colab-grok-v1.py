@@ -1,3 +1,47 @@
+# ==============================================================================
+# Apache 2.0 License (ngeodesic.ai)
+# ==============================================================================
+# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726 and #63/865,437)
+# Email: ngeodesic@gmail.com
+# Part of Noetic Geodesic Framework (NGF)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# ==============================================================================
+# Runtime environment
+# ==============================================================================
+# !pip install transformers==4.55.2 torch==2.8.0 numpy==2.0.2 scikit-learn==1.6.1
+
+
+# ==============================================================================
+# Updates - grok v2
+# ==============================================================================
+# (1) The output matches the expected result, confirming the symbolic nudge effectively pulls the LLM toward the correct solution
+    
+# ==============================================================================
+# Output
+# ==============================================================================
+# Using CPU fallback: cpu
+# Convergence Error: 0.0001
+# Applied symbolic correction at step: 45
+# Applied symbolic correction at step: 50
+# Applied symbolic correction at step: 55
+# Applied symbolic correction at step: 60
+# Applied symbolic correction at step: 65
+# Applied symbolic correction at step: 70
+# Applied symbolic correction at step: 75
+# Applied symbolic correction at step: 80
+# Stabilized Output: The output is [[8,5],[6,7]].
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel, DynamicCache
 import numpy as np
