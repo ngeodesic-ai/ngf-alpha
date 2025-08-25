@@ -1,40 +1,26 @@
 # ==============================================================================
 # Apache 2.0 License (ngeodesic.ai)
 # ==============================================================================
-# Step 10 Benchmark (v11): CPU-only, few-shot + live structured beam over positions
-# - Model predicts positions (A,B,C,D) with a *permutation* constraint (no repeats).
-# - We realize digits from input via these positions and evaluate vs expected rotation.
-# - No answer leakage; parse continuation only.
-# - Live beam (k=50) with per-beam KV; warped blends nudged logits at POS steps.
+# Step 10 Benchmark (v10): CPU-only, few-shot + live structured beam over positions
+# - Model predicts positions (A,B,C,D) for [[P1,P2],[P3,P4]]
+# - We realize digits from input grid and evaluate vs expected
+# - No answer leakage; parse continuation only
+# - Live beam (k=20) with per-beam KV; warped blends nudged logits at position steps
 # ==============================================================================
-
-# ==============================================================================
-# Output
-# ==============================================================================
-# Task 01 | Input [[9, 6], [3, 9]] | Expect [[3, 9], [9, 6]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[9, 6], [3, 9]] | WarpedPos: [[C,A],[D,B]] -> [[3, 9], [9, 6]]
-# Task 02 | Input [[9, 5], [9, 4]] | Expect [[9, 9], [4, 5]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[9, 5], [9, 4]] | WarpedPos: [[C,A],[D,B]] -> [[9, 9], [4, 5]]
-# Task 03 | Input [[7, 3], [3, 2]] | Expect [[3, 7], [2, 3]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[7, 3], [3, 2]] | WarpedPos: [[C,A],[D,B]] -> [[3, 7], [2, 3]]
-# Task 04 | Input [[8, 4], [4, 9]] | Expect [[4, 8], [9, 4]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[8, 4], [4, 9]] | WarpedPos: [[C,A],[D,B]] -> [[4, 8], [9, 4]]
-# Task 05 | Input [[9, 9], [3, 8]] | Expect [[3, 9], [8, 9]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[9, 9], [3, 8]] | WarpedPos: [[C,A],[D,B]] -> [[3, 9], [8, 9]]
-# Task 06 | Input [[4, 1], [2, 7]] | Expect [[2, 4], [7, 1]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[4, 1], [2, 7]] | WarpedPos: [[C,A],[D,B]] -> [[2, 4], [7, 1]]
-# Task 07 | Input [[2, 3], [8, 3]] | Expect [[8, 2], [3, 3]] | Stock:✓ | Warped:✓ | StockPos: [[C,A],[D,B]] -> [[8, 2], [3, 3]] | WarpedPos: [[C,A],[D,B]] -> [[8, 2], [3, 3]]
-# Task 08 | Input [[3, 1], [9, 5]] | Expect [[9, 3], [5, 1]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[3, 1], [9, 5]] | WarpedPos: [[C,A],[D,B]] -> [[9, 3], [5, 1]]
-# Task 09 | Input [[6, 6], [2, 4]] | Expect [[2, 6], [4, 6]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[6, 6], [2, 4]] | WarpedPos: [[C,A],[D,B]] -> [[2, 6], [4, 6]]
-# Task 10 | Input [[5, 5], [1, 5]] | Expect [[1, 5], [5, 5]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[5, 5], [1, 5]] | WarpedPos: [[C,A],[D,B]] -> [[1, 5], [5, 5]]
-# \n=== Summary ===
-# Stock Accuracy : 1/10 = 10.0%
-# Warped Accuracy: 10/10 = 100.0%
 
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # ensure CPU-only
 
-import random, re, numpy as np, torch
+import re
+import random
+import numpy as np
+import torch
 from dataclasses import dataclass
-from typing import List, Dict, Set
-from transformers import GPT2Tokenizer, GPT2LMHeadModel, DynamicCache
+from typing import List, Dict, Tuple
 from sklearn.decomposition import PCA
+from transformers import GPT2Tokenizer, GPT2LMHeadModel, DynamicCache
 
-SEED = 48
+SEED = 47
 random.seed(SEED)
 np.random.seed(SEED)
 
@@ -47,7 +33,7 @@ tokenizer.pad_token = tokenizer.eos_token
 vocab_size = model.config.vocab_size
 
 # -----------------------------
-# Token utilities
+# Token plumbing
 # -----------------------------
 def build_char_to_ids(tokenizer, chars: List[str]) -> Dict[str, List[int]]:
     table = {ch: set() for ch in chars}
@@ -63,17 +49,11 @@ def build_char_to_ids(tokenizer, chars: List[str]) -> Dict[str, List[int]]:
                     table[ch].add(t)
     return {ch: sorted(list(ids)) for ch, ids in table.items()}
 
-CHAR_SET = ['[', ']', ',', 'A', 'B', 'C', 'D']
+CHAR_SET = ['[', ']', ',', 'A','B','C','D']
 CHAR_TO_IDS = build_char_to_ids(tokenizer, CHAR_SET)
-
-ID_TO_POS = {}
-for L in ['A','B','C','D']:
-    for tid in CHAR_TO_IDS[L]:
-        ID_TO_POS[tid] = L
 
 # -----------------------------
 # PCA anchor + nudge target (Stages 7/8)
-# (kept lightweight; used only to build a nudged logits blend at POS steps)
 # -----------------------------
 anchor_prompt = (
     "Identify the pattern: Input grid [[1,2],[3,4]] -> Output [[3,1],[4,2]] "
@@ -94,17 +74,15 @@ example_latent = ex_out.hidden_states[-1].mean(dim=1).squeeze().detach().cpu().n
 nudge_target = pca.transform(example_latent.reshape(1, -1)).squeeze()
 
 # -----------------------------
-# Few-shot pointer prompt
+# Few-shot prompt with positions
 # -----------------------------
 FEWSHOT = (
-    "Answer using ONLY the position grid with letters A,B,C,D (no extra text).\n"
+    "Learn the rule and answer with only the position grid using letters A,B,C,D.\n"
     "Positions in the input: A=top-left, B=top-right, C=bottom-left, D=bottom-right.\n"
-    "Rotate 90° clockwise. If Input=[[a,b],[c,d]], then Output positions=[[C,A],[D,B]].\n"
-    "Use EACH letter exactly once; do NOT repeat letters.\n"
-    "Examples:\n"
-    "Input [[1,2],[3,4]] -> Output positions [[C,A],[D,B]]\n"
-    "Input [[5,6],[7,8]] -> Output positions [[C,A],[D,B]]\n"
-    "Input [[2,9],[3,5]] -> Output positions [[C,A],[D,B]]\n"
+    "Rotate 90° clockwise:\n"
+    "If Input = [[a,b],[c,d]], then Output positions = [[C,A],[D,B]].\n"
+    "Example: Input [[1,2],[3,4]] -> Output positions [[C,A],[D,B]] -> Output [[3,1],[4,2]]\n"
+    "Return ONLY the position grid like [[C,A],[D,B]] (no extra text).\n"
 )
 
 # -----------------------------
@@ -116,14 +94,13 @@ def generate_arc_task():
     return grid, rotated
 
 # -----------------------------
-# Live structured beam with permutation constraint
+# Live structured beam over positions
 # -----------------------------
 @dataclass
 class Beam:
     ids: List[int]
     past: tuple
     score: float
-    remaining: Set[str]  # letters still available
 
 PLAN = ['[','[','POS',',','POS',']',',','[','POS',',','POS',']',']']
 
@@ -139,10 +116,10 @@ def step_token(past, token_id, need_hidden: bool):
         out = model(inp, past_key_values=cache, output_hidden_states=need_hidden, use_cache=True)
     return out.past_key_values, out.logits[:, -1, :].squeeze(0), (out.hidden_states[-1][:, -1, :].squeeze(0) if need_hidden else None)
 
-def structured_beam_positions_perm(prompt_ids, k=50, alpha=0.0):
+def structured_beam_positions(prompt_ids, k=20, alpha=0.0):
     base_past, base_logits, base_hidden = init_past(prompt_ids)
-    beams = [Beam(ids=[], past=base_past, score=0.0, remaining=set(['A','B','C','D']))]
-    allowed_pos_all = CHAR_TO_IDS['A'] + CHAR_TO_IDS['B'] + CHAR_TO_IDS['C'] + CHAR_TO_IDS['D']
+    beams = [Beam(ids=[], past=base_past, score=0.0)]
+    allowed_pos = CHAR_TO_IDS['A'] + CHAR_TO_IDS['B'] + CHAR_TO_IDS['C'] + CHAR_TO_IDS['D']
 
     for sym in PLAN:
         new_beams: List[Beam] = []
@@ -154,7 +131,7 @@ def structured_beam_positions_perm(prompt_ids, k=50, alpha=0.0):
             else:
                 past, logits, hidden = step_token(b.past, b.ids[-1], need_hidden=(alpha>0))
 
-            # POS steps may be nudged
+            # Apply nudge only at POS steps
             if sym == 'POS' and alpha > 0 and hidden is not None:
                 cur_lat = hidden.detach().cpu().numpy()
                 red = pca.transform(cur_lat.reshape(1, -1))[0]
@@ -165,31 +142,18 @@ def structured_beam_positions_perm(prompt_ids, k=50, alpha=0.0):
                 logits = 0.5 * logits + 0.5 * nudged_logits
 
             if sym == 'POS':
-                # allowed ids correspond ONLY to letters still remaining (no repeats)
-                allowed_ids = []
-                for L in b.remaining:
-                    allowed_ids += CHAR_TO_IDS[L]
+                allowed = allowed_pos
             else:
-                allowed_ids = CHAR_TO_IDS[sym]
+                allowed = CHAR_TO_IDS[sym]
 
             logp = torch.log_softmax(logits, dim=-1)
-            allowed_scores = logp[allowed_ids]
-            topm = min(k, len(allowed_ids))
+            allowed_scores = logp[allowed]
+            topm = min(k, len(allowed))
             vals, idxs = torch.topk(allowed_scores, topm)
             for val, idx in zip(vals.tolist(), idxs.tolist()):
-                tok_id = int(allowed_ids[idx])
-                # if POS, remove that letter from remaining
-                if sym == 'POS':
-                    L = ID_TO_POS.get(tok_id, None)
-                    if (L is None) or (L not in b.remaining):
-                        continue
-                    new_remaining = set(b.remaining)
-                    new_remaining.remove(L)
-                else:
-                    new_remaining = set(b.remaining)
-
+                tok_id = int(allowed[idx])
                 new_past, _, _ = step_token(past, tok_id, need_hidden=False)
-                new_beams.append(Beam(ids=b.ids + [tok_id], past=new_past, score=b.score + float(val), remaining=new_remaining))
+                new_beams.append(Beam(ids=b.ids + [tok_id], past=new_past, score=b.score + float(val)))
 
         new_beams.sort(key=lambda x: x.score, reverse=True)
         beams = new_beams[:k]
@@ -199,7 +163,12 @@ def structured_beam_positions_perm(prompt_ids, k=50, alpha=0.0):
     return best.ids, cont_text
 
 def realize_positions_to_digits(pos_text: str, input_grid):
-    mapping = {'A': input_grid[0][0], 'B': input_grid[0][1], 'C': input_grid[1][0], 'D': input_grid[1][1]}
+    # Map A,B,C,D to digits from input grid
+    mapping = {
+        'A': input_grid[0][0], 'B': input_grid[0][1],
+        'C': input_grid[1][0], 'D': input_grid[1][1]
+    }
+    # Extract letters in order
     letters = [ch for ch in pos_text if ch in 'ABCD']
     if len(letters) != 4:
         return None, None
@@ -222,8 +191,8 @@ for i in range(1, N+1):
     prompt_len = enc["input_ids"].shape[1]
 
     # STOCK (alpha=0); WARPED (alpha=0.9)
-    ids_s, pos_text_s = structured_beam_positions_perm(enc["input_ids"], k=50, alpha=0.0)
-    ids_w, pos_text_w = structured_beam_positions_perm(enc["input_ids"], k=50, alpha=0.9)
+    ids_s, pos_text_s = structured_beam_positions(enc["input_ids"], k=20, alpha=0.0)
+    ids_w, pos_text_w = structured_beam_positions(enc["input_ids"], k=20, alpha=0.9)
 
     realized_s, letters_s = realize_positions_to_digits(pos_text_s, input_grid)
     realized_w, letters_w = realize_positions_to_digits(pos_text_w, input_grid)
