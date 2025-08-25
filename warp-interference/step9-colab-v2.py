@@ -23,6 +23,26 @@
 # ==============================================================================
 # !pip install transformers==4.55.2 torch==2.8.0 numpy==2.0.2 scikit-learn==1.6.1
 
+# ==============================================================================
+# Output
+# ==============================================================================
+# Model loaded on CPU. Attempting to move to cuda...
+# Model successfully moved to cuda
+# Convergence Error: 0.0000
+# Testing single task: Input [[2, 1], [5, 4]], Expected [[5, 2], [4, 1]]
+
+# === STOCK ===
+# Stock Output: . the name of
+#  the:1]] 3, 22, 2],
+#  [ grid2, 4], [5, 1]] ->input.))
+#  the the2, 1], [5, 4]]].
+
+# Stock Correct? False
+
+# === WARPED ===
+# Warped Output: Identify the pattern: Input grid [[2, 1], [5, 4]] -> Output [[5, 2], [4, 1]]
+# Warped Correct? True
+
 import os
 import re
 import random
