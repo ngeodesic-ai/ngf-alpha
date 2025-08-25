@@ -8,23 +8,6 @@
 # - Live beam (k=50) with per-beam KV; warped blends nudged logits at POS steps.
 # ==============================================================================
 
-# ==============================================================================
-# Output
-# ==============================================================================
-# Task 01 | Input [[9, 6], [3, 9]] | Expect [[3, 9], [9, 6]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[9, 6], [3, 9]] | WarpedPos: [[C,A],[D,B]] -> [[3, 9], [9, 6]]
-# Task 02 | Input [[9, 5], [9, 4]] | Expect [[9, 9], [4, 5]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[9, 5], [9, 4]] | WarpedPos: [[C,A],[D,B]] -> [[9, 9], [4, 5]]
-# Task 03 | Input [[7, 3], [3, 2]] | Expect [[3, 7], [2, 3]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[7, 3], [3, 2]] | WarpedPos: [[C,A],[D,B]] -> [[3, 7], [2, 3]]
-# Task 04 | Input [[8, 4], [4, 9]] | Expect [[4, 8], [9, 4]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[8, 4], [4, 9]] | WarpedPos: [[C,A],[D,B]] -> [[4, 8], [9, 4]]
-# Task 05 | Input [[9, 9], [3, 8]] | Expect [[3, 9], [8, 9]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[9, 9], [3, 8]] | WarpedPos: [[C,A],[D,B]] -> [[3, 9], [8, 9]]
-# Task 06 | Input [[4, 1], [2, 7]] | Expect [[2, 4], [7, 1]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[4, 1], [2, 7]] | WarpedPos: [[C,A],[D,B]] -> [[2, 4], [7, 1]]
-# Task 07 | Input [[2, 3], [8, 3]] | Expect [[8, 2], [3, 3]] | Stock:✓ | Warped:✓ | StockPos: [[C,A],[D,B]] -> [[8, 2], [3, 3]] | WarpedPos: [[C,A],[D,B]] -> [[8, 2], [3, 3]]
-# Task 08 | Input [[3, 1], [9, 5]] | Expect [[9, 3], [5, 1]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[3, 1], [9, 5]] | WarpedPos: [[C,A],[D,B]] -> [[9, 3], [5, 1]]
-# Task 09 | Input [[6, 6], [2, 4]] | Expect [[2, 6], [4, 6]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[6, 6], [2, 4]] | WarpedPos: [[C,A],[D,B]] -> [[2, 6], [4, 6]]
-# Task 10 | Input [[5, 5], [1, 5]] | Expect [[1, 5], [5, 5]] | Stock:× | Warped:✓ | StockPos: [[A,B],[C,D]] -> [[5, 5], [1, 5]] | WarpedPos: [[C,A],[D,B]] -> [[1, 5], [5, 5]]
-# \n=== Summary ===
-# Stock Accuracy : 1/10 = 10.0%
-# Warped Accuracy: 10/10 = 100.0%
-
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # ensure CPU-only
 
