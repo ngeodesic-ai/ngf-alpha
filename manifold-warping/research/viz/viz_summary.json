@@ -1,0 +1,21 @@
+{
+  "npz": "dumps/v7_manifold.npz",
+  "out": "viz/",
+  "explained_variance_hint": [
+    33.59287724480345,
+    29.253699084957475,
+    27.33641771298876
+  ],
+  "primitives": [
+    "flip_h",
+    "flip_v",
+    "rotate"
+  ],
+  "files": [
+    "manifold_pca3_scatter.png",
+    "manifold_pca3_mesh.png",
+    "manifold_pca3_overlay_flip_h.png",
+    "manifold_pca3_overlay_flip_v.png",
+    "manifold_pca3_overlay_rotate.png"
+  ]
+}
