@@ -1,0 +1,322 @@
+[
+  {
+    "case_id": "toy01",
+    "ngf": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "rotate"
+      ],
+      "order_pred": [
+        "flip_h",
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "rotate"
+      ],
+      "order_pred": [
+        "flip_h",
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy02",
+    "ngf": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy03",
+    "ngf": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "rotate"
+      ],
+      "order_pred": [
+        "flip_h",
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "rotate"
+      ],
+      "order_pred": [
+        "flip_h",
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy04",
+    "ngf": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy05",
+    "ngf": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy06",
+    "ngf": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "rotate"
+      ],
+      "order_pred": [
+        "flip_h",
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "rotate"
+      ],
+      "order_pred": [
+        "flip_h",
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy07",
+    "ngf": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "flip_v"
+      ],
+      "order_pred": [
+        "flip_h",
+        "flip_v"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "flip_v"
+      ],
+      "order_pred": [
+        "flip_h",
+        "flip_v"
+      ]
+    }
+  },
+  {
+    "case_id": "toy08",
+    "ngf": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy09",
+    "ngf": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "flip_v"
+      ],
+      "order_pred": [
+        "flip_h",
+        "flip_v"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h",
+        "flip_v"
+      ],
+      "order_pred": [
+        "flip_h",
+        "flip_v"
+      ]
+    }
+  },
+  {
+    "case_id": "toy10",
+    "ngf": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_v"
+      ],
+      "order_pred": [
+        "flip_v"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 0.0,
+      "order_acc": 0.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_v"
+      ],
+      "order_pred": [
+        "flip_v"
+      ]
+    }
+  },
+  {
+    "case_id": "toy11",
+    "ngf": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "rotate"
+      ],
+      "order_pred": [
+        "rotate"
+      ]
+    }
+  },
+  {
+    "case_id": "toy12",
+    "ngf": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h"
+      ],
+      "order_pred": [
+        "flip_h"
+      ]
+    },
+    "stock": {
+      "task_set_acc": 1.0,
+      "order_acc": 1.0,
+      "exec_acc": 1.0,
+      "tasks_pred": [
+        "flip_h"
+      ],
+      "order_pred": [
+        "flip_h"
+      ]
+    }
+  }
+]

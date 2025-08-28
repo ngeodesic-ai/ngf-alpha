@@ -1,0 +1,51 @@
+id,truth_tasks,stock_tasks,stock_order,geo_tasks,geo_order,ok_stock,ok_geo,sim_stock,sim_geo,hall_stock,hall_geo
+1,rotate,rotate,rotate,rotate,rotate,1,1,1.0,1.0,0.0,0.0
+2,flip_h flip_v,flip_h flip_v,flip_h flip_v,flip_v,flip_v,1,0,1.0,0.21875,0.0,0.0
+3,flip_h,flip_h,flip_h,flip_h,flip_h,1,1,1.0,1.0,0.0,0.0
+4,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,1,0,1.0,0.125,0.0,0.0
+5,flip_h rotate,flip_h rotate,flip_h rotate,rotate,rotate,1,0,1.0,0.09375,0.0,0.0
+6,flip_h,flip_h,flip_h,flip_h,flip_h,1,1,1.0,1.0,0.0,0.0
+7,rotate,rotate,rotate,flip_h,flip_h,1,0,1.0,0.21875,0.0,1.0
+8,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,1,0,1.0,0.15625,0.0,0.0
+9,flip_h,flip_h,flip_h,flip_h,flip_h,1,1,1.0,1.0,0.0,0.0
+10,rotate flip_h flip_v,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v,flip_h flip_v,1,0,1.0,0.140625,0.0,0.0
+11,flip_v rotate flip_h,flip_h flip_v rotate,flip_h flip_v rotate,flip_h rotate,flip_h rotate,0,0,0.125,0.15625,0.0,0.0
+12,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,1,0,1.0,0.15625,0.0,0.0
+13,flip_v rotate,flip_v rotate,flip_v rotate,rotate,rotate,1,0,1.0,0.0,0.0,0.0
+14,rotate flip_v,flip_v rotate,flip_v rotate,flip_v,flip_v,0,0,0.125,0.0625,0.0,0.0
+15,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,1,0,1.0,0.1875,0.0,0.0
+16,rotate,rotate,rotate,rotate,rotate,1,1,1.0,1.0,0.0,0.0
+17,rotate flip_v flip_h,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v,flip_h flip_v,1,0,1.0,0.140625,0.0,0.0
+18,flip_v,flip_v,flip_v,flip_h,flip_h,1,0,1.0,0.25,0.0,1.0
+19,flip_v flip_h rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_h rotate,flip_h rotate,1,0,1.0,0.28125,0.0,0.0
+20,rotate,rotate,rotate,flip_h,flip_h,1,0,1.0,0.28125,0.0,1.0
+21,rotate flip_v flip_h,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v,flip_h flip_v,1,0,1.0,0.125,0.0,0.0
+22,flip_h rotate flip_v,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,0,0,0.125,0.15625,0.0,0.0
+23,flip_h,flip_h,flip_h,flip_v,flip_v,1,0,1.0,0.09375,0.0,1.0
+24,flip_h rotate,flip_h rotate,flip_h rotate,rotate,rotate,1,0,1.0,0.1875,0.0,0.0
+25,flip_h rotate,flip_h rotate,flip_h rotate,rotate,rotate,1,0,1.0,0.125,0.0,0.0
+26,rotate flip_v flip_h,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v,flip_h flip_v,1,0,1.0,0.15625,0.0,0.0
+27,rotate flip_h flip_v,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v,flip_h flip_v,1,0,1.0,0.109375,0.0,0.0
+28,rotate flip_h,flip_h rotate,flip_h rotate,flip_h,flip_h,0,0,0.25,0.078125,0.0,0.0
+29,flip_v rotate,flip_v rotate,flip_v rotate,rotate,rotate,1,0,1.0,0.1875,0.0,0.0
+30,flip_h,flip_h,flip_h,flip_v,flip_v,1,0,1.0,0.15625,0.0,1.0
+31,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,1,0,1.0,0.125,0.0,0.0
+32,flip_h rotate,flip_h rotate,flip_h rotate,rotate,rotate,1,0,1.0,0.1875,0.0,0.0
+33,rotate,rotate,rotate,rotate,rotate,1,1,1.0,1.0,0.0,0.0
+34,flip_v,flip_v,flip_v,flip_h,flip_h,1,0,1.0,0.21875,0.0,1.0
+35,flip_h rotate flip_v,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,0,0,0.15625,0.1875,0.0,0.0
+36,flip_v,flip_v,flip_v,flip_h,flip_h,1,0,1.0,0.15625,0.0,1.0
+37,flip_v,flip_v,flip_v,flip_v,flip_v,1,1,1.0,1.0,0.0,0.0
+38,flip_v flip_h,flip_h flip_v,flip_h flip_v,flip_h,flip_h,1,0,1.0,0.25,0.0,0.0
+39,rotate flip_v,flip_v rotate,flip_v rotate,flip_v,flip_v,0,0,0.09375,0.15625,0.0,0.0
+40,flip_v rotate flip_h,flip_h flip_v rotate,flip_h flip_v rotate,flip_h rotate,flip_h rotate,0,0,0.21875,0.125,0.0,0.0
+41,flip_h flip_v,flip_h flip_v,flip_h flip_v,flip_v,flip_v,1,0,1.0,0.1875,0.0,0.0
+42,flip_h flip_v,flip_h flip_v,flip_h flip_v,flip_v,flip_v,1,0,1.0,0.125,0.0,0.0
+43,flip_v flip_h,flip_h flip_v,flip_h flip_v,flip_h,flip_h,1,0,1.0,0.09375,0.0,0.0
+44,flip_v,flip_v,flip_v,flip_v,flip_v,1,1,1.0,1.0,0.0,0.0
+45,flip_v,flip_v,flip_v,flip_h,flip_h,1,0,1.0,0.125,0.0,1.0
+46,flip_h flip_v rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,1,0,1.0,0.125,0.0,0.0
+47,flip_h,flip_h,flip_h,flip_h,flip_h,1,1,1.0,1.0,0.0,0.0
+48,flip_v flip_h rotate,flip_h flip_v rotate,flip_h flip_v rotate,flip_h rotate,flip_h rotate,1,0,1.0,0.15625,0.0,0.0
+49,flip_h rotate flip_v,flip_h flip_v rotate,flip_h flip_v rotate,flip_v rotate,flip_v rotate,0,0,0.1875,0.15625,0.0,0.0
+50,rotate flip_v,flip_v rotate,flip_v rotate,flip_v,flip_v,0,0,0.15625,0.140625,0.0,0.0

@@ -1,0 +1,9 @@
+{
+  "accuracy_exact": 1.0,
+  "f1": 0.9999999994999998,
+  "hallucination_rate": 0.0,
+  "jaccard": 0.9999999979999998,
+  "omission_rate": 0.0,
+  "precision": 1.0,
+  "recall": 1.0
+}

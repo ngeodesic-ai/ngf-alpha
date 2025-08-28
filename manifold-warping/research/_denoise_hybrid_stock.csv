@@ -1,0 +1,8 @@
+metric,value
+accuracy_exact,0.000000
+precision,0.992370
+recall,0.996185
+f1,0.994274
+jaccard,0.988614
+hallucination_rate,0.015259
+omission_rate,0.007630
