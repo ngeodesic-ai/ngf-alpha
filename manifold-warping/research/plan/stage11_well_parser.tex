@@ -1,0 +1,70 @@
+
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+
+\title{Stage 11: Warping the Manifold (Well Parser)}
+\author{NGeodesic Project}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Stepwise Plan for Stage 11}
+
+This stage formalizes the ``well'' perspective by turning the parser into an explicit
+energy minimization problem. The goal is to warp the manifold into a deep basin that
+suppresses hallucinations and stabilizes true solutions.
+
+\subsection*{Step 1. Formalize the Energy Landscape}
+Define a per-primitive potential
+\begin{equation}
+U_p = -\left( w_\perp z_{\perp,p} + w_{\text{raw}} z_{\text{raw},p} - w_{\text{cm}} z_{\text{cm},p} \right).
+\end{equation}
+The margin
+\begin{equation}
+\Delta = U_{\text{false}} - U_{\text{true}}
+\end{equation}
+is the measure of well depth.
+
+\subsection*{Step 2. Improve Orthogonalization}
+Replace mean-only subtraction with low-rank projection. Compute top-$r$ principal
+components across primitives, then project onto the orthogonal complement. This enlarges
+$\Delta$ by removing more shared variance.
+
+\subsection*{Step 3. Strengthen Calibration}
+Enhance the permutation null:
+\begin{itemize}
+    \item Use block circular shifts to preserve autocorrelation.
+    \item Optionally apply multitaper averaging for variance reduction.
+\end{itemize}
+
+\subsection*{Step 4. Sequential Residual Refinement}
+After selecting a primitive, subtract its prototype contribution from all channels and
+recompute $z$-scores. True picks reduce residual energy, deepening the well; false picks do not.
+
+\subsection*{Step 5. Lateral Inhibition}
+Introduce penalties when two primitives activate in overlapping windows. Implement as a
+Gaussian kernel $\kappa(t_i, t_j)$ in the energy function to suppress distractor basins.
+
+\subsection*{Step 6. Controlled Descent}
+Introduce a temperature parameter $T$:
+\begin{equation}
+\pi(p) \propto \exp(-U_p / T).
+\end{equation}
+Start with high $T$ (exploration) and anneal to low $T$ (deep well, stable convergence).
+
+\subsection*{Step 7. Evaluation Metrics}
+Track margin distributions and performance metrics as each component is added:
+\begin{itemize}
+    \item Hallucination rate should decrease steadily.
+    \item Recall should remain stable ($\pm 2\%$).
+    \item $F_1$ and Jaccard scores should climb.
+    \item Exact grid accuracy should rise meaningfully.
+\end{itemize}
+
+\section*{Breaking Point}
+Stage 11 represents the \textbf{breaking point} of the project: the transition from
+heuristic parsing to an explicit warped manifold energy framework. This is where
+hallucinations are eliminated by construction.
+
+\end{document}
