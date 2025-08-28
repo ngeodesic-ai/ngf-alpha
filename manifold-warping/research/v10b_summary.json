@@ -1,0 +1,22 @@
+{
+  "samples": 200,
+  "geodesic": {
+    "accuracy_exact": 0.28,
+    "precision": 0.8558333333333334,
+    "recall": 0.6416666666666666,
+    "f1": 0.6950000000000003,
+    "jaccard": 0.5941666666666666,
+    "hallucination_rate": 0.14416666666666667,
+    "omission_rate": 0.3583333333333333
+  },
+  "stock": {
+    "accuracy_exact": 0.37,
+    "precision": 0.8666666666666666,
+    "recall": 0.76,
+    "f1": 0.7720000000000004,
+    "jaccard": 0.6816666666666669,
+    "hallucination_rate": 0.1333333333333333,
+    "omission_rate": 0.24000000000000007
+  },
+  "csv": "v10b_metrics.csv"
+}

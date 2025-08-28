@@ -1,0 +1,206 @@
+--- stage11-well-benchmark-v10c.py
++++ stage11-well-benchmark-v10c_REALARC.py
+@@ -60,10 +60,13 @@
+ import numpy as np
+ import os
+ import random
++import glob
+ from collections import deque
+ import warnings
+ from dataclasses import dataclass
+ from typing import Callable, Dict, List, Optional, Tuple
++from typing import Any
++import re
+ 
+ import numpy as np
+ 
+@@ -206,6 +209,18 @@
+ 
+ 
+ 
++
++    # --- Real ARC quick sanity mode ---
++    p.add_argument("--real_arc_path", type=str, default="",
++                   help="Folder with ARC JSON tasks; if set, run real-ARC sanity mode and exit.")
++    p.add_argument("--lm", type=str, default="gpt2",
++                   help="Hugging Face model name for real-ARC mode.")
++    p.add_argument("--max_real", type=int, default=40,
++                   help="Max ARC task files to sample in real-ARC mode.")
++    p.add_argument("--text_ema", type=int, default=0, choices=[0,1],
++                   help="Enable simple logits EMA decoding in real-ARC mode (1=on).")
++    p.add_argument("--text_ema_decay", type=float, default=0.85,
++                   help="EMA decay for logits in real-ARC mode.")
+     return p
+ 
+ 
+@@ -727,6 +742,153 @@
+         json.dump(metrics, f, indent=2, sort_keys=True)
+ 
+ 
++
++# -------------------------------
++# Real ARC quick sanity mode (text-only decoding with optional EMA)
++# -------------------------------
++
++def _find_arc_jsons(root: str, k: int) -> List[str]:
++    pats = [os.path.join(root, "**", "*.json")]
++    files = []
++    for p in pats:
++        files.extend(glob.glob(p, recursive=True))
++    files = [f for f in files if os.path.isfile(f)]
++    random.shuffle(files)
++    return files[:k]
++
++_GRID_RE = re.compile(r"\[\s*\[.*?\]\s*\]", re.S)
++
++def _grid_to_text(g: List[List[int]]) -> str:
++    return "[" + ",".join("[" + ",".join(str(int(x)) for x in row) + "]" for row in g) + "]"
++
++def _render_arc_prompt(task: Dict[str, Any]) -> Tuple[str, Tuple[int,int]]:
++    train = task.get("train", [])
++    test = task.get("test", [])
++    if not train:
++        raise ValueError("Task missing 'train'.")
++    ex = train[0]
++    tin = ex["input"]; tout = ex["output"]
++    if test and isinstance(test[0], dict) and "input" in test[0]:
++        target_in = test[0]["input"]
++    else:
++        target_in = tin
++    tgt_shape = (len(target_in), len(target_in[0]))
++
++    prompt = (
++        "You are given an input grid and its transformed output grid.\n"
++        "Apply the same transformation to the new input and return ONLY the output grid "
++        "as bracketed numbers like [[a,b],[c,d]].\n\n"
++        f"Example Input: {_grid_to_text(tin)}\n"
++        f"Example Output: {_grid_to_text(tout)}\n\n"
++        f"New Input: {_grid_to_text(target_in)}\n"
++        "New Output: "
++    )
++    return prompt, tgt_shape
++
++def _extract_first_grid(text: str) -> Optional[List[List[int]]]:
++    m = _GRID_RE.search(text)
++    if not m:
++        return None
++    frag = m.group(0)
++    safe = re.sub(r"[^0-9,\[\]\s-]", "", frag)
++    try:
++        arr = json.loads(safe)
++        if isinstance(arr, list) and arr and isinstance(arr[0], list):
++            return [[int(v) for v in row] for row in arr]
++    except Exception:
++        return None
++    return None
++
++def _shape_matches(grid: List[List[int]], shape: Tuple[int,int]) -> bool:
++    if not grid: return False
++    r,c = shape
++    return len(grid)==r and all(isinstance(row, list) and len(row)==c for row in grid)
++
++def run_real_arc_mode(args, logger):
++    import torch
++    import glob
++    from transformers import AutoTokenizer, AutoModelForCausalLM
++
++    files = _find_arc_jsons(args.real_arc_path, args.max_real)
++    if not files:
++        logger.error(f"No ARC JSON found under: {args.real_arc_path}")
++        return
++
++    tok = AutoTokenizer.from_pretrained(args.lm)
++    if tok.pad_token_id is None and tok.eos_token_id is not None:
++        tok.pad_token_id = tok.eos_token_id
++    model = AutoModelForCausalLM.from_pretrained(args.lm)
++    model.eval()
++    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
++    model.to(device)
++
++    class _EMA:
++        def __init__(self, decay: float):
++            self.decay = decay
++            self.state = None
++        def step(self, logits):
++            if self.state is None:
++                self.state = logits.detach()
++            else:
++                self.state = self.decay*self.state + (1-self.decay)*logits.detach()
++            return self.state
++
++    def generate_once(prompt: str, max_new_tokens=256):
++        x = tok(prompt, return_tensors="pt").to(device)
++        ids = x["input_ids"][0]
++        ema = _EMA(args.text_ema_decay) if args.text_ema else None
++        out = ids.clone()
++        for _ in range(max_new_tokens):
++            y = model(out.unsqueeze(0))
++            logits = y.logits[0, -1, :]
++            if ema is not None:
++                logits = ema.step(logits)
++            nxt = int(torch.argmax(logits))
++            out = torch.cat([out, torch.tensor([nxt], device=device)])
++            if tok.eos_token_id is not None and nxt == tok.eos_token_id:
++                break
++            # quick heuristic stop
++            gen = tok.decode(out[len(ids):])
++            if gen.strip().endswith("]]"):
++                break
++        return tok.decode(out[len(ids):])
++
++    N = 0; valid=0; shape_ok=0; agree=0; exact_n=0; exact=0
++    for path in files:
++        try:
++            task = json.load(open(path, "r"))
++        except Exception:
++            continue
++        try:
++            prompt, tgt_shape = _render_arc_prompt(task)
++        except Exception:
++            continue
++        t1 = generate_once(prompt); t2 = generate_once(prompt)
++        g1 = _extract_first_grid(t1); g2 = _extract_first_grid(t2)
++        if g1 is not None:
++            valid += 1
++            if _shape_matches(g1, tgt_shape):
++                shape_ok += 1
++        if g1 is not None and g2 is not None and g1==g2:
++            agree += 1
++        # exact if ground-truth exists in test[0]
++        test = task.get("test", [])
++        if test and isinstance(test[0], dict) and "output" in test[0] and g1 is not None:
++            exact_n += 1
++            if g1 == test[0]["output"]:
++                exact += 1
++        N += 1
++
++    eps = 1e-9
++    metrics = dict(
++        files=N, model=args.lm, text_ema=bool(args.text_ema), text_ema_decay=args.text_ema_decay,
++        valid_rate=valid/(N+eps), shape_match_rate=shape_ok/(N+eps),
++        self_consistency_rate=agree/(N+eps),
++        exact_match_rate_conditional=(exact/(exact_n+eps) if exact_n>0 else None),
++        exact_match_n=exact_n
++    )
++    print("[REAL-ARC]", json.dumps(metrics, indent=2))
++
+ # -------------------------------
+ # Main
+ # -------------------------------
+@@ -745,6 +907,16 @@
+         format="%(asctime)s %(levelname)s %(name)s: %(message)s"
+     )
+     logger = pylog.getLogger("stage11.v10c")
++
++    # --- Real ARC quick sanity path ---
++    if getattr(args, "real_arc_path", ""):
++        logger.info(f"[real-arc] model={getattr(args,'lm','gpt2')} EMA={bool(getattr(args,'text_ema',0))} "
++                    f"decay={getattr(args,'text_ema_decay',0.85)} files<= {getattr(args,'max_real',40)}")
++        try:
++            run_real_arc_mode(args, logger)
++        except Exception as e:
++            logger.error(f"Real-ARC mode failed: {e}")
++        return
+ 
+     # Quick compare mode
+     if args.compare:
