@@ -9,18 +9,18 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 
 | Stage | Description | Phase | Hardware | Folder/Code |
 |-------|-------------|-------------|-------------|-------------|
-| 1 | [Toy Example](toy-example/step1.ipynb) | Toy Example $R^4$ | CPU | toy-example/ |
-| 2 | [Embed Grid Intelligently](embed-grid/step2.ipynb) | Toy Example $R^4$ | CPU | embed-grid/ |
-| 3 | [Rotation Matrix Integration](rotation-matrix/step3.ipynb) | Toy Example $R^4$ | CPU | rotation-matrix/ |
-| 4 | [Simulate Pattern Completion](pattern-completion/step4.ipynb) | Toy Example $R^4$ | CPU | pattern-completion/ |
-| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/step5.ipynb) | Higher Dim $R^9$ | CPU | higher-dim-embeddings/ |
-| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/step6.ipynb) | Higher Dim $R^9$ | CPU | dynamic-intelligence/ |
-| 7 | [ARC Question](rudimentary-arc/step7.ipynb) | Higher Dim $R^9$ | CPU | rudimentary-arc/ |
-| 8 | [LLM Latent Embedding](llm-latent-embedding/step8.ipynb) | LLM System | CPU | llm-latent-embedding/ |
-| 9 | [Warp LLM Interference](warp-interference/step9.py) | LLM System | A100 | warp-interference/ |
-| 10 | [ARC](latest-arc-benchmark.py) / [MMLU](latest-mmlu-benchmark.py) Benchmarks | LLM System | A100 | small-benchmarks/ |
-| 11 | Large Benchmark (coming) | LLM System | A100 | large-benchmarks/ |
-| 12 | Milestone Benchmark (coming) | LLM System | A100 | milestone-benchmark/ |
+| 1 | [Toy Example](toy-example/stage1.ipynb) | Toy Example $R^4$ | CPU | toy-example/ |
+| 2 | [Embed Grid Intelligently](embed-grid/stage2.ipynb) | Toy Example $R^4$ | CPU | embed-grid/ |
+| 3 | [Rotation Matrix Integration](rotation-matrix/stage3.ipynb) | Toy Example $R^4$ | CPU | rotation-matrix/ |
+| 4 | [Simulate Pattern Completion](pattern-completion/stage4.ipynb) | Toy Example $R^4$ | CPU | pattern-completion/ |
+| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/stage5.ipynb) | Higher Dim $R^9$ | CPU | higher-dim-embeddings/ |
+| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/stage6.ipynb) | Higher Dim $R^9$ | CPU | dynamic-intelligence/ |
+| 7 | [ARC Question](rudimentary-arc/stage7.ipynb) | Higher Dim $R^9$ | CPU | rudimentary-arc/ |
+| 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | LLM System | CPU | llm-latent-embedding/ |
+| 9 | [Warp LLM Interference](warp-interference/stage9.py) | LLM System | CPU | warp-interference/ |
+| 10 | [Warp LLM Interference](rudimentary-benchmarks/stage10-benchmark-latest.py) Rudimentary Benchmarks  | Vector Embeddings | CPU | rudimentary-interference/ |
+| 11 | [ARC](small-benchmarks/stage11-benchmark-latest.py) Small Benchmarks | Vector Embeddings | CPU | small-benchmarks/ |
+| 12 | Large Benchmark (coming) | LLM System | A100 | milestone-benchmark/ |
 
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
 
@@ -30,26 +30,27 @@ This animation shows how warped paths converge to correct answers in high-dimens
 
 ## Requirements
 - Python 3.x
-- `transformers==4.30.0`
-- `torch==2.4.1`
-- `numpy==1.26.4`
-- `scikit-learn==1.0.0`
+- `transformers==4.55.2`
+- `torch==2.8.0`
+- `numpy==2.0.2`
+- `scikit-learn==1.6.1`
 - NVIDIA A100 GPU (e.g., Colab Pro+)
 
 ## Setup
 Install dependencies:
 ```bash
-pip install transformers==4.30.0 torch==2.4.1 numpy==1.26.4 scikit-learn==1.0.0
+!pip install transformers==4.55.2 torch==2.8.0 numpy==2.0.2 scikit-learn==1.6.1
 ```
 
 #### Run latest ARC benchmark:
 ```bash
-python latest-arc-benchmark.py
-```
-
-#### Run latest MMLU benchmark:
-```bash
-python latest-mmlu-benchmark.py
+python -u arc-benchmark-latest.py \
+      --samples 100 --seed 42 \
+      --latent_arc --latent_dim 64 --latent_arc_noise 0.05 \
+      --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
+      --probe_k 5 --probe_eps 0.02 --conf_gate 0.65 --noise_floor 0.03 \
+      --seed_jitter 2 --log INFO \
+      --out_json latent_arc_denoise_100.json --out_csv latent_arc_denoise_100.csv
 ```
 
 ## Hardware Notes
