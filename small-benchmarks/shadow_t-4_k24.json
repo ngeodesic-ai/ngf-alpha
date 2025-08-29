@@ -1,0 +1,30 @@
+{
+  "model": "gpt2",
+  "tap": -4,
+  "pool_mode": "lastk",
+  "k_last": 24,
+  "calibration_prompts": 380,
+  "eval_prompts": 60,
+  "phantom_index": 0.8,
+  "margin_norm": 0.07182097983167464,
+  "S_median": 0.13162295886161507,
+  "r_trend_tokens": 0.42320315969718075,
+  "K": 5,
+  "margin_improved": true,
+  "detector_unstable": true,
+  "dual_lobes": true,
+  "r_span": [
+    1.1220140529629006,
+    3.7906807187424567
+  ],
+  "margin_tied": false,
+  "dominant_basin": false,
+  "decision": "NO-GO",
+  "no_go_reasons": [
+    "BLOCK: PI=0.800 > 0.10",
+    "BLOCK: S_median=0.13 < 0.55",
+    "BLOCK: r_trend_tokens=0.423 < 0.90",
+    "BLOCK: detector unstable (PI/margin/K oscillate)",
+    "BLOCK: density plot shows \u22652 lobes"
+  ]
+}

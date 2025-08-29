@@ -1,0 +1,60 @@
+Given a 3x3 grid containing a white diamond, flip the grid vertically. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a red L-shape, flip the grid horizontally. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a green L-shape, flip the grid vertically. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a yellow diamond, flip the grid horizontally. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a black square, flip the grid horizontally. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a red L-shape, flip the grid vertically. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a black L-shape, flip the grid horizontally. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a red triangle, flip the grid vertically. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a yellow circle, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a blue L-shape, flip the grid horizontally. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a black square, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a red circle, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a red L-shape, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a white diamond, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a yellow circle, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a blue circle, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a red triangle, flip the grid horizontally. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a yellow L-shape, rotate the grid 90 degrees clockwise. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a black circle, flip the grid vertically. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a yellow L-shape, flip the grid horizontally. Return only the final operation name in snake_case.
+Compute 12+23. Return only the integer.
+Compute 11+33. Return only the integer.
+Compute 28+4. Return only the integer.
+Compute 6+37. Return only the integer.
+Compute 38+22. Return only the integer.
+Compute 23+24. Return only the integer.
+Compute 40+33. Return only the integer.
+Compute 39+31. Return only the integer.
+Compute 6+7. Return only the integer.
+Compute 19+32. Return only the integer.
+Compute 6+5. Return only the integer.
+Compute 21+38. Return only the integer.
+Compute 30+20. Return only the integer.
+Compute 26+24. Return only the integer.
+Compute 3+31. Return only the integer.
+Compute 24+12. Return only the integer.
+Compute 9+33. Return only the integer.
+Compute 5+15. Return only the integer.
+Compute 20+10. Return only the integer.
+Compute 17+27. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.

@@ -1,0 +1,3 @@
+What is the capital of France?
+List the first three prime numbers.
+Explain why the sky is blue.
