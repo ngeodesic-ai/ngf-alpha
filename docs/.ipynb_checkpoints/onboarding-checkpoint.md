@@ -35,7 +35,41 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
          - [The Mathematics Behind the Schwarzschild Solution](https://www.youtube.com/watch?v=D-RTa_LCEvI)
          - [The Schwarzschild Metric: Complete Derivation | General Relativity](https://www.youtube.com/watch?v=6cSYZMM0wU4)
 
-### 3. **AI Latent Spaces and Embeddings**
+### 3. Signal Processing
+
+    - **Why?**  The Noetic Geodesic Framework (NGF) is engineered as a signal-processing pipeline at its core.  
+    Latent trajectories are treated as discrete-time signals, with energy traces, filtering, and detection 
+    performed directly in that domain. By reframing hallucinations as structured noise and truth-aligned 
+    paths as dominant signal lobes, we can borrow the full SP toolbox—matched filters, null calibration, 
+    SNR proxies, and inhibition—to drive reasoning toward deterministic convergence. This framing is 
+    essential: without SP rigor, phantom wells emerge, thresholds drift, and trajectories destabilize.
+    
+    - **Key Concepts**  
+        - **Matched Filtering:** Core detector that aligns residual energy traces to template bumps, 
+          maximizing sensitivity in additive noise.  
+        - **Dual Thresholds:** Relative gating (vs. best channel) plus absolute-null calibration 
+          (via circular shifts) ensures statistical robustness.  
+        - **Residual Energies:** Parallel vs. perpendicular decomposition sharpens channels; exclusive 
+          residuals remove cross-talk.  
+        - **SNR Proxy:** A stepwise stability indicator, rising as trajectories converge; borrowed from 
+          classical comms systems.  
+        - **Lateral Inhibition / Backoff:** Suppresses phantom wells by damping side-lobes, analogous 
+          to inhibition in sensory coding.  
+        - **Funnel Fit:** Warps PCA(3) embeddings into a single-well profile, ensuring the dominant basin 
+          behaves like a primary signal lobe.  
+        - **Control Guards:** Hybrid EMA+median smoothing, confidence gating, phantom-guard probes, 
+          and jitter averaging act as stabilization filters.  
+    
+    - **Resources**  
+        - Oppenheim & Schafer, *Discrete-Time Signal Processing* — matched filtering, FIR/IIR smoothing.  
+        - Turin (1960); Van Trees (1968) — classical matched filter and detection theory.  
+        - Efron & Tibshirani (1993) — bootstrap and resampling for null calibration.  
+        - Slepian (1978); Thomson (1982) — spectral concentration and multitaper estimation.  
+        - NGF Technical Draft (2025) — see Chapter 2 (“Signal Processing: Energies, Filtering, and Detection”), 
+          Stage-10 parser spec, and Stage-11 doctrine.
+
+
+### 4. **AI Latent Spaces and Embeddings**
    - **Why?** NGF warps high-dimensional embeddings (e.g., R⁴ for 2x2 grids) to enforce determinism in models like GPT-2.
    - **Key Concepts:** Latent representations in transformers/LLMs, PCA for dimensionality reduction, hallucinations as probabilistic drift, symbolic nudging.
    - **Resources:**
