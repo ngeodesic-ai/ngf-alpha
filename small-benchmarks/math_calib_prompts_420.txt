@@ -1,0 +1,420 @@
+Compute 73*12+84. Return only the integer.
+Compute 109*63+24. Return only the integer.
+Compute 69*2+49. Return only the integer.
+Compute 50*74+31. Return only the integer.
+Compute 10*50+53. Return only the integer.
+Compute 14*7+17. Return only the integer.
+Compute 100*29+50. Return only the integer.
+Compute 14*54+8. Return only the integer.
+Compute 80*5+72. Return only the integer.
+Compute 67*10+101. Return only the integer.
+Compute 117*26+100. Return only the integer.
+Compute 26*5+92. Return only the integer.
+Compute 31*102+102. Return only the integer.
+Compute 83*52+119. Return only the integer.
+Compute 60*47+68. Return only the integer.
+Compute 118*5+78. Return only the integer.
+Compute 16*71+27. Return only the integer.
+Compute 28*17+33. Return only the integer.
+Compute 79*6+16. Return only the integer.
+Compute 102*19+72. Return only the integer.
+Compute 49*13+77. Return only the integer.
+Compute 60*99+37. Return only the integer.
+Compute 58*106+75. Return only the integer.
+Compute 24*107+95. Return only the integer.
+Compute 43*69+59. Return only the integer.
+Compute 70*104+104. Return only the integer.
+Compute 60*53+90. Return only the integer.
+Compute 11*98+97. Return only the integer.
+Compute 74*57+85. Return only the integer.
+Compute 116*77+5. Return only the integer.
+Compute 99*44+111. Return only the integer.
+Compute 80*109+33. Return only the integer.
+Compute 46*31+71. Return only the integer.
+Compute 69*78+41. Return only the integer.
+Compute 22*111+37. Return only the integer.
+Compute 44*39+48. Return only the integer.
+Compute 11*73+20. Return only the integer.
+Compute 87*108+37. Return only the integer.
+Compute 71*37+74. Return only the integer.
+Compute 83*116+20. Return only the integer.
+Compute 2*46+118. Return only the integer.
+Compute 95*81+72. Return only the integer.
+Compute 105*77+71. Return only the integer.
+Compute 72*75+21. Return only the integer.
+Compute 66*119+51. Return only the integer.
+Compute 107*45+67. Return only the integer.
+Compute 33*41+77. Return only the integer.
+Compute 5*66+116. Return only the integer.
+Compute 75*54+89. Return only the integer.
+Compute 6*28+28. Return only the integer.
+Compute 28*29+20. Return only the integer.
+Compute 82*58+111. Return only the integer.
+Compute 75*99+21. Return only the integer.
+Compute 35*67+3. Return only the integer.
+Compute 14*76+57. Return only the integer.
+Compute 27*20+24. Return only the integer.
+Compute 111*89+32. Return only the integer.
+Compute 95*42+35. Return only the integer.
+Compute 89*118+19. Return only the integer.
+Compute 95*82+42. Return only the integer.
+Compute 96*48+21. Return only the integer.
+Compute 52*114+31. Return only the integer.
+Compute 79*98+59. Return only the integer.
+Compute 103*25+11. Return only the integer.
+Compute 67*21+32. Return only the integer.
+Compute 87*55+42. Return only the integer.
+Compute 104*92+104. Return only the integer.
+Compute 113*88+85. Return only the integer.
+Compute 77*73+31. Return only the integer.
+Compute 3*115+98. Return only the integer.
+Compute 47*94+93. Return only the integer.
+Compute 117*68+47. Return only the integer.
+Compute 49*68+62. Return only the integer.
+Compute 43*35+10. Return only the integer.
+Compute 21*41+95. Return only the integer.
+Compute 66*60+80. Return only the integer.
+Compute 56*81+81. Return only the integer.
+Compute 55*44+44. Return only the integer.
+Compute 17*101+82. Return only the integer.
+Compute 33*112+117. Return only the integer.
+Compute 79*21+34. Return only the integer.
+Compute 112*16+44. Return only the integer.
+Compute 31*96+20. Return only the integer.
+Compute 65*85+25. Return only the integer.
+Compute 91*67+82. Return only the integer.
+Compute 11*15+25. Return only the integer.
+Compute 35*46+109. Return only the integer.
+Compute 103*80+9. Return only the integer.
+Compute 111*107+2. Return only the integer.
+Compute 120*76+17. Return only the integer.
+Compute 105*89+77. Return only the integer.
+Compute 78*45+98. Return only the integer.
+Compute 40*30+88. Return only the integer.
+Compute 35*79+36. Return only the integer.
+Compute 26*83+8. Return only the integer.
+Compute 85*53+73. Return only the integer.
+Compute 76*57+93. Return only the integer.
+Compute 101*38+73. Return only the integer.
+Compute 36*87+42. Return only the integer.
+Compute 27*117+37. Return only the integer.
+Compute 284-162+165. Return only the integer.
+Compute 386-15+93. Return only the integer.
+Compute 61-195+138. Return only the integer.
+Compute 429-183+151. Return only the integer.
+Compute 288-143+40. Return only the integer.
+Compute 406-182+163. Return only the integer.
+Compute 100-170+102. Return only the integer.
+Compute 254-91+108. Return only the integer.
+Compute 75-24+75. Return only the integer.
+Compute 95-27+136. Return only the integer.
+Compute 268-127+141. Return only the integer.
+Compute 239-25+66. Return only the integer.
+Compute 108-88+185. Return only the integer.
+Compute 237-196+134. Return only the integer.
+Compute 64-35+141. Return only the integer.
+Compute 407-119+80. Return only the integer.
+Compute 107-90+67. Return only the integer.
+Compute 182-33+174. Return only the integer.
+Compute 300-2+186. Return only the integer.
+Compute 369-195+83. Return only the integer.
+Compute 202-168+67. Return only the integer.
+Compute 73-4+173. Return only the integer.
+Compute 53-186+79. Return only the integer.
+Compute 205-170+113. Return only the integer.
+Compute 69-45+189. Return only the integer.
+Compute 240-141+86. Return only the integer.
+Compute 357-92+167. Return only the integer.
+Compute 118-36+41. Return only the integer.
+Compute 363-62+69. Return only the integer.
+Compute 64-170+129. Return only the integer.
+Compute 293-122+49. Return only the integer.
+Compute 153-62+158. Return only the integer.
+Compute 454-29+108. Return only the integer.
+Compute 422-73+39. Return only the integer.
+Compute 110-177+73. Return only the integer.
+Compute 471-71+63. Return only the integer.
+Compute 79-109+137. Return only the integer.
+Compute 333-36+98. Return only the integer.
+Compute 382-162+182. Return only the integer.
+Compute 161-55+13. Return only the integer.
+Compute (567//5)*7. Return only the integer.
+Compute (541//11)*8. Return only the integer.
+Compute (46//3)*6. Return only the integer.
+Compute (179//2)*5. Return only the integer.
+Compute (400//6)*6. Return only the integer.
+Compute (334//2)*4. Return only the integer.
+Compute (115//6)*13. Return only the integer.
+Compute (49//6)*5. Return only the integer.
+Compute (197//17)*14. Return only the integer.
+Compute (672//20)*4. Return only the integer.
+Compute (138//19)*2. Return only the integer.
+Compute (248//19)*4. Return only the integer.
+Compute (729//5)*3. Return only the integer.
+Compute (368//8)*12. Return only the integer.
+Compute (414//6)*7. Return only the integer.
+Compute (631//15)*9. Return only the integer.
+Compute (292//7)*7. Return only the integer.
+Compute (608//8)*11. Return only the integer.
+Compute (264//11)*10. Return only the integer.
+Compute (260//11)*7. Return only the integer.
+Compute (694//7)*11. Return only the integer.
+Compute (519//13)*8. Return only the integer.
+Compute (74//7)*12. Return only the integer.
+Compute (177//5)*12. Return only the integer.
+Compute (236//3)*15. Return only the integer.
+Compute (385//11)*12. Return only the integer.
+Compute (181//20)*13. Return only the integer.
+Compute (590//8)*9. Return only the integer.
+Compute (558//15)*9. Return only the integer.
+Compute (664//5)*8. Return only the integer.
+Compute (369//16)*4. Return only the integer.
+Compute (162//13)*4. Return only the integer.
+Compute (156//20)*7. Return only the integer.
+Compute (146//20)*2. Return only the integer.
+Compute (699//2)*6. Return only the integer.
+Compute (121//11)*12. Return only the integer.
+Compute (789//11)*7. Return only the integer.
+Compute (179//2)*9. Return only the integer.
+Compute (568//4)*13. Return only the integer.
+Compute (617//8)*11. Return only the integer.
+Reduce the fraction 7/45 to lowest terms.
+Reduce the fraction 85/19 to lowest terms.
+Reduce the fraction 70/93 to lowest terms.
+Reduce the fraction 68/47 to lowest terms.
+Reduce the fraction 86/82 to lowest terms.
+Reduce the fraction 85/44 to lowest terms.
+Reduce the fraction 72/34 to lowest terms.
+Reduce the fraction 26/81 to lowest terms.
+Reduce the fraction 96/17 to lowest terms.
+Reduce the fraction 17/61 to lowest terms.
+Reduce the fraction 92/25 to lowest terms.
+Reduce the fraction 77/8 to lowest terms.
+Reduce the fraction 96/68 to lowest terms.
+Reduce the fraction 41/84 to lowest terms.
+Reduce the fraction 14/20 to lowest terms.
+Reduce the fraction 91/29 to lowest terms.
+Reduce the fraction 42/25 to lowest terms.
+Reduce the fraction 97/67 to lowest terms.
+Reduce the fraction 57/25 to lowest terms.
+Reduce the fraction 52/64 to lowest terms.
+Reduce the fraction 17/38 to lowest terms.
+Reduce the fraction 99/98 to lowest terms.
+Reduce the fraction 26/23 to lowest terms.
+Reduce the fraction 26/77 to lowest terms.
+Reduce the fraction 83/84 to lowest terms.
+Reduce the fraction 9/57 to lowest terms.
+Reduce the fraction 6/93 to lowest terms.
+Reduce the fraction 18/83 to lowest terms.
+Reduce the fraction 41/20 to lowest terms.
+Reduce the fraction 16/14 to lowest terms.
+Reduce the fraction 55/98 to lowest terms.
+Reduce the fraction 65/77 to lowest terms.
+Reduce the fraction 57/62 to lowest terms.
+Reduce the fraction 66/18 to lowest terms.
+Reduce the fraction 41/39 to lowest terms.
+Reduce the fraction 22/49 to lowest terms.
+Reduce the fraction 36/9 to lowest terms.
+Reduce the fraction 88/78 to lowest terms.
+Reduce the fraction 69/75 to lowest terms.
+Reduce the fraction 13/47 to lowest terms.
+Reduce the fraction 41/33 to lowest terms.
+Reduce the fraction 58/58 to lowest terms.
+Reduce the fraction 38/73 to lowest terms.
+Reduce the fraction 89/31 to lowest terms.
+Reduce the fraction 22/58 to lowest terms.
+Reduce the fraction 33/87 to lowest terms.
+Reduce the fraction 27/88 to lowest terms.
+Reduce the fraction 22/37 to lowest terms.
+Reduce the fraction 7/36 to lowest terms.
+Reduce the fraction 34/7 to lowest terms.
+Reduce the fraction 84/29 to lowest terms.
+Reduce the fraction 40/55 to lowest terms.
+Reduce the fraction 19/6 to lowest terms.
+Reduce the fraction 41/14 to lowest terms.
+Reduce the fraction 36/40 to lowest terms.
+Reduce the fraction 82/43 to lowest terms.
+Reduce the fraction 47/59 to lowest terms.
+Reduce the fraction 16/85 to lowest terms.
+Reduce the fraction 65/68 to lowest terms.
+Reduce the fraction 69/22 to lowest terms.
+Find the GCD of 504 and 384. Return only the integer.
+Find the GCD of 444 and 101. Return only the integer.
+Find the GCD of 138 and 445. Return only the integer.
+Find the GCD of 351 and 541. Return only the integer.
+Find the GCD of 590 and 126. Return only the integer.
+Find the GCD of 308 and 430. Return only the integer.
+Find the GCD of 582 and 378. Return only the integer.
+Find the GCD of 199 and 379. Return only the integer.
+Find the GCD of 475 and 239. Return only the integer.
+Find the GCD of 367 and 18. Return only the integer.
+Find the GCD of 537 and 414. Return only the integer.
+Find the GCD of 109 and 435. Return only the integer.
+Find the GCD of 157 and 58. Return only the integer.
+Find the GCD of 411 and 343. Return only the integer.
+Find the GCD of 395 and 456. Return only the integer.
+Find the GCD of 460 and 515. Return only the integer.
+Find the GCD of 535 and 224. Return only the integer.
+Find the GCD of 54 and 571. Return only the integer.
+Find the GCD of 266 and 252. Return only the integer.
+Find the GCD of 544 and 18. Return only the integer.
+Find the GCD of 62 and 481. Return only the integer.
+Find the GCD of 598 and 50. Return only the integer.
+Find the GCD of 122 and 245. Return only the integer.
+Find the GCD of 80 and 558. Return only the integer.
+Find the GCD of 275 and 349. Return only the integer.
+Find the GCD of 490 and 495. Return only the integer.
+Find the GCD of 54 and 369. Return only the integer.
+Find the GCD of 489 and 148. Return only the integer.
+Find the GCD of 423 and 265. Return only the integer.
+Find the GCD of 146 and 422. Return only the integer.
+Find the GCD of 274 and 206. Return only the integer.
+Find the GCD of 431 and 566. Return only the integer.
+Find the GCD of 475 and 103. Return only the integer.
+Find the GCD of 416 and 555. Return only the integer.
+Find the GCD of 206 and 392. Return only the integer.
+Find the GCD of 515 and 439. Return only the integer.
+Find the GCD of 281 and 545. Return only the integer.
+Find the GCD of 252 and 576. Return only the integer.
+Find the GCD of 528 and 257. Return only the integer.
+Find the GCD of 400 and 280. Return only the integer.
+Find the GCD of 418 and 213. Return only the integer.
+Find the GCD of 442 and 493. Return only the integer.
+Find the GCD of 559 and 51. Return only the integer.
+Find the GCD of 423 and 200. Return only the integer.
+Find the GCD of 51 and 472. Return only the integer.
+Find the GCD of 178 and 401. Return only the integer.
+Find the GCD of 439 and 11. Return only the integer.
+Find the GCD of 196 and 45. Return only the integer.
+Find the GCD of 566 and 568. Return only the integer.
+Find the GCD of 128 and 72. Return only the integer.
+Find the GCD of 338 and 330. Return only the integer.
+Find the GCD of 57 and 190. Return only the integer.
+Find the GCD of 322 and 533. Return only the integer.
+Find the GCD of 215 and 560. Return only the integer.
+Find the GCD of 320 and 352. Return only the integer.
+Find the GCD of 492 and 302. Return only the integer.
+Find the GCD of 293 and 546. Return only the integer.
+Find the GCD of 117 and 584. Return only the integer.
+Find the GCD of 307 and 395. Return only the integer.
+Find the GCD of 361 and 317. Return only the integer.
+Find the LCM of 10 and 29. Return only the integer.
+Find the LCM of 13 and 29. Return only the integer.
+Find the LCM of 21 and 17. Return only the integer.
+Find the LCM of 33 and 23. Return only the integer.
+Find the LCM of 31 and 6. Return only the integer.
+Find the LCM of 24 and 6. Return only the integer.
+Find the LCM of 32 and 24. Return only the integer.
+Find the LCM of 12 and 10. Return only the integer.
+Find the LCM of 24 and 39. Return only the integer.
+Find the LCM of 6 and 16. Return only the integer.
+Find the LCM of 28 and 40. Return only the integer.
+Find the LCM of 15 and 37. Return only the integer.
+Find the LCM of 6 and 11. Return only the integer.
+Find the LCM of 34 and 9. Return only the integer.
+Find the LCM of 5 and 9. Return only the integer.
+Find the LCM of 40 and 22. Return only the integer.
+Find the LCM of 2 and 9. Return only the integer.
+Find the LCM of 2 and 37. Return only the integer.
+Find the LCM of 12 and 8. Return only the integer.
+Find the LCM of 39 and 15. Return only the integer.
+Find the LCM of 26 and 30. Return only the integer.
+Find the LCM of 13 and 29. Return only the integer.
+Find the LCM of 15 and 5. Return only the integer.
+Find the LCM of 32 and 17. Return only the integer.
+Find the LCM of 35 and 33. Return only the integer.
+Find the LCM of 24 and 23. Return only the integer.
+Find the LCM of 3 and 15. Return only the integer.
+Find the LCM of 25 and 25. Return only the integer.
+Find the LCM of 2 and 15. Return only the integer.
+Find the LCM of 2 and 29. Return only the integer.
+An item costs $672 and is discounted by 5%. What is the final price? Round to 2 decimals.
+An item costs $846 and is discounted by 12%. What is the final price? Round to 2 decimals.
+An item costs $142 and is discounted by 30%. What is the final price? Round to 2 decimals.
+An item costs $629 and is discounted by 25%. What is the final price? Round to 2 decimals.
+An item costs $332 and is discounted by 12%. What is the final price? Round to 2 decimals.
+An item costs $570 and is discounted by 15%. What is the final price? Round to 2 decimals.
+An item costs $622 and is discounted by 12%. What is the final price? Round to 2 decimals.
+An item costs $391 and is discounted by 5%. What is the final price? Round to 2 decimals.
+An item costs $272 and is discounted by 30%. What is the final price? Round to 2 decimals.
+An item costs $163 and is discounted by 20%. What is the final price? Round to 2 decimals.
+An item costs $884 and is discounted by 15%. What is the final price? Round to 2 decimals.
+An item costs $286 and is discounted by 15%. What is the final price? Round to 2 decimals.
+An item costs $238 and is discounted by 20%. What is the final price? Round to 2 decimals.
+An item costs $66 and is discounted by 5%. What is the final price? Round to 2 decimals.
+An item costs $187 and is discounted by 20%. What is the final price? Round to 2 decimals.
+An item costs $731 and is discounted by 15%. What is the final price? Round to 2 decimals.
+An item costs $420 and is discounted by 25%. What is the final price? Round to 2 decimals.
+An item costs $717 and is discounted by 30%. What is the final price? Round to 2 decimals.
+An item costs $359 and is discounted by 10%. What is the final price? Round to 2 decimals.
+An item costs $628 and is discounted by 20%. What is the final price? Round to 2 decimals.
+An item costs $449 and is discounted by 10%. What is the final price? Round to 2 decimals.
+An item costs $562 and is discounted by 25%. What is the final price? Round to 2 decimals.
+An item costs $860 and is discounted by 15%. What is the final price? Round to 2 decimals.
+An item costs $27 and is discounted by 25%. What is the final price? Round to 2 decimals.
+An item costs $517 and is discounted by 20%. What is the final price? Round to 2 decimals.
+An item costs $46 and is discounted by 15%. What is the final price? Round to 2 decimals.
+An item costs $575 and is discounted by 20%. What is the final price? Round to 2 decimals.
+An item costs $642 and is discounted by 5%. What is the final price? Round to 2 decimals.
+An item costs $157 and is discounted by 5%. What is the final price? Round to 2 decimals.
+An item costs $315 and is discounted by 10%. What is the final price? Round to 2 decimals.
+A train travels 337 km in 11 hours. What is the average speed in km/h? Return the number only.
+A train travels 294 km in 7 hours. What is the average speed in km/h? Return the number only.
+A train travels 349 km in 2 hours. What is the average speed in km/h? Return the number only.
+A train travels 158 km in 9 hours. What is the average speed in km/h? Return the number only.
+A train travels 278 km in 3 hours. What is the average speed in km/h? Return the number only.
+A train travels 388 km in 8 hours. What is the average speed in km/h? Return the number only.
+A train travels 114 km in 11 hours. What is the average speed in km/h? Return the number only.
+A train travels 527 km in 7 hours. What is the average speed in km/h? Return the number only.
+A train travels 528 km in 11 hours. What is the average speed in km/h? Return the number only.
+A train travels 831 km in 2 hours. What is the average speed in km/h? Return the number only.
+A train travels 32 km in 4 hours. What is the average speed in km/h? Return the number only.
+A train travels 119 km in 8 hours. What is the average speed in km/h? Return the number only.
+A train travels 622 km in 12 hours. What is the average speed in km/h? Return the number only.
+A train travels 149 km in 4 hours. What is the average speed in km/h? Return the number only.
+A train travels 883 km in 1 hours. What is the average speed in km/h? Return the number only.
+A train travels 403 km in 7 hours. What is the average speed in km/h? Return the number only.
+A train travels 775 km in 12 hours. What is the average speed in km/h? Return the number only.
+A train travels 334 km in 11 hours. What is the average speed in km/h? Return the number only.
+A train travels 30 km in 1 hours. What is the average speed in km/h? Return the number only.
+A train travels 524 km in 9 hours. What is the average speed in km/h? Return the number only.
+Round 43.775725 to two decimal places.
+Round 8918.631045 to two decimal places.
+Round 9762.595306 to two decimal places.
+Round 856.599946 to two decimal places.
+Round 6605.989632 to two decimal places.
+Round 9742.546722 to two decimal places.
+Round 1980.574012 to two decimal places.
+Round 4844.633925 to two decimal places.
+Round 4024.677219 to two decimal places.
+Round 5307.397659 to two decimal places.
+Compute 4^5. Return only the integer.
+Compute 3^2. Return only the integer.
+Compute 5^2. Return only the integer.
+Compute 6^3. Return only the integer.
+Compute 8^3. Return only the integer.
+Compute 8^2. Return only the integer.
+Compute 8^2. Return only the integer.
+Compute 8^2. Return only the integer.
+Compute 6^6. Return only the integer.
+Compute 10^6. Return only the integer.
+Solve for x: 11*x + 11 = 143. Return only the integer value of x.
+Solve for x: 14*x + 24 = 108. Return only the integer value of x.
+Solve for x: 15*x + 16 = 121. Return only the integer value of x.
+Solve for x: 15*x + 39 = 549. Return only the integer value of x.
+Solve for x: 3*x + 14 = 56. Return only the integer value of x.
+Solve for x: 11*x + 13 = 321. Return only the integer value of x.
+Solve for x: 8*x + 23 = 335. Return only the integer value of x.
+Solve for x: 4*x + 35 = 207. Return only the integer value of x.
+Solve for x: 13*x + 39 = 286. Return only the integer value of x.
+Solve for x: 14*x + 19 = 565. Return only the integer value of x.
+Compute the determinant of the 2×2 matrix [[-9,-8],[-2,-1]]. Return only the integer.
+Compute the determinant of the 2×2 matrix [[-5,-4],[6,5]]. Return only the integer.
+Compute the determinant of the 2×2 matrix [[5,1],[-5,-1]]. Return only the integer.
+Compute the determinant of the 2×2 matrix [[-4,6],[1,5]]. Return only the integer.
+Compute the determinant of the 2×2 matrix [[-6,1],[-7,1]]. Return only the integer.
+An arithmetic sequence starts at -14 with common difference 3. What is the 16th term? Return only the integer.
+An arithmetic sequence starts at -6 with common difference 15. What is the 9th term? Return only the integer.
+An arithmetic sequence starts at -6 with common difference 13. What is the 16th term? Return only the integer.
+An arithmetic sequence starts at 1 with common difference 1. What is the 17th term? Return only the integer.
+An arithmetic sequence starts at -10 with common difference 12. What is the 18th term? Return only the integer.

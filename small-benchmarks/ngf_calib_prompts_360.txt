@@ -1,0 +1,380 @@
+Compute the value: 22 * 5 + 2. Show only the final integer.
+Round 220.99974 to two decimal places.
+Is 50 a prime number? Answer yes or no, then state the smallest factor if no.
+Round 828.74585 to two decimal places.
+If a sequence starts at 30 and increases by 20 each step, what is the 10th term?
+Reduce the fraction 22/49 to lowest terms.
+Compute the value: 19 * 25 + 9. Show only the final integer.
+Reduce the fraction 29/74 to lowest terms.
+Compute the value: 9 * 25 + 19. Show only the final integer.
+What is 9^6? Return only the integer.
+Compute the determinant of the 2×2 matrix [[29,2],[23,25]].
+Reduce the fraction 66/99 to lowest terms.
+Round 58.80932 to two decimal places.
+Round 265.52652 to two decimal places.
+Compute the determinant of the 2×2 matrix [[15,8],[31,19]].
+Compute the value: 5 * 9 + 9. Show only the final integer.
+Compute the determinant of the 2×2 matrix [[29,12],[4,18]].
+Evaluate (27 + 15)^2 − (8^2). Return the integer.
+Is 59 a prime number? Answer yes or no, then state the smallest factor if no.
+Compute the determinant of the 2×2 matrix [[16,27],[29,29]].
+Compute the determinant of the 2×2 matrix [[8,29],[14,30]].
+What is 2^6? Return only the integer.
+Compute the value: 7 * 3 + 18. Show only the final integer.
+Reduce the fraction 74/68 to lowest terms.
+Find the GCD of 2 and 59. Return only the integer.
+What is 6^6? Return only the integer.
+Round 272.80352 to two decimal places.
+Compute the value: 8 * 24 + 12. Show only the final integer.
+Reduce the fraction 35/22 to lowest terms.
+What is the median of the numbers: 56, 17, 6, 40, 47? Return only the value.
+Evaluate (23 + 5)^2 − (13^2). Return the integer.
+Compute the determinant of the 2×2 matrix [[27,31],[15,27]].
+What is 3^4? Return only the integer.
+Evaluate (14 + 23)^2 − (28^2). Return the integer.
+What is the median of the numbers: 33, 6, 91, 56, 1? Return only the value.
+Find the GCD of 85 and 16. Return only the integer.
+Find the GCD of 96 and 23. Return only the integer.
+Reduce the fraction 79/85 to lowest terms.
+Reduce the fraction 83/81 to lowest terms.
+Reduce the fraction 11/60 to lowest terms.
+Is 37 a prime number? Answer yes or no, then state the smallest factor if no.
+What is 10^5? Return only the integer.
+Find the GCD of 97 and 32. Return only the integer.
+What is the median of the numbers: 41, 70, 11, 18, 20? Return only the value.
+Round 856.01857 to two decimal places.
+Find the GCD of 54 and 69. Return only the integer.
+If a sequence starts at 15 and increases by 14 each step, what is the 10th term?
+Evaluate (20 + 20)^2 − (23^2). Return the integer.
+Evaluate (12 + 26)^2 − (30^2). Return the integer.
+Is 176 a prime number? Answer yes or no, then state the smallest factor if no.
+Compute the value: 20 * 8 + 16. Show only the final integer.
+Find the GCD of 26 and 10. Return only the integer.
+Compute the value: 29 * 23 + 21. Show only the final integer.
+Find the GCD of 82 and 59. Return only the integer.
+What is the median of the numbers: 94, 76, 35, 42, 32? Return only the value.
+Evaluate (26 + 16)^2 − (20^2). Return the integer.
+What is the median of the numbers: 67, 25, 11, 31, 93? Return only the value.
+Evaluate (24 + 17)^2 − (22^2). Return the integer.
+What is the median of the numbers: 43, 46, 90, 59, 35? Return only the value.
+Is 186 a prime number? Answer yes or no, then state the smallest factor if no.
+Reduce the fraction 24/40 to lowest terms.
+Compute the determinant of the 2×2 matrix [[22,29],[26,17]].
+What is the median of the numbers: 81, 88, 7, 20, 20? Return only the value.
+Find the GCD of 29 and 67. Return only the integer.
+What is 3^3? Return only the integer.
+What is the median of the numbers: 61, 38, 5, 30, 37? Return only the value.
+Reduce the fraction 77/86 to lowest terms.
+What is 6^5? Return only the integer.
+Round 960.98728 to two decimal places.
+Reduce the fraction 75/7 to lowest terms.
+Compute the determinant of the 2×2 matrix [[20,15],[22,28]].
+Compute the value: 11 * 23 + 14. Show only the final integer.
+What is the median of the numbers: 67, 47, 80, 97, 64? Return only the value.
+Compute the value: 10 * 19 + 6. Show only the final integer.
+Compute the determinant of the 2×2 matrix [[19,15],[4,9]].
+What is 6^5? Return only the integer.
+What is 10^5? Return only the integer.
+If a sequence starts at 26 and increases by 16 each step, what is the 10th term?
+Compute the determinant of the 2×2 matrix [[14,23],[27,28]].
+What is 8^2? Return only the integer.
+If a sequence starts at 14 and increases by 24 each step, what is the 10th term?
+If a sequence starts at 5 and increases by 24 each step, what is the 10th term?
+Round 497.67192 to two decimal places.
+Evaluate (6 + 9)^2 − (16^2). Return the integer.
+Round 571.77885 to two decimal places.
+Find the GCD of 2 and 73. Return only the integer.
+Compute the value: 26 * 27 + 9. Show only the final integer.
+What is 8^3? Return only the integer.
+What is the median of the numbers: 62, 38, 96, 44, 15? Return only the value.
+Find the GCD of 12 and 51. Return only the integer.
+Explain what a pure function is and give a tiny example in one line of code.
+How does a stable sort differ from an unstable sort? Give a concise definition.
+What is the time complexity of binary search and why? Answer in one sentence.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+Explain what a pure function is and give a tiny example in one line of code.
+What is the main difference between breadth-first search and depth-first search in terms of traversal order? One sentence.
+What is the time complexity of binary search and why? Answer in one sentence.
+Explain what a pure function is and give a tiny example in one line of code.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+Explain why hashing a list directly in Python raises a TypeError. One sentence.
+How does a stable sort differ from an unstable sort? Give a concise definition.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+Given a function that sorts a list in place, how would you ensure it returns a new sorted list without modifying the input? One sentence.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+Explain why hashing a list directly in Python raises a TypeError. One sentence.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+What is the main difference between breadth-first search and depth-first search in terms of traversal order? One sentence.
+Given a function that sorts a list in place, how would you ensure it returns a new sorted list without modifying the input? One sentence.
+How does a stable sort differ from an unstable sort? Give a concise definition.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+What is the time complexity of binary search and why? Answer in one sentence.
+What is the main difference between breadth-first search and depth-first search in terms of traversal order? One sentence.
+How does a stable sort differ from an unstable sort? Give a concise definition.
+Explain what a pure function is and give a tiny example in one line of code.
+Given a function that sorts a list in place, how would you ensure it returns a new sorted list without modifying the input? One sentence.
+How does a stable sort differ from an unstable sort? Give a concise definition.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+Explain what a pure function is and give a tiny example in one line of code.
+How does a stable sort differ from an unstable sort? Give a concise definition.
+Explain why hashing a list directly in Python raises a TypeError. One sentence.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+What is the time complexity of binary search and why? Answer in one sentence.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+What is the time complexity of binary search and why? Answer in one sentence.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+What is the time complexity of binary search and why? Answer in one sentence.
+What is the main difference between breadth-first search and depth-first search in terms of traversal order? One sentence.
+What is the time complexity of binary search and why? Answer in one sentence.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+How does a stable sort differ from an unstable sort? Give a concise definition.
+Explain why hashing a list directly in Python raises a TypeError. One sentence.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+In SQL, what does SELECT DISTINCT do? Provide a brief explanation and one tiny example.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+Explain what a pure function is and give a tiny example in one line of code.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+What is the time complexity of binary search and why? Answer in one sentence.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+Given a function that sorts a list in place, how would you ensure it returns a new sorted list without modifying the input? One sentence.
+Explain what a pure function is and give a tiny example in one line of code.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+Explain in one or two sentences why using a mutable default argument in Python can cause bugs.
+What is the main difference between breadth-first search and depth-first search in terms of traversal order? One sentence.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+Explain what a pure function is and give a tiny example in one line of code.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+In JavaScript, what does 'use strict' change regarding variable declarations? Answer briefly.
+What is the time complexity of binary search and why? Answer in one sentence.
+Given a function that sorts a list in place, how would you ensure it returns a new sorted list without modifying the input? One sentence.
+Explain what a pure function is and give a tiny example in one line of code.
+You are given a Python function that returns the sum of unique elements in a list. Describe one failing edge case and a fix in one sentence.
+Explain why hashing a list directly in Python raises a TypeError. One sentence.
+Given a function that sorts a list in place, how would you ensure it returns a new sorted list without modifying the input? One sentence.
+Given a function that sorts a list in place, how would you ensure it returns a new sorted list without modifying the input? One sentence.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: This is fine, but not great.
+Does the second sentence contradict the first? Answer yes or no.
+1) The meeting was postponed to Friday.
+2) The meeting happened on Wednesday.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Delivery was on time and courteous."
+Classify the sentiment of this sentence as positive, negative, or neutral: "I might recommend it to a friend."
+Does the second sentence contradict the first? Answer yes or no.
+1) It might rain tomorrow.
+2) It will definitely be sunny.
+Which option is more formal? A) The product exceeded my expectations. B) Delivery was on time and courteous.. Answer A or B and give a 5‑word reason.
+Which option is more formal? A) The product exceeded my expectations. B) Delivery was on time and courteous.. Answer A or B and give a 5‑word reason.
+Paraphrase this instruction in one sentence while preserving meaning: Battery life is worse than before.
+Classify the sentiment of this sentence as positive, negative, or neutral: "The weather ruined our plans."
+Paraphrase this instruction in one sentence while preserving meaning: Performance improved after the update.
+Which option is more formal? A) Battery life is worse than before. B) This approach seems promising.. Answer A or B and give a 5‑word reason.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Performance improved after the update."
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: Support was unhelpful and slow.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: The product exceeded my expectations.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: This is fine, but not great.
+Paraphrase this instruction in one sentence while preserving meaning: The product exceeded my expectations.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Performance improved after the update."
+Paraphrase this instruction in one sentence while preserving meaning: The UI is confusing and inconsistent.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Performance improved after the update."
+Paraphrase this instruction in one sentence while preserving meaning: The weather ruined our plans.
+Classify the sentiment of this sentence as positive, negative, or neutral: "I might recommend it to a friend."
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: Delivery was on time and courteous.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Delivery was on time and courteous."
+Which option is more formal? A) This approach seems promising. B) This approach seems promising.. Answer A or B and give a 5‑word reason.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: I might recommend it to a friend.
+Paraphrase this instruction in one sentence while preserving meaning: This approach seems promising.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: This is fine, but not great.
+Paraphrase this instruction in one sentence while preserving meaning: Battery life is worse than before.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: The UI is confusing and inconsistent.
+Classify the sentiment of this sentence as positive, negative, or neutral: "The weather ruined our plans."
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: Support was unhelpful and slow.
+Paraphrase this instruction in one sentence while preserving meaning: Performance improved after the update.
+Does the second sentence contradict the first? Answer yes or no.
+1) She completed the task on time.
+2) She missed the deadline.
+Which option is more formal? A) Performance improved after the update. B) The UI is confusing and inconsistent.. Answer A or B and give a 5‑word reason.
+Paraphrase this instruction in one sentence while preserving meaning: The weather ruined our plans.
+Which option is more formal? A) The UI is confusing and inconsistent. B) I might recommend it to a friend.. Answer A or B and give a 5‑word reason.
+Which option is more formal? A) I might recommend it to a friend. B) Delivery was on time and courteous.. Answer A or B and give a 5‑word reason.
+Paraphrase this instruction in one sentence while preserving meaning: The weather ruined our plans.
+Classify the sentiment of this sentence as positive, negative, or neutral: "The weather ruined our plans."
+Classify the sentiment of this sentence as positive, negative, or neutral: "The UI is confusing and inconsistent."
+Classify the sentiment of this sentence as positive, negative, or neutral: "I might recommend it to a friend."
+Does the second sentence contradict the first? Answer yes or no.
+1) It might rain tomorrow.
+2) It will definitely be sunny.
+Classify the sentiment of this sentence as positive, negative, or neutral: "This approach seems promising."
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: Battery life is worse than before.
+Which option is more formal? A) The weather ruined our plans. B) The UI is confusing and inconsistent.. Answer A or B and give a 5‑word reason.
+Which option is more formal? A) The UI is confusing and inconsistent. B) The product exceeded my expectations.. Answer A or B and give a 5‑word reason.
+Which option is more formal? A) This approach seems promising. B) This is fine, but not great.. Answer A or B and give a 5‑word reason.
+Which option is more formal? A) The weather ruined our plans. B) This approach seems promising.. Answer A or B and give a 5‑word reason.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: Support was unhelpful and slow.
+Does the second sentence contradict the first? Answer yes or no.
+1) She completed the task on time.
+2) She missed the deadline.
+Does the second sentence contradict the first? Answer yes or no.
+1) The meeting was postponed to Friday.
+2) The meeting happened on Wednesday.
+Which option is more formal? A) Battery life is worse than before. B) I might recommend it to a friend.. Answer A or B and give a 5‑word reason.
+Classify the sentiment of this sentence as positive, negative, or neutral: "This is fine, but not great."
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: Support was unhelpful and slow.
+Paraphrase this instruction in one sentence while preserving meaning: Battery life is worse than before.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: This approach seems promising.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: The product exceeded my expectations.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: This is fine, but not great.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Delivery was on time and courteous."
+Which option is more formal? A) This is fine, but not great. B) I might recommend it to a friend.. Answer A or B and give a 5‑word reason.
+Which option is more formal? A) The product exceeded my expectations. B) Delivery was on time and courteous.. Answer A or B and give a 5‑word reason.
+Does the second sentence contradict the first? Answer yes or no.
+1) It might rain tomorrow.
+2) It will definitely be sunny.
+Paraphrase this instruction in one sentence while preserving meaning: The weather ruined our plans.
+Does the second sentence contradict the first? Answer yes or no.
+1) The meeting was postponed to Friday.
+2) The meeting happened on Wednesday.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Battery life is worse than before."
+Does the second sentence contradict the first? Answer yes or no.
+1) She completed the task on time.
+2) She missed the deadline.
+Paraphrase this instruction in one sentence while preserving meaning: Performance improved after the update.
+Which option is more formal? A) Delivery was on time and courteous. B) I might recommend it to a friend.. Answer A or B and give a 5‑word reason.
+Which option is more formal? A) I might recommend it to a friend. B) This approach seems promising.. Answer A or B and give a 5‑word reason.
+Is this headline clickbait? Answer yes or no and give a 1‑line reason: The weather ruined our plans.
+Classify the sentiment of this sentence as positive, negative, or neutral: "Delivery was on time and courteous."
+Does the second sentence contradict the first? Answer yes or no.
+1) It might rain tomorrow.
+2) It will definitely be sunny.
+Classify the sentiment of this sentence as positive, negative, or neutral: "The weather ruined our plans."
+Which option is more formal? A) Performance improved after the update. B) The UI is confusing and inconsistent.. Answer A or B and give a 5‑word reason.
+Paraphrase this instruction in one sentence while preserving meaning: This approach seems promising.
+Paraphrase this instruction in one sentence while preserving meaning: The UI is confusing and inconsistent.
+Which option is more formal? A) Support was unhelpful and slow. B) Battery life is worse than before.. Answer A or B and give a 5‑word reason.
+Classify the sentiment of this sentence as positive, negative, or neutral: "I might recommend it to a friend."
+Paraphrase this instruction in one sentence while preserving meaning: The weather ruined our plans.
+Which option is more formal? A) This approach seems promising. B) Performance improved after the update.. Answer A or B and give a 5‑word reason.
+A recipe uses 96 g flour and 255 g sugar. What fraction of the total is sugar (lowest terms)?
+A box has dimensions 22×9×2 cm. What is its volume in cubic centimeters? Return the integer.
+A train travels 199 km in 3 hours. What is the average speed in km/h? Return the number only.
+A box has dimensions 38×29×38 cm. What is its volume in cubic centimeters? Return the integer.
+A train travels 316 km in 2 hours. What is the average speed in km/h? Return the number only.
+Convert 633 centimeters to meters. Number only.
+A recipe uses 572 g flour and 146 g sugar. What fraction of the total is sugar (lowest terms)?
+A train travels 171 km in 4 hours. What is the average speed in km/h? Return the number only.
+A train travels 201 km in 11 hours. What is the average speed in km/h? Return the number only.
+A recipe uses 360 g flour and 311 g sugar. What fraction of the total is sugar (lowest terms)?
+If an item costs $319 and tax is 12%, what is the total price? Round to 2 decimals.
+A box has dimensions 30×38×14 cm. What is its volume in cubic centimeters? Return the integer.
+A train travels 533 km in 3 hours. What is the average speed in km/h? Return the number only.
+A box has dimensions 35×12×25 cm. What is its volume in cubic centimeters? Return the integer.
+A box has dimensions 23×6×23 cm. What is its volume in cubic centimeters? Return the integer.
+A recipe uses 722 g flour and 183 g sugar. What fraction of the total is sugar (lowest terms)?
+A box has dimensions 10×40×7 cm. What is its volume in cubic centimeters? Return the integer.
+A recipe uses 769 g flour and 569 g sugar. What fraction of the total is sugar (lowest terms)?
+A recipe uses 399 g flour and 527 g sugar. What fraction of the total is sugar (lowest terms)?
+Convert 819 centimeters to meters. Number only.
+Convert 881 centimeters to meters. Number only.
+Convert 321 centimeters to meters. Number only.
+Convert 614 centimeters to meters. Number only.
+If an item costs $483 and tax is 5%, what is the total price? Round to 2 decimals.
+A train travels 147 km in 5 hours. What is the average speed in km/h? Return the number only.
+A box has dimensions 5×27×34 cm. What is its volume in cubic centimeters? Return the integer.
+A recipe uses 78 g flour and 356 g sugar. What fraction of the total is sugar (lowest terms)?
+Convert 881 centimeters to meters. Number only.
+A train travels 173 km in 9 hours. What is the average speed in km/h? Return the number only.
+A train travels 68 km in 4 hours. What is the average speed in km/h? Return the number only.
+Convert 277 centimeters to meters. Number only.
+If an item costs $493 and tax is 12%, what is the total price? Round to 2 decimals.
+A train travels 539 km in 9 hours. What is the average speed in km/h? Return the number only.
+If an item costs $27 and tax is 8%, what is the total price? Round to 2 decimals.
+A box has dimensions 32×13×10 cm. What is its volume in cubic centimeters? Return the integer.
+If an item costs $268 and tax is 10%, what is the total price? Round to 2 decimals.
+A recipe uses 821 g flour and 225 g sugar. What fraction of the total is sugar (lowest terms)?
+A box has dimensions 27×30×26 cm. What is its volume in cubic centimeters? Return the integer.
+Convert 846 centimeters to meters. Number only.
+A box has dimensions 22×20×21 cm. What is its volume in cubic centimeters? Return the integer.
+A train travels 190 km in 12 hours. What is the average speed in km/h? Return the number only.
+A box has dimensions 34×12×3 cm. What is its volume in cubic centimeters? Return the integer.
+Convert 98 centimeters to meters. Number only.
+A recipe uses 504 g flour and 108 g sugar. What fraction of the total is sugar (lowest terms)?
+A train travels 305 km in 4 hours. What is the average speed in km/h? Return the number only.
+A train travels 288 km in 5 hours. What is the average speed in km/h? Return the number only.
+A recipe uses 505 g flour and 119 g sugar. What fraction of the total is sugar (lowest terms)?
+Convert 758 centimeters to meters. Number only.
+Convert 56 centimeters to meters. Number only.
+A train travels 108 km in 2 hours. What is the average speed in km/h? Return the number only.
+If an item costs $70 and tax is 12%, what is the total price? Round to 2 decimals.
+Convert 473 centimeters to meters. Number only.
+If an item costs $105 and tax is 13%, what is the total price? Round to 2 decimals.
+Convert 670 centimeters to meters. Number only.
+If an item costs $46 and tax is 5%, what is the total price? Round to 2 decimals.
+Given the title "Single‑Well Priors for Latent Manifolds", generate a concise slug using lowercase words and dashes only.
+Sort these comma‑separated values alphabetically and return the list: Finance, crypto, risk, RISK, finance, Equity.
+Sort these comma‑separated values alphabetically and return the list: AI, Machine Learning, ai, Optimization, NLP, nlp, Deep Learning.
+Rewrite this sentence in active voice: "The review was completed by the editor in one day."
+Given the title "Matched Filtering for Noisy Signals", generate a concise slug using lowercase words and dashes only.
+Rewrite this sentence in active voice: "The proposal was rejected by the committee without comment."
+Rewrite this sentence in active voice: "The datasets were processed by our pipeline last week."
+Rewrite this sentence in active voice: "The results were analyzed by the team after midnight."
+Sort these comma‑separated values alphabetically and return the list: Compute, storage, NETWORK, latency, Storage, compute.
+Rewrite this sentence in active voice: "The experiment was replicated by three independent labs."
+Rewrite this sentence in active voice: "The experiment was replicated by three independent labs."
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: python, data, Data, ML, ml, python, CODE.
+Sort these comma‑separated values alphabetically and return the list: Compute, storage, NETWORK, latency, Storage, compute.
+Given the title "Matched Filtering for Noisy Signals", generate a concise slug using lowercase words and dashes only.
+Given the title "Denoising Controls for Stable Reasoning", generate a concise slug using lowercase words and dashes only.
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: python, data, Data, ML, ml, python, CODE.
+Sort these comma‑separated values alphabetically and return the list: Graph, Trees, graph, traversal, sort, SORT.
+Sort these comma‑separated values alphabetically and return the list: python, data, Data, ML, ml, python, CODE.
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: Finance, crypto, risk, RISK, finance, Equity.
+Sort these comma‑separated values alphabetically and return the list: python, data, Data, ML, ml, python, CODE.
+Rewrite this sentence in active voice: "The proposal was rejected by the committee without comment."
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: AI, Machine Learning, ai, Optimization, NLP, nlp, Deep Learning.
+Sort these comma‑separated values alphabetically and return the list: python, data, Data, ML, ml, python, CODE.
+Rewrite this sentence in active voice: "The review was completed by the editor in one day."
+Rewrite this sentence in active voice: "The proposal was rejected by the committee without comment."
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: python, data, Data, ML, ml, python, CODE.
+Sort these comma‑separated values alphabetically and return the list: python, data, Data, ML, ml, python, CODE.
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: Compute, storage, NETWORK, latency, Storage, compute.
+Rewrite this sentence in active voice: "The review was completed by the editor in one day."
+Rewrite this sentence in active voice: "The experiment was replicated by three independent labs."
+Given the title "Denoising Controls for Stable Reasoning", generate a concise slug using lowercase words and dashes only.
+Sort these comma‑separated values alphabetically and return the list: AI, Machine Learning, ai, Optimization, NLP, nlp, Deep Learning.
+Rewrite this sentence in active voice: "The review was completed by the editor in one day."
+Rewrite this sentence in active voice: "The proposal was rejected by the committee without comment."
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: Graph, Trees, graph, traversal, sort, SORT.
+Given the title "A Gentle Introduction to Energy‑Based Models", generate a concise slug using lowercase words and dashes only.
+Sort these comma‑separated values alphabetically and return the list: python, data, Data, ML, ml, python, CODE.
+Rewrite this sentence in active voice: "The review was completed by the editor in one day."
+Rewrite this sentence in active voice: "The datasets were processed by our pipeline last week."
+Sort these comma‑separated values alphabetically and return the list: AI, Machine Learning, ai, Optimization, NLP, nlp, Deep Learning.
+Sort these comma‑separated values alphabetically and return the list: Finance, crypto, risk, RISK, finance, Equity.
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: python, data, Data, ML, ml, python, CODE.
+Given the title "Denoising Controls for Stable Reasoning", generate a concise slug using lowercase words and dashes only.
+Given the title "A Gentle Introduction to Energy‑Based Models", generate a concise slug using lowercase words and dashes only.
+Rewrite this sentence in active voice: "The results were analyzed by the team after midnight."
+Sort these comma‑separated values alphabetically and return the list: Graph, Trees, graph, traversal, sort, SORT.
+Normalize the following list of tags to lowercase and remove duplicates, return comma‑separated: python, data, Data, ML, ml, python, CODE.
+Sort these comma‑separated values alphabetically and return the list: python, data, Data, ML, ml, python, CODE.
+Sort these comma‑separated values alphabetically and return the list: Finance, crypto, risk, RISK, finance, Equity.
+Sort these comma‑separated values alphabetically and return the list: Finance, crypto, risk, RISK, finance, Equity.
+Sort these comma‑separated values alphabetically and return the list: python, data, Data, ML, ml, python, CODE.
+Sort these comma‑separated values alphabetically and return the list: Graph, Trees, graph, traversal, sort, SORT.
+Sort these comma‑separated values alphabetically and return the list: Compute, storage, NETWORK, latency, Storage, compute.
+Sort these comma‑separated values alphabetically and return the list: Finance, crypto, risk, RISK, finance, Equity.
+Given the title "Matched Filtering for Noisy Signals", generate a concise slug using lowercase words and dashes only.

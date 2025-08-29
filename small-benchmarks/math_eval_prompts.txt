@@ -1,0 +1,60 @@
+Compute 30+37. Return only the integer.
+Compute 31+30. Return only the integer.
+Compute 34+39. Return only the integer.
+Compute 14+13. Return only the integer.
+Compute 34+32. Return only the integer.
+Compute 42+41. Return only the integer.
+Compute 13+8. Return only the integer.
+Compute 30+21. Return only the integer.
+Compute 11+7. Return only the integer.
+Compute 36+46. Return only the integer.
+Compute 42+4. Return only the integer.
+Compute 40+27. Return only the integer.
+Compute 30+43. Return only the integer.
+Compute 49+41. Return only the integer.
+Compute 43+12. Return only the integer.
+Compute 41+2. Return only the integer.
+Compute 35+6. Return only the integer.
+Compute 5+4. Return only the integer.
+Compute 14+17. Return only the integer.
+Compute 40+3. Return only the integer.
+Compute 16*7. Return only the integer.
+Compute 16*11. Return only the integer.
+Compute 8*10. Return only the integer.
+Compute 9*12. Return only the integer.
+Compute 11*9. Return only the integer.
+Compute 2*12. Return only the integer.
+Compute 4*9. Return only the integer.
+Compute 10*8. Return only the integer.
+Compute 19*3. Return only the integer.
+Compute 10*7. Return only the integer.
+Compute 9*10. Return only the integer.
+Compute 11*2. Return only the integer.
+Compute 4*11. Return only the integer.
+Compute 5*8. Return only the integer.
+Compute 5*6. Return only the integer.
+A train travels 227 km in 2 hours. What is the average speed in km/h? Return the number only.
+A train travels 38 km in 1 hours. What is the average speed in km/h? Return the number only.
+A train travels 139 km in 4 hours. What is the average speed in km/h? Return the number only.
+A train travels 496 km in 1 hours. What is the average speed in km/h? Return the number only.
+A train travels 270 km in 7 hours. What is the average speed in km/h? Return the number only.
+A train travels 392 km in 7 hours. What is the average speed in km/h? Return the number only.
+A train travels 244 km in 2 hours. What is the average speed in km/h? Return the number only.
+A train travels 319 km in 4 hours. What is the average speed in km/h? Return the number only.
+A train travels 428 km in 5 hours. What is the average speed in km/h? Return the number only.
+A train travels 202 km in 2 hours. What is the average speed in km/h? Return the number only.
+A train travels 189 km in 6 hours. What is the average speed in km/h? Return the number only.
+A train travels 37 km in 7 hours. What is the average speed in km/h? Return the number only.
+A train travels 418 km in 2 hours. What is the average speed in km/h? Return the number only.
+A train travels 98 km in 4 hours. What is the average speed in km/h? Return the number only.
+A train travels 391 km in 2 hours. What is the average speed in km/h? Return the number only.
+Find the GCD of 2 and 5. Return only the integer.
+Find the GCD of 31 and 33. Return only the integer.
+Find the GCD of 13 and 45. Return only the integer.
+Find the GCD of 37 and 14. Return only the integer.
+Find the GCD of 30 and 34. Return only the integer.
+Find the GCD of 14 and 48. Return only the integer.
+Find the GCD of 10 and 28. Return only the integer.
+Find the GCD of 43 and 26. Return only the integer.
+Find the GCD of 9 and 27. Return only the integer.
+Find the GCD of 28 and 15. Return only the integer.

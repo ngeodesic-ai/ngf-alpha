@@ -1,0 +1,29 @@
+{
+  "model": "gpt2",
+  "tap": -5,
+  "pool_mode": "lastk",
+  "k_last": 16,
+  "calibration_prompts": 380,
+  "eval_prompts": 3,
+  "phantom_index": 0.0,
+  "margin_norm": 0.0,
+  "S_median": 0.12617776576298834,
+  "r_trend_tokens": 0.5888888888888889,
+  "K": 0,
+  "margin_improved": false,
+  "detector_unstable": false,
+  "dual_lobes": false,
+  "r_span": [
+    19.747185751128878,
+    20.175261939284653
+  ],
+  "margin_tied": true,
+  "dominant_basin": true,
+  "decision": "NO-GO",
+  "no_go_reasons": [
+    "BLOCK: margin_norm=0.000 < 0.04",
+    "BLOCK: S_median=0.13 < 0.55",
+    "BLOCK: r_trend_tokens=0.589 < 0.90",
+    "BLOCK: peak heights tied \u2192 margin_norm\u22480"
+  ]
+}
