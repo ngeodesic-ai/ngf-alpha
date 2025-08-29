@@ -61,7 +61,7 @@ Stage-11 introduced the breakthrough:
 * **Denoise:** Apply smoothing, phantom guards, and jitter averaging to suppress false wells.
 
 
-### Latent-ARC Results (n=100)
+#### Latent-ARC Results (n=100)
 | Model            | Exact Acc | Precision | Recall | F1     | Halluc. | Omission |
 |------------------|-----------|-----------|--------|--------|---------|----------|
 | Denoise (Stage 11)| **1.000** | 0.9977    | 0.9989 | 0.9983 | 0.0045  | 0.0023   |
