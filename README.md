@@ -92,9 +92,6 @@ python -u arc-benchmark-latest.py \
 * Compare NGF-augmented vs stock outputs – run side-by-side on MMLU, ARC, or QA tasks, measuring exact accuracy, hallucination rates, and stability.
 * Iterate lightweight integration modes – start with scoring-only (rerank logits), then projection alignment, and finally soft attention gating, balancing determinism with compute cost.
 
-## Hardware Notes
-Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
-
 ## Technical Paper - WORK IN PROGRESS
 A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_latest.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 20, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726, #63/865,437, 63/871,647, and 63/872,334.
 
