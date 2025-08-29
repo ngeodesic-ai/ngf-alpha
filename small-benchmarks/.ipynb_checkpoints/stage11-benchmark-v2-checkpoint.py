@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
 # ==============================================================================
 # Apache 2.0 License (ngeodesic.ai)
@@ -20,7 +21,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 Stage 11 — Well Benchmark (Consolidated)
 ---------------------------------------
 This single script merges the Stage 11 baseline funnel benchmark (viz + priors + report
@@ -35,22 +35,33 @@ Highlights
 - Apples-to-apples metrics vs stock parser
 - CSV/JSON report outputs; optional replay via --in_truth
 
-Benchmark
-    python3 -u arc-benchmark-latest.py \
-      --samples 100 --seed 42 \
-      --latent_arc --latent_dim 64 --latent_arc_noise 0.05 \
-      --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
-      --probe_k 5 --probe_eps 0.02 --conf_gate 0.65 --noise_floor 0.03 \
-      --seed_jitter 2 --log INFO \
-      --out_json latent_arc_denoise_100.json --out_csv latent_arc_denoise_100.csv
-  
+Example (baseline report only):
+  python3 stage11-benchmark-v2.py  \
+    --samples 200 --seed 42 --T 720 --sigma 9 \
+    --out_plot manifold_pca3_mesh_warped.png \
+    --out_csv stage11_metrics.csv \
+    --out_json stage11_summary.json \
+    --use_funnel_prior 0
+
+Example (with funnel prior rescoring):
+  python3 stage11-benchmark-v2.py   \
+    --samples 200 --seed 42 --use_funnel_prior 1 --alpha 0.05 --beta_s 0.25 --q_s 2 \
+    --tau_rel 0.60 --tau_abs_q 0.93 --null_K 40
+
+Example (denoiser run + manifold renders):
+  python3 stage11-benchmark-v2.py  \
+    --samples 200 --seed 42 --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
+    --probe_k 5 --probe_eps 0.02 --conf_gate 0.65 --noise_floor 0.03 --seed_jitter 2 \
+    --render_well --render_samples 1500 --render_grid 120 --render_quantile 0.8 \
+    --out_plot manifold_pca3_mesh_warped.png \
+    --out_plot_fit manifold_pca3_mesh_warped_fit.png \
+    --out_csv _denoise_hybrid.csv --out_json _denoise_hybrid.json
 """
 
 from __future__ import annotations
 import argparse, json, csv, math, os, random, warnings, logging as pylog
 from dataclasses import dataclass
 from typing import Dict, Optional, Tuple, List
-import sys, traceback
 
 import numpy as np
 
@@ -610,42 +621,12 @@ class Runner:
     def __init__(self, args: argparse.Namespace, hooks: ModelHooks):
         self.args = args
         self.hooks = hooks
-        self._rng = np.random.default_rng(args.seed)
         self.logger = pylog.getLogger("stage11.consolidated")
-        # Precompute latent ARC set if requested
-        self._latent_arc = None
-        if getattr(args, "latent_arc", False):
-            self._latent_names, self._latent_targets = self._build_latent_arc_set(args.latent_dim, args.seed, args.latent_arc_noise)
-
-    def _build_latent_arc_set(self, dim: int, seed: int, noise_scale: float):
-        rng = np.random.default_rng(seed)
-        # Five canonical wells/targets arranged with simple geometric relations
-        # Case A: axis-aligned pull
-        xA = np.zeros(dim); xA[0] = 1.0; xA[1] = 0.5
-        # Case B: quadrant target
-        xB = np.zeros(dim); xB[0] = -0.8; xB[1] = 0.9
-        # Case C: ring-radius target
-        xC = np.zeros(dim); r = 1.2; ang = np.deg2rad(225); xC[0] = r*np.cos(ang); xC[1] = r*np.sin(ang)
-        # Case D: shallow well near origin (harder phantom risk)
-        xD = np.zeros(dim); xD[0] = 0.25; xD[1] = -0.15
-        # Case E: deep well far edge (tests step saturation)
-        xE = np.zeros(dim); xE[0] = 1.8; xE[1] = -1.4
-        targets = [xA, xB, xC, xD, xE]
-        names = ["axis_pull","quad_NE","ring_SW","shallow_origin","deep_edge"]
-        return names, targets
 
     def _init_latents(self, dim: int) -> Tuple[np.ndarray, np.ndarray]:
-        if getattr(self, "_latent_targets", None) is not None:
-            i = getattr(self, "_latent_idx", 0)
-            j = i % len(self._latent_targets)
-            x_star = self._latent_targets[j]
-            self._last_latent_arc_name = self._latent_names[j]
-            self._latent_idx = i + 1
-            # fresh start every sample
-            x0 = x_star + self._rng.normal(scale=self.args.latent_arc_noise, size=dim)
-            return x0.copy(), x_star.copy()
-
-
+        x_star = np.random.uniform(-1.0, 1.0, size=(dim,))
+        x0 = x_star + np.random.normal(scale=0.5, size=(dim,))
+        return x0, x_star
 
     def run_sample(self, idx: int) -> Dict[str, float]:
         np.random.seed(self.args.seed + idx)
@@ -690,28 +671,13 @@ class Runner:
 
     def run(self) -> Dict[str, float]:
         metrics_list: List[Dict[str, float]] = []
-        names: List[str] = []
         for i in range(self.args.samples):
             m = self.run_sample(i)
-            if hasattr(self, "_last_latent_arc_name"):
-                m = {**m, "latent_arc": self._last_latent_arc_name}
-                names.append(self._last_latent_arc_name)
             metrics_list.append(m)
-        # Aggregate
         agg: Dict[str, float] = {}
-        keys = [k for k in metrics_list[0].keys() if k != "latent_arc"] if metrics_list else []
+        keys = metrics_list[0].keys() if metrics_list else []
         for k in keys:
             agg[k] = float(np.mean([m[k] for m in metrics_list]))
-        # Per-test breakdown if latent ARC
-        if names:
-            by = {}
-            for m in metrics_list:
-                nm = m.get("latent_arc", "?")
-                by.setdefault(nm, []).append(m)
-            agg_break = {}
-            for nm, arr in by.items():
-                agg_break[nm] = {k: float(np.mean([x[k] for x in arr])) for k in keys}
-            agg["latent_arc_breakdown"] = agg_break
         self.logger.info("[SUMMARY] Geodesic (denoise path): " + json.dumps(agg, sort_keys=True))
         return agg
 
@@ -888,10 +854,6 @@ def build_argparser() -> argparse.ArgumentParser:
     p.add_argument("--compare_a", type=str, default="")
     p.add_argument("--compare_b", type=str, default="")
 
-    # Latent ARC tests (hardcoded)
-    p.add_argument("--latent_arc", action="store_true", help="Run 5 hardcoded latent ARC tests in denoiser path.")
-    p.add_argument("--latent_arc_noise", type=float, default=0.05, help="Start noise scale for latent ARC x0.")
-    
     # Logging
     p.add_argument("--log", type=str, default="INFO")
     return p
@@ -928,13 +890,6 @@ def main():
     lvl = getattr(pylog, getattr(args, "log", "INFO").upper(), pylog.INFO)
     pylog.basicConfig(level=lvl, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     logger = pylog.getLogger("stage11.main")
-
-    # ✅ move this inside main()
-    print(
-        f"[CFG] log={getattr(args,'log','INFO')} samples={args.samples} "
-        f"denoise_mode={args.denoise_mode} latent_arc={getattr(args,'latent_arc', False)}",
-        flush=True
-    )
 
     if args.compare:
         if not (args.compare_a and args.compare_b):
@@ -1081,27 +1036,15 @@ def main():
         hooks = ModelHooks()
         runner = Runner(args, hooks)
         denoise_metrics = runner.run()
-        # Append to JSON summary
+        # Optionally, append to JSON summary under a new key
         if args.out_json:
             try:
                 with open(args.out_json, "r") as f:
                     S = json.load(f)
                 S["denoise"] = denoise_metrics
-                # If latent ARC breakdown present, keep it
                 write_json(args.out_json, S)
             except Exception:
-                write_json(args.out_json, {"denoise": denoise_metrics})
+                pass
 
-    print(f"[CFG] log={getattr(args,'log','INFO')} samples={args.samples} "
-      f"denoise_mode={args.denoise_mode} latent_arc={getattr(args,'latent_arc', False)}",
-      flush=True)
-
-try:
-    print("[START] stage11-benchmark-consolidated-gpt-v1.py", flush=True)
+if __name__ == "__main__":
     main()
-    print("[DONE] stage11-benchmark-consolidated-gpt-v1.py", flush=True)
-except Exception as e:
-    import traceback, sys
-    print("[ERROR] Uncaught exception:", e, flush=True)
-    traceback.print_exc()
-    sys.exit(1)

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
 # ==============================================================================
 # Apache 2.0 License (ngeodesic.ai)
@@ -20,7 +21,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 Stage 11 — Well Benchmark (Consolidated)
 ---------------------------------------
 This single script merges the Stage 11 baseline funnel benchmark (viz + priors + report
@@ -35,15 +35,28 @@ Highlights
 - Apples-to-apples metrics vs stock parser
 - CSV/JSON report outputs; optional replay via --in_truth
 
-Benchmark
-    python3 -u arc-benchmark-latest.py \
-      --samples 100 --seed 42 \
-      --latent_arc --latent_dim 64 --latent_arc_noise 0.05 \
-      --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
-      --probe_k 5 --probe_eps 0.02 --conf_gate 0.65 --noise_floor 0.03 \
-      --seed_jitter 2 --log INFO \
-      --out_json latent_arc_denoise_100.json --out_csv latent_arc_denoise_100.csv
-  
+Example (baseline report only):
+  python3 stage11-benchmark-v1.py \
+    --samples 200 --seed 42 --T 720 --sigma 9 \
+    --out_plot manifold_pca3_mesh_warped.png \
+    --out_csv stage11_metrics.csv \
+    --out_json stage11_summary.json \
+    --use_funnel_prior 0
+
+Example (with funnel prior rescoring):
+  python3 stage11-benchmark-v1.py \
+    --samples 200 --seed 42 --use_funnel_prior 1 --alpha 0.05 --beta_s 0.25 --q_s 2 \
+    --tau_rel 0.60 --tau_abs_q 0.93 --null_K 40
+
+Example (denoiser run + manifold renders):
+  PYTHONUNBUFFERED=1 python3 -u stage11-benchmark-v1.py \
+  --samples 5 --seed 42 \
+  --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
+  --probe_k 5 --probe_eps 0.02 --conf_gate 0.65 --noise_floor 0.03 \
+  --seed_jitter 2 \
+  --latent_arc --latent_arc_noise 0.05 \
+  --log DEBUG \
+  --out_json _tmp_summary.json --out_csv _tmp_metrics.csv
 """
 
 from __future__ import annotations
@@ -610,12 +623,11 @@ class Runner:
     def __init__(self, args: argparse.Namespace, hooks: ModelHooks):
         self.args = args
         self.hooks = hooks
-        self._rng = np.random.default_rng(args.seed)
         self.logger = pylog.getLogger("stage11.consolidated")
         # Precompute latent ARC set if requested
         self._latent_arc = None
         if getattr(args, "latent_arc", False):
-            self._latent_names, self._latent_targets = self._build_latent_arc_set(args.latent_dim, args.seed, args.latent_arc_noise)
+            self._latent_arc = self._build_latent_arc_set(args.latent_dim, args.seed, args.latent_arc_noise)
 
     def _build_latent_arc_set(self, dim: int, seed: int, noise_scale: float):
         rng = np.random.default_rng(seed)
@@ -631,21 +643,21 @@ class Runner:
         # Case E: deep well far edge (tests step saturation)
         xE = np.zeros(dim); xE[0] = 1.8; xE[1] = -1.4
         targets = [xA, xB, xC, xD, xE]
+        starts = [t + rng.normal(scale=noise_scale, size=dim) for t in targets]
         names = ["axis_pull","quad_NE","ring_SW","shallow_origin","deep_edge"]
-        return names, targets
+        return list(zip(names, starts, targets))
 
     def _init_latents(self, dim: int) -> Tuple[np.ndarray, np.ndarray]:
-        if getattr(self, "_latent_targets", None) is not None:
+        # If latent ARC is active, cycle through the 5 hardcoded tests
+        if self._latent_arc is not None:
             i = getattr(self, "_latent_idx", 0)
-            j = i % len(self._latent_targets)
-            x_star = self._latent_targets[j]
-            self._last_latent_arc_name = self._latent_names[j]
+            name, x0, x_star = self._latent_arc[i % len(self._latent_arc)]
+            self._last_latent_arc_name = name
             self._latent_idx = i + 1
-            # fresh start every sample
-            x0 = x_star + self._rng.normal(scale=self.args.latent_arc_noise, size=dim)
             return x0.copy(), x_star.copy()
-
-
+        x_star = np.random.uniform(-1.0, 1.0, size=(dim,))
+        x0 = x_star + np.random.normal(scale=0.5, size=(dim,))
+        return x0, x_star
 
     def run_sample(self, idx: int) -> Dict[str, float]:
         np.random.seed(self.args.seed + idx)
