@@ -67,7 +67,9 @@ Stage-11 introduced the breakthrough:
 | Denoise (Stage 11)| **1.000** | 0.9977    | 0.9989 | 0.9983 | 0.0045  | 0.0023   |
 | Geodesic (pre)   | 0.640     | 0.8450    | 1.0000 | 0.8980 | 0.1550  | 0.0000   |
 | Stock baseline   | 0.490     | 0.8900    | 0.7767 | 0.7973 | 0.1100  | 0.2233   |
+
 Integrity metrics: `phantom_index ≈ 0.0650`, `margin ≈ 0.0440`.
+
 _Artifact:_ `latent_arc_denoise_100.json` (with `csv: latent_arc_denoise_100.csv`, `plot_raw: manifold_pca3_mesh_warped.png`, `plot_fitted: manifold_pca3_mesh_warped_fit.png`).
 
 
