@@ -69,6 +69,7 @@ Stage-11 introduced the breakthrough:
 | Stock baseline   | 0.490     | 0.8900    | 0.7767 | 0.7973 | 0.1100  | 0.2233   |
 
 Integrity metrics: `phantom_index ≈ 0.0650`, `margin ≈ 0.0440`.
+Note: Stock baseline approximates what you’d see if you used simple thresholds on LLM latents/logits without NGF’s Warp→Detect→Denoise.
 
 #### How This Relates to LLMs
 * NGF is not a new LLM. It is a geometry-on-latents module.
