@@ -83,7 +83,7 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
 
 ### 4. **Python and Tools Setup**
    - **Why?** All code is in Python; you'll run notebooks for simulations.
-   - **Requirements:** Python 3.x, transformers==4.30.0, torch==2.4.1, numpy==1.26.4, scikit-learn==1.0.0. NVIDIA GPU (A100 recommended) for benchmarks.
+   - **Requirements:** Python 3.x, transformers==4.55.2, torch==2.8.0, numpy==2.0.2, scikit-learn==1.6.1. NVIDIA GPU (A100 recommended) for benchmarks.
    - **Setup:** `pip install -r requirements.txt` (create one if needed). Clone the repo and run `jupyter notebook` in each stage directory.
    - **Resources:** If new to Jupyter, [Quickstart Guide](https://jupyter.org/install).
 
@@ -91,7 +91,7 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
    - Read the repo's [README.md](../README.md) and [/docs/article_latest.pdf](/docs/article_latest.pdf) (latest draft paper).
    - Zenodo memo: [Warped Semantic Manifolds](https://zenodo.org/records/16908227) for conceptual overview.
 
-Once comfortable, dive into the code, start with [toy-example/step1.ipynb](toy-example/stage1.ipynb) and build up!
+Once comfortable, dive into the code, start with [toy-example/stage1.ipynb](toy-example/stage1.ipynb) and build up!
 
 ## Project Progression: Three Overarching Phases
 The 12-step research plan (stages 1-10 completed; 11-12 planned for large benchmarks) evolved organically. It began with simple GR-inspired toys to prove warping reduces drift, then scaled to structured data and LLMs. We've grouped the 12 stages into three phases for clarity:
