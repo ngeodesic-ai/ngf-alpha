@@ -35,7 +35,6 @@ Stage 10 — v2 synthetic benchmark (parser + executor)
 Usage:
   python3 arc_stage10_v2_synth.py --samples 12 --seed 42 --T 720 --plot_dir plots_v2_synth
 
-Author: Stage 10 v2 (synthetic) — consolidated by ChatGPT
 """
 
 # python3 stage10-benchmark-latest.py --samples 10 --seed 42
