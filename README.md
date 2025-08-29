@@ -70,9 +70,6 @@ Stage-11 introduced the breakthrough:
 
 Integrity metrics: `phantom_index ≈ 0.0650`, `margin ≈ 0.0440`.
 
-_Artifact:_ `latent_arc_denoise_100.json` (with `csv: latent_arc_denoise_100.csv`, `plot_raw: manifold_pca3_mesh_warped.png`, `plot_fitted: manifold_pca3_mesh_warped_fit.png`).
-
-
 #### How This Relates to LLMs
 * NGF is not a new LLM. It is a geometry-on-latents module.
 * You can integrate NGF with any embedding-producing model (LLMs, encoders, diffusion models).
