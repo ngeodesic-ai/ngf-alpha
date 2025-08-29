@@ -60,12 +60,16 @@ Stage-11 introduced the breakthrough:
 * **Detect:** Use matched filters with null calibration to identify the true well.
 * **Denoise:** Apply smoothing, phantom guards, and jitter averaging to suppress false wells.
 
-#### Results
-On Latent ARC (n=100):
-* Stock Parser: 49% exact
-* Geodesic Parser (Stage-10): 64% exact
-* Stage-11 Denoiser: 100% exact; hallucination ≈ 0.5%, omission ≈ 0.2%
-This is deterministic reasoning: geodesic paths converge to truth-aligned endpoints.
+
+### Latent-ARC Results (n=100)
+| Model            | Exact Acc | Precision | Recall | F1     | Halluc. | Omission |
+|------------------|-----------|-----------|--------|--------|---------|----------|
+| Denoise (Stage 11)| **1.000** | 0.9977    | 0.9989 | 0.9983 | 0.0045  | 0.0023   |
+| Geodesic (pre)   | 0.640     | 0.8450    | 1.0000 | 0.8980 | 0.1550  | 0.0000   |
+| Stock baseline   | 0.490     | 0.8900    | 0.7767 | 0.7973 | 0.1100  | 0.2233   |
+Integrity metrics: `phantom_index ≈ 0.0650`, `margin ≈ 0.0440`.
+_Artifact:_ `latent_arc_denoise_100.json` (with `csv: latent_arc_denoise_100.csv`, `plot_raw: manifold_pca3_mesh_warped.png`, `plot_fitted: manifold_pca3_mesh_warped_fit.png`).
+
 
 #### How This Relates to LLMs
 * NGF is not a new LLM. It is a geometry-on-latents module.
