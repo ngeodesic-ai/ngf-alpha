@@ -54,11 +54,11 @@ Install dependencies:
 !pip install transformers==4.55.2 torch==2.8.0 numpy==2.0.2 scikit-learn==1.6.1
 ```
 
-## Stage-11: Warp → Detect → Denoise
+## Stage-11 (Current): Warp → Detect → Denoise
 Stage-11 introduced the breakthrough:
-* **Warp:** Embed latents into PCA(3) space, warp into a single dominant well【186†stage11_doctrine.pdf】.
-* **Detect:** Use matched filters with null calibration to identify the true well【187†stage11_math.pdf】.
-* **Denoise:** Apply smoothing, phantom guards, and jitter averaging to suppress false wells【192†patent_appendix_a.pdf】.
+* **Warp:** Embed latents into PCA(3) space, warp into a single dominant well.
+* **Detect:** Use matched filters with null calibration to identify the true well.
+* **Denoise:** Apply smoothing, phantom guards, and jitter averaging to suppress false wells.
 
 #### Results
 On Latent ARC (n=100):
