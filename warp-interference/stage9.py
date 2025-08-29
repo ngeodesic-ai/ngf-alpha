@@ -1,3 +1,4 @@
+"""
 # ==============================================================================
 # Apache 2.0 License (ngeodesic.ai)
 # ==============================================================================
@@ -17,10 +18,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# ==============================================================================
-# Runtime environment
-# ==============================================================================
-# !pip install transformers==4.55.2 torch==2.8.0 numpy==2.0.2 scikit-learn==1.6.1
+# Stage9 exectution
+python3 stage9.py
+
+"""
 
 import os
 import re
