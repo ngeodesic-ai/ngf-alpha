@@ -84,7 +84,7 @@ python -u arc-benchmark-latest.py \
       --out_json latent_arc_denoise_100.json --out_csv latent_arc_denoise_100.csv
 ```
 
-## What’s Next: Deploying NGF with Real LLMs
+## Stage-11 (What’s Next): Deploying NGF with Real LLMs
 * Hook NGF into LLM hidden states – tap embeddings from mid/upper layers of GPT-2/GPT-Neo, warp into a single cognition well, and apply the Warp → Detect → Denoise pipeline.
 * Compare NGF-augmented vs stock outputs – run side-by-side on MMLU, ARC, or QA tasks, measuring exact accuracy, hallucination rates, and stability.
 * Iterate lightweight integration modes – start with scoring-only (rerank logits), then projection alignment, and finally soft attention gating, balancing determinism with compute cost.
