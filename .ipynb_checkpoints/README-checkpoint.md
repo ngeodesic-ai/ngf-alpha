@@ -29,7 +29,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 11 | [Small Benchmarks](small-benchmarks/stage11-benchmark-latest.py) | LLM System*   | CPU | small-benchmarks/ |
 | 12 | Large Benchmark (coming) | LLM System* | A100 | milestone-benchmark/ |
 
-(*) **Note**: Integration of NGF with Real LLM pending
+(*) **Note**: Integration of NGF with LLM pending
 
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
 
