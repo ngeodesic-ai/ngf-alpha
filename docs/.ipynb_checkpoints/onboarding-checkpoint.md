@@ -37,14 +37,14 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
 
 ### 3. Signal Processing
 
-    - **Why?**  The Noetic Geodesic Framework (NGF) is engineered as a signal-processing pipeline at its core.  
+   - **Why?**  The Noetic Geodesic Framework (NGF) is engineered as a signal-processing pipeline at its core.  
     Latent trajectories are treated as discrete-time signals, with energy traces, filtering, and detection 
     performed directly in that domain. By reframing hallucinations as structured noise and truth-aligned 
     paths as dominant signal lobes, we can borrow the full SP toolbox—matched filters, null calibration, 
     SNR proxies, and inhibition—to drive reasoning toward deterministic convergence. This framing is 
     essential: without SP rigor, phantom wells emerge, thresholds drift, and trajectories destabilize.
     
-    - **Key Concepts**  
+   - **Key Concepts**  
         - **Matched Filtering:** Core detector that aligns residual energy traces to template bumps, 
           maximizing sensitivity in additive noise.  
         - **Dual Thresholds:** Relative gating (vs. best channel) plus absolute-null calibration 
@@ -60,7 +60,7 @@ To contribute effectively, you'll need a basic grasp of these areas. We've kept 
         - **Control Guards:** Hybrid EMA+median smoothing, confidence gating, phantom-guard probes, 
           and jitter averaging act as stabilization filters.  
     
-    - **Resources**  
+   - **Resources**  
         - Oppenheim & Schafer, *Discrete-Time Signal Processing* — matched filtering, FIR/IIR smoothing.  
         - Turin (1960); Van Trees (1968) — classical matched filter and detection theory.  
         - Efron & Tibshirani (1993) — bootstrap and resampling for null calibration.  
