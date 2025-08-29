@@ -93,7 +93,7 @@ python -u arc-benchmark-latest.py \
 Results validated on an NVIDIA A100 GPU (Colab Pro+ & Grok Expert). Testing on NVIDIA T4 and CPU currently inprogress. Performance may vary; A100 recommended for optimal results.
 
 ## Technical Paper - WORK IN PROGRESS
-A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_latest.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 20, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726 and #63/865,437.
+A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_latest.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 20, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726, #63/865,437, 63/871,647, and 63/872,334.
 
 ## References
 - Moore, I. C. (2025). *Warped Semantic Manifolds: A Geometric Framework for Deterministic AI Reasoning (Preliminary Memo)*. Zenodo. https://zenodo.org/records/16908227 (DOI: 10.5281/zenodo.16730759); see [code](toy-example/step1.ipynb)
