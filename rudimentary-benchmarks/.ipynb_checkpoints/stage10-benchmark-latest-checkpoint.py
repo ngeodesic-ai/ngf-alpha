@@ -32,12 +32,6 @@ Stage 10 — v2 synthetic benchmark (parser + executor)
 - Executes parsed tasks via geodesic *primitive* executor (here: literal ops)
 - Reports accuracy and saves diagnostic plots
 
-Usage:
-  python3 arc_stage10_v2_synth.py --samples 12 --seed 42 --T 720 --plot_dir plots_v2_synth
-
-"""
-
-# python3 stage10-benchmark-latest.py --samples 10 --seed 42
 
 # Flags you can tweak
 # --samples (default 12)
@@ -47,6 +41,12 @@ Usage:
 # --sigma smoother window (default 9)
 # --proto_width matched-filter width (default 140)
 # --topk force a max number of concepts to keep (else auto)
+
+Usage:
+  python3 stage10-benchmark-latest.py --samples 12 --seed 42 --T 720 --plot_dir plots_stage10
+  python3 stage10-benchmark-latest.py --samples 10 --seed 42
+
+"""
 
 # [01] -> Tasks: ['rotate'] | Order: rotate | ok=True
 #      areas⊥=[1.092, 1.196, 51.425] corr_peak=[0.523, 0.11, 0.973] plot=plots_v2/sample01.png
