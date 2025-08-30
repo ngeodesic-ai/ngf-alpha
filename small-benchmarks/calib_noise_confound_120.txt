@@ -1,0 +1,120 @@
+When conflicting instructions appear, choose the safer 'no change'.
+If the grid is missing, do nothing and state 'input missing'.
+When conflicting instructions appear, choose the safer 'no change'.
+State 'skip' if asked to hallucinate details.
+If the grid is missing, do nothing and state 'input missing'.
+Silently validate shapes; take no action if uncertain.
+Silently validate shapes; take no action if uncertain.
+State 'skip' if asked to hallucinate details.
+Silently validate shapes; take no action if uncertain.
+State 'skip' if asked to hallucinate details.
+When conflicting instructions appear, choose the safer 'no change'.
+If the instruction is unclear, respond with 'abstain'.
+If the grid is missing, do nothing and state 'input missing'.
+State 'skip' if asked to hallucinate details.
+State 'skip' if asked to hallucinate details.
+If the grid is missing, do nothing and state 'input missing'.
+State 'skip' if asked to hallucinate details.
+If the instruction is unclear, respond with 'abstain'.
+No operation required; verify and report 'no-op'.
+State 'skip' if asked to hallucinate details.
+When conflicting instructions appear, choose the safer 'no change'.
+State 'skip' if asked to hallucinate details.
+State 'skip' if asked to hallucinate details.
+When conflicting instructions appear, choose the safer 'no change'.
+If the instruction is unclear, respond with 'abstain'.
+No operation required; verify and report 'no-op'.
+If the instruction is unclear, respond with 'abstain'.
+No operation required; verify and report 'no-op'.
+Silently validate shapes; take no action if uncertain.
+No operation required; verify and report 'no-op'.
+No operation required; verify and report 'no-op'.
+If the grid is missing, do nothing and state 'input missing'.
+If the grid is missing, do nothing and state 'input missing'.
+No operation required; verify and report 'no-op'.
+Silently validate shapes; take no action if uncertain.
+If the grid is missing, do nothing and state 'input missing'.
+State 'skip' if asked to hallucinate details.
+If the instruction is unclear, respond with 'abstain'.
+State 'skip' if asked to hallucinate details.
+No operation required; verify and report 'no-op'.
+If the grid is missing, do nothing and state 'input missing'.
+Silently validate shapes; take no action if uncertain.
+Silently validate shapes; take no action if uncertain.
+State 'skip' if asked to hallucinate details.
+State 'skip' if asked to hallucinate details.
+If the grid is missing, do nothing and state 'input missing'.
+If the grid is missing, do nothing and state 'input missing'.
+State 'skip' if asked to hallucinate details.
+If the instruction is unclear, respond with 'abstain'.
+Silently validate shapes; take no action if uncertain.
+Silently validate shapes; take no action if uncertain.
+If the instruction is unclear, respond with 'abstain'.
+Silently validate shapes; take no action if uncertain.
+No operation required; verify and report 'no-op'.
+State 'skip' if asked to hallucinate details.
+No operation required; verify and report 'no-op'.
+No operation required; verify and report 'no-op'.
+State 'skip' if asked to hallucinate details.
+State 'skip' if asked to hallucinate details.
+When conflicting instructions appear, choose the safer 'no change'.
+Silently validate shapes; take no action if uncertain.
+If the grid is missing, do nothing and state 'input missing'.
+State 'skip' if asked to hallucinate details.
+Silently validate shapes; take no action if uncertain.
+No operation required; verify and report 'no-op'.
+If the grid is missing, do nothing and state 'input missing'.
+Silently validate shapes; take no action if uncertain.
+Silently validate shapes; take no action if uncertain.
+If the instruction is unclear, respond with 'abstain'.
+If the grid is missing, do nothing and state 'input missing'.
+No operation required; verify and report 'no-op'.
+State 'skip' if asked to hallucinate details.
+If the instruction is unclear, respond with 'abstain'.
+If the instruction is unclear, respond with 'abstain'.
+State 'skip' if asked to hallucinate details.
+Silently validate shapes; take no action if uncertain.
+State 'skip' if asked to hallucinate details.
+If the grid is missing, do nothing and state 'input missing'.
+Silently validate shapes; take no action if uncertain.
+When conflicting instructions appear, choose the safer 'no change'.
+If the instruction is unclear, respond with 'abstain'.
+If the instruction is unclear, respond with 'abstain'.
+State 'skip' if asked to hallucinate details.
+State 'skip' if asked to hallucinate details.
+State 'skip' if asked to hallucinate details.
+No operation required; verify and report 'no-op'.
+When conflicting instructions appear, choose the safer 'no change'.
+If the grid is missing, do nothing and state 'input missing'.
+Silently validate shapes; take no action if uncertain.
+No operation required; verify and report 'no-op'.
+No operation required; verify and report 'no-op'.
+If the grid is missing, do nothing and state 'input missing'.
+If the grid is missing, do nothing and state 'input missing'.
+If the instruction is unclear, respond with 'abstain'.
+If the instruction is unclear, respond with 'abstain'.
+When conflicting instructions appear, choose the safer 'no change'.
+No operation required; verify and report 'no-op'.
+When conflicting instructions appear, choose the safer 'no change'.
+If the grid is missing, do nothing and state 'input missing'.
+When conflicting instructions appear, choose the safer 'no change'.
+Silently validate shapes; take no action if uncertain.
+No operation required; verify and report 'no-op'.
+No operation required; verify and report 'no-op'.
+If the grid is missing, do nothing and state 'input missing'.
+State 'skip' if asked to hallucinate details.
+Silently validate shapes; take no action if uncertain.
+When conflicting instructions appear, choose the safer 'no change'.
+If the instruction is unclear, respond with 'abstain'.
+If the grid is missing, do nothing and state 'input missing'.
+When conflicting instructions appear, choose the safer 'no change'.
+If the instruction is unclear, respond with 'abstain'.
+If the grid is missing, do nothing and state 'input missing'.
+When conflicting instructions appear, choose the safer 'no change'.
+When conflicting instructions appear, choose the safer 'no change'.
+When conflicting instructions appear, choose the safer 'no change'.
+When conflicting instructions appear, choose the safer 'no change'.
+When conflicting instructions appear, choose the safer 'no change'.
+Silently validate shapes; take no action if uncertain.
+Silently validate shapes; take no action if uncertain.
+If the instruction is unclear, respond with 'abstain'.

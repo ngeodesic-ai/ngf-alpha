@@ -4,12 +4,20 @@
 Stage-11 Live LLM Shadow Probe (CPU-only)
 
 Usage:
-  python3 stage11_llm_shadow.py \
+  python3 stage11_llm_shadow_base.py \
     --model gpt2 --tap -3 \
     --calib prompts_calib.txt \
     --eval  prompts_eval.txt \
     --render_well \
     --out_json llm_shadow_summary.json
+
+python3 stage11_llm_shadow_base.py \
+  --model gpt2 --tap -2 \
+  --calib calib_prompts_v2_900.txt \
+  --eval  calib_eval_style_200.txt \
+  --render_well \
+  --out_json logs/llm_shadow_base_summary.json
+    
 """
 
 import argparse, json, numpy as np
@@ -179,7 +187,9 @@ def main():
     trend_vals = [token_inward_trend(model, tok, p, args.tap, pca) for p in eval_prompts]
     r_trend_tokens = float(np.mean(trend_vals))
     
-    phantom_index, margin_raw, margin_norm = phantom_metrics_from_Y3(Ye, nbins=120, sigma=2.0)
+    phantom_index, margin_raw, margin_norm = phantom_metrics_from_Y3(
+        Ye, nbins=96, sigma=3.0, merge_tol=1e-3, min_prom=0.02
+    )
     out = {
         "phantom_index": float(phantom_index),
         "margin_norm":   float(margin_norm),

@@ -21,6 +21,76 @@ Usage (example):
     --ema_gamma 0.8 --med_k 5 --tau_conf 0.6 \
     --jitter_sigma 0.03 --jitter_J 8 --backoff 0.5 \
     --out_json llm_shadow_hijack_summary.json
+
+python3 stage11_llm_shadow-hijack-v4.py \
+  --model gpt2 \
+  --tap -2 \
+  --calib calib_prompts_v2_900.txt \
+  --eval  ngf_eval_prompts_60.txt \
+  --steps 96 --eta 0.15 \
+  --ema_gamma 0.96 --med_k 17 \
+  --jitter_sigma 0.015 --jitter_J 6 \
+  --use_depth_weighted_pi 1 --pi_beta 7.5 \
+  --nms_radius 6 --sigma_scale 0.68 \
+  --local_radius 1.30 \
+  --tau_conf 0.72 --backoff 0.78 \
+  --tok_eta 0.25 \
+  --out_json logs/llm_shadow_hijack_summary_shadow_fix2.json \
+  --render
+
+
+python3 stage11_llm_shadow-hijack-v4.py \
+  --model gpt2 \
+  --tap -2 \
+  --calib calib_semantic_well_300.txt, calib_primitive_ops_300.txt \
+  --eval  ngf_eval_prompts_60.txt \
+  --steps 96 --eta 0.15 \
+  --ema_gamma 0.96 --med_k 17 \
+  --jitter_sigma 0.015 --jitter_J 6 \
+  --use_depth_weighted_pi 1 --pi_beta 7.5 \
+  --nms_radius 6 --sigma_scale 0.68 \
+  --local_radius 1.30 \
+  --tau_conf 0.72 --backoff 0.78 \
+  --tok_eta 0.25 \
+  --out_json logs/llm_shadow_hijack_summary_shadow_fix2.json \
+  --render
+
+python3 stage11_llm_shadow-hijack-v4.py \
+  --model gpt2 \
+  --tap -2 \
+  --calib data/calib_prompts_v2_900.txt \
+  --eval  ngf_eval_prompts_60.txt \
+  --steps 128 \
+  --eta 0.20 \
+  --eta_cool 0.10 --eta_cool_start 0.60 \
+  --ema_gamma 0.965 --med_k 19 \
+  --jitter_sigma 0.018 --jitter_J 8 \
+  --jitter_cool 0.0 --jitter_cool_start 0.80 \
+  --backoff 0.85 \
+  --tok_eta 0.20 \
+  --use_depth_weighted_pi 1 --pi_beta 6.5 \
+  --nms_radius 7 --sigma_scale 0.72 \
+  --local_radius 1.35 \
+  --out_json logs/llm_shadow_fix_two_phase.json \
+  --render
+
+
+python3 stage11_llm_shadow-hijack-v4.py \
+  --model gpt2 \
+  --tap -2 \
+  --calib calib_prompts_600.txt \
+  --eval  ngf_eval_prompts_60.txt \
+  --steps 64 --eta 0.18 \
+  --use_depth_weighted_pi 1 --pi_beta 7.5 \
+  --nms_radius 5 --sigma_scale 0.65 \
+  --local_radius 1.20 \
+  --ema_gamma 0.94 --med_k 13 \
+  --tau_conf 0.72 --backoff 0.72 \
+  --jitter_sigma 0.02 --jitter_J 8 \
+  --tok_eta 0.30 \
+  --out_json logs/llm_shadow_hijack_summary_shadow_fix.json \
+  --render
+    
 """
 from __future__ import annotations
 import argparse, json, math
@@ -126,7 +196,6 @@ def _interp_grad_U(X2: np.ndarray, U: np.ndarray, xe: np.ndarray, ye: np.ndarray
     return g / n
 
 
-
 def phantom_metrics_Y3(Y3: np.ndarray, nbins=120, sigma=2.0, beta: float = 0.0, nms_radius: int = 0):
     X2 = Y3[:, :2]; z = Y3[:, 2]
     U, xe, ye = _potential_and_edges(X2, z, nbins=nbins, sigma=sigma, beta=beta)
@@ -217,6 +286,7 @@ def stepwise_descent(Ye: np.ndarray, center: np.ndarray, wp: WarpParams,
     PI_hist.append(float(pi)); M_hist.append(float(m))
     R_hist.append(float(r_prev.mean()))
     SNR_hist.append(0.0)
+
 
     for t in range(steps):
         # Potential & gradient (depth-weighted)

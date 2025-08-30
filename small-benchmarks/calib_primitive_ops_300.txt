@@ -1,0 +1,300 @@
+Execute two steps: transpose main diagonal, then rotate 180 degrees.
+Apply transpose anti-diagonal followed by flip horizontally.
+The task is to transpose main diagonal the given matrix.
+First rotate 180 degrees, then transpose anti-diagonal.
+Do not transpose main diagonal; if uncertain, abstain.
+If rotate 180 degrees would change semantics incorrectly, abstain.
+Apply transpose main diagonal followed by transpose anti-diagonal.
+Given a matrix, flip horizontally it.
+Given a matrix, transpose anti-diagonal it.
+Apply flip vertically to the board.
+rotate 180 degrees then transpose anti-diagonal.
+Execute two steps: transpose anti-diagonal, then flip vertically.
+Apply flip vertically to the board.
+Operation: flip vertically the input pattern.
+Without changing colors, flip vertically the arrangement.
+Given a matrix, rotate 180 degrees it.
+Geodesic executor: flip vertically.
+Execute two steps: rotate 180 degrees, then transpose anti-diagonal.
+Only do one step: flip horizontally.
+First rotate 180 degrees, then flip horizontally.
+Do not transpose main diagonal; if uncertain, abstain.
+Given a matrix, transpose main diagonal it.
+Concept trace implies flip horizontally — execute it.
+First rotate 180 degrees, then transpose anti-diagonal.
+Apply transpose main diagonal to the board.
+Execute two steps: transpose anti-diagonal, then rotate 180 degrees.
+If flip horizontally would change semantics incorrectly, abstain.
+Geodesic executor: flip vertically.
+Execute two steps: rotate 90 degrees, then transpose main diagonal.
+Apply transpose main diagonal to the board.
+Apply rotate 90 degrees followed by flip vertically.
+rotate 90 degrees then rotate 180 degrees.
+Apply transpose main diagonal to the board.
+The task is to transpose main diagonal the given matrix.
+The task is to rotate 90 degrees the given matrix.
+Only do one step: flip vertically.
+Geodesic executor: flip vertically.
+Apply flip horizontally followed by rotate 90 degrees.
+flip horizontally then flip vertically.
+Apply transpose anti-diagonal followed by rotate 90 degrees.
+Without changing colors, flip horizontally the arrangement.
+If flip horizontally would change semantics incorrectly, abstain.
+Geodesic executor: transpose main diagonal.
+Execute two steps: rotate 90 degrees, then transpose anti-diagonal.
+Apply flip vertically to the board.
+Do not rotate 90 degrees; if uncertain, abstain.
+Apply transpose anti-diagonal to the board.
+Concept trace implies flip horizontally — execute it.
+rotate 180 degrees then flip vertically.
+Only do one step: transpose anti-diagonal.
+Avoid transpose anti-diagonal; if it's ambiguous, say so.
+Execute two steps: rotate 180 degrees, then rotate 90 degrees.
+Given a matrix, flip horizontally it.
+If flip horizontally would change semantics incorrectly, abstain.
+Operation: transpose main diagonal the input pattern.
+Apply rotate 90 degrees followed by rotate 180 degrees.
+Avoid rotate 90 degrees; if it's ambiguous, say so.
+First rotate 90 degrees, then transpose main diagonal.
+Geodesic executor: transpose main diagonal.
+First rotate 180 degrees, then transpose main diagonal.
+First rotate 180 degrees, then transpose anti-diagonal.
+Don't describe; just flip horizontally.
+Apply rotate 90 degrees followed by transpose main diagonal.
+First rotate 180 degrees, then flip vertically.
+Only do one step: rotate 90 degrees.
+Geodesic executor: rotate 180 degrees.
+Apply rotate 180 degrees followed by transpose main diagonal.
+If transpose main diagonal would change semantics incorrectly, abstain.
+Concept trace implies flip vertically — execute it.
+Operation: flip vertically the input pattern.
+Apply flip horizontally to the board.
+Avoid transpose anti-diagonal; if it's ambiguous, say so.
+Given a matrix, flip vertically it.
+Don't describe; just flip vertically.
+Only do one step: transpose anti-diagonal.
+First transpose main diagonal, then rotate 180 degrees.
+Without changing colors, rotate 180 degrees the arrangement.
+Concept trace implies flip horizontally — execute it.
+Don't describe; just rotate 90 degrees.
+If rotate 90 degrees would change semantics incorrectly, abstain.
+Perform a rotate 90 degrees on the grid.
+First flip vertically, then transpose anti-diagonal.
+rotate 180 degrees then transpose main diagonal.
+Concept trace implies flip vertically — execute it.
+The task is to flip vertically the given matrix.
+The task is to flip horizontally the given matrix.
+If rotate 180 degrees would change semantics incorrectly, abstain.
+Avoid rotate 90 degrees; if it's ambiguous, say so.
+If transpose main diagonal would change semantics incorrectly, abstain.
+Geodesic executor: flip horizontally.
+First transpose anti-diagonal, then rotate 90 degrees.
+Apply rotate 90 degrees to the board.
+First transpose main diagonal, then rotate 180 degrees.
+First transpose main diagonal, then rotate 180 degrees.
+Given a matrix, transpose anti-diagonal it.
+Geodesic executor: transpose main diagonal.
+Given a matrix, transpose anti-diagonal it.
+If flip vertically would change semantics incorrectly, abstain.
+Apply flip horizontally to the board.
+rotate 180 degrees then flip vertically.
+The task is to transpose anti-diagonal the given matrix.
+Apply flip vertically to the board.
+Don't describe; just transpose main diagonal.
+If flip horizontally would change semantics incorrectly, abstain.
+Perform a rotate 90 degrees on the grid.
+Geodesic executor: transpose main diagonal.
+Without changing colors, flip horizontally the arrangement.
+Only do one step: flip horizontally.
+Do not transpose main diagonal; if uncertain, abstain.
+Given a matrix, rotate 180 degrees it.
+Don't describe; just transpose anti-diagonal.
+If rotate 180 degrees would change semantics incorrectly, abstain.
+First flip horizontally, then rotate 180 degrees.
+Without changing colors, transpose anti-diagonal the arrangement.
+Apply rotate 180 degrees to the board.
+rotate 180 degrees then rotate 90 degrees.
+Do not transpose main diagonal; if uncertain, abstain.
+Apply flip horizontally followed by flip vertically.
+Given a matrix, transpose anti-diagonal it.
+If flip horizontally would change semantics incorrectly, abstain.
+Operation: transpose main diagonal the input pattern.
+First rotate 90 degrees, then transpose anti-diagonal.
+Execute two steps: transpose anti-diagonal, then rotate 180 degrees.
+Perform a transpose anti-diagonal on the grid.
+Execute two steps: transpose anti-diagonal, then rotate 90 degrees.
+rotate 90 degrees then transpose anti-diagonal.
+rotate 180 degrees then flip horizontally.
+Geodesic executor: transpose anti-diagonal.
+First flip horizontally, then transpose anti-diagonal.
+Don't describe; just rotate 180 degrees.
+Don't describe; just flip horizontally.
+Do not rotate 90 degrees; if uncertain, abstain.
+Operation: transpose anti-diagonal the input pattern.
+Execute two steps: flip horizontally, then transpose anti-diagonal.
+Execute two steps: flip vertically, then flip horizontally.
+If flip horizontally would change semantics incorrectly, abstain.
+Apply flip vertically followed by rotate 180 degrees.
+Execute two steps: transpose anti-diagonal, then rotate 180 degrees.
+The task is to rotate 90 degrees the given matrix.
+If flip horizontally would change semantics incorrectly, abstain.
+Only do one step: rotate 180 degrees.
+Given a matrix, rotate 90 degrees it.
+The task is to flip vertically the given matrix.
+Apply flip vertically to the board.
+Apply rotate 180 degrees followed by flip vertically.
+rotate 90 degrees then flip vertically.
+If flip horizontally would change semantics incorrectly, abstain.
+First transpose main diagonal, then flip vertically.
+Without changing colors, flip horizontally the arrangement.
+Concept trace implies transpose anti-diagonal — execute it.
+Apply rotate 180 degrees to the board.
+Do not rotate 90 degrees; if uncertain, abstain.
+Concept trace implies rotate 90 degrees — execute it.
+If flip vertically would change semantics incorrectly, abstain.
+Given a matrix, transpose main diagonal it.
+Execute two steps: transpose anti-diagonal, then rotate 90 degrees.
+Avoid flip vertically; if it's ambiguous, say so.
+Operation: rotate 180 degrees the input pattern.
+rotate 90 degrees then flip horizontally.
+transpose anti-diagonal then flip horizontally.
+Only do one step: flip vertically.
+If flip vertically would change semantics incorrectly, abstain.
+The task is to flip vertically the given matrix.
+The task is to transpose main diagonal the given matrix.
+The task is to flip vertically the given matrix.
+Operation: transpose main diagonal the input pattern.
+Apply flip horizontally to the board.
+Only do one step: flip horizontally.
+Execute two steps: transpose main diagonal, then flip vertically.
+First rotate 90 degrees, then flip vertically.
+Do not rotate 90 degrees; if uncertain, abstain.
+The task is to rotate 180 degrees the given matrix.
+Without changing colors, rotate 90 degrees the arrangement.
+Apply transpose anti-diagonal followed by flip horizontally.
+Apply rotate 180 degrees to the board.
+Do not rotate 90 degrees; if uncertain, abstain.
+First flip horizontally, then transpose main diagonal.
+Concept trace implies rotate 90 degrees — execute it.
+flip vertically then transpose anti-diagonal.
+Execute two steps: flip vertically, then transpose anti-diagonal.
+Given a matrix, rotate 180 degrees it.
+Apply flip vertically followed by rotate 180 degrees.
+Execute two steps: rotate 180 degrees, then transpose main diagonal.
+Avoid transpose anti-diagonal; if it's ambiguous, say so.
+Only do one step: transpose anti-diagonal.
+Without changing colors, transpose main diagonal the arrangement.
+Apply flip horizontally followed by transpose anti-diagonal.
+Apply flip horizontally to the board.
+Operation: flip vertically the input pattern.
+Concept trace implies transpose anti-diagonal — execute it.
+transpose main diagonal then flip horizontally.
+Perform a transpose main diagonal on the grid.
+Only do one step: flip vertically.
+First transpose main diagonal, then flip horizontally.
+rotate 180 degrees then transpose main diagonal.
+Perform a transpose main diagonal on the grid.
+Geodesic executor: rotate 180 degrees.
+If transpose anti-diagonal would change semantics incorrectly, abstain.
+Apply transpose main diagonal to the board.
+Apply rotate 90 degrees to the board.
+Geodesic executor: flip horizontally.
+Apply rotate 180 degrees to the board.
+rotate 180 degrees then transpose anti-diagonal.
+Geodesic executor: transpose anti-diagonal.
+Geodesic executor: transpose anti-diagonal.
+Avoid transpose main diagonal; if it's ambiguous, say so.
+Apply rotate 90 degrees followed by transpose anti-diagonal.
+Operation: flip horizontally the input pattern.
+Execute two steps: transpose anti-diagonal, then flip vertically.
+The task is to rotate 180 degrees the given matrix.
+Don't describe; just transpose anti-diagonal.
+Perform a rotate 180 degrees on the grid.
+Geodesic executor: transpose anti-diagonal.
+Only do one step: transpose anti-diagonal.
+Apply transpose anti-diagonal followed by rotate 180 degrees.
+Given a matrix, flip vertically it.
+Execute two steps: rotate 90 degrees, then transpose anti-diagonal.
+Do not rotate 90 degrees; if uncertain, abstain.
+Apply rotate 180 degrees followed by transpose main diagonal.
+The task is to flip horizontally the given matrix.
+Avoid rotate 180 degrees; if it's ambiguous, say so.
+Apply flip vertically followed by transpose main diagonal.
+If flip horizontally would change semantics incorrectly, abstain.
+Execute two steps: rotate 90 degrees, then flip horizontally.
+First flip horizontally, then rotate 180 degrees.
+Apply flip vertically to the board.
+Avoid flip vertically; if it's ambiguous, say so.
+rotate 180 degrees then transpose main diagonal.
+flip vertically then transpose main diagonal.
+Apply flip horizontally to the board.
+Concept trace implies flip vertically — execute it.
+Apply flip vertically to the board.
+Execute two steps: transpose anti-diagonal, then transpose main diagonal.
+The task is to transpose anti-diagonal the given matrix.
+First rotate 180 degrees, then flip vertically.
+Do not transpose main diagonal; if uncertain, abstain.
+If transpose anti-diagonal would change semantics incorrectly, abstain.
+Apply transpose anti-diagonal followed by transpose main diagonal.
+Only do one step: transpose anti-diagonal.
+Without changing colors, flip horizontally the arrangement.
+Concept trace implies rotate 180 degrees — execute it.
+First flip vertically, then rotate 90 degrees.
+rotate 90 degrees then rotate 180 degrees.
+Execute two steps: flip horizontally, then rotate 180 degrees.
+transpose anti-diagonal then flip horizontally.
+Without changing colors, flip horizontally the arrangement.
+flip vertically then rotate 180 degrees.
+Apply transpose anti-diagonal followed by flip vertically.
+The task is to transpose anti-diagonal the given matrix.
+The task is to flip horizontally the given matrix.
+Perform a rotate 180 degrees on the grid.
+Concept trace implies transpose main diagonal — execute it.
+If transpose anti-diagonal would change semantics incorrectly, abstain.
+If rotate 180 degrees would change semantics incorrectly, abstain.
+Geodesic executor: rotate 90 degrees.
+Execute two steps: transpose main diagonal, then rotate 90 degrees.
+Apply rotate 90 degrees followed by rotate 180 degrees.
+transpose main diagonal then transpose anti-diagonal.
+Perform a rotate 180 degrees on the grid.
+Without changing colors, flip vertically the arrangement.
+Perform a transpose anti-diagonal on the grid.
+Do not transpose main diagonal; if uncertain, abstain.
+Only do one step: flip horizontally.
+rotate 90 degrees then transpose anti-diagonal.
+Apply rotate 90 degrees followed by rotate 180 degrees.
+transpose anti-diagonal then flip vertically.
+The task is to flip horizontally the given matrix.
+The task is to transpose main diagonal the given matrix.
+Execute two steps: flip horizontally, then flip vertically.
+The task is to transpose main diagonal the given matrix.
+Apply transpose anti-diagonal followed by rotate 90 degrees.
+Do not rotate 90 degrees; if uncertain, abstain.
+First rotate 90 degrees, then flip vertically.
+Only do one step: transpose anti-diagonal.
+First flip vertically, then transpose anti-diagonal.
+First rotate 180 degrees, then flip horizontally.
+Perform a rotate 180 degrees on the grid.
+If flip vertically would change semantics incorrectly, abstain.
+First flip horizontally, then transpose main diagonal.
+Without changing colors, flip vertically the arrangement.
+Do not transpose main diagonal; if uncertain, abstain.
+First flip horizontally, then rotate 180 degrees.
+First transpose anti-diagonal, then flip vertically.
+Do not flip horizontally; if uncertain, abstain.
+Don't describe; just rotate 90 degrees.
+Perform a flip horizontally on the grid.
+Do not rotate 90 degrees; if uncertain, abstain.
+Given a matrix, flip vertically it.
+Geodesic executor: rotate 180 degrees.
+The task is to transpose anti-diagonal the given matrix.
+Without changing colors, rotate 180 degrees the arrangement.
+Apply flip horizontally followed by transpose anti-diagonal.
+Do not flip horizontally; if uncertain, abstain.
+First transpose main diagonal, then flip vertically.
+Don't describe; just rotate 180 degrees.
+Given a matrix, transpose main diagonal it.
+Do not flip horizontally; if uncertain, abstain.
+Only do one step: flip vertically.
+Without changing colors, rotate 180 degrees the arrangement.
+Without changing colors, transpose main diagonal the arrangement.

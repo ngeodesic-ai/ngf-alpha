@@ -1,0 +1,300 @@
+Briefly: Explain the concept of Semantic Mass.
+Summarize in 12 words: Interpret an SNR dip late in the trajectory.
+Short Q/A seed: Define a geodesic traversal.
+Name and define: Describe matched-filter detection with nulls.
+What is a warped semantic manifold?
+Name and define: Calibrate absolute thresholds via circular-shift nulls.
+Summarize in 12 words: Why enforce monotonic radial profiles?
+As a checklist item: Define a geodesic traversal.
+Short Q/A seed: What does the phantom guard suppress?
+As a checklist item: What is a warped semantic manifold?
+One-liner: Interpret an SNR dip late in the trajectory.
+Briefly: Explain the concept of Semantic Mass.
+Calibrate absolute thresholds via circular-shift nulls.
+In Stage-11 terms, What is a warped semantic manifold?
+Name and define: Define Noetic Singularity.
+In Stage-11 terms, Explain the concept of Semantic Mass.
+State and justify: What is the role of lateral inhibition?
+State and justify: What does the phantom guard suppress?
+State and justify: Define a geodesic traversal.
+Summarize in 12 words: Apply the doctrine: Warp → Detect → Denoise.
+As a checklist item: What is a phantom index in Stage-11?
+Short Q/A seed: Define a geodesic traversal.
+State and justify: Why separate parallel vs. perpendicular energies?
+Short Q/A seed: What is the role of lateral inhibition?
+Short Q/A seed: What is a phantom index in Stage-11?
+How does EMA + median smoothing stabilize descent?
+As a checklist item: What is the role of lateral inhibition?
+Summarize in 12 words: What does the phantom guard suppress?
+In Stage-11 terms, How does EMA + median smoothing stabilize descent?
+Explain the concept of Semantic Mass.
+Summarize in 12 words: What does a rising margin indicate?
+Briefly: What does a rising margin indicate?
+In Stage-11 terms, Explain the concept of Semantic Mass.
+Explain succinctly: Explain the concept of Semantic Mass.
+Explain succinctly: Warp the manifold into a single cognition well.
+Summarize in 12 words: State the GO/NO-GO conditions for OSB.
+State and justify: State the GO/NO-GO conditions for OSB.
+One-liner: State the GO/NO-GO conditions for OSB.
+Short Q/A seed: When does the confidence gate trigger backoff?
+State and justify: Define Noetic Singularity.
+Explain succinctly: Interpret an SNR dip late in the trajectory.
+Summarize in 12 words: Why separate parallel vs. perpendicular energies?
+Briefly: How do phantom probes align with ∇U?
+Explain succinctly: What is a warped semantic manifold?
+Name and define: Why separate parallel vs. perpendicular energies?
+Briefly: When does the confidence gate trigger backoff?
+What is a phantom index in Stage-11?
+State and justify: Describe matched-filter detection with nulls.
+State and justify: What does a rising margin indicate?
+Short Q/A seed: What is a phantom index in Stage-11?
+Name and define: Why separate parallel vs. perpendicular energies?
+Summarize in 12 words: Define Noetic Singularity.
+In Stage-11 terms, What does the phantom guard suppress?
+Short Q/A seed: Calibrate absolute thresholds via circular-shift nulls.
+One-liner: State the GO/NO-GO conditions for OSB.
+One-liner: Why separate parallel vs. perpendicular energies?
+Short Q/A seed: Explain the concept of Semantic Mass.
+Explain succinctly: Calibrate absolute thresholds via circular-shift nulls.
+State and justify: Interpret an SNR dip late in the trajectory.
+Why separate parallel vs. perpendicular energies?
+Explain the concept of Semantic Mass.
+As a checklist item: What is a warped semantic manifold?
+Short Q/A seed: Why does curvature near the apex matter?
+Name and define: Define Noetic Singularity.
+Why separate parallel vs. perpendicular energies?
+Name and define: State the GO/NO-GO conditions for OSB.
+State and justify: What does a rising margin indicate?
+One-liner: What is a warped semantic manifold?
+As a checklist item: Interpret an SNR dip late in the trajectory.
+Summarize in 12 words: State the GO/NO-GO conditions for OSB.
+Explain succinctly: State the GO/NO-GO conditions for OSB.
+Summarize in 12 words: Calibrate absolute thresholds via circular-shift nulls.
+As a checklist item: Describe matched-filter detection with nulls.
+As a checklist item: Interpret an SNR dip late in the trajectory.
+Summarize in 12 words: What does the phantom guard suppress?
+Name and define: What does a rising margin indicate?
+Name and define: Define Noetic Singularity.
+Name and define: Define Noetic Singularity.
+Explain succinctly: When does the confidence gate trigger backoff?
+Short Q/A seed: Why separate parallel vs. perpendicular energies?
+Explain succinctly: When does the confidence gate trigger backoff?
+As a checklist item: Why separate parallel vs. perpendicular energies?
+What does the phantom guard suppress?
+In Stage-11 terms, What is the role of lateral inhibition?
+In Stage-11 terms, When does the confidence gate trigger backoff?
+Name and define: How do phantom probes align with ∇U?
+Summarize in 12 words: Explain the concept of Semantic Mass.
+How do phantom probes align with ∇U?
+Name and define: Explain the concept of Semantic Mass.
+In Stage-11 terms, How do phantom probes align with ∇U?
+State and justify: Calibrate absolute thresholds via circular-shift nulls.
+State and justify: Why separate parallel vs. perpendicular energies?
+Explain succinctly: Why does curvature near the apex matter?
+Name and define: Explain the concept of Semantic Mass.
+State and justify: Describe matched-filter detection with nulls.
+Explain succinctly: How do phantom probes align with ∇U?
+What is a phantom index in Stage-11?
+Summarize in 12 words: Explain the concept of Semantic Mass.
+In Stage-11 terms, Warp the manifold into a single cognition well.
+One-liner: Define Noetic Singularity.
+Briefly: Apply the doctrine: Warp → Detect → Denoise.
+Short Q/A seed: How does EMA + median smoothing stabilize descent?
+One-liner: Define Noetic Singularity.
+Name and define: Define Noetic Singularity.
+State and justify: Why separate parallel vs. perpendicular energies?
+One-liner: Why does curvature near the apex matter?
+Short Q/A seed: State the GO/NO-GO conditions for OSB.
+Explain succinctly: Define a geodesic traversal.
+One-liner: When does the confidence gate trigger backoff?
+Name and define: Why separate parallel vs. perpendicular energies?
+One-liner: What does the phantom guard suppress?
+As a checklist item: Interpret an SNR dip late in the trajectory.
+Briefly: Why does curvature near the apex matter?
+Briefly: What is a warped semantic manifold?
+State the GO/NO-GO conditions for OSB.
+Name and define: State the GO/NO-GO conditions for OSB.
+As a checklist item: Apply the doctrine: Warp → Detect → Denoise.
+Describe matched-filter detection with nulls.
+Name and define: Warp the manifold into a single cognition well.
+One-liner: Calibrate absolute thresholds via circular-shift nulls.
+Name and define: How does EMA + median smoothing stabilize descent?
+Summarize in 12 words: How does EMA + median smoothing stabilize descent?
+As a checklist item: Apply the doctrine: Warp → Detect → Denoise.
+As a checklist item: Apply the doctrine: Warp → Detect → Denoise.
+Summarize in 12 words: Calibrate absolute thresholds via circular-shift nulls.
+Briefly: When does the confidence gate trigger backoff?
+What is a phantom index in Stage-11?
+What does the phantom guard suppress?
+Name and define: What is a warped semantic manifold?
+Summarize in 12 words: What is a warped semantic manifold?
+State and justify: Why enforce monotonic radial profiles?
+One-liner: Warp the manifold into a single cognition well.
+Name and define: How do phantom probes align with ∇U?
+Name and define: Why separate parallel vs. perpendicular energies?
+Summarize in 12 words: Why separate parallel vs. perpendicular energies?
+Summarize in 12 words: How do phantom probes align with ∇U?
+Name and define: Define Noetic Singularity.
+How does EMA + median smoothing stabilize descent?
+Explain succinctly: Why enforce monotonic radial profiles?
+Briefly: How does EMA + median smoothing stabilize descent?
+One-liner: Why does curvature near the apex matter?
+Define a geodesic traversal.
+Short Q/A seed: Why separate parallel vs. perpendicular energies?
+Name and define: Why does curvature near the apex matter?
+As a checklist item: Define Noetic Singularity.
+As a checklist item: How do phantom probes align with ∇U?
+As a checklist item: Warp the manifold into a single cognition well.
+One-liner: Interpret an SNR dip late in the trajectory.
+Briefly: When does the confidence gate trigger backoff?
+How does EMA + median smoothing stabilize descent?
+Summarize in 12 words: What does a rising margin indicate?
+One-liner: Interpret an SNR dip late in the trajectory.
+What is a warped semantic manifold?
+One-liner: When does the confidence gate trigger backoff?
+As a checklist item: Interpret an SNR dip late in the trajectory.
+Name and define: What does the phantom guard suppress?
+State and justify: Describe matched-filter detection with nulls.
+Briefly: Why separate parallel vs. perpendicular energies?
+State and justify: State the GO/NO-GO conditions for OSB.
+One-liner: What is a warped semantic manifold?
+Briefly: Explain the concept of Semantic Mass.
+Name and define: Define a geodesic traversal.
+Calibrate absolute thresholds via circular-shift nulls.
+Summarize in 12 words: Calibrate absolute thresholds via circular-shift nulls.
+One-liner: Why does curvature near the apex matter?
+State and justify: Calibrate absolute thresholds via circular-shift nulls.
+One-liner: What does the phantom guard suppress?
+Short Q/A seed: What is the role of lateral inhibition?
+In Stage-11 terms, Apply the doctrine: Warp → Detect → Denoise.
+Name and define: What is a warped semantic manifold?
+Summarize in 12 words: What is the role of lateral inhibition?
+Short Q/A seed: Interpret an SNR dip late in the trajectory.
+In Stage-11 terms, What is the role of lateral inhibition?
+In Stage-11 terms, Explain the concept of Semantic Mass.
+Short Q/A seed: State the GO/NO-GO conditions for OSB.
+Short Q/A seed: Explain the concept of Semantic Mass.
+In Stage-11 terms, Why separate parallel vs. perpendicular energies?
+Name and define: When does the confidence gate trigger backoff?
+Name and define: When does the confidence gate trigger backoff?
+Short Q/A seed: Why does curvature near the apex matter?
+Explain succinctly: Why enforce monotonic radial profiles?
+Name and define: Calibrate absolute thresholds via circular-shift nulls.
+In Stage-11 terms, Describe matched-filter detection with nulls.
+Briefly: Define a geodesic traversal.
+One-liner: Why does curvature near the apex matter?
+In Stage-11 terms, What is a warped semantic manifold?
+Summarize in 12 words: Calibrate absolute thresholds via circular-shift nulls.
+Name and define: Why enforce monotonic radial profiles?
+One-liner: What is a phantom index in Stage-11?
+One-liner: Describe matched-filter detection with nulls.
+As a checklist item: Describe matched-filter detection with nulls.
+Why separate parallel vs. perpendicular energies?
+Summarize in 12 words: Interpret an SNR dip late in the trajectory.
+Apply the doctrine: Warp → Detect → Denoise.
+Explain succinctly: Interpret an SNR dip late in the trajectory.
+Explain succinctly: Why does curvature near the apex matter?
+Short Q/A seed: What does a rising margin indicate?
+What is a phantom index in Stage-11?
+Briefly: How do phantom probes align with ∇U?
+Explain succinctly: What is the role of lateral inhibition?
+Name and define: Why separate parallel vs. perpendicular energies?
+Briefly: Calibrate absolute thresholds via circular-shift nulls.
+State and justify: Why does curvature near the apex matter?
+Define Noetic Singularity.
+Short Q/A seed: Apply the doctrine: Warp → Detect → Denoise.
+Explain succinctly: Explain the concept of Semantic Mass.
+Explain succinctly: What does a rising margin indicate?
+Name and define: Why enforce monotonic radial profiles?
+Describe matched-filter detection with nulls.
+State and justify: State the GO/NO-GO conditions for OSB.
+One-liner: What is a phantom index in Stage-11?
+Briefly: How does EMA + median smoothing stabilize descent?
+Summarize in 12 words: What does a rising margin indicate?
+Short Q/A seed: Explain the concept of Semantic Mass.
+Explain succinctly: What does the phantom guard suppress?
+Short Q/A seed: Apply the doctrine: Warp → Detect → Denoise.
+In Stage-11 terms, Define Noetic Singularity.
+Briefly: What does a rising margin indicate?
+One-liner: Define a geodesic traversal.
+Name and define: Define a geodesic traversal.
+What does a rising margin indicate?
+Explain succinctly: Apply the doctrine: Warp → Detect → Denoise.
+State and justify: What is the role of lateral inhibition?
+Name and define: Why enforce monotonic radial profiles?
+Name and define: Why separate parallel vs. perpendicular energies?
+In Stage-11 terms, Interpret an SNR dip late in the trajectory.
+As a checklist item: When does the confidence gate trigger backoff?
+State and justify: Describe matched-filter detection with nulls.
+State and justify: Apply the doctrine: Warp → Detect → Denoise.
+How do phantom probes align with ∇U?
+In Stage-11 terms, Why enforce monotonic radial profiles?
+Explain succinctly: What does the phantom guard suppress?
+State and justify: What is the role of lateral inhibition?
+Summarize in 12 words: Describe matched-filter detection with nulls.
+In Stage-11 terms, Why does curvature near the apex matter?
+As a checklist item: What is a warped semantic manifold?
+Name and define: Warp the manifold into a single cognition well.
+What is a warped semantic manifold?
+Short Q/A seed: What does a rising margin indicate?
+State and justify: How do phantom probes align with ∇U?
+As a checklist item: How do phantom probes align with ∇U?
+Briefly: What is a warped semantic manifold?
+Briefly: Calibrate absolute thresholds via circular-shift nulls.
+Briefly: Warp the manifold into a single cognition well.
+Briefly: What does a rising margin indicate?
+Briefly: Calibrate absolute thresholds via circular-shift nulls.
+Short Q/A seed: What does a rising margin indicate?
+State and justify: State the GO/NO-GO conditions for OSB.
+Explain succinctly: Explain the concept of Semantic Mass.
+One-liner: Apply the doctrine: Warp → Detect → Denoise.
+As a checklist item: What does a rising margin indicate?
+Briefly: Define Noetic Singularity.
+Briefly: What is the role of lateral inhibition?
+As a checklist item: What is a phantom index in Stage-11?
+As a checklist item: Define a geodesic traversal.
+Briefly: What is the role of lateral inhibition?
+Explain succinctly: Calibrate absolute thresholds via circular-shift nulls.
+State and justify: Why does curvature near the apex matter?
+One-liner: Why enforce monotonic radial profiles?
+Name and define: Why enforce monotonic radial profiles?
+In Stage-11 terms, Define a geodesic traversal.
+State and justify: What is a warped semantic manifold?
+Short Q/A seed: What is a phantom index in Stage-11?
+State and justify: What does a rising margin indicate?
+Explain succinctly: What is a phantom index in Stage-11?
+State and justify: What is a phantom index in Stage-11?
+In Stage-11 terms, Warp the manifold into a single cognition well.
+State and justify: Why separate parallel vs. perpendicular energies?
+Summarize in 12 words: How do phantom probes align with ∇U?
+Short Q/A seed: What is the role of lateral inhibition?
+Name and define: What is a warped semantic manifold?
+State and justify: Apply the doctrine: Warp → Detect → Denoise.
+State and justify: When does the confidence gate trigger backoff?
+As a checklist item: Describe matched-filter detection with nulls.
+Explain the concept of Semantic Mass.
+Name and define: Why does curvature near the apex matter?
+Explain the concept of Semantic Mass.
+Name and define: What does the phantom guard suppress?
+One-liner: How do phantom probes align with ∇U?
+Short Q/A seed: How does EMA + median smoothing stabilize descent?
+When does the confidence gate trigger backoff?
+State the GO/NO-GO conditions for OSB.
+Summarize in 12 words: How do phantom probes align with ∇U?
+As a checklist item: Warp the manifold into a single cognition well.
+State and justify: Apply the doctrine: Warp → Detect → Denoise.
+In Stage-11 terms, Calibrate absolute thresholds via circular-shift nulls.
+As a checklist item: Describe matched-filter detection with nulls.
+State and justify: What is a phantom index in Stage-11?
+Name and define: Apply the doctrine: Warp → Detect → Denoise.
+State and justify: What does the phantom guard suppress?
+As a checklist item: State the GO/NO-GO conditions for OSB.
+Summarize in 12 words: Why does curvature near the apex matter?
+Name and define: Calibrate absolute thresholds via circular-shift nulls.
+Explain succinctly: Why enforce monotonic radial profiles?
+One-liner: Define a geodesic traversal.
+Short Q/A seed: Define a geodesic traversal.
+As a checklist item: What is a phantom index in Stage-11?
+Short Q/A seed: Calibrate absolute thresholds via circular-shift nulls.
+State and justify: What does the phantom guard suppress?
+As a checklist item: Calibrate absolute thresholds via circular-shift nulls.
