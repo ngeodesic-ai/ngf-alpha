@@ -1,0 +1,300 @@
+State a simple fact about water.
+Who discovered radioactivity?
+State a simple fact about oxygen.
+State a simple fact about water.
+State a simple fact about oxygen.
+In what year did the invention of the telephone occur?
+Give a synonym for bright.
+Give a synonym for robust.
+In what year did the invention of the telephone occur?
+State a simple fact about carbon.
+Compute: 2**5
+Define entropy in one sentence.
+State a simple fact about oxygen.
+Define entropy in one sentence.
+State a simple fact about oxygen.
+State a simple fact about carbon.
+State a simple fact about iron.
+In what year did the first computer occur?
+Who discovered gravity (law formulation)?
+Compute: 2**5
+Who discovered penicillin?
+Give a synonym for stable.
+Who discovered neutrons?
+Compute: 100 - 73
+Who discovered radioactivity?
+What is the capital of Japan?
+Give a synonym for ancient.
+Compute: 12 + 37
+Define entropy in one sentence.
+Who discovered penicillin?
+What is the capital of Canada?
+Give a synonym for happy.
+Give a synonym for robust.
+Who discovered neutrons?
+Compute: 2**5
+Who discovered gravity (law formulation)?
+Who discovered radioactivity?
+Compute: 2**5
+Compute: sqrt(81)
+Compute: 144 / 12
+In what year did the first computer occur?
+State a simple fact about the Sun.
+In what year did the fall of the Berlin Wall occur?
+Who discovered gravity (law formulation)?
+State a simple fact about iron.
+State a simple fact about Earth.
+Who discovered gravity (law formulation)?
+Who discovered radioactivity?
+What is the capital of Australia?
+In what year did the first computer occur?
+Compute: 144 / 12
+Compute: sqrt(81)
+Who discovered radioactivity?
+State a simple fact about electricity.
+Compute: sqrt(81)
+State a simple fact about oxygen.
+Who discovered gravity (law formulation)?
+What is the capital of Australia?
+State a simple fact about carbon.
+State a simple fact about electricity.
+What is the capital of Kenya?
+Compute: 100 - 73
+Compute: 7 * 9
+In what year did the first computer occur?
+Define gradient in one sentence.
+Compute: 12 + 37
+Who discovered neutrons?
+Define algorithm in one sentence.
+Compute: 12 + 37
+In what year did the invention of the telephone occur?
+Who discovered penicillin?
+Who discovered penicillin?
+Compute: sqrt(81)
+Compute: sqrt(81)
+Give a synonym for stable.
+Give a synonym for fast.
+Give a synonym for fast.
+Who discovered neutrons?
+State a simple fact about carbon.
+Who discovered radioactivity?
+In what year did the first computer occur?
+Compute: 100 - 73
+In what year did the first computer occur?
+Compute: 100 - 73
+Compute: 12 + 37
+Compute: 7 * 9
+Define entropy in one sentence.
+In what year did the moon landing occur?
+Give a synonym for robust.
+Define algorithm in one sentence.
+Define matrix in one sentence.
+Give a synonym for robust.
+What is the capital of France?
+State a simple fact about electricity.
+Who discovered neutrons?
+Compute: sqrt(81)
+State a simple fact about the Sun.
+Define eigenvalue in one sentence.
+Give a synonym for bright.
+What is the capital of Kenya?
+Who discovered radioactivity?
+Give a synonym for robust.
+What is the capital of Brazil?
+Define eigenvalue in one sentence.
+State a simple fact about Earth.
+What is the capital of India?
+Who discovered gravity (law formulation)?
+Give a synonym for fast.
+What is the capital of France?
+What is the capital of France?
+Give a synonym for stable.
+Give a synonym for stable.
+In what year did the invention of the telephone occur?
+What is the capital of Norway?
+State a simple fact about iron.
+State a simple fact about water.
+Compute: 2**5
+State a simple fact about carbon.
+Give a synonym for stable.
+In what year did the moon landing occur?
+In what year did the invention of the telephone occur?
+What is the capital of Spain?
+State a simple fact about electricity.
+Give a synonym for robust.
+What is the capital of Kenya?
+Compute: sqrt(81)
+Compute: 100 - 73
+Give a synonym for stable.
+What is the capital of India?
+Define photosynthesis in one sentence.
+In what year did the fall of the Berlin Wall occur?
+In what year did the moon landing occur?
+State a simple fact about carbon.
+Give a synonym for stable.
+In what year did the fall of the Berlin Wall occur?
+Compute: 12 + 37
+Compute: 7 * 9
+In what year did the first computer occur?
+In what year did the first computer occur?
+Compute: 7 * 9
+Compute: 100 - 73
+Who discovered radioactivity?
+Who discovered gravity (law formulation)?
+State a simple fact about the Sun.
+In what year did the moon landing occur?
+Give a synonym for strong.
+Give a synonym for fast.
+Give a synonym for strong.
+State a simple fact about carbon.
+Give a synonym for happy.
+What is the capital of Australia?
+Define gradient in one sentence.
+State a simple fact about Earth.
+Give a synonym for stable.
+State a simple fact about electricity.
+Compute: 144 / 12
+Define entropy in one sentence.
+Compute: 12 + 37
+State a simple fact about electricity.
+What is the capital of Norway?
+Compute: 100 - 73
+In what year did the fall of the Berlin Wall occur?
+Give a synonym for strong.
+Give a synonym for bright.
+Who discovered gravity (law formulation)?
+Define prime number in one sentence.
+Compute: sqrt(81)
+Who discovered neutrons?
+Define entropy in one sentence.
+Compute: 144 / 12
+Define gradient in one sentence.
+Give a synonym for happy.
+State a simple fact about carbon.
+Define algorithm in one sentence.
+State a simple fact about carbon.
+State a simple fact about iron.
+Give a synonym for fast.
+Compute: 2**5
+Define matrix in one sentence.
+State a simple fact about iron.
+Give a synonym for fast.
+Give a synonym for happy.
+What is the capital of Kenya?
+Give a synonym for stable.
+Compute: 2**5
+Define algorithm in one sentence.
+State a simple fact about Earth.
+In what year did the first computer occur?
+Who discovered neutrons?
+Define matrix in one sentence.
+Who discovered neutrons?
+Define algorithm in one sentence.
+What is the capital of India?
+What is the capital of India?
+What is the capital of Canada?
+In what year did the fall of the Berlin Wall occur?
+In what year did the invention of the telephone occur?
+Define eigenvalue in one sentence.
+Give a synonym for fast.
+State a simple fact about carbon.
+Define prime number in one sentence.
+State a simple fact about carbon.
+Compute: 144 / 12
+Compute: 100 - 73
+State a simple fact about oxygen.
+State a simple fact about Earth.
+Give a synonym for happy.
+What is the capital of Chile?
+In what year did the first computer occur?
+State a simple fact about electricity.
+In what year did the fall of the Berlin Wall occur?
+Give a synonym for strong.
+What is the capital of Kenya?
+Give a synonym for fast.
+State a simple fact about the Sun.
+Who discovered radioactivity?
+Give a synonym for stable.
+Define prime number in one sentence.
+Compute: 144 / 12
+Compute: 2**5
+Who discovered penicillin?
+What is the capital of Japan?
+Give a synonym for happy.
+State a simple fact about Earth.
+Define matrix in one sentence.
+In what year did the fall of the Berlin Wall occur?
+Give a synonym for bright.
+What is the capital of India?
+Who discovered radioactivity?
+Define entropy in one sentence.
+Define entropy in one sentence.
+Give a synonym for stable.
+Define photosynthesis in one sentence.
+Define eigenvalue in one sentence.
+Define eigenvalue in one sentence.
+Compute: 7 * 9
+State a simple fact about oxygen.
+In what year did the moon landing occur?
+Define matrix in one sentence.
+Who discovered neutrons?
+What is the capital of Canada?
+What is the capital of Japan?
+Who discovered neutrons?
+What is the capital of Spain?
+Who discovered penicillin?
+Define entropy in one sentence.
+State a simple fact about Earth.
+Give a synonym for bright.
+Compute: 100 - 73
+Compute: 100 - 73
+In what year did the invention of the telephone occur?
+Define matrix in one sentence.
+Who discovered penicillin?
+In what year did the fall of the Berlin Wall occur?
+What is the capital of Kenya?
+State a simple fact about the Sun.
+In what year did the fall of the Berlin Wall occur?
+Give a synonym for robust.
+State a simple fact about electricity.
+State a simple fact about iron.
+Give a synonym for bright.
+Who discovered penicillin?
+Give a synonym for fast.
+What is the capital of France?
+Who discovered penicillin?
+What is the capital of Australia?
+What is the capital of Brazil?
+Compute: 7 * 9
+Give a synonym for strong.
+Who discovered gravity (law formulation)?
+Compute: 144 / 12
+State a simple fact about water.
+State a simple fact about Earth.
+Who discovered penicillin?
+In what year did the first computer occur?
+Who discovered penicillin?
+Compute: 7 * 9
+Define matrix in one sentence.
+Give a synonym for robust.
+Define eigenvalue in one sentence.
+What is the capital of Norway?
+What is the capital of Norway?
+What is the capital of Norway?
+Compute: 7 * 9
+Give a synonym for strong.
+In what year did the fall of the Berlin Wall occur?
+What is the capital of Canada?
+Who discovered gravity (law formulation)?
+Who discovered neutrons?
+Define matrix in one sentence.
+Define gradient in one sentence.
+State a simple fact about the Sun.
+In what year did the first computer occur?
+State a simple fact about water.
+Who discovered penicillin?
+What is the capital of France?
+Who discovered neutrons?
+Give a synonym for bright.
+Who discovered penicillin?
+What is the capital of Canada?

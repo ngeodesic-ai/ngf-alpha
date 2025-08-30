@@ -1,0 +1,600 @@
+What is the capital of France?
+Operation: rotate 90 degrees the input pattern.
+Name the largest planet in the solar system.
+Apply flip vertically to the board.
+Operation: flip horizontally the input pattern.
+What gas do humans breathe in?
+Apply flip vertically to the board.
+What year did the moon landing occur?
+Explain the concept of Semantic Mass.
+How many continents are there on Earth?
+Who painted the Mona Lisa?
+Who painted the Mona Lisa?
+Name the largest planet in the solar system.
+What is the role of lateral inhibition?
+Warp the manifold into a single cognition well.
+Perform a flip vertically on the grid.
+Who wrote Hamlet?
+Name the largest planet in the solar system.
+Apply flip vertically to the board.
+Apply the doctrine: Warp → Detect → Denoise.
+What does the phantom guard suppress?
+Who wrote Hamlet?
+Perform a flip horizontally on the grid.
+What is the role of lateral inhibition?
+Apply the doctrine: Warp → Detect → Denoise.
+What is a phantom index in Stage-11?
+Define Noetic Singularity.
+Operation: rotate 90 degrees the input pattern.
+What is the role of lateral inhibition?
+Square root of 16 is?
+Name the largest planet in the solar system.
+The task is to rotate 90 degrees the given matrix.
+Define Noetic Singularity.
+Define a geodesic traversal.
+Perform a flip vertically on the grid.
+What year did the moon landing occur?
+Apply rotate 90 degrees to the board.
+Square root of 16 is?
+Define a geodesic traversal.
+Square root of 16 is?
+Describe matched-filter detection with nulls.
+Define a geodesic traversal.
+Warp the manifold into a single cognition well.
+What is a warped semantic manifold?
+What is a warped semantic manifold?
+Operation: flip vertically the input pattern.
+Apply flip horizontally to the board.
+Square root of 16 is?
+What is a phantom index in Stage-11?
+What is a warped semantic manifold?
+Apply flip vertically to the board.
+Name the largest planet in the solar system.
+What year did the moon landing occur?
+Apply rotate 90 degrees to the board.
+Operation: flip horizontally the input pattern.
+Who wrote Hamlet?
+How many continents are there on Earth?
+What is the capital of France?
+Warp the manifold into a single cognition well.
+Operation: flip horizontally the input pattern.
+What is the boiling point of water in Celsius?
+What is the capital of France?
+Apply the doctrine: Warp → Detect → Denoise.
+Perform a flip horizontally on the grid.
+What is a phantom index in Stage-11?
+How many continents are there on Earth?
+What is a phantom index in Stage-11?
+Define a geodesic traversal.
+Operation: flip horizontally the input pattern.
+Warp the manifold into a single cognition well.
+Apply the doctrine: Warp → Detect → Denoise.
+Operation: flip horizontally the input pattern.
+Warp the manifold into a single cognition well.
+How many continents are there on Earth?
+What is a phantom index in Stage-11?
+Square root of 16 is?
+Operation: flip vertically the input pattern.
+Apply flip horizontally to the board.
+Define a geodesic traversal.
+Square root of 16 is?
+Who painted the Mona Lisa?
+Who wrote Hamlet?
+The task is to flip vertically the given matrix.
+Warp the manifold into a single cognition well.
+Apply flip vertically to the board.
+Describe matched-filter detection with nulls.
+What is the capital of France?
+Operation: flip vertically the input pattern.
+Apply the doctrine: Warp → Detect → Denoise.
+Perform a flip vertically on the grid.
+Apply flip horizontally to the board.
+Apply flip horizontally to the board.
+Who wrote Hamlet?
+What is the capital of France?
+Apply the doctrine: Warp → Detect → Denoise.
+Define a geodesic traversal.
+Apply rotate 90 degrees to the board.
+Apply the doctrine: Warp → Detect → Denoise.
+Perform a flip vertically on the grid.
+Who wrote Hamlet?
+What is the boiling point of water in Celsius?
+What year did the moon landing occur?
+Apply the doctrine: Warp → Detect → Denoise.
+Operation: rotate 90 degrees the input pattern.
+How many continents are there on Earth?
+Perform a rotate 90 degrees on the grid.
+Apply flip vertically to the board.
+Operation: rotate 90 degrees the input pattern.
+Name the largest planet in the solar system.
+What is the boiling point of water in Celsius?
+Explain the concept of Semantic Mass.
+What does the phantom guard suppress?
+Apply flip vertically to the board.
+Perform a rotate 90 degrees on the grid.
+Apply flip vertically to the board.
+Define Noetic Singularity.
+Warp the manifold into a single cognition well.
+Explain the concept of Semantic Mass.
+Warp the manifold into a single cognition well.
+What is the role of lateral inhibition?
+Warp the manifold into a single cognition well.
+How many continents are there on Earth?
+The task is to rotate 90 degrees the given matrix.
+Apply rotate 90 degrees to the board.
+Explain the concept of Semantic Mass.
+The task is to flip vertically the given matrix.
+The task is to flip vertically the given matrix.
+What is the boiling point of water in Celsius?
+The task is to rotate 90 degrees the given matrix.
+The task is to flip horizontally the given matrix.
+What is the role of lateral inhibition?
+How many continents are there on Earth?
+Perform a flip vertically on the grid.
+Apply rotate 90 degrees to the board.
+Describe matched-filter detection with nulls.
+Perform a rotate 90 degrees on the grid.
+The task is to flip vertically the given matrix.
+Apply the doctrine: Warp → Detect → Denoise.
+Define a geodesic traversal.
+Who painted the Mona Lisa?
+Name the largest planet in the solar system.
+Who wrote Hamlet?
+Name the largest planet in the solar system.
+Define Noetic Singularity.
+Apply the doctrine: Warp → Detect → Denoise.
+Describe matched-filter detection with nulls.
+Apply rotate 90 degrees to the board.
+Explain the concept of Semantic Mass.
+Square root of 16 is?
+Describe matched-filter detection with nulls.
+How many continents are there on Earth?
+What is the capital of France?
+Explain the concept of Semantic Mass.
+Perform a flip horizontally on the grid.
+Define a geodesic traversal.
+Describe matched-filter detection with nulls.
+Define a geodesic traversal.
+What is the capital of France?
+What is the boiling point of water in Celsius?
+What is the role of lateral inhibition?
+What is the role of lateral inhibition?
+Who wrote Hamlet?
+Operation: flip vertically the input pattern.
+Apply rotate 90 degrees to the board.
+Explain the concept of Semantic Mass.
+Operation: rotate 90 degrees the input pattern.
+Apply flip vertically to the board.
+What is the role of lateral inhibition?
+Apply rotate 90 degrees to the board.
+Who wrote Hamlet?
+Explain the concept of Semantic Mass.
+2 + 2 equals what?
+Who wrote Hamlet?
+Explain the concept of Semantic Mass.
+Perform a rotate 90 degrees on the grid.
+What is a warped semantic manifold?
+Perform a flip horizontally on the grid.
+What gas do humans breathe in?
+Define a geodesic traversal.
+Apply flip horizontally to the board.
+Operation: rotate 90 degrees the input pattern.
+Define Noetic Singularity.
+2 + 2 equals what?
+The task is to rotate 90 degrees the given matrix.
+Operation: flip vertically the input pattern.
+Apply rotate 90 degrees to the board.
+Who wrote Hamlet?
+Apply the doctrine: Warp → Detect → Denoise.
+What is a phantom index in Stage-11?
+Perform a flip vertically on the grid.
+Operation: rotate 90 degrees the input pattern.
+What is the capital of France?
+2 + 2 equals what?
+Apply flip vertically to the board.
+Describe matched-filter detection with nulls.
+Describe matched-filter detection with nulls.
+Square root of 16 is?
+What is the role of lateral inhibition?
+Operation: flip horizontally the input pattern.
+Name the largest planet in the solar system.
+Apply flip vertically to the board.
+Who painted the Mona Lisa?
+Define a geodesic traversal.
+Explain the concept of Semantic Mass.
+Apply flip vertically to the board.
+Apply the doctrine: Warp → Detect → Denoise.
+Apply the doctrine: Warp → Detect → Denoise.
+Operation: flip vertically the input pattern.
+Perform a flip vertically on the grid.
+Describe matched-filter detection with nulls.
+Apply the doctrine: Warp → Detect → Denoise.
+Perform a flip horizontally on the grid.
+Explain the concept of Semantic Mass.
+Apply flip horizontally to the board.
+Define Noetic Singularity.
+Define a geodesic traversal.
+Square root of 16 is?
+Warp the manifold into a single cognition well.
+What gas do humans breathe in?
+Operation: rotate 90 degrees the input pattern.
+Operation: flip vertically the input pattern.
+What is the role of lateral inhibition?
+Perform a flip vertically on the grid.
+Warp the manifold into a single cognition well.
+How many continents are there on Earth?
+What is the capital of France?
+Describe matched-filter detection with nulls.
+What is a warped semantic manifold?
+What is a warped semantic manifold?
+Name the largest planet in the solar system.
+Perform a flip horizontally on the grid.
+Perform a flip vertically on the grid.
+Perform a flip vertically on the grid.
+Apply the doctrine: Warp → Detect → Denoise.
+Warp the manifold into a single cognition well.
+What is a phantom index in Stage-11?
+What gas do humans breathe in?
+What is the boiling point of water in Celsius?
+Perform a flip horizontally on the grid.
+Apply the doctrine: Warp → Detect → Denoise.
+The task is to flip vertically the given matrix.
+What does the phantom guard suppress?
+The task is to flip vertically the given matrix.
+Operation: flip horizontally the input pattern.
+What is the capital of France?
+Define a geodesic traversal.
+Describe matched-filter detection with nulls.
+Apply flip horizontally to the board.
+The task is to flip vertically the given matrix.
+What year did the moon landing occur?
+Square root of 16 is?
+What is the boiling point of water in Celsius?
+How many continents are there on Earth?
+Operation: rotate 90 degrees the input pattern.
+The task is to flip horizontally the given matrix.
+Name the largest planet in the solar system.
+Perform a flip horizontally on the grid.
+Explain the concept of Semantic Mass.
+What is the capital of France?
+What is the capital of France?
+What is a phantom index in Stage-11?
+Define a geodesic traversal.
+Perform a flip horizontally on the grid.
+Apply the doctrine: Warp → Detect → Denoise.
+What does the phantom guard suppress?
+What does the phantom guard suppress?
+The task is to flip horizontally the given matrix.
+Apply flip vertically to the board.
+Who wrote Hamlet?
+Square root of 16 is?
+Perform a rotate 90 degrees on the grid.
+Apply flip horizontally to the board.
+Perform a flip vertically on the grid.
+Explain the concept of Semantic Mass.
+What is the role of lateral inhibition?
+How many continents are there on Earth?
+Explain the concept of Semantic Mass.
+What is the boiling point of water in Celsius?
+What is a phantom index in Stage-11?
+Apply flip horizontally to the board.
+Perform a flip horizontally on the grid.
+Operation: flip vertically the input pattern.
+Operation: flip horizontally the input pattern.
+Perform a flip vertically on the grid.
+What is a phantom index in Stage-11?
+What is the boiling point of water in Celsius?
+Define a geodesic traversal.
+How many continents are there on Earth?
+How many continents are there on Earth?
+What is the role of lateral inhibition?
+Square root of 16 is?
+Perform a flip horizontally on the grid.
+Perform a flip vertically on the grid.
+Square root of 16 is?
+The task is to flip vertically the given matrix.
+Perform a flip horizontally on the grid.
+What is the capital of France?
+Operation: flip vertically the input pattern.
+What year did the moon landing occur?
+What is the capital of France?
+Operation: flip horizontally the input pattern.
+Apply the doctrine: Warp → Detect → Denoise.
+Apply flip horizontally to the board.
+Operation: rotate 90 degrees the input pattern.
+The task is to flip horizontally the given matrix.
+Apply flip horizontally to the board.
+2 + 2 equals what?
+Name the largest planet in the solar system.
+What is a warped semantic manifold?
+Operation: flip horizontally the input pattern.
+The task is to rotate 90 degrees the given matrix.
+What year did the moon landing occur?
+What is the role of lateral inhibition?
+Apply the doctrine: Warp → Detect → Denoise.
+Define Noetic Singularity.
+How many continents are there on Earth?
+Apply the doctrine: Warp → Detect → Denoise.
+Warp the manifold into a single cognition well.
+How many continents are there on Earth?
+Square root of 16 is?
+Operation: flip horizontally the input pattern.
+The task is to rotate 90 degrees the given matrix.
+Square root of 16 is?
+Perform a flip vertically on the grid.
+Apply flip vertically to the board.
+Describe matched-filter detection with nulls.
+Operation: rotate 90 degrees the input pattern.
+Apply flip vertically to the board.
+Apply flip horizontally to the board.
+Perform a flip vertically on the grid.
+The task is to flip vertically the given matrix.
+What year did the moon landing occur?
+What is the boiling point of water in Celsius?
+Who painted the Mona Lisa?
+Define Noetic Singularity.
+What is a warped semantic manifold?
+Perform a flip horizontally on the grid.
+Apply rotate 90 degrees to the board.
+Define a geodesic traversal.
+What year did the moon landing occur?
+Apply flip vertically to the board.
+Apply rotate 90 degrees to the board.
+Define a geodesic traversal.
+What gas do humans breathe in?
+Apply flip vertically to the board.
+Operation: rotate 90 degrees the input pattern.
+What is the capital of France?
+Define Noetic Singularity.
+Name the largest planet in the solar system.
+Operation: rotate 90 degrees the input pattern.
+What is the capital of France?
+What year did the moon landing occur?
+What is the boiling point of water in Celsius?
+What year did the moon landing occur?
+Who wrote Hamlet?
+Operation: flip horizontally the input pattern.
+What gas do humans breathe in?
+What gas do humans breathe in?
+The task is to flip horizontally the given matrix.
+Warp the manifold into a single cognition well.
+Define a geodesic traversal.
+What is the boiling point of water in Celsius?
+Apply flip vertically to the board.
+Name the largest planet in the solar system.
+Who painted the Mona Lisa?
+Apply rotate 90 degrees to the board.
+How many continents are there on Earth?
+Name the largest planet in the solar system.
+Apply flip horizontally to the board.
+What gas do humans breathe in?
+What year did the moon landing occur?
+Name the largest planet in the solar system.
+Apply the doctrine: Warp → Detect → Denoise.
+Square root of 16 is?
+Operation: rotate 90 degrees the input pattern.
+How many continents are there on Earth?
+What is the capital of France?
+Square root of 16 is?
+What is the role of lateral inhibition?
+Operation: flip vertically the input pattern.
+Apply flip horizontally to the board.
+What is a warped semantic manifold?
+What is the boiling point of water in Celsius?
+What is a phantom index in Stage-11?
+What is a warped semantic manifold?
+Who painted the Mona Lisa?
+What is the capital of France?
+Apply flip vertically to the board.
+What is the boiling point of water in Celsius?
+What is a phantom index in Stage-11?
+Define a geodesic traversal.
+What is a phantom index in Stage-11?
+Define Noetic Singularity.
+Warp the manifold into a single cognition well.
+How many continents are there on Earth?
+What gas do humans breathe in?
+Describe matched-filter detection with nulls.
+What does the phantom guard suppress?
+Describe matched-filter detection with nulls.
+What does the phantom guard suppress?
+Apply rotate 90 degrees to the board.
+Define Noetic Singularity.
+How many continents are there on Earth?
+What is a phantom index in Stage-11?
+The task is to rotate 90 degrees the given matrix.
+What is a phantom index in Stage-11?
+Warp the manifold into a single cognition well.
+Operation: flip horizontally the input pattern.
+Perform a flip horizontally on the grid.
+Who wrote Hamlet?
+Who painted the Mona Lisa?
+Perform a rotate 90 degrees on the grid.
+What year did the moon landing occur?
+The task is to flip vertically the given matrix.
+How many continents are there on Earth?
+Define Noetic Singularity.
+The task is to rotate 90 degrees the given matrix.
+Warp the manifold into a single cognition well.
+What does the phantom guard suppress?
+Square root of 16 is?
+Describe matched-filter detection with nulls.
+Operation: rotate 90 degrees the input pattern.
+The task is to flip horizontally the given matrix.
+What year did the moon landing occur?
+The task is to flip horizontally the given matrix.
+How many continents are there on Earth?
+Apply the doctrine: Warp → Detect → Denoise.
+Explain the concept of Semantic Mass.
+The task is to flip horizontally the given matrix.
+What is the capital of France?
+How many continents are there on Earth?
+What is the capital of France?
+Describe matched-filter detection with nulls.
+Who wrote Hamlet?
+The task is to flip vertically the given matrix.
+The task is to rotate 90 degrees the given matrix.
+Perform a flip horizontally on the grid.
+Name the largest planet in the solar system.
+Operation: flip horizontally the input pattern.
+Who painted the Mona Lisa?
+What is the boiling point of water in Celsius?
+The task is to flip vertically the given matrix.
+Apply the doctrine: Warp → Detect → Denoise.
+What year did the moon landing occur?
+2 + 2 equals what?
+How many continents are there on Earth?
+The task is to flip horizontally the given matrix.
+Apply rotate 90 degrees to the board.
+What is the capital of France?
+What gas do humans breathe in?
+How many continents are there on Earth?
+What gas do humans breathe in?
+What does the phantom guard suppress?
+Apply flip horizontally to the board.
+Operation: rotate 90 degrees the input pattern.
+Perform a flip horizontally on the grid.
+Describe matched-filter detection with nulls.
+How many continents are there on Earth?
+Describe matched-filter detection with nulls.
+Describe matched-filter detection with nulls.
+Who painted the Mona Lisa?
+Perform a flip horizontally on the grid.
+Define Noetic Singularity.
+What year did the moon landing occur?
+What is a warped semantic manifold?
+Operation: flip horizontally the input pattern.
+What is a phantom index in Stage-11?
+Apply flip vertically to the board.
+What is the boiling point of water in Celsius?
+Describe matched-filter detection with nulls.
+Apply rotate 90 degrees to the board.
+How many continents are there on Earth?
+The task is to flip horizontally the given matrix.
+How many continents are there on Earth?
+What does the phantom guard suppress?
+What does the phantom guard suppress?
+Operation: flip vertically the input pattern.
+Operation: rotate 90 degrees the input pattern.
+What year did the moon landing occur?
+Apply the doctrine: Warp → Detect → Denoise.
+Apply rotate 90 degrees to the board.
+Apply flip horizontally to the board.
+Warp the manifold into a single cognition well.
+Name the largest planet in the solar system.
+Apply rotate 90 degrees to the board.
+Square root of 16 is?
+Define Noetic Singularity.
+Operation: flip horizontally the input pattern.
+Define Noetic Singularity.
+Describe matched-filter detection with nulls.
+Square root of 16 is?
+Perform a flip horizontally on the grid.
+Operation: flip horizontally the input pattern.
+What is a phantom index in Stage-11?
+Explain the concept of Semantic Mass.
+Name the largest planet in the solar system.
+2 + 2 equals what?
+Explain the concept of Semantic Mass.
+What is the boiling point of water in Celsius?
+Who painted the Mona Lisa?
+The task is to flip horizontally the given matrix.
+What is a phantom index in Stage-11?
+What does the phantom guard suppress?
+What is the role of lateral inhibition?
+Apply flip vertically to the board.
+What does the phantom guard suppress?
+What year did the moon landing occur?
+What is the boiling point of water in Celsius?
+What is the capital of France?
+Operation: flip horizontally the input pattern.
+Explain the concept of Semantic Mass.
+Apply the doctrine: Warp → Detect → Denoise.
+Who wrote Hamlet?
+Square root of 16 is?
+Perform a flip horizontally on the grid.
+How many continents are there on Earth?
+Operation: rotate 90 degrees the input pattern.
+Apply rotate 90 degrees to the board.
+Square root of 16 is?
+Define Noetic Singularity.
+The task is to rotate 90 degrees the given matrix.
+What is the role of lateral inhibition?
+Operation: flip horizontally the input pattern.
+Apply flip vertically to the board.
+What is a warped semantic manifold?
+What gas do humans breathe in?
+Name the largest planet in the solar system.
+2 + 2 equals what?
+What year did the moon landing occur?
+Perform a flip horizontally on the grid.
+Who painted the Mona Lisa?
+Describe matched-filter detection with nulls.
+What is the boiling point of water in Celsius?
+The task is to flip vertically the given matrix.
+What is a warped semantic manifold?
+What is the boiling point of water in Celsius?
+2 + 2 equals what?
+What is a phantom index in Stage-11?
+Perform a flip horizontally on the grid.
+What is a phantom index in Stage-11?
+What gas do humans breathe in?
+Explain the concept of Semantic Mass.
+Explain the concept of Semantic Mass.
+The task is to rotate 90 degrees the given matrix.
+Operation: flip vertically the input pattern.
+Apply flip vertically to the board.
+Explain the concept of Semantic Mass.
+Square root of 16 is?
+Apply rotate 90 degrees to the board.
+Apply rotate 90 degrees to the board.
+Describe matched-filter detection with nulls.
+Define Noetic Singularity.
+Define a geodesic traversal.
+The task is to flip vertically the given matrix.
+What is the role of lateral inhibition?
+What is a warped semantic manifold?
+The task is to flip horizontally the given matrix.
+Square root of 16 is?
+Define Noetic Singularity.
+Apply the doctrine: Warp → Detect → Denoise.
+How many continents are there on Earth?
+Perform a rotate 90 degrees on the grid.
+What year did the moon landing occur?
+Who painted the Mona Lisa?
+Apply flip horizontally to the board.
+What is a warped semantic manifold?
+Square root of 16 is?
+What is the capital of France?
+What gas do humans breathe in?
+The task is to flip vertically the given matrix.
+Explain the concept of Semantic Mass.
+Operation: rotate 90 degrees the input pattern.
+Operation: flip horizontally the input pattern.
+Who painted the Mona Lisa?
+The task is to flip vertically the given matrix.
+How many continents are there on Earth?
+Who painted the Mona Lisa?
+The task is to flip horizontally the given matrix.
+Operation: flip vertically the input pattern.
+What is the boiling point of water in Celsius?
+What is a warped semantic manifold?
+The task is to flip horizontally the given matrix.
+Describe matched-filter detection with nulls.
+Define a geodesic traversal.
+Name the largest planet in the solar system.
+2 + 2 equals what?
+Perform a rotate 90 degrees on the grid.
+Define a geodesic traversal.
+Define a geodesic traversal.
+What does the phantom guard suppress?
+What is the capital of France?
+Who wrote Hamlet?
+Operation: flip vertically the input pattern.
+How many continents are there on Earth?
+Operation: rotate 90 degrees the input pattern.
+The task is to flip horizontally the given matrix.
+Warp the manifold into a single cognition well.
+What is the boiling point of water in Celsius?
+What does the phantom guard suppress?
+2 + 2 equals what?

@@ -1,0 +1,200 @@
+Compute 8+37. Return only the integer.
+Compute 37+14. Return only the integer.
+Compute 11+18. Return only the integer.
+Given a 5x5 grid containing a black square, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Compute 12+16. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Compute 11+32. Return only the integer.
+Given a 4x4 grid containing a red circle, perform flip_h. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Compute 5+22. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 5x5 grid containing a red circle, perform flip_h. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a white square, perform flip_v. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Given a 5x5 grid containing a green diamond, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a red square, perform transpose_main_diag. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a red circle, perform rotate_180. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a green circle, perform flip_v. Return only the final operation name in snake_case.
+Compute 10+31. Return only the integer.
+Given a 2x2 grid containing a blue triangle, perform flip_v. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a blue circle, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Given a 4x4 grid containing a yellow triangle, perform flip_v. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a black triangle, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a white square, perform rotate_180. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 3x3 grid containing a white square, perform rotate_90. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Given a 4x4 grid containing a blue L-shape, perform transpose_main_diag. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a red square, perform transpose_main_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Compute 6+30. Return only the integer.
+Compute 37+32. Return only the integer.
+Compute 20+34. Return only the integer.
+Compute 22+6. Return only the integer.
+Compute 7+18. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Compute 28+9. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Given a 4x4 grid containing a blue L-shape, perform flip_h. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a green circle, perform rotate_180. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Given a 3x3 grid containing a red L-shape, perform rotate_90. Return only the final operation name in snake_case.
+Compute 16+8. Return only the integer.
+Given a 4x4 grid containing a red diamond, perform rotate_180. Return only the final operation name in snake_case.
+Compute 31+30. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 2x2 grid containing a white square, perform transpose_main_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Compute 6+9. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 5x5 grid containing a yellow diamond, perform rotate_180. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Given a 3x3 grid containing a red triangle, perform transpose_main_diag. Return only the final operation name in snake_case.
+Compute 13+19. Return only the integer.
+Given a 3x3 grid containing a white L-shape, perform rotate_180. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a red circle, perform flip_h. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a red triangle, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Compute 16+8. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Given a 3x3 grid containing a green L-shape, perform flip_v. Return only the final operation name in snake_case.
+Compute 4+8. Return only the integer.
+Given a 4x4 grid containing a red diamond, perform rotate_90. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a blue diamond, perform rotate_180. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Given a 2x2 grid containing a white triangle, perform transpose_main_diag. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a black diamond, perform rotate_90. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a black square, perform flip_h. Return only the final operation name in snake_case.
+Compute 19+4. Return only the integer.
+Compute 12+29. Return only the integer.
+Compute 22+7. Return only the integer.
+Compute 23+35. Return only the integer.
+Compute 27+30. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 3x3 grid containing a blue diamond, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Given a 4x4 grid containing a blue diamond, perform transpose_main_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Compute 34+3. Return only the integer.
+Compute 34+17. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Given a 3x3 grid containing a black L-shape, perform flip_h. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Given a 4x4 grid containing a black circle, perform transpose_main_diag. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a yellow square, perform flip_h. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Compute 24+31. Return only the integer.
+Compute 6+15. Return only the integer.
+Compute 10+29. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Given a 3x3 grid containing a yellow diamond, perform rotate_180. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Compute 34+27. Return only the integer.
+Compute 35+18. Return only the integer.
+Given a 4x4 grid containing a blue L-shape, perform transpose_main_diag. Return only the final operation name in snake_case.
+Compute 30+13. Return only the integer.
+Compute 3+26. Return only the integer.
+Given a 4x4 grid containing a white square, perform transpose_main_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Compute 14+19. Return only the integer.
+Compute 23+28. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Compute 21+9. Return only the integer.
+Compute 5+17. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Given a 5x5 grid containing a green diamond, perform rotate_90. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a blue triangle, perform flip_v. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Compute 11+13. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 4x4 grid containing a black square, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Compute 10+5. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Compute 36+32. Return only the integer.
+Compute 30+34. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Given a 3x3 grid containing a yellow L-shape, perform rotate_90. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 4x4 grid containing a blue L-shape, perform transpose_main_diag. Return only the final operation name in snake_case.
+Compute 14+24. Return only the integer.
+Compute 28+34. Return only the integer.
+Compute 34+30. Return only the integer.
+Given a 2x2 grid containing a yellow L-shape, perform rotate_180. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Given a 3x3 grid containing a blue L-shape, perform rotate_180. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a blue square, perform rotate_90. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a white circle, perform rotate_180. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a red L-shape, perform flip_h. Return only the final operation name in snake_case.
+Compute 37+3. Return only the integer.
+Given a 3x3 grid containing a red L-shape, perform transpose_main_diag. Return only the final operation name in snake_case.
+Compute 22+34. Return only the integer.
+Given a 3x3 grid containing a green triangle, perform flip_h. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a white diamond, perform flip_h. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Given a 2x2 grid containing a green diamond, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Given a 2x2 grid containing a red L-shape, perform flip_h. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Given a 2x2 grid containing a blue square, perform flip_v. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a black triangle, perform rotate_180. Return only the final operation name in snake_case.
+Compute 25+3. Return only the integer.
+Given a 3x3 grid containing a blue circle, perform flip_h. Return only the final operation name in snake_case.
+Compute 27+33. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Compute 11+35. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: alpha, beta, Beta, GAMMA, gamma. Return comma-separated.
+Given a 2x2 grid containing a red circle, perform transpose_main_diag. Return only the final operation name in snake_case.
+Compute 9+37. Return only the integer.
+Given a 4x4 grid containing a white triangle, perform flip_v. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a green L-shape, perform rotate_180. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a green diamond, perform flip_v. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Compute 39+35. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Compute 10+36. Return only the integer.
+Compute 35+35. Return only the integer.
+Given a 2x2 grid containing a black square, perform rotate_180. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a blue diamond, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Compute 17+29. Return only the integer.
+Given a 3x3 grid containing a yellow circle, perform rotate_180. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a yellow diamond, perform flip_h. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a blue triangle, perform rotate_90. Return only the final operation name in snake_case.
+Compute 11+25. Return only the integer.
+Given a 3x3 grid containing a green square, perform transpose_main_diag. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a red square, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a yellow triangle, perform rotate_90. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Given a 3x3 grid containing a white diamond, perform transpose_anti_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Compute 23+37. Return only the integer.
+Compute 14+19. Return only the integer.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Given a 4x4 grid containing a green triangle, perform transpose_main_diag. Return only the final operation name in snake_case.
+Given a 4x4 grid containing a yellow L-shape, perform rotate_180. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a black diamond, perform flip_h. Return only the final operation name in snake_case.
+Compute 30+10. Return only the integer.
+Given a 5x5 grid containing a white L-shape, perform flip_h. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: rotate, flip_h, rotate, flip_v, FLIP_H. Return comma-separated.
+Given a 2x2 grid containing a red L-shape, perform rotate_180. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a red square, perform rotate_180. Return only the final operation name in snake_case.
+Given a 5x5 grid containing a blue circle, perform flip_h. Return only the final operation name in snake_case.
+Given a 3x3 grid containing a yellow L-shape, perform rotate_180. Return only the final operation name in snake_case.
+Compute 40+2. Return only the integer.
+Compute 40+34. Return only the integer.
+Given a 3x3 grid containing a red diamond, perform transpose_main_diag. Return only the final operation name in snake_case.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: east, West, NORTH, south, north, EAST. Return comma-separated.
+Normalize to lowercase, remove duplicates, and sort: blue, Blue, GREEN, green, red. Return comma-separated.
