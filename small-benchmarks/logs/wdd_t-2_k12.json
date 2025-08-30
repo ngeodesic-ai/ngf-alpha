@@ -1,0 +1,16 @@
+{
+  "rows": [
+    {
+      "tap": -2,
+      "warp_phantom_index": 0.0,
+      "warp_margin_norm": 0.0,
+      "warp_trend": 0.48056598685976376,
+      "detect_phantom_index": 0.0,
+      "detect_margin_norm": 0.0,
+      "detect_trend": 0.48056598685976376,
+      "denoise_phantom_index": 0.0,
+      "denoise_margin_norm": 0.0,
+      "denoise_trend": 0.48056598685976376
+    }
+  ]
+}
