@@ -8,6 +8,23 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter, minimum_filter
 
+
+"""
+for t in {-12..-6}; do
+  for k in 8 12; do
+    python3 stage11_llm_layer_scan_plus.py \
+      --model gpt2 --tap_range "$t" \
+      --calib calib_prompts_v2_900.txt --eval calib_eval_style_200.txt \
+      --pool_mode lastk --k_last $k \
+      --sigma_px 5.0 --density_floor 4.0 --min_prom 0.55 \
+      --with_detect --with_denoise \
+      --out_csv logs/wdd_t${t}_k${k}.csv \
+      --out_png logs/wdd_t${t}_k${k}.png \
+      --out_json logs/wdd_t${t}_k${k}.json
+  done
+done
+"""
+
 # ---------------------------
 # Helpers
 # ---------------------------
