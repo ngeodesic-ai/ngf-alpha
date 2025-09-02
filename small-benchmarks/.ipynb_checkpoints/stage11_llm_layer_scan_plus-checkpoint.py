@@ -14,7 +14,7 @@ for t in {-12..-6}; do
   for k in 8 12; do
     python3 stage11_llm_layer_scan_plus.py \
       --model gpt2 --tap_range "$t" \
-      --calib calib_prompts_v2_900.txt --eval calib_eval_style_200.txt \
+      --calib calib/calib_prompts_v2_900.txt --eval calib/calib_eval_style_200.txt \
       --pool_mode lastk --k_last $k \
       --sigma_px 5.0 --density_floor 4.0 --min_prom 0.55 \
       --with_detect --with_denoise \
@@ -23,6 +23,17 @@ for t in {-12..-6}; do
       --out_json logs/wdd_t${t}_k${k}.json
   done
 done
+
+python3 stage11_llm_layer_scan_plus.py \
+      --model gpt2 --tap_range -9 \
+      --calib calib/calib_prompts_v2_900.txt --eval calib/calib_eval_style_200.txt \
+      --pool_mode lastk --k_last 12 \
+      --sigma_px 5.0 --density_floor 4.0 --min_prom 0.55 \
+      --with_detect --with_denoise \
+      --out_csv logs/wdd_t9_k12.csv \
+      --out_png logs/wdd_t9_k12.png \
+      --out_json logs/wdd_t9_k12.json
+
 """
 
 # ---------------------------

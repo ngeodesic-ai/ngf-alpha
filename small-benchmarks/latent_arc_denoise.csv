@@ -1,6 +1,0 @@
-sample,true,geodesic_tasks,geodesic_order,geodesic_ok,stock_tasks,stock_order,stock_ok,geodesic_precision,geodesic_recall,geodesic_f1,geodesic_jaccard,geodesic_hallucination,geodesic_omission,stock_precision,stock_recall,stock_f1,stock_jaccard,stock_hallucination,stock_omission
-1,rotate,flip_h|flip_v|rotate,rotate|flip_h|flip_v,0,flip_v|rotate,rotate|flip_v,0,0.3333333333333333,1.0,0.5,0.3333333333333333,0.6666666666666666,0.0,0.5,1.0,0.6666666666666666,0.5,0.5,0.0
-2,flip_v|flip_h|rotate,flip_h|flip_v|rotate,flip_v|flip_h|rotate,1,flip_h|flip_v,flip_v|flip_h,0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.6666666666666666,0.8,0.6666666666666666,0.0,0.3333333333333333
-3,rotate|flip_v|flip_h,flip_h|flip_v|rotate,rotate|flip_v|flip_h,1,flip_h|rotate,rotate|flip_h,0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.6666666666666666,0.8,0.6666666666666666,0.0,0.3333333333333333
-4,flip_h|rotate,flip_h|rotate,flip_h|rotate,1,flip_h|rotate,flip_h|rotate,1,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0
-5,flip_v|rotate|flip_h,flip_h|flip_v|rotate,flip_v|rotate|flip_h,1,flip_v|rotate,flip_v|rotate,0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.6666666666666666,0.8,0.6666666666666666,0.0,0.3333333333333333
