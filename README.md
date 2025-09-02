@@ -90,10 +90,12 @@ python -u arc-benchmark-latest.py \
 * Iterate lightweight integration modes – start with scoring-only (rerank logits), then projection alignment, and finally soft attention gating, balancing determinism with compute cost.
 
 ## Technical Paper - WORK IN PROGRESS
-A draft paper is included as [Noetic Geodesic Framework: A Geometric Approach to Deterministic AI Reasoning](docs/article_latest.pdf). **Disclaimer**: This is a preliminary alpha-stage document (August 20, 2025), subject to change. Feedback is welcome! Provisional patents filed as #63/864,726, #63/865,437, 63/871,647, and 63/872,334.
+- Moore, I. C. (2025). *[Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)](docs/article_latest.pdf)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
+- **Disclaimer**: This is a preliminary alpha-stage document (Sept 1, 2025), subject to change. Feedback is welcome! 
+- Provisional patents filed as #63/864,726, #63/865,437, 63/871,647, and 63/872,334.
 
 ## References
-- Moore, I. C. (2025). *Warped Semantic Manifolds: A Geometric Framework for Deterministic AI Reasoning (Preliminary Memo)*. Zenodo. https://zenodo.org/records/16908227 (DOI: 10.5281/zenodo.16730759); see [code](toy-example/step1.ipynb)
+- Moore, I. C. (2025). *Warped Semantic Manifolds: A Geometric Framework for Deterministic AI Reasoning (Preliminary Memo)*. Zenodo. https://zenodo.org/records/16908227 (DOI: 10.5281/zenodo.16730759), Aug 2025; see [code](toy-example/step1.ipynb)
 
 ## Medium Articles
  * **Toy Example in $R^3$**: [Warped Semantic Manifolds: A Geometric Approach to AI Reasoning](https://medium.com/@icmoore/warped-semantic-manifolds-a-new-path-to-flawless-ai-reasoning-d2328c91d920)
