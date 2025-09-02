@@ -1,0 +1,3 @@
+stage,pass,tap,phantom_index,margin_norm,minima_count,trend,alpha,scale,center_x,center_y
+warp,0,-10,0.0,0.0,1,0.5018968938149972,,,,
+denoise,0,-10,0.0,0.0,1,,,,,

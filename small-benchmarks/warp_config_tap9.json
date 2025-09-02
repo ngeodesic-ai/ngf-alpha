@@ -1,0 +1,26 @@
+{
+  "tap": -9,
+  "prewarp": {
+    "enabled": true,
+    "mode": "peak",
+    "alpha": 0.06,
+    "scale_pct": 60,
+    "iters": 2,
+    "decay": 0.75
+  },
+  "passes": {
+    "count": 3,
+    "alpha_schedule": [0.10, 0.06, 0.03],
+    "scale_pct":      [60,   55,   50]
+  },
+  "detect": {
+    "sigma_px": 5.5,
+    "density_floor": 2.5,
+    "min_prom": 0.38
+  },
+  "trend": {
+    "pool_mode": "lastk",
+    "k_last": 12,
+    "limit": 96
+  }
+}

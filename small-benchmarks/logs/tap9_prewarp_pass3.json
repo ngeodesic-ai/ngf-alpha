@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "tap": -9,
+      "warp_phantom_index": 0.0,
+      "warp_margin_norm": 0.0,
+      "warp_trend": 0.6214640551318892,
+      "detect_phantom_index": 0.0,
+      "detect_margin_norm": 0.0,
+      "detect_trend": 0.6214640551318892,
+      "denoise_phantom_index": 0.0,
+      "denoise_margin_norm": 0.0,
+      "denoise_trend": 0.6214640551318892,
+      "final_phantom_index": 0.0,
+      "final_margin_norm": 0.0,
+      "final_trend": 0.6214640551318892,
+      "prewarp_iters": 2,
+      "prewarp_center_x": -0.5751645285978308,
+      "prewarp_center_y": 0.562561951985063
+    }
+  ]
+}

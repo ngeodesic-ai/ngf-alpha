@@ -1,0 +1,26 @@
+{
+  "samples": 200,
+  "geodesic": {
+    "accuracy_exact": 0.555,
+    "precision": 0.7975000000000004,
+    "recall": 0.995,
+    "f1": 0.8634999999999997,
+    "jaccard": 0.7975000000000004,
+    "hallucination_rate": 0.2024999999999999,
+    "omission_rate": 0.005
+  },
+  "stock": {
+    "accuracy_exact": 0.415,
+    "precision": 0.8566666666666667,
+    "recall": 0.7891666666666666,
+    "f1": 0.7828333333333337,
+    "jaccard": 0.6991666666666668,
+    "hallucination_rate": 0.1433333333333333,
+    "omission_rate": 0.21083333333333343
+  },
+  "phantom_index": 0.058733092601261354,
+  "margin": 0.004522667634442368,
+  "plot_raw": "out/well.png",
+  "plot_fitted": "out/well_fit.png",
+  "csv": "out/stage11_metrics.csv"
+}

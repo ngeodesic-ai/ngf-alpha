@@ -1,0 +1,2 @@
+denoise_margin_norm,denoise_phantom_index,denoise_trend,detect_margin_norm,detect_phantom_index,detect_trend,final_margin_norm,final_phantom_index,final_trend,prewarp_center_x,prewarp_center_y,prewarp_iters,tap,warp_margin_norm,warp_phantom_index,warp_trend
+0.0,0.0,0.6214640551318892,0.0,0.0,0.6214640551318892,0.0,0.0,0.6214640551318892,-0.5751645285978308,0.562561951985063,2,-9,0.0,0.0,0.6214640551318892
