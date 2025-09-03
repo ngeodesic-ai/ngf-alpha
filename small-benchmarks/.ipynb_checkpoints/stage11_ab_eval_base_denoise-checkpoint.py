@@ -57,6 +57,63 @@ python3 stage11_ab_eval_base_denoise.py \
   --denoise_k 8.0 --denoise_tau 0.35 --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
   --jitter_eps 0.03 \
   --out_json ab_geo_v4b_denoise_softDetect.json
+
+
+
+# Simple A/B/C tests
+
+# STOCK
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts patterned_prompts_v1.txt --max_new_tokens 64 \
+  --gen_mode stock --device cuda \
+  --out_json ab_stock_patterned.json
+
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts patterned_prompts_v2_words.txt \
+  --max_new_tokens 8 \
+  --gen_mode stock --device cuda \
+  --out_json ab_stock_patterned_v2.json
+
+# GEO (Warp only)
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts patterned_prompts_v1.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --out_json ab_geo_patterned.json
+
+# GEO+Detect (Warp + Detect, no denoise)
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts patterned_prompts_v1.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 32 --null_q 0.92 --k_det 7 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --out_json ab_geo_detect_patterned.json
+
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts patterned_prompts_v2_words.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 24 --null_q 0.88 --k_det 9 \
+  --linger 4 --s_latch 0.25 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --use_denoise 1 \
+  --denoise_beta 0.6 --denoise_window 3 \
+  --denoise_k 8.0 --denoise_tau 0.35 \
+  --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
+  --jitter_eps 0.03 \
+  --out_json ab_geo_detect_denoise_patterned.json
+
   
 """
 

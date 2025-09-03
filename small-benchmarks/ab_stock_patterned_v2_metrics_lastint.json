@@ -1,0 +1,394 @@
+{
+  "config": {
+    "match_mode": "alnum_lower",
+    "regex": "(?s).*?(-?\\d+)(?!.*-?\\d+)",
+    "method_label": "Stock (last-int)",
+    "generations_file": "layer9_wiring_plan/simple_benchmark/ab_stock_patterned_v2.json",
+    "truths_file": "layer9_wiring_plan/simple_benchmark/patterned_truths.csv"
+  },
+  "aggregate": {
+    "n": 25,
+    "tp": 0,
+    "fp": 25,
+    "fn": 24,
+    "accuracy": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "hallucination_rate": 1.0,
+    "omission_rate": 0.0
+  },
+  "items": [
+    {
+      "id": "0",
+      "generation": "Compute thirteen plus fifty. Return only the integer.\n\nThe following is a list of",
+      "gen_norm": "computethirteenplusfiftyreturnonlytheintegerthefollowingisalistof",
+      "truths": [],
+      "truths_norm": [],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "1",
+      "generation": "Compute fourteen times five. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computefourteentimesfivereturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "63"
+      ],
+      "truths_norm": [
+        "63"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "2",
+      "generation": "Compute ninety-six minus thirty-seven. Return only the integer.\n\nThe following code is equivalent to",
+      "gen_norm": "computeninetysixminusthirtysevenreturnonlytheintegerthefollowingcodeisequivalentto",
+      "truths": [
+        "70"
+      ],
+      "truths_norm": [
+        "70"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "3",
+      "generation": "Compute sixteen times eight. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computesixteentimeseightreturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "59"
+      ],
+      "truths_norm": [
+        "59"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "4",
+      "generation": "Compute eighty-one divided by nine. Return only the integer.\n\nThe following code is equivalent to",
+      "gen_norm": "computeeightyonedividedbyninereturnonlytheintegerthefollowingcodeisequivalentto",
+      "truths": [
+        "128"
+      ],
+      "truths_norm": [
+        "128"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "5",
+      "generation": "Compute two minus ninety-nine. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computetwominusninetyninereturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "9"
+      ],
+      "truths_norm": [
+        "9"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "6",
+      "generation": "Compute twenty-one minus forty-nine. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computetwentyoneminusfortyninereturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "-97"
+      ],
+      "truths_norm": [
+        "97"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "7",
+      "generation": "Compute seven times twelve. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computeseventimestwelvereturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "-28"
+      ],
+      "truths_norm": [
+        "28"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "8",
+      "generation": "Compute fifteen plus twenty-seven. Return only the integer.\n\nThe following is a list of",
+      "gen_norm": "computefifteenplustwentysevenreturnonlytheintegerthefollowingisalistof",
+      "truths": [
+        "84"
+      ],
+      "truths_norm": [
+        "84"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "9",
+      "generation": "Compute nine times eleven. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computeninetimeselevenreturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "42"
+      ],
+      "truths_norm": [
+        "42"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "10",
+      "generation": "Compute one hundred twenty divided by fifteen. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computeonehundredtwentydividedbyfifteenreturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "99"
+      ],
+      "truths_norm": [
+        "99"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "11",
+      "generation": "Compute forty-five plus thirty-eight. Return only the integer.\n\nThe following table shows the results",
+      "gen_norm": "computefortyfiveplusthirtyeightreturnonlytheintegerthefollowingtableshowstheresults",
+      "truths": [
+        "8"
+      ],
+      "truths_norm": [
+        "8"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "12",
+      "generation": "Compute seventy-two minus fifty-eight. Return only the integer.\n\nThe following table shows the results",
+      "gen_norm": "computeseventytwominusfiftyeightreturnonlytheintegerthefollowingtableshowstheresults",
+      "truths": [
+        "83"
+      ],
+      "truths_norm": [
+        "83"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "13",
+      "generation": "Compute eighteen times six. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computeeighteentimessixreturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "14"
+      ],
+      "truths_norm": [
+        "14"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "14",
+      "generation": "Compute one hundred minus one hundred twenty-three. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computeonehundredminusonehundredtwentythreereturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "108"
+      ],
+      "truths_norm": [
+        "108"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "15",
+      "generation": "Compute thirty-three plus sixty-seven. Return only the integer.\n\nThe following table lists the values",
+      "gen_norm": "computethirtythreeplussixtysevenreturnonlytheintegerthefollowingtableliststhevalues",
+      "truths": [
+        "-23"
+      ],
+      "truths_norm": [
+        "23"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "16",
+      "generation": "Compute one hundred forty-four divided by twelve. Return only the integer.\n\nThe following is a list of",
+      "gen_norm": "computeonehundredfortyfourdividedbytwelvereturnonlytheintegerthefollowingisalistof",
+      "truths": [
+        "100"
+      ],
+      "truths_norm": [
+        "100"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "17",
+      "generation": "Compute nineteen times nine. Return only the integer.\n\nThe following code is equivalent to",
+      "gen_norm": "computenineteentimesninereturnonlytheintegerthefollowingcodeisequivalentto",
+      "truths": [
+        "12"
+      ],
+      "truths_norm": [
+        "12"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "18",
+      "generation": "Compute two hundred fifty minus one hundred seventy-five. Return only the integer.\n\nThe following is a list of",
+      "gen_norm": "computetwohundredfiftyminusonehundredseventyfivereturnonlytheintegerthefollowingisalistof",
+      "truths": [
+        "171"
+      ],
+      "truths_norm": [
+        "171"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "19",
+      "generation": "Compute sixty-four plus seventeen. Return only the integer.\n\nThe following table lists the results",
+      "gen_norm": "computesixtyfourplusseventeenreturnonlytheintegerthefollowingtableliststheresults",
+      "truths": [
+        "75"
+      ],
+      "truths_norm": [
+        "75"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "20",
+      "generation": "Compute thirteen times thirteen. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computethirteentimesthirteenreturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "81"
+      ],
+      "truths_norm": [
+        "81"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "21",
+      "generation": "Compute two hundred divided by twenty-five. Return only the integer.\n\nThe following code is equivalent to",
+      "gen_norm": "computetwohundreddividedbytwentyfivereturnonlytheintegerthefollowingcodeisequivalentto",
+      "truths": [
+        "169"
+      ],
+      "truths_norm": [
+        "169"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "22",
+      "generation": "Compute eighty-eight minus one hundred twenty-one. Return only the integer.\n\nThe following is a list of",
+      "gen_norm": "computeeightyeightminusonehundredtwentyonereturnonlytheintegerthefollowingisalistof",
+      "truths": [
+        "8"
+      ],
+      "truths_norm": [
+        "8"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "23",
+      "generation": "Compute fifty-seven plus twenty-nine. Return only the integer.\n\nThe following table shows the results",
+      "gen_norm": "computefiftysevenplustwentyninereturnonlytheintegerthefollowingtableshowstheresults",
+      "truths": [
+        "-33"
+      ],
+      "truths_norm": [
+        "33"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    },
+    {
+      "id": "24",
+      "generation": "Compute twenty-two times seven. Return only the integer.\n\nThe following example shows how to",
+      "gen_norm": "computetwentytwotimessevenreturnonlytheintegerthefollowingexampleshowshowto",
+      "truths": [
+        "86"
+      ],
+      "truths_norm": [
+        "86"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (last-int)"
+    }
+  ]
+}

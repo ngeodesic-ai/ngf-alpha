@@ -1,123 +1,22 @@
+# Regenerate an improved evaluation script with the requested fixes:
+# - Do NOT attach/engage the warp hook for gen_mode="stock" unless explicitly requested.
+# - Optional early stop at newline.
+# - Optional post-extraction of the last integer (text_extracted) for scoring convenience.
+# - Cleaner telemetry: if hook is not attached, fill with sensible defaults.
+# - Keep CLI flags backward-compatible with your current runs.
+#
+# Output path: /mnt/data/stage11_ab_eval_base_denoise_v2.py
 
-#!/usr/bin/env python3
+
 # -*- coding: utf-8 -*-
-# Stage-11 A/B/C Eval — with integrated Denoiser
-# - Always-on warp (alpha_min > 0), soft trend gate, optional Detect (gain-only).
-# - Integrated SoftDenoiser that smooths/scales residuals (never flips direction).
-# - gen_mode: {stock|geo} to decide whether decoding happens under warp.
-# - Telemetry includes denoiser counters and norms.
+# Stage-11 A/B/C Eval — v2 (stock-friendly)
+# Key changes vs v1:
+# - Default: DO NOT attach warp hook in stock mode (avoid misleading telemetry).
+# - Optional early stop at newline.
+# - Optional post-extraction of last integer -> text_extracted field.
+# - Clean fallback telemetry when hook is disabled.
 
-
-"""
-
-# Quick run, GPU-friendly
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
-  --alpha0 0.05 --alpha_min 0.006 \
-  --trend_tau 0.35 --k_tr 12 \
-  --use_detect 1 --detect_width 24 --detect_sigma 5 \
-  --null_K 32 --null_q 0.92 --k_det 7 \
-  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
-  --gen_mode geo --device cuda --print_every 128 \
-  --use_denoise 1 \
-  --denoise_beta 0.6 --denoise_window 3 \
-  --denoise_k 8.0 --denoise_tau 0.35 \
-  --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
-  --jitter_eps 0.03 \
-  --out_json ab_results_geo_v4b_denoise_wobble_v1.json
-
-#2 Disable Detect, prove burst capacity (denoiser ON)
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
-  --alpha0 0.05 --alpha_min 0.006 \
-  --trend_tau 0.35 --k_tr 12 \
-  --use_detect 0 \
-  --linger 3 --s_latch 0.30 --ema_center_beta 0.05 \
-  --eps 0.25 --burst_thr 0.30 \
-  --gen_mode geo --device cuda \
-  --use_denoise 1 --denoise_beta 0.6 --denoise_window 3 \
-  --denoise_k 8.0 --denoise_tau 0.35 --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
-  --jitter_eps 0.03 \
-  --out_json ab_geo_v4b_denoise_noDetect.json
-
-#3 Soften Detect, extend linger
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
-  --alpha0 0.05 --alpha_min 0.006 \
-  --trend_tau 0.35 --k_tr 12 \
-  --use_detect 1 --detect_width 24 --detect_sigma 5 \
-  --null_K 24 --null_q 0.88 --k_det 9 \
-  --linger 4 --s_latch 0.25 --ema_center_beta 0.05 \
-  --eps 0.25 --burst_thr 0.30 \
-  --gen_mode geo --device cuda \
-  --use_denoise 1 --denoise_beta 0.6 --denoise_window 3 \
-  --denoise_k 8.0 --denoise_tau 0.35 --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
-  --jitter_eps 0.03 \
-  --out_json ab_geo_v4b_denoise_softDetect.json
-
-
-
-# Simple A/B/C tests
-
-# STOCK
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts patterned_prompts_v1.txt --max_new_tokens 64 \
-  --gen_mode stock --device cuda \
-  --out_json ab_stock_patterned.json
-
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts patterned_prompts_v2_words.txt \
-  --max_new_tokens 8 \
-  --gen_mode stock --device cuda \
-  --out_json ab_stock_patterned_v2.json
-
-# GEO (Warp only)
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts patterned_prompts_v1.txt --max_new_tokens 64 \
-  --alpha0 0.05 --alpha_min 0.006 \
-  --trend_tau 0.35 --k_tr 12 \
-  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
-  --gen_mode geo --device cuda \
-  --out_json ab_geo_patterned.json
-
-# GEO+Detect (Warp + Detect, no denoise)
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts patterned_prompts_v1.txt --max_new_tokens 64 \
-  --alpha0 0.05 --alpha_min 0.006 \
-  --trend_tau 0.35 --k_tr 12 \
-  --use_detect 1 --detect_width 24 --detect_sigma 5 \
-  --null_K 32 --null_q 0.92 --k_det 7 \
-  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
-  --gen_mode geo --device cuda \
-  --out_json ab_geo_detect_patterned.json
-
-python3 stage11_ab_eval_base_denoise.py \
-  --model gpt2 --layer -9 \
-  --prompts patterned_prompts_v2_words.txt --max_new_tokens 64 \
-  --alpha0 0.05 --alpha_min 0.006 \
-  --trend_tau 0.35 --k_tr 12 \
-  --use_detect 1 --detect_width 24 --detect_sigma 5 \
-  --null_K 24 --null_q 0.88 --k_det 9 \
-  --linger 4 --s_latch 0.25 --ema_center_beta 0.05 \
-  --gen_mode geo --device cuda \
-  --use_denoise 1 \
-  --denoise_beta 0.6 --denoise_window 3 \
-  --denoise_k 8.0 --denoise_tau 0.35 \
-  --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
-  --jitter_eps 0.03 \
-  --out_json ab_geo_detect_denoise_patterned.json
-
-  
-"""
-
-import argparse, json, os, random
+import argparse, json, os, random, re
 from dataclasses import dataclass
 from typing import List, Dict, Tuple, Optional
 from collections import deque
@@ -181,13 +80,6 @@ def sigmoid(x: float) -> float:
 # ------------------------------ Soft Denoiser ------------------------------
 
 class SoftDenoiser:
-    """
-    Smooth & scale the warp residual (never flip direction).
-    - EMA smoothing on residual vector
-    - Soft confidence gate (sigmoid of evidence)
-    - Phantom guard: attenuate isolated spikes with low evidence
-    - Micro-jitter averaging (stabilizes brittle spikes)
-    """
     def __init__(self, beta=0.6, window=3, k=8.0, tau=0.35,
                  phantom_tr_tau=0.60, phantom_guard_gamma=0.35,
                  jitter_eps=0.03):
@@ -206,7 +98,7 @@ class SoftDenoiser:
         self._ema=None; self._buf.clear()
 
     def step(self, resid_vec: np.ndarray, tr: float, g_det: float, s: float, prev_s: float):
-        if resid_vec is None:  # defensive
+        if resid_vec is None:
             return None, dict(dn_gain=0.0, dn_guard=0, dn_ema_norm=0.0, dn_med_norm=0.0)
         r=resid_vec
         rn=float(np.linalg.norm(r)+1e-12)
@@ -216,15 +108,15 @@ class SoftDenoiser:
         if self._ema is None: self._ema=r.copy()
         else: self._ema=self.beta*self._ema+(1.0-self.beta)*r
         ema=float(np.linalg.norm(self._ema)+1e-12)
-        # Phantom guard: low evidence + isolated → attenuate
+        # Phantom guard
         guard=0
-        if (g_det<0.25) and (s<0.15) and (abs(tr)>self.phantom_tr_tau) and (prev_s<0.15):
+        if (g_det<0.25) and (s<0.15) and (abs(tr)>0.60) and (prev_s<0.15):
             self._ema*=self.phantom_guard_gamma; guard=1
-        # Soft confidence gate (scale only)
+        # Soft confidence gate
         score=0.6*float(g_det)+0.4*float(s)
         gain=float(self._sigmoid(self.k*(score-self.tau)))
         out=self._ema*gain
-        # Micro-jitter averaging (single-pass; cheap)
+        # Micro-jitter averaging
         if self.jitter_eps>0:
             j=self.jitter_eps
             out=0.5*(out*(1.0+j)+out*(1.0-j))
@@ -438,23 +330,20 @@ class TerraformHook:
 
                 alpha_t = float(self.alpha_min + (self.alpha0 - self.alpha_min) * s)
                 dx = -alpha_t * h_last
-                # relative step clip if requested
                 if self.eps > 0.0:
                     hnorm = torch.norm(h_last, dim=-1, keepdim=True) + 1e-9
                     dnorm = torch.norm(dx, dim=-1, keepdim=True)
                     ratio = (dnorm / hnorm).clamp_min(1e-9)
                     scale = torch.clamp(self.eps / ratio, max=1.0)
                     dx = dx * scale
-                    # revise alpha to reflect the effective step size
                     alpha_t = float((dx.norm().item() / (hnorm.squeeze().item() + 1e-9)))
 
-                # ---- DENOISE residual (vector-level smoothing & scaling) ----
                 dn_gain=0.0; dn_guard=0; dn_ema=0.0; dn_med=0.0
                 if self.denoiser is not None:
                     dx_np = dx[0].detach().cpu().float().numpy()
                     r_dn, meta = self.denoiser.step(dx_np, self.trend_last,
                                                     self.g_det_last if self.use_detect else 1.0,
-                                                    s, self._prev_s)
+                                                    s, getattr(self, "_prev_s", 0.0))
                     if r_dn is not None:
                         r_t = torch.from_numpy(r_dn).to(hs.device).view_as(dx[0])
                         dx = dx.clone(); dx[0] = r_t
@@ -497,7 +386,8 @@ class TerraformHook:
 
 @torch.no_grad()
 def score_stepwise_dlp(model_stock, model_geo, tok, prompt: str, max_new_tokens: int,
-                       hook: TerraformHook, device: str, gen_mode: str, burst_thr: float) -> Dict:
+                       hook: Optional[TerraformHook], device: str, gen_mode: str, burst_thr: float,
+                       stop_at_newline: bool = True, extract_last_int: bool = True) -> Dict:
     model_stock.eval(); model_geo.eval()
     enc = tok(prompt, return_tensors="pt").to(device)
 
@@ -508,6 +398,8 @@ def score_stepwise_dlp(model_stock, model_geo, tok, prompt: str, max_new_tokens:
         logits = gen_model(input_ids=out_ids).logits[:, -1, :]
         next_id = torch.argmax(logits, dim=-1, keepdim=True)
         out_ids = torch.cat([out_ids, next_id], dim=1)
+        if stop_at_newline and int(next_id[0,0]) == tok.encode("\n")[0]:
+            break
     gen_ids = out_ids
 
     def _token_logprob(model, ids_ctx, next_id):
@@ -515,33 +407,56 @@ def score_stepwise_dlp(model_stock, model_geo, tok, prompt: str, max_new_tokens:
         logprobs = torch.log_softmax(logits, dim=-1)
         return float(logprobs[0, int(next_id.item())].item())
 
-    hook.reset_for_prompt()
+    # Telemetry with hook (if provided/enabled)
     dlp_seq = []
+    if hook is not None:
+        hook.reset_for_prompt()
     for t in range(enc.input_ids.shape[1], gen_ids.shape[1]):
         ctx = gen_ids[:, :t]
         nxt = gen_ids[:, t:t+1]
         lp_stock = _token_logprob(model_stock, ctx, nxt)
-        lp_geo   = _token_logprob(model_geo,   ctx, nxt)  # hook runs here
-        dlp_seq.append(lp_geo - lp_stock)
+        if hook is not None:
+            lp_geo   = _token_logprob(model_geo,   ctx, nxt)  # hook runs here
+            dlp_seq.append(lp_geo - lp_stock)
+        else:
+            # No warp telemetry; keep zero diff for alignment
+            dlp_seq.append(0.0)
 
     txt = tok.decode(gen_ids[0], skip_special_tokens=True)
-    dlp = np.array(dlp_seq, dtype=float) if dlp_seq else np.zeros(0)
+
+    # Optional post-extraction of the last integer
+    txt_extracted = ""
+    if extract_last_int:
+        m = re.search(r"(-?\d+)(?!.*-?\d+)", txt)
+        txt_extracted = m.group(1) if m else ""
 
     def _safe_mean(x):
         x = np.asarray([v for v in x if v is not None], dtype=float)
         return float(x.mean()) if x.size else 0.0
 
-    # Split by burst membership (s ≥ burst_thr)
-    s_arr = np.array(hook.s_seq, dtype=float)
-    if s_arr.size:
-        inside = s_arr >= float(burst_thr)
+    # If no hook -> fabricate minimal no-op telemetry
+    if hook is None:
+        s_seq=[]; alpha_seq=[]; trend_seq=[]; g_tr_seq=[]; g_det_seq=[]; detect_score_seq=[]; tau_abs_seq=[]; radius_seq=[]
+        dn_gain_seq=[]; dn_guard_seq=[]; dn_ema_norm_seq=[]; dn_med_norm_seq=[]
+        steps_seen=len(dlp_seq); steps_applied=0
     else:
-        inside = np.zeros_like(dlp, dtype=bool)
+        s_seq=hook.s_seq; alpha_seq=hook.alpha_seq; trend_seq=hook.trend_seq
+        g_tr_seq=hook.g_tr_seq; g_det_seq=hook.g_det_seq; detect_score_seq=hook.detect_score_seq
+        tau_abs_seq=hook.tau_abs_seq; radius_seq=hook.radius_seq
+        dn_gain_seq=hook.dn_gain_seq; dn_guard_seq=hook.dn_guard_seq
+        dn_ema_norm_seq=hook.dn_ema_norm_seq; dn_med_norm_seq=hook.dn_med_norm_seq
+        steps_seen=hook.steps_seen; steps_applied=hook.steps_applied
+
+    dlp = np.array(dlp_seq, dtype=float) if dlp_seq else np.zeros(0)
+
+    # Split by burst membership (s ≥ burst_thr)
+    s_arr = np.array(s_seq, dtype=float) if s_seq else np.zeros_like(dlp, dtype=float)
+    inside = s_arr >= float(burst_thr) if s_arr.size else np.zeros_like(dlp, dtype=bool)
     dlp_in  = _safe_mean([dlp[i] for i in range(min(len(dlp), len(inside))) if inside[i]])
     dlp_out = _safe_mean([dlp[i] for i in range(min(len(dlp), len(inside))) if not inside[i]])
 
     # Convergence metrics
-    r = np.array(hook.radius_seq, dtype=float)
+    r = np.array(radius_seq, dtype=float) if radius_seq else np.array([])
     if r.size >= 2:
         shrink = (r[:-1] - r[1:]) / np.maximum(r[:-1], 1e-9)
         mean_shrink = float(np.mean(shrink))
@@ -549,7 +464,7 @@ def score_stepwise_dlp(model_stock, model_geo, tok, prompt: str, max_new_tokens:
     else:
         mean_shrink = 0.0; start_r = end_r = float(r[0]) if r.size else 0.0
 
-    # Burst metrics from inside mask
+    # Burst metrics
     def _runs(mask: np.ndarray) -> List[int]:
         lens = []
         cnt = 0
@@ -567,11 +482,11 @@ def score_stepwise_dlp(model_stock, model_geo, tok, prompt: str, max_new_tokens:
     inside_tokens = int(np.sum(inside)) if s_arr.size else 0
     adjacency_ratio = float((inside_tokens - n_bursts) / max(1, inside_tokens)) if inside_tokens>0 else 0.0
 
-    steps_seen = hook.steps_seen
-    steps_applied = int(np.sum(np.array(hook.alpha_seq) > 0.0))
+    applied_rate = float(steps_applied / max(1, steps_seen))
 
     return dict(
         text=txt,
+        text_extracted=txt_extracted,
         dlp=float(dlp.mean()) if dlp.size else 0.0,
         dlp_seq=dlp_seq,
         dlp_in=dlp_in,
@@ -584,19 +499,19 @@ def score_stepwise_dlp(model_stock, model_geo, tok, prompt: str, max_new_tokens:
         adjacency_ratio=adjacency_ratio,
         steps_seen=steps_seen,
         steps_applied=steps_applied,
-        applied_rate=float(steps_applied / max(1, steps_seen)),
-        alpha_seq=hook.alpha_seq,
-        s_seq=hook.s_seq,
-        trend_seq=hook.trend_seq,
-        g_tr_seq=hook.g_tr_seq,
-        g_det_seq=hook.g_det_seq,
-        detect_score_seq=hook.detect_score_seq,
-        tau_abs_seq=hook.tau_abs_seq,
-        radius_seq=hook.radius_seq,
-        dn_gain_seq=hook.dn_gain_seq,
-        dn_guard_seq=hook.dn_guard_seq,
-        dn_ema_norm_seq=hook.dn_ema_norm_seq,
-        dn_med_norm_seq=hook.dn_med_norm_seq,
+        applied_rate=applied_rate,
+        alpha_seq=alpha_seq,
+        s_seq=s_seq,
+        trend_seq=trend_seq,
+        g_tr_seq=g_tr_seq,
+        g_det_seq=g_det_seq,
+        detect_score_seq=detect_score_seq,
+        tau_abs_seq=tau_abs_seq,
+        radius_seq=radius_seq,
+        dn_gain_seq=dn_gain_seq,
+        dn_guard_seq=dn_guard_seq,
+        dn_ema_norm_seq=dn_ema_norm_seq,
+        dn_med_norm_seq=dn_med_norm_seq,
     )
 
 # ------------------------------ Runner ------------------------------
@@ -651,8 +566,13 @@ def main():
     ap.add_argument("--phantom_guard_gamma", type=float, default=0.35)
     ap.add_argument("--jitter_eps", type=float, default=0.03)
     # Logging / decode mode
-    ap.add_argument("--gen_mode", type=str, default="stock", choices=["stock","geo"], help="Decode tokens with stock (baseline) or geo (warp-on) model")
+    ap.add_argument("--gen_mode", type=str, default="stock", choices=["stock","geo"], help="Decode with stock (baseline) or geo (warp-on) model")
     ap.add_argument("--print_every", type=int, default=32)
+    # NEW: control hook in stock mode
+    ap.add_argument("--attach_hook_in_stock", type=int, default=0, help="If 1, attach hook even in stock (telemetry only). Default 0.")
+    # NEW: stop condition & extraction
+    ap.add_argument("--stop_at_newline", type=int, default=1, help="Stop decoding early if newline is generated (default=1)")
+    ap.add_argument("--extract_last_int", type=int, default=1, help="Write text_extracted = last integer in text (default=1)")
     # Output
     ap.add_argument("--out_json", type=str, default="ab_results.json")
     args = ap.parse_args()
@@ -666,31 +586,37 @@ def main():
     stock = AutoModelForCausalLM.from_pretrained(args.model).to(device)
     geo   = AutoModelForCausalLM.from_pretrained(args.model).to(device)
 
-    layer = choose_layer(geo, args.layer)
-    projector = PCA2Projector.make(max_warm=256, center_xy=None, ema_center_beta=args.ema_center_beta)
-    denoiser = None
-    if int(args.use_denoise) == 1:
-        denoiser = SoftDenoiser(beta=args.denoise_beta, window=args.denoise_window,
-                                 k=args.denoise_k, tau=args.denoise_tau,
-                                 phantom_tr_tau=args.phantom_tr_tau,
-                                 phantom_guard_gamma=args.phantom_guard_gamma,
-                                 jitter_eps=args.jitter_eps)
-    hook = TerraformHook(layer, projector,
-                         alpha0=args.alpha0, alpha_min=args.alpha_min,
-                         trend_tau=args.trend_tau, k_tr=args.k_tr,
-                         use_detect=args.use_detect, detect_width=args.detect_width, detect_sigma=args.detect_sigma,
-                         null_K=args.null_K, null_q=args.null_q, k_det=args.k_det,
-                         linger=args.linger, s_latch=args.s_latch,
-                         eps=args.eps, print_every=args.print_every,
-                         denoiser=denoiser)
-    hook.attach()
+    # Hook setup: only attach if (gen_mode == 'geo') or user forces it for stock
+    hook = None
+    if (args.gen_mode == "geo") or (int(args.attach_hook_in_stock) == 1):
+        layer = choose_layer(geo, args.layer)
+        projector = PCA2Projector.make(max_warm=256, center_xy=None, ema_center_beta=args.ema_center_beta)
+        denoiser = None
+        if int(args.use_denoise) == 1:
+            denoiser = SoftDenoiser(beta=args.denoise_beta, window=args.denoise_window,
+                                    k=args.denoise_k, tau=args.denoise_tau,
+                                    phantom_tr_tau=args.phantom_tr_tau,
+                                    phantom_guard_gamma=args.phantom_guard_gamma,
+                                    jitter_eps=args.jitter_eps)
+        hook = TerraformHook(layer, projector,
+                             alpha0=args.alpha0, alpha_min=args.alpha_min,
+                             trend_tau=args.trend_tau, k_tr=args.k_tr,
+                             use_detect=args.use_detect, detect_width=args.detect_width, detect_sigma=args.detect_sigma,
+                             null_K=args.null_K, null_q=args.null_q, k_det=args.k_det,
+                             linger=args.linger, s_latch=args.s_latch,
+                             eps=args.eps, print_every=args.print_every,
+                             denoiser=denoiser)
+        hook.attach()
 
     prompts = load_prompts(args.prompts)
     rows = []
     for i, prompt in enumerate(prompts, 1):
         try:
             rec = dict(idx=i, prompt=prompt)
-            out = score_stepwise_dlp(stock, geo, tok, prompt, args.max_new_tokens, hook, device, args.gen_mode, args.burst_thr)
+            out = score_stepwise_dlp(stock, geo, tok, prompt, args.max_new_tokens, hook, device,
+                                     args.gen_mode, args.burst_thr,
+                                     stop_at_newline=bool(args.stop_at_newline),
+                                     extract_last_int=bool(args.extract_last_int))
             rec.update(out)
         except Exception as e:
             rec = dict(idx=i, prompt=prompt, error=str(e))
@@ -719,6 +645,9 @@ def main():
                     max_new_tokens=args.max_new_tokens,
                     prompts_file=args.prompts,
                     use_denoise=int(args.use_denoise),
+                    attach_hook_in_stock=int(args.attach_hook_in_stock),
+                    stop_at_newline=int(args.stop_at_newline),
+                    extract_last_int=int(args.extract_last_int),
                     denoise=dict(beta=args.denoise_beta, window=args.denoise_window,
                                  k=args.denoise_k, tau=args.denoise_tau,
                                  phantom_tr_tau=args.phantom_tr_tau,
@@ -738,3 +667,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

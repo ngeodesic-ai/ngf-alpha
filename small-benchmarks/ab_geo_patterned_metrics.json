@@ -1,0 +1,394 @@
+{
+  "config": {
+    "match_mode": "alnum_lower",
+    "regex": null,
+    "method_label": "Geo",
+    "generations_file": "layer9_wiring_plan/simple_benchmark/ab_geo_patterned.json",
+    "truths_file": "layer9_wiring_plan/simple_benchmark/patterned_truths.csv"
+  },
+  "aggregate": {
+    "n": 25,
+    "tp": 0,
+    "fp": 25,
+    "fn": 24,
+    "accuracy": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "hallucination_rate": 1.0,
+    "omission_rate": 0.0
+  },
+  "items": [
+    {
+      "id": "0",
+      "generation": "List the first 12 prime numbers, separated by commas.\n\n#include <stdio.h> #include <string.h> #include <vector> #include <vector> #include <string.h> #include <string.h> #include <string.h> #include <string.h> #include <string.h> #include",
+      "gen_norm": "listthefirst12primenumbersseparatedbycommasincludestdiohincludestringhincludevectorincludevectorincludestringhincludestringhincludestringhincludestringhincludestringhinclude",
+      "truths": [],
+      "truths_norm": [],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "1",
+      "generation": "Write the first 10 even numbers, separated by spaces.\n\nThe second 10 is the number of the first 10.\n\nThe third 10 is the number of the second 10.\n\nThe fourth 10 is the number of the third 10.\n\nThe fifth 10 is the number of the fourth 10.\n\nThe sixth 10 is the number of the fifth 10",
+      "gen_norm": "writethefirst10evennumbersseparatedbyspacesthesecond10isthenumberofthefirst10thethird10isthenumberofthesecond10thefourth10isthenumberofthethird10thefifth10isthenumberofthefourth10thesixth10isthenumberofthefifth10",
+      "truths": [
+        "2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37"
+      ],
+      "truths_norm": [
+        "23571113171923293137"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "2",
+      "generation": "Write the first 10 odd numbers, separated by commas.\n\n$ cat /proc/sys/kernel/kernel.c\n\n$ cat /proc/sys/kernel/kernel.c\n\n$ cat /proc/sys/kernel/kernel.c\n\n$ cat /proc/sys/kernel/kernel.c\n\n$ cat /proc/sys",
+      "gen_norm": "writethefirst10oddnumbersseparatedbycommascatprocsyskernelkernelccatprocsyskernelkernelccatprocsyskernelkernelccatprocsyskernelkernelccatprocsys",
+      "truths": [
+        "2 4 6 8 10 12 14 16 18 20"
+      ],
+      "truths_norm": [
+        "2468101214161820"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "3",
+      "generation": "List the days of the week starting with Monday, separated by commas.\n\nThe following table lists the days of the week starting with Monday, separated by commas.\n\nThe following table lists the days of the week starting with Tuesday, separated by commas.\n\nThe following table lists the days of the week starting with Wednesday, separated by commas.\n\nThe following",
+      "gen_norm": "listthedaysoftheweekstartingwithmondayseparatedbycommasthefollowingtableliststhedaysoftheweekstartingwithmondayseparatedbycommasthefollowingtableliststhedaysoftheweekstartingwithtuesdayseparatedbycommasthefollowingtableliststhedaysoftheweekstartingwithwednesdayseparatedbycommasthefollowing",
+      "truths": [
+        "1, 3, 5, 7, 9, 11, 13, 15, 17, 19"
+      ],
+      "truths_norm": [
+        "135791113151719"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "4",
+      "generation": "List the days of the week in reverse order, separated by commas.\n\nThe first day of the week is the first day of the week.\n\nThe second day of the week is the second day of the week.\n\nThe third day of the week is the third day of the week.\n\nThe fourth day of the week is the fourth day of the week.",
+      "gen_norm": "listthedaysoftheweekinreverseorderseparatedbycommasthefirstdayoftheweekisthefirstdayoftheweektheseconddayoftheweekistheseconddayoftheweekthethirddayoftheweekisthethirddayoftheweekthefourthdayoftheweekisthefourthdayoftheweek",
+      "truths": [
+        "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
+      ],
+      "truths_norm": [
+        "mondaytuesdaywednesdaythursdayfridaysaturdaysunday"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "5",
+      "generation": "List the 12 months of the year in order, separated by commas.\n\nThe first 12 months of the year are the first 12 months of the year.\n\nThe first 12 months of the year are the first 12 months of the year.\n\nThe first 12 months of the year are the first 12 months of the year.\n\nThe first 12 months of the year are",
+      "gen_norm": "listthe12monthsoftheyearinorderseparatedbycommasthefirst12monthsoftheyeararethefirst12monthsoftheyearthefirst12monthsoftheyeararethefirst12monthsoftheyearthefirst12monthsoftheyeararethefirst12monthsoftheyearthefirst12monthsoftheyearare",
+      "truths": [
+        "Sunday, Saturday, Friday, Thursday, Wednesday, Tuesday, Monday"
+      ],
+      "truths_norm": [
+        "sundaysaturdayfridaythursdaywednesdaytuesdaymonday"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "6",
+      "generation": "List the 12 months of the year in reverse order, separated by commas.\n\nThe first 12 months of the year are the first 12 months of the year.\n\nThe first 12 months of the year are the first 12 months of the year.\n\nThe first 12 months of the year are the first 12 months of the year.\n\nThe first 12 months of the year are",
+      "gen_norm": "listthe12monthsoftheyearinreverseorderseparatedbycommasthefirst12monthsoftheyeararethefirst12monthsoftheyearthefirst12monthsoftheyeararethefirst12monthsoftheyearthefirst12monthsoftheyeararethefirst12monthsoftheyearthefirst12monthsoftheyearare",
+      "truths": [
+        "January, February, March, April, May, June, July, August, September, October, November, December"
+      ],
+      "truths_norm": [
+        "januaryfebruarymarchaprilmayjunejulyaugustseptemberoctobernovemberdecember"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "7",
+      "generation": "List the first five U.S. states alphabetically, separated by commas.\n\nThe first five states alphabetically, separated by commas. The first five states alphabetically, separated by commas.\n\nThe first five states alphabetically, separated by commas.\n\nThe first five states alphabetically, separated by commas.\n\nThe first five states alphabetically, separated",
+      "gen_norm": "listthefirstfiveusstatesalphabeticallyseparatedbycommasthefirstfivestatesalphabeticallyseparatedbycommasthefirstfivestatesalphabeticallyseparatedbycommasthefirstfivestatesalphabeticallyseparatedbycommasthefirstfivestatesalphabeticallyseparatedbycommasthefirstfivestatesalphabeticallyseparated",
+      "truths": [
+        "December, November, October, September, August, July, June, May, April, March, February, January"
+      ],
+      "truths_norm": [
+        "decembernovemberoctoberseptemberaugustjulyjunemayaprilmarchfebruaryjanuary"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "8",
+      "generation": "Write the first 15 Fibonacci numbers, separated by spaces.\n\nThe second Fibonacci number is the first Fibonacci number in the sequence.\n\nThe third Fibonacci number is the last Fibonacci number in the sequence.\n\nThe fourth Fibonacci number is the last Fibonacci number in the sequence.\n\nThe fifth Fibonacci",
+      "gen_norm": "writethefirst15fibonaccinumbersseparatedbyspacesthesecondfibonaccinumberisthefirstfibonaccinumberinthesequencethethirdfibonaccinumberisthelastfibonaccinumberinthesequencethefourthfibonaccinumberisthelastfibonaccinumberinthesequencethefifthfibonacci",
+      "truths": [
+        "Alabama, Alaska, Arizona, Arkansas, California"
+      ],
+      "truths_norm": [
+        "alabamaalaskaarizonaarkansascalifornia"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "9",
+      "generation": "List the last 10 letters of the English alphabet in reverse order, separated by spaces.\n\nThe first letter of each letter is the first letter of the alphabet.\n\nThe second letter of each letter is the second letter of the alphabet.\n\nThe third letter of each letter is the third letter of the alphabet.\n\nThe fourth letter of each letter is the fourth letter of the alphabet.",
+      "gen_norm": "listthelast10lettersoftheenglishalphabetinreverseorderseparatedbyspacesthefirstletterofeachletteristhefirstletterofthealphabetthesecondletterofeachletteristhesecondletterofthealphabetthethirdletterofeachletteristhethirdletterofthealphabetthefourthletterofeachletteristhefourthletterofthealphabet",
+      "truths": [
+        "0 1 1 2 3 5 8 13 21 34 55 89 144 233 377"
+      ],
+      "truths_norm": [
+        "01123581321345589144233377"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "10",
+      "generation": "Spell out the numbers one through ten, separated by commas.\n\nThe number of characters in the list is the number of characters in the list.\n\nThe number of characters in the list is the number of characters in the list.\n\nThe number of characters in the list is the number of characters in the list.\n\nThe number of characters in the list is",
+      "gen_norm": "spelloutthenumbersonethroughtenseparatedbycommasthenumberofcharactersinthelististhenumberofcharactersinthelistthenumberofcharactersinthelististhenumberofcharactersinthelistthenumberofcharactersinthelististhenumberofcharactersinthelistthenumberofcharactersinthelistis",
+      "truths": [
+        "Z Y X W V U T S R Q"
+      ],
+      "truths_norm": [
+        "zyxwvutsrq"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "11",
+      "generation": "Write the squares of the numbers 1 through 10, separated by spaces.\n\nThe first number is the number of the square. The second number is the number of the square. The third number is the number of the square. The fourth number is the number of the square. The fifth number is the number of the square. The sixth number is the number of the square. The seventh",
+      "gen_norm": "writethesquaresofthenumbers1through10separatedbyspacesthefirstnumberisthenumberofthesquarethesecondnumberisthenumberofthesquarethethirdnumberisthenumberofthesquarethefourthnumberisthenumberofthesquarethefifthnumberisthenumberofthesquarethesixthnumberisthenumberofthesquaretheseventh",
+      "truths": [
+        "one, two, three, four, five, six, seven, eight, nine, ten"
+      ],
+      "truths_norm": [
+        "onetwothreefourfivesixseveneightnineten"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "12",
+      "generation": "Write the cubes of the numbers 1 through 10, separated by commas.\n\nThe first number is the number of cubes in the cube. The second number is the number of cubes in the cube. The third number is the number of cubes in the cube. The fourth number is the number of cubes in the cube. The fifth number is the number of cubes in the cube. The sixth",
+      "gen_norm": "writethecubesofthenumbers1through10separatedbycommasthefirstnumberisthenumberofcubesinthecubethesecondnumberisthenumberofcubesinthecubethethirdnumberisthenumberofcubesinthecubethefourthnumberisthenumberofcubesinthecubethefifthnumberisthenumberofcubesinthecubethesixth",
+      "truths": [
+        "1 4 9 16 25 36 49 64 81 100"
+      ],
+      "truths_norm": [
+        "149162536496481100"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "13",
+      "generation": "List Roman numerals I through XII, separated by spaces.\n\nThe first letter of the alphabet is the letter A, followed by the letter B. The second letter is the letter C, followed by the letter D. The third letter is the letter E, followed by the letter F. The fourth letter is the letter G, followed by the letter H. The fifth letter",
+      "gen_norm": "listromannumeralsithroughxiiseparatedbyspacesthefirstletterofthealphabetistheletterafollowedbytheletterbthesecondletteristhelettercfollowedbytheletterdthethirdletteristheletterefollowedbytheletterfthefourthletteristhelettergfollowedbytheletterhthefifthletter",
+      "truths": [
+        "1, 8, 27, 64, 125, 216, 343, 512, 729, 1000"
+      ],
+      "truths_norm": [
+        "1827641252163435127291000"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "14",
+      "generation": "List the first 10 NATO phonetic alphabet words, separated by commas.\n\nThe alphabet is a set of letters that are used to represent the alphabet. The alphabet is a set of letters that are used to represent the alphabet.\n\nThe alphabet is a set of letters that are used to represent the alphabet.\n\nThe alphabet is a set of letters that are used to represent the",
+      "gen_norm": "listthefirst10natophoneticalphabetwordsseparatedbycommasthealphabetisasetoflettersthatareusedtorepresentthealphabetthealphabetisasetoflettersthatareusedtorepresentthealphabetthealphabetisasetoflettersthatareusedtorepresentthealphabetthealphabetisasetoflettersthatareusedtorepresentthe",
+      "truths": [
+        "I II III IV V VI VII VIII IX X XI XII"
+      ],
+      "truths_norm": [
+        "iiiiiiivvviviiviiiixxxixii"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "15",
+      "generation": "Write the numbers from 20 down to 11, separated by spaces.\n\nThe first number is the number of the last number.\n\nThe second number is the number of the last number.\n\nThe third number is the number of the last number.\n\nThe fourth number is the number of the last number.\n\nThe fifth number is the number of the last number",
+      "gen_norm": "writethenumbersfrom20downto11separatedbyspacesthefirstnumberisthenumberofthelastnumberthesecondnumberisthenumberofthelastnumberthethirdnumberisthenumberofthelastnumberthefourthnumberisthenumberofthelastnumberthefifthnumberisthenumberofthelastnumber",
+      "truths": [
+        "Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliett"
+      ],
+      "truths_norm": [
+        "alphabravocharliedeltaechofoxtrotgolfhotelindiajuliett"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "16",
+      "generation": "List the first 10 multiples of 7, separated by commas.\n\n$ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat 7.5 $ cat",
+      "gen_norm": "listthefirst10multiplesof7separatedbycommascat75cat75cat75cat75cat75cat75cat75cat75cat75cat75cat75cat75cat",
+      "truths": [
+        "20 19 18 17 16 15 14 13 12 11"
+      ],
+      "truths_norm": [
+        "20191817161514131211"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "17",
+      "generation": "Write the first 15 lowercase letters of the English alphabet, separated by spaces.\n\nThe first letter of the English alphabet is the letter A.\n\nThe second letter of the English alphabet is the letter B.\n\nThe third letter of the English alphabet is the letter C.\n\nThe fourth letter of the English alphabet is the letter D.\n\nThe fifth letter of the English",
+      "gen_norm": "writethefirst15lowercaselettersoftheenglishalphabetseparatedbyspacesthefirstletteroftheenglishalphabetistheletterathesecondletteroftheenglishalphabetistheletterbthethirdletteroftheenglishalphabetisthelettercthefourthletteroftheenglishalphabetistheletterdthefifthletteroftheenglish",
+      "truths": [
+        "7, 14, 21, 28, 35, 42, 49, 56, 63, 70"
+      ],
+      "truths_norm": [
+        "7142128354249566370"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "18",
+      "generation": "Write the last 15 uppercase letters of the English alphabet, separated by spaces.\n\nThe following example shows how to use the following command to display the English alphabet in the browser.\n\n$ curl -O http://localhost:3000/api/v1/api.json -d '{\"name\":\"John Doe\"}' -d '{\"name\":\"John Doe\"}'\n\nThe",
+      "gen_norm": "writethelast15uppercaselettersoftheenglishalphabetseparatedbyspacesthefollowingexampleshowshowtousethefollowingcommandtodisplaytheenglishalphabetinthebrowsercurlohttplocalhost3000apiv1apijsondnamejohndoednamejohndoethe",
+      "truths": [
+        "a b c d e f g h i j k l m n o"
+      ],
+      "truths_norm": [
+        "abcdefghijklmno"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "19",
+      "generation": "List the numbers from 5 to 50 counting by fives, separated by commas.\n\n$ fives = 5 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ fives = 50 $ f",
+      "gen_norm": "listthenumbersfrom5to50countingbyfivesseparatedbycommasfives5fives50fives50fives50fives50fives50fives50fives50fives50fives50fives50fives50f",
+      "truths": [
+        "L M N O P Q R S T U V W X Y Z"
+      ],
+      "truths_norm": [
+        "lmnopqrstuvwxyz"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "20",
+      "generation": "Write the first 10 perfect squares as words, separated by commas.\n\nThe second 10 perfect squares are the words that are not in the first 10 perfect squares.\n\nThe third 10 perfect squares are the words that are not in the first 10 perfect squares.\n\nThe fourth 10 perfect squares are the words that are not in the first 10 perfect squares.\n\nThe fifth",
+      "gen_norm": "writethefirst10perfectsquaresaswordsseparatedbycommasthesecond10perfectsquaresarethewordsthatarenotinthefirst10perfectsquaresthethird10perfectsquaresarethewordsthatarenotinthefirst10perfectsquaresthefourth10perfectsquaresarethewordsthatarenotinthefirst10perfectsquaresthefifth",
+      "truths": [
+        "5, 10, 15, 20, 25, 30, 35, 40, 45, 50"
+      ],
+      "truths_norm": [
+        "5101520253035404550"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "21",
+      "generation": "List the hexadecimal digits 0 through F, separated by spaces.\n\nThe hexadecimal digits 0 through F are the same as the decimal digits 0 through F.\n\nThe hexadecimal digits 0 through F are the same as the decimal digits 0 through F.\n\nThe hexadecimal digits 0 through F are the same as the decimal digits 0 through",
+      "gen_norm": "listthehexadecimaldigits0throughfseparatedbyspacesthehexadecimaldigits0throughfarethesameasthedecimaldigits0throughfthehexadecimaldigits0throughfarethesameasthedecimaldigits0throughfthehexadecimaldigits0throughfarethesameasthedecimaldigits0through",
+      "truths": [
+        "one, four, nine, sixteen, twenty-five, thirty-six, forty-nine, sixty-four, eighty-one, one hundred"
+      ],
+      "truths_norm": [
+        "onefourninesixteentwentyfivethirtysixfortyninesixtyfoureightyoneonehundred"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "22",
+      "generation": "List the binary representations of numbers 1 through 8, separated by spaces.\n\nThe first two numbers are the first two numbers in the binary representation. The third number is the second number in the binary representation.\n\nThe first two numbers are the first two numbers in the binary representation. The third number is the second number in the binary representation.\n\nThe first two numbers are the",
+      "gen_norm": "listthebinaryrepresentationsofnumbers1through8separatedbyspacesthefirsttwonumbersarethefirsttwonumbersinthebinaryrepresentationthethirdnumberisthesecondnumberinthebinaryrepresentationthefirsttwonumbersarethefirsttwonumbersinthebinaryrepresentationthethirdnumberisthesecondnumberinthebinaryrepresentationthefirsttwonumbersarethe",
+      "truths": [
+        "0 1 2 3 4 5 6 7 8 9 A B C D E F"
+      ],
+      "truths_norm": [
+        "0123456789abcdef"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "23",
+      "generation": "Write the French words for the numbers 1 through 10, separated by commas.\n\nThe French word for the number 1 is \"a\" (or \"a-\").\n\nThe French word for the number 10 is \"a-\".\n\nThe French word for the number 1 is \"a-\".\n\nThe French word for the number 10 is \"a-\".\n\nThe",
+      "gen_norm": "writethefrenchwordsforthenumbers1through10separatedbycommasthefrenchwordforthenumber1isaorathefrenchwordforthenumber10isathefrenchwordforthenumber1isathefrenchwordforthenumber10isathe",
+      "truths": [
+        "1 10 11 100 101 110 111 1000"
+      ],
+      "truths_norm": [
+        "110111001011101111000"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    },
+    {
+      "id": "24",
+      "generation": "List the first 12 Greek alphabet names, separated by commas.\n\nThe first letter of each letter is the letter that is the first letter of the alphabet.\n\nThe first letter of each letter is the letter that is the first letter of the alphabet.\n\nThe first letter of each letter is the letter that is the first letter of the alphabet.\n\nThe first",
+      "gen_norm": "listthefirst12greekalphabetnamesseparatedbycommasthefirstletterofeachletteristheletterthatisthefirstletterofthealphabetthefirstletterofeachletteristheletterthatisthefirstletterofthealphabetthefirstletterofeachletteristheletterthatisthefirstletterofthealphabetthefirst",
+      "truths": [
+        "un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix"
+      ],
+      "truths_norm": [
+        "undeuxtroisquatrecinqsixsepthuitneufdix"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo"
+    }
+  ]
+}

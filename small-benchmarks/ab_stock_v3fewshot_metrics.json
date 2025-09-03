@@ -1,0 +1,394 @@
+{
+  "config": {
+    "match_mode": "alnum_lower",
+    "regex": "(?s).*?(-?\\\\d+)(?!.*-?\\\\d+)",
+    "method_label": "Stock (v3 few-shot)",
+    "generations_file": "layer9_wiring_plan/simple_benchmark/ab_stock_patterned.json",
+    "truths_file": "layer9_wiring_plan/simple_benchmark/patterned_truths.csv"
+  },
+  "aggregate": {
+    "n": 25,
+    "tp": 0,
+    "fp": 25,
+    "fn": 24,
+    "accuracy": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "hallucination_rate": 1.0,
+    "omission_rate": 0.0
+  },
+  "items": [
+    {
+      "id": "0",
+      "generation": "Compute 13+50. Return only the integer.\n\nThe following example shows how to compute the number of points in a matrix.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.plt.plot as plt.pyplot.plt.plot.plt.plt.plt.",
+      "gen_norm": "compute1350returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinamatriximportmathimportmatplotlibpyplotaspltimportmatplotlibpyplotpltplotaspltpyplotpltplotpltpltplt",
+      "truths": [],
+      "truths_norm": [],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "1",
+      "generation": "Compute 14*50. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute1450returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "63"
+      ],
+      "truths_norm": [
+        "63"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "2",
+      "generation": "Compute 16*48. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute1648returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "700"
+      ],
+      "truths_norm": [
+        "700"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "3",
+      "generation": "Compute 2-99. Return only the integer.\n\nExample:\n\nvar x = 1; var y = 2; var z = 3; var z = 4; var z = 5; var z = 6; var z = 7; var z = 8; var z = 9; var z = 10; var z = 11; var z =",
+      "gen_norm": "compute299returnonlytheintegerexamplevarx1vary2varz3varz4varz5varz6varz7varz8varz9varz10varz11varz",
+      "truths": [
+        "768"
+      ],
+      "truths_norm": [
+        "768"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "4",
+      "generation": "Compute 21-49. Return only the integer.\n\nThe following example shows how to compute the sum of the two integers.\n\nimport math import time import time.time import time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time",
+      "gen_norm": "compute2149returnonlytheintegerthefollowingexampleshowshowtocomputethesumofthetwointegersimportmathimporttimeimporttimetimeimporttimetimetimetimetimetimetimetimetimetimetimetimetimetimetimetimetimetimetime",
+      "truths": [
+        "-97"
+      ],
+      "truths_norm": [
+        "97"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "5",
+      "generation": "Compute 7*19. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute719returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "-28"
+      ],
+      "truths_norm": [
+        "28"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "6",
+      "generation": "Compute 84-27. Return only the integer.\n\nThe following example shows how to compute the number of elements in a list.\n\nimport math import time import time.time import time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.",
+      "gen_norm": "compute8427returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofelementsinalistimportmathimporttimeimporttimetimeimporttimetimetimetimetimetimetimetimetimetimetimetimetimetimetimetimetimetime",
+      "truths": [
+        "133"
+      ],
+      "truths_norm": [
+        "133"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "7",
+      "generation": "Compute 33+68. Return only the integer.\n\nThe following example shows how to compute the number of elements in a list.\n\nList<Integer> list = new List<Integer>(); List<Integer> list = new List<Integer>(); List<Integer> list = new List<Integer>(); List<Integer> list = new List<",
+      "gen_norm": "compute3368returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofelementsinalistlistintegerlistnewlistintegerlistintegerlistnewlistintegerlistintegerlistnewlistintegerlistintegerlistnewlist",
+      "truths": [
+        "57"
+      ],
+      "truths_norm": [
+        "57"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "8",
+      "generation": "Compute 9*12. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute912returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "101"
+      ],
+      "truths_norm": [
+        "101"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "9",
+      "generation": "Compute 150-88. Return only the integer.\n\nThe following example shows how to compute the number of points in a matrix.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.plt.plot as plt.pyplot.plt.plot.plt.plt.plt.",
+      "gen_norm": "compute15088returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinamatriximportmathimportmatplotlibpyplotaspltimportmatplotlibpyplotpltplotaspltpyplotpltplotpltpltplt",
+      "truths": [
+        "108"
+      ],
+      "truths_norm": [
+        "108"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "10",
+      "generation": "Compute 25+75. Return only the integer.\n\nThe following example shows how to compute the number of points in a matrix.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.plt.plot as plt.pyplot.plt.plot.plt.plt.plt.",
+      "gen_norm": "compute2575returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinamatriximportmathimportmatplotlibpyplotaspltimportmatplotlibpyplotpltplotaspltpyplotpltplotpltpltplt",
+      "truths": [
+        "62"
+      ],
+      "truths_norm": [
+        "62"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "11",
+      "generation": "Compute 8*17. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute817returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "100"
+      ],
+      "truths_norm": [
+        "100"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "12",
+      "generation": "Compute 96-123. Return only the integer.\n\nConvert to a string using the ConvertTo method.\n\nConvert to a string using the ConvertTo method.\n\nConvert to a string using the ConvertTo method.\n\nConvert to a string using the ConvertTo method.\n\nConvert to a string using the ConvertTo method",
+      "gen_norm": "compute96123returnonlytheintegerconverttoastringusingtheconverttomethodconverttoastringusingtheconverttomethodconverttoastringusingtheconverttomethodconverttoastringusingtheconverttomethodconverttoastringusingtheconverttomethod",
+      "truths": [
+        "136"
+      ],
+      "truths_norm": [
+        "136"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "13",
+      "generation": "Compute 44+39. Return only the integer.\n\nThe following example shows how to compute the number of points in a matrix.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.plt.plot as plt.pyplot.plt.plot.py as plt.pyplot.pl",
+      "gen_norm": "compute4439returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinamatriximportmathimportmatplotlibpyplotaspltimportmatplotlibpyplotpltplotaspltpyplotpltplotpyaspltpyplotpl",
+      "truths": [
+        "-27"
+      ],
+      "truths_norm": [
+        "27"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "14",
+      "generation": "Compute 6*21. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute621returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "83"
+      ],
+      "truths_norm": [
+        "83"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "15",
+      "generation": "Compute 310-155. Return only the integer.\n\nThe following example shows how to compute the number of points in a matrix.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.plt.plot as plt.pyplot.plt.plot.plt.plt.plt.",
+      "gen_norm": "compute310155returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinamatriximportmathimportmatplotlibpyplotaspltimportmatplotlibpyplotpltplotaspltpyplotpltplotpltpltplt",
+      "truths": [
+        "126"
+      ],
+      "truths_norm": [
+        "126"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "16",
+      "generation": "Compute 120+380. Return only the integer.\n\nThe following example shows how to compute the number of points in a matrix.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.plt.plot as plt.plot(x, y) plt.set_x(x, y)",
+      "gen_norm": "compute120380returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinamatriximportmathimportmatplotlibpyplotaspltimportmatplotlibpyplotpltplotaspltplotxypltsetxxy",
+      "truths": [
+        "155"
+      ],
+      "truths_norm": [
+        "155"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "17",
+      "generation": "Compute 15*14. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute1514returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "500"
+      ],
+      "truths_norm": [
+        "500"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "18",
+      "generation": "Compute 512-256. Return only the integer.\n\nThe following example shows how to compute the number of bytes in a file.\n\n#include <stdio.h> #include <stdlib.h> #include <string.h> #include <string.h> #include <string.h> #include <string.h> #",
+      "gen_norm": "compute512256returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofbytesinafileincludestdiohincludestdlibhincludestringhincludestringhincludestringhincludestringh",
+      "truths": [
+        "210"
+      ],
+      "truths_norm": [
+        "210"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "19",
+      "generation": "Compute 73+27. Return only the integer.\n\nThe following example shows how to compute the number of points in a matrix.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.plt.plot as plt.pyplot.plt.plot.plt.plt.plt.",
+      "gen_norm": "compute7327returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinamatriximportmathimportmatplotlibpyplotaspltimportmatplotlibpyplotpltplotaspltpyplotpltplotpltpltplt",
+      "truths": [
+        "256"
+      ],
+      "truths_norm": [
+        "256"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "20",
+      "generation": "Compute 19*11. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute1911returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "100"
+      ],
+      "truths_norm": [
+        "100"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "21",
+      "generation": "Compute 205-307. Return only the integer.\n\nThe following example shows how to compute the number of points in a given number of points.\n\nint x = 10; int y = 10; int z = 10; int z = 10; int x = 10; int y = 10; int z = 10; int z = 10; int x",
+      "gen_norm": "compute205307returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofpointsinagivennumberofpointsintx10inty10intz10intz10intx10inty10intz10intz10intx",
+      "truths": [
+        "209"
+      ],
+      "truths_norm": [
+        "209"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "22",
+      "generation": "Compute 88+112. Return only the integer.\n\nThe following example shows how to compute the number of elements in a list.\n\nList<Integer> list = new List<Integer>(); List<Integer> list = new List<Integer>(); List<Integer> list = new List<Integer>(); List<Integer> list = new List<",
+      "gen_norm": "compute88112returnonlytheintegerthefollowingexampleshowshowtocomputethenumberofelementsinalistlistintegerlistnewlistintegerlistintegerlistnewlistintegerlistintegerlistnewlistintegerlistintegerlistnewlist",
+      "truths": [
+        "-102"
+      ],
+      "truths_norm": [
+        "102"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "23",
+      "generation": "Compute 4*29. Return only the integer.\n\n*/\n\nstatic int\n\nget_int_int_int ( int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int, int *int",
+      "gen_norm": "compute429returnonlytheintegerstaticintgetintintintintintintintintintintintintintintintintintintintintintintintintintintint",
+      "truths": [
+        "200"
+      ],
+      "truths_norm": [
+        "200"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    },
+    {
+      "id": "24",
+      "generation": "Compute 999-123. Return only the integer.\n\nExample:\n\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58",
+      "gen_norm": "compute999123returnonlytheintegerexample12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758",
+      "truths": [
+        "116"
+      ],
+      "truths_norm": [
+        "116"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Stock (v3 few-shot)"
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "config": {
+    "match_mode": "numbers_only",
+    "regex": null,
+    "method_label": "Geo Detect Denoise",
+    "generations_file": "layer9_wiring_plan/simple_benchmark/ab_geo_detect_denoise_patterned.json",
+    "truths_file": "layer9_wiring_plan/simple_benchmark/patterned_truths.csv"
+  },
+  "aggregate": {
+    "n": 25,
+    "tp": 0,
+    "fp": 6,
+    "fn": 24,
+    "accuracy": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "hallucination_rate": 0.24,
+    "omission_rate": 0.76
+  },
+  "items": [
+    {
+      "id": "0",
+      "generation": "Compute thirteen plus fifty. Return only the integer.\n\nThe following is a list of all the integers that are not in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the",
+      "gen_norm": "",
+      "truths": [],
+      "truths_norm": [],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "1",
+      "generation": "Compute fourteen times five. Return only the integer.\n\nThe following example shows how to compute the number of times a given number of digits is equal to the number of times the given number of digits is equal to the number of times the given number of digits is equal to the number of times the given number of digits is equal to the number of times the given number",
+      "gen_norm": "",
+      "truths": [
+        "63"
+      ],
+      "truths_norm": [
+        "63"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "2",
+      "generation": "Compute ninety-six minus thirty-seven. Return only the integer.\n\nThe following code is equivalent to the following:\n\nint f = (int) (int) (int) (int) (int) (int) (int) (int) (int) (int) (int) (int) (int) (int) (int) (int)",
+      "gen_norm": "",
+      "truths": [
+        "70"
+      ],
+      "truths_norm": [
+        "70"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "3",
+      "generation": "Compute sixteen times eight. Return only the integer.\n\nThe following example shows how to compute the number of digits in a string.\n\n#!/usr/bin/env python import sys import time import sys.argv import sys.argv.arglist import sys.argv.arglist.Arglist import sys.argv.arglist.",
+      "gen_norm": "",
+      "truths": [
+        "59"
+      ],
+      "truths_norm": [
+        "59"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "4",
+      "generation": "Compute eighty-one divided by nine. Return only the integer.\n\nThe following code is equivalent to the following:\n\nint x = 0; int y = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int",
+      "gen_norm": "0",
+      "truths": [
+        "128"
+      ],
+      "truths_norm": [
+        "128"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "5",
+      "generation": "Compute two minus ninety-nine. Return only the integer.\n\nThe following example shows how to compute two minus ninety-nine.\n\nimport math import time import time.time import time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.time.",
+      "gen_norm": "",
+      "truths": [
+        "9"
+      ],
+      "truths_norm": [
+        "9"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "6",
+      "generation": "Compute twenty-one minus forty-nine. Return only the integer.\n\nThe following example shows how to compute the number of points in a given number of points.\n\nint x = (x + 1) * (x + 2) * (x + 3) * (x + 4) * (x + 5) * (x + 6) * (x +",
+      "gen_norm": "1",
+      "truths": [
+        "-97"
+      ],
+      "truths_norm": [
+        "-97"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "7",
+      "generation": "Compute seven times twelve. Return only the integer.\n\nThe following example shows how to compute the number of digits in a string.\n\n#!/usr/bin/env python import sys import time import sys.argv import sys.argv.arglist import sys.argv.arglist.Arglist import sys.argv.arglist.",
+      "gen_norm": "",
+      "truths": [
+        "-28"
+      ],
+      "truths_norm": [
+        "-28"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "8",
+      "generation": "Compute fifteen plus twenty-seven. Return only the integer.\n\nThe following is a list of all the possible values of the integer.\n\nInteger integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer integer",
+      "gen_norm": "",
+      "truths": [
+        "84"
+      ],
+      "truths_norm": [
+        "84"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "9",
+      "generation": "Compute nine times eleven. Return only the integer.\n\nThe following example shows how to compute the number of elements in a list.\n\nList<Integer> elements = new List<Integer>(); elements.add(1); elements.add(2); elements.add(3); elements.add(4); elements.add(5); elements.add",
+      "gen_norm": "1",
+      "truths": [
+        "42"
+      ],
+      "truths_norm": [
+        "42"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "10",
+      "generation": "Compute one hundred twenty divided by fifteen. Return only the integer.\n\nThe following example shows how to compute the number of points in a given number of points.\n\n#include <stdio.h> #include <string.h> #include <vector> #include <vector> #include <string.h> #include <vector> int main() { int",
+      "gen_norm": "",
+      "truths": [
+        "99"
+      ],
+      "truths_norm": [
+        "99"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "11",
+      "generation": "Compute forty-five plus thirty-eight. Return only the integer.\n\nThe following table shows the results of the calculation of the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number",
+      "gen_norm": "",
+      "truths": [
+        "8"
+      ],
+      "truths_norm": [
+        "8"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "12",
+      "generation": "Compute seventy-two minus fifty-eight. Return only the integer.\n\nThe following table shows the results of the calculation of the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number",
+      "gen_norm": "",
+      "truths": [
+        "83"
+      ],
+      "truths_norm": [
+        "83"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "13",
+      "generation": "Compute eighteen times six. Return only the integer.\n\nThe following example shows how to compute the number of digits in a string.\n\n#!/usr/bin/env python import sys import time import sys.argv import sys.argv.arglist import sys.argv.arglist.Arglist import sys.argv.arglist.",
+      "gen_norm": "",
+      "truths": [
+        "14"
+      ],
+      "truths_norm": [
+        "14"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "14",
+      "generation": "Compute one hundred minus one hundred twenty-three. Return only the integer.\n\nThe following example shows how to compute the number of points in a given number of points.\n\n#include <stdio.h> #include <string.h> #include <vector> #include <vector> #include <string.h> #include <vector> int main() { int",
+      "gen_norm": "",
+      "truths": [
+        "108"
+      ],
+      "truths_norm": [
+        "108"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "15",
+      "generation": "Compute thirty-three plus sixty-seven. Return only the integer.\n\nThe following table lists the values of the following constants:\n\nThe following table lists the values of the following constants:\n\nThe following table lists the values of the following constants:\n\nThe following table lists the values of the following constants:\n\nThe following table lists the values of the following constants",
+      "gen_norm": "",
+      "truths": [
+        "-23"
+      ],
+      "truths_norm": [
+        "-23"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "16",
+      "generation": "Compute one hundred forty-four divided by twelve. Return only the integer.\n\nThe following is a list of the integers that are not in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range",
+      "gen_norm": "",
+      "truths": [
+        "100"
+      ],
+      "truths_norm": [
+        "100"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "17",
+      "generation": "Compute nineteen times nine. Return only the integer.\n\nThe following code is equivalent to the following:\n\nint n = 0; int n = 0; int n = 0; int n = 0; int n = 0; int n = 0; int n = 0; int n = 0; int n = 0; int n = 0; int",
+      "gen_norm": "0",
+      "truths": [
+        "12"
+      ],
+      "truths_norm": [
+        "12"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "18",
+      "generation": "Compute two hundred fifty minus one hundred seventy-five. Return only the integer.\n\nThe following is a list of the integers that are not in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range of the integers in the range",
+      "gen_norm": "",
+      "truths": [
+        "171"
+      ],
+      "truths_norm": [
+        "171"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "19",
+      "generation": "Compute sixty-four plus seventeen. Return only the integer.\n\nThe following table lists the results of the calculation of the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number",
+      "gen_norm": "",
+      "truths": [
+        "75"
+      ],
+      "truths_norm": [
+        "75"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "20",
+      "generation": "Compute thirteen times thirteen. Return only the integer.\n\nThe following example shows how to compute the number of elements in a list.\n\nList<Integer> elements = new List<Integer>(); elements.add(1); elements.add(2); elements.add(3); elements.add(4); elements.add(5); elements.add",
+      "gen_norm": "1",
+      "truths": [
+        "81"
+      ],
+      "truths_norm": [
+        "81"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "21",
+      "generation": "Compute two hundred divided by twenty-five. Return only the integer.\n\nThe following code is equivalent to the following:\n\nint x = 0; int y = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int z = 0; int",
+      "gen_norm": "0",
+      "truths": [
+        "169"
+      ],
+      "truths_norm": [
+        "169"
+      ],
+      "matched": false,
+      "omitted": false,
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "22",
+      "generation": "Compute eighty-eight minus one hundred twenty-one. Return only the integer.\n\nThe following is a list of all the integers in the range of the given number of digits.\n\nThe following is a list of all the integers in the range of the given number of digits.\n\nThe following is a list of all the integers in the range of the given number of digits.\n",
+      "gen_norm": "",
+      "truths": [
+        "8"
+      ],
+      "truths_norm": [
+        "8"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "23",
+      "generation": "Compute fifty-seven plus twenty-nine. Return only the integer.\n\nThe following table shows the results of the calculation of the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number of points in the number",
+      "gen_norm": "",
+      "truths": [
+        "-33"
+      ],
+      "truths_norm": [
+        "-33"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    },
+    {
+      "id": "24",
+      "generation": "Compute twenty-two times seven. Return only the integer.\n\nThe following example shows how to compute the number of times the number of times the number of times the number of times the number of times the number of times the number of times the number of times the number of times the number of times the number of times the number of times the number of times the number of",
+      "gen_norm": "",
+      "truths": [
+        "86"
+      ],
+      "truths_norm": [
+        "86"
+      ],
+      "matched": false,
+      "omitted": true,
+      "hallucinated": false,
+      "method": "Geo Detect Denoise"
+    }
+  ]
+}
