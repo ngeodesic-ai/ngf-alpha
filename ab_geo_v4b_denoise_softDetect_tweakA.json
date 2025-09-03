@@ -1,0 +1,20 @@
+{
+  "linger": 4,
+  "trend_tau": 0.32,
+  "denoise_window": 5,
+  "denoise_k": 6.0,
+  "denoise_tau": 0.4,
+  "phantom_guard_gamma": 0.45,
+  "phantom_tr_tau": 0.65,
+  "detect_width": 20,
+  "null_K": 32,
+  "null_q": 0.92,
+  "k_det": 8.0,
+  "alpha0": 0.05,
+  "alpha_min": 0.006,
+  "k_tr": 12.0,
+  "s_latch": 0.3,
+  "ema_center_beta": 0.05,
+  "use_detect": 1,
+  "use_denoise": 1
+}

@@ -1,0 +1,2 @@
+avg_new_tokens_per_prompt,hook_mean_alpha,hook_mean_burst_len,hook_mean_g_det,hook_mean_s,hook_n_bursts,hook_tot_tokens,prompts,total_new_tokens
+96.0,0.0,0.0,0.0,0.0,0,0,60,5760
