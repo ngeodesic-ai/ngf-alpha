@@ -3,46 +3,45 @@
 """
 python3 stage11_scorer_wrapper.py \
   --generations layer9_wiring_plan/simple_benchmark/ab_stock_patterned.json \
-  --truths      layer9_wiring_plan/simple_benchmark/patterned_truths.csv \
+  --truths      layer9_wiring_plan/simple_benchmark/simple_arc_truths.csv \
   --out         layer9_wiring_plan/simple_benchmark/ab_stock_patterned_metrics.json \
   --match_mode numbers_only --method_label "Stock"
 
 python3 stage11_scorer_wrapper.py \
   --generations layer9_wiring_plan/simple_benchmark/ab_geo_patterned.json \
-  --truths layer9_wiring_plan/simple_benchmark/patterned_truths.csv \
+  --truths      layer9_wiring_plan/simple_benchmark/simple_arc_truths.csv \
   --out ab_geo_patterned_metrics.json \
-  --match_mode alnum_lower \
+  --match_mode numbers_only \
   --method_label "Geo"
 
 python3 stage11_scorer_wrapper.py \
   --generations layer9_wiring_plan/simple_benchmark/ab_geo_detect_patterned.json \
-  --truths layer9_wiring_plan/simple_benchmark/patterned_truths.csv \
+  --truths      layer9_wiring_plan/simple_benchmark/simple_arc_truths.csv \
   --out ab_geo_detect_patterned_metrics.json \
-  --match_mode alnum_lower \
+  --match_mode numbers_only \
   --method_label "Geo Detect"
 
 python3 stage11_scorer_wrapper.py \
   --generations layer9_wiring_plan/simple_benchmark/ab_geo_detect_denoise_patterned.json \
-  --truths layer9_wiring_plan/simple_benchmark/patterned_truths.csv \
+  --truths      layer9_wiring_plan/simple_benchmark/simple_arc_truths_v2.csv \
   --out ab_geo_detect_denoise_patterned_metrics.json \
   --match_mode numbers_only --method_label "Geo Detect Denoise"
 
+python3 stage11_scorer_wrapper.py \
+  --generations layer9_wiring_plan/simple_benchmark/ab_geo_detect_patterned.json \
+  --truths      layer9_wiring_plan/simple_benchmark/simple_arc_truths_v2.csv \
+  --out         layer9_wiring_plan/simple_benchmark/ab_geo_detect_patterned_metrics.json \
+  --match_mode alnum_lower \
+  --regex "\[\[[^\]]+\](?:\s*,\s*\[[^\]]+\])*\]" \
+  --method_label "Geo Detect"
 
 python3 stage11_scorer_wrapper.py \
   --generations layer9_wiring_plan/simple_benchmark/ab_stock_patterned.json \
-  --truths      layer9_wiring_plan/simple_benchmark/patterned_truths.csv \
-  --out         ab_stock_v3fewshot_metrics.json \
+  --truths      layer9_wiring_plan/simple_benchmark/simple_arc_truths_v2.csv \
+  --out         layer9_wiring_plan/simple_benchmark/ab_stock_patterned_metrics.json \
   --match_mode alnum_lower \
-  --regex '(?s).*?(-?\\d+)(?!.*-?\\d+)' \
-  --method_label "Stock (v3 few-shot)"
-
-python3 stage11_ab_eval_base_denoise_v2.py \
-  --model gpt2 --layer -9 \
-  --prompts patterned_prompts_v1.txt \
-  --max_new_tokens 8 \
-  --gen_mode stock --device cuda \
-  --out_json ab_stock_patterned.json
-
+  --regex "\[\[[^\]]+\](?:\s*,\s*\[[^\]]+\])*\]" \
+  --method_label "Stock"
 """
 import json, csv, re, argparse, sys
 from pathlib import Path

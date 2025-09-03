@@ -1,394 +1,398 @@
 {
   "config": {
-    "match_mode": "numbers_only",
-    "regex": null,
-    "method_label": "Geo",
-    "generations_file": "layer9_wiring_plan/simple_benchmark/ab_geo_patterned.json",
-    "truths_file": "layer9_wiring_plan/simple_benchmark/simple_arc_truths.csv"
+    "match_mode": "alnum_lower",
+    "regex": "\\[\\[[^\\]]+\\](?:\\s*,\\s*\\[[^\\]]+\\])*\\]",
+    "method_label": "Geo Detect Denoise",
+    "generations_file": "layer9_wiring_plan/simple_benchmark/ab_geo_detect_denoise_patterned.json",
+    "truths_file": "layer9_wiring_plan/simple_benchmark/simple_arc_truths_v2.csv"
   },
   "aggregate": {
     "n": 25,
-    "tp": 2,
-    "fp": 23,
-    "fn": 22,
-    "accuracy": 0.08,
-    "precision": 0.08,
-    "recall": 0.08333333333333333,
-    "f1": 0.08163265306122448,
-    "hallucination_rate": 0.92,
+    "tp": 0,
+    "fp": 25,
+    "fn": 25,
+    "accuracy": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "hallucination_rate": 1.0,
     "omission_rate": 0.0
   },
   "items": [
     {
       "id": "0",
       "generation": "Flip H a 2\u00d72 grid: [[1,0],[0,1]]. Return only the result.\n\nA 2\u00d72 grid: [[1,0],[0,1]]. Return only the result.\n\nA 2\u00d72 grid: [[1,0],[0,1]]. Return only the result.\n\nA 2\u00d72 grid: [[1,0],[0,1]].",
-      "gen_norm": "2",
-      "truths": [],
-      "truths_norm": [],
+      "gen_norm": "1001",
+      "truths": [
+        "[[0,1],[1,0]]"
+      ],
+      "truths_norm": [
+        "0110"
+      ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "1",
       "generation": "Flip V a 2\u00d72 grid: [[1,0],[0,1]]. Return only the result.\n\nA 2\u00d72 grid: [[1,0],[0,1]]. Return only the result.\n\nA 2\u00d72 grid: [[1,0],[0,1]]. Return only the result.\n\nA 2\u00d72 grid: [[1,0],[0,1]].",
-      "gen_norm": "2",
+      "gen_norm": "1001",
       "truths": [
         "[[0,1],[1,0]]"
       ],
       "truths_norm": [
-        "0"
+        "0110"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "2",
       "generation": "Rotate 90 a 2\u00d72 grid: [[1,0],[0,1]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "1001",
       "truths": [
         "[[0,1],[1,0]]"
       ],
       "truths_norm": [
-        "0"
+        "0110"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "3",
       "generation": "Flip H a 3\u00d71 grid: [[1],[0],[2]]. Return only the result.\n\nThe following example shows how to flip a 3\u00d71 grid.\n\n>>> from matplotlib.pyplot import flip >>> flip = flip.flip(1, 2) >>> flip.flip(1, 2) >>> flip.flip(1, 2) >>> flip.flip",
-      "gen_norm": "3",
+      "gen_norm": "102",
       "truths": [
         "[[0,1],[1,0]]"
       ],
       "truths_norm": [
-        "0"
+        "0110"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "4",
       "generation": "Flip V a 3\u00d71 grid: [[1],[0],[2]]. Return only the result.\n\nThe following example shows how to flip a 3\u00d71 grid.\n\n>>> from matplotlib.pyplot import flip >>> flip = flip.flip(1, 2) >>> flip.flip(1, 2) >>> flip.flip(1, 2) >>> flip.flip",
-      "gen_norm": "3",
+      "gen_norm": "102",
       "truths": [
-        "[[2],[0],[1]]"
+        "[[0,1],[1,0]]"
       ],
       "truths_norm": [
-        "2"
+        "0110"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "5",
       "generation": "Rotate 90 a 1\u00d73 grid: [[3,4,5]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "345",
       "truths": [
-        "[[1],[0],[2]]"
+        "[[0,1],[1,0]]"
       ],
       "truths_norm": [
-        "1"
+        "0110"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "6",
       "generation": "Flip H a 2\u00d73 grid: [[1,2,3],[4,5,6]]. Return only the result.\n\nThe following example shows how to add a new grid to a list of elements.\n\nvar list = [1,2,3],[4,5,6] var list2 = [1,2,3],[4,5,6] var list3 = [1,2,3],[",
-      "gen_norm": "2",
+      "gen_norm": "123456",
       "truths": [
-        "[[[3],[4],[5]]]"
+        "[[2],[0],[1]]"
       ],
       "truths_norm": [
-        "3"
+        "201"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "7",
-      "generation": "Flip V a 2\u00d73 grid: [[1,2,3],[4,5,6]]. Return only the result.\n\nThe following example shows how to flip a 2\u00d73 grid.\n\n>>> from matplotlib.pyplot import flip >>> flip = flip.flip(1, 2, 3) >>> flip.flip(2, 3, 4) >>> flip.flip(3, 4, 5",
-      "gen_norm": "2",
+      "generation": "Flip V a 2\u00d73 grid: [[1,2,3],[4,5,6]]. Return only the result.\n\nThe following example shows how to flip a 2\u00d73 grid.\n\n>>> from r2.models import flip >>> flip = flip.Flip(2, 2, 3) >>> flip.Flip(2, 2, 3) >>> flip.Flip(2, 2, 3) >>>",
+      "gen_norm": "123456",
       "truths": [
-        "[[3,2,1],[6,5,4]]"
+        "[[1],[0],[2]]"
       ],
       "truths_norm": [
-        "3"
+        "102"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "8",
       "generation": "Rotate 90 a 2\u00d72 grid: [[2,3],[4,5]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "2345",
       "truths": [
-        "[[4,5,6],[1,2,3]]"
+        "[[[3],[4],[5]]]"
       ],
       "truths_norm": [
-        "4"
+        "345"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "9",
       "generation": "Flip H a 3\u00d73 grid: [[1,2,3],[4,5,6],[7,8,9]]. Return only the result.\n\nThe following example shows how to add a 3\u00d73 grid to a 3\u00d74 grid.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.boxplot.boxplot.boxplot.",
-      "gen_norm": "3",
+      "gen_norm": "123456789",
       "truths": [
-        "[[4,2],[5,3]]"
+        "[[3,2,1],[6,5,4]]"
       ],
       "truths_norm": [
-        "4"
+        "321654"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "10",
       "generation": "Flip V a 3\u00d73 grid: [[1,2,3],[4,5,6],[7,8,9]]. Return only the result.\n\nThe following example shows how to flip a 3\u00d73 grid.\n\n>>> from matplotlib.pyplot import flip >>> flip = flip.flip(3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3",
-      "gen_norm": "3",
+      "gen_norm": "123456789",
       "truths": [
-        "[[3,2,1],[6,5,4],[9,8,7]]"
+        "[[4,5,6],[1,2,3]]"
       ],
       "truths_norm": [
-        "3"
+        "456123"
       ],
-      "matched": true,
+      "matched": false,
       "omitted": false,
-      "hallucinated": false,
-      "method": "Geo"
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "11",
       "generation": "Rotate 90 a 3\u00d73 grid: [[1,2,3],[4,5,6],[7,8,9]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "123456789",
       "truths": [
-        "[[7,8,9],[4,5,6],[1,2,3]]"
+        "[[4,2],[5,3]]"
       ],
       "truths_norm": [
-        "7"
+        "4253"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "12",
       "generation": "Flip H a 2\u00d72 grid: [[7,8],[9,0]]. Return only the result.\n\nA 2\u00d72 grid: [[7,8],[9,0]]. Return only the result.\n\nA 2\u00d72 grid: [[7,8],[9,0]]. Return only the result.\n\nA 2\u00d72 grid: [[7,8],[9,0]].",
-      "gen_norm": "2",
+      "gen_norm": "7890",
       "truths": [
-        "[[7,4,1],[8,5,2],[9,6,3]]"
+        "[[3,2,1],[6,5,4],[9,8,7]]"
       ],
       "truths_norm": [
-        "7"
+        "321654987"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "13",
       "generation": "Flip V a 2\u00d72 grid: [[7,8],[9,0]]. Return only the result.\n\nA 2\u00d72 grid: [[7,8],[9,0]]. Return only the result. Flip V a 2\u00d72 grid: [[7,8],[9,0]]. Return only the result.\n\nA 2\u00d72 grid: [[7,8],[9,0]].",
-      "gen_norm": "2",
+      "gen_norm": "7890",
       "truths": [
-        "[[8,7],[0,9]]"
+        "[[7,8,9],[4,5,6],[1,2,3]]"
       ],
       "truths_norm": [
-        "8"
+        "789456123"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "14",
       "generation": "Rotate 90 a 2\u00d72 grid: [[7,8],[9,0]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "7890",
       "truths": [
-        "[[9,0],[7,8]]"
+        "[[7,4,1],[8,5,2],[9,6,3]]"
       ],
       "truths_norm": [
-        "9"
+        "741852963"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "15",
       "generation": "Flip H a 1\u00d74 grid: [[1,2,3,4]]. Return only the result.\n\nA 2\u00d74 grid: [[1,2,3,4]]. Return only the result.\n\nA 3\u00d74 grid: [[1,2,3,4]]. Return only the result.\n\nA 4\u00d74 grid: [[1,2,3,4]].",
-      "gen_norm": "1",
+      "gen_norm": "1234",
       "truths": [
-        "[[9,7],[0,8]]"
+        "[[8,7],[0,9]]"
       ],
       "truths_norm": [
-        "9"
+        "8709"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "16",
       "generation": "Flip V a 4\u00d71 grid: [[1],[2],[3],[4]]. Return only the result.\n\nThe following example shows how to flip a 4\u00d71 grid.\n\n>>> from matplotlib.pyplot import flip >>> flip = flip.flip(1, 2, 3) >>> flip.flip(1, 2, 3) >>> flip.flip(1, 2, 3",
-      "gen_norm": "4",
+      "gen_norm": "1234",
       "truths": [
-        "[[4,3,2,1]]"
+        "[[9,0],[7,8]]"
       ],
       "truths_norm": [
-        "4"
+        "9078"
       ],
-      "matched": true,
+      "matched": false,
       "omitted": false,
-      "hallucinated": false,
-      "method": "Geo"
+      "hallucinated": true,
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "17",
       "generation": "Rotate 90 a 4\u00d71 grid: [[1],[2],[3],[4]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "1234",
       "truths": [
-        "[[4],[3],[2],[1]]"
+        "[[9,7],[0,8]]"
       ],
       "truths_norm": [
-        "4"
+        "9708"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "18",
       "generation": "Flip H a 2\u00d74 grid: [[1,0,1,0],[2,2,2,2]]. Return only the result.\n\nA 2\u00d74 grid: [[1,0,1,0],[2,2,2,2]]. Return only the result.\n\nA 2\u00d74 grid: [[1,0,1,0],[2,2,2,2]]. Return only the result.\n\n",
-      "gen_norm": "2",
+      "gen_norm": "10102222",
       "truths": [
-        "[[[1,2,3,4]]]"
+        "[[4,3,2,1]]"
       ],
       "truths_norm": [
-        "1"
+        "4321"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "19",
       "generation": "Flip V a 2\u00d74 grid: [[1,0,1,0],[2,2,2,2]]. Return only the result.\n\nA 2\u00d74 grid: [[1,0,1,0],[2,2,2,2]]. Return only the result.\n\nA 2\u00d74 grid: [[1,0,1,0],[2,2,2,2]]. Return only the result.\n\n",
-      "gen_norm": "2",
+      "gen_norm": "10102222",
       "truths": [
-        "[[0,1,0,1],[2,2,2,2]]"
+        "[[4],[3],[2],[1]]"
       ],
       "truths_norm": [
-        "0"
+        "4321"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "20",
       "generation": "Rotate 90 a 2\u00d74 grid: [[1,0,1,0],[2,2,2,2]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "10102222",
       "truths": [
-        "[[2,2,2,2],[1,0,1,0]]"
+        "[[[1,2,3,4]]]"
       ],
       "truths_norm": [
-        "2"
+        "1234"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "21",
       "generation": "Flip H a 3\u00d72 grid: [[1,2],[3,4],[5,6]]. Return only the result.\n\nThe following example shows how to flip a 3\u00d72 grid.\n\n>>> from matplotlib.pyplot import flip >>> flip = flip.flip(3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3",
-      "gen_norm": "3",
+      "gen_norm": "123456",
       "truths": [
-        "[[[1,2],[1,2]]]"
+        "[[0,1,0,1],[2,2,2,2]]"
       ],
       "truths_norm": [
-        "1"
+        "01012222"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "22",
       "generation": "Flip V a 3\u00d72 grid: [[1,2],[3,4],[5,6]]. Return only the result.\n\nThe following example shows how to flip a 3\u00d72 grid.\n\n>>> from matplotlib.pyplot import flip >>> flip = flip.flip(3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3",
-      "gen_norm": "3",
+      "gen_norm": "123456",
       "truths": [
-        "[[2,1],[4,3],[6,5]]"
+        "[[2,2,2,2],[1,0,1,0]]"
       ],
       "truths_norm": [
-        "2"
+        "22221010"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "23",
       "generation": "Rotate 90 a 3\u00d72 grid: [[1,2],[3,4],[5,6]]. Return only the result.\n\nThe following example shows how to create a grid with a single row.\n\nimport math import matplotlib.pyplot as plt import matplotlib.pyplot.boxplot as plt.boxplot.boxplot.grid import matplotlib.pyplot.time import matplotlib",
-      "gen_norm": "90",
+      "gen_norm": "123456",
       "truths": [
-        "[[5,6],[3,4],[1,2]]"
+        "[[[1,2],[1,2]]]"
       ],
       "truths_norm": [
-        "5"
+        "1212"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     },
     {
       "id": "24",
       "generation": "Flip H a 3\u00d73 grid: [[0,1,0],[1,0,1],[0,1,0]]. Return only the result.\n\nA 3\u00d73 grid: [[0,1,0],[1,0,1],[0,1,0]]. Return only the result.\n\nA 3\u00d73 grid: [[0,1,0],[1,0,1],[0,1,0]]. Return only the",
-      "gen_norm": "3",
+      "gen_norm": "010101010",
       "truths": [
-        "[[[1,3,5],[2,4,6]]]"
+        "[[2,1],[4,3],[6,5]]"
       ],
       "truths_norm": [
-        "1"
+        "214365"
       ],
       "matched": false,
       "omitted": false,
       "hallucinated": true,
-      "method": "Geo"
+      "method": "Geo Detect Denoise"
     }
   ]
 }
