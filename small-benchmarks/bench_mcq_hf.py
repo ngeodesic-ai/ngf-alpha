@@ -7,11 +7,10 @@ from collections import Counter
 
 """
 python3 bench_mcq_hf.py \
-  --task hellaswag --split validation --n 200 --seed 42 --k_shot 4 \
+  --task hellaswag --split validation --n 50 --seed 42 --k_shot 4 \
   --runner text_arc_unified_base.py --device cuda --model gpt2-medium \
-  --tap -9 --outdir runs_hellaswag_gpt2l
-
-  
+  --tap -9 --outdir runs_hellaswag_fix \
+  --max_new_tokens 4 --temperature 0.3 --top_p 0.8
 """
 
 # -----------------------------
