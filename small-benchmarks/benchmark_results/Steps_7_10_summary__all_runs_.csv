@@ -1,5 +1,0 @@
-run,n,avg_len_words,median_len_words,adj_dup_frac_mean,tri_rep_frac_mean,unique_word_ratio_mean,loopish_rate,long_repeat_rate,empty_rate,path
-geo_v4b_tap9,60,55.7,51.5,0.0,0.4328,0.449,0.85,0.65,0.0,/mnt/data/generations_geo_steps.v4b.tap9.jsonl
-geo_no_denoise,60,55.98,60.0,0.0,0.4299,0.4582,0.8167,0.6333,0.0,/mnt/data/generations_geo_steps.v4b.tap9.no_denoise.jsonl
-geo_t4_fp16,60,55.98,60.0,0.0,0.4299,0.4582,0.8167,0.6333,0.0,/mnt/data/generations_geo_steps.v4b.tap9.t4_fp16.jsonl
-stock_v4b_tap9,60,38.82,41.0,0.0,0.3035,0.5451,0.75,0.4833,0.0,/mnt/data/generations_stock.v4b.tap9.jsonl

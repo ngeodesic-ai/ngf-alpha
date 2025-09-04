@@ -20,6 +20,28 @@ from datasets import load_dataset
 import numpy as np  # ← NEW
 
 
+"""
+
+# stock baseline → writes to results/stock_gpt2_n100.json
+python3 ngf_benchmark.py \
+  --mode stock --model gpt2 --split validation \
+  --n 1000 --max_length 768 --device auto \
+  --out_json benchmark_results/stock_gpt2_n1000.json
+  --out_json1 benchmark_results/stock_gpt2_n1000.json1
+
+# Stage-1 geo (tap -9) → writes to results/ngf_geo_gpt2_n100.json
+python3 ngf_benchmark.py \
+  --mode ngf --ngf_import ngf_hooks:attach_ngf_hooks \
+  --model gpt2 --split validation --n 1000 \
+  --max_length 768 --device auto \
+  --tap -9 --alpha0 0.05 --alpha_min 0.006 --trend_tau 0.32 --k_tr 12 --ema_center_beta 0.05 \
+  --out_json benchmark_results/ngf_geo_gpt2_n1000.json
+  --out_json1 benchmark_results/ngf_geo_gpt2_n1000.json1
+
+
+"""
+
+
 def parse_args():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", default="stock", choices=["stock", "ngf"], help="stock baseline or NGF-warped model")
@@ -48,6 +70,8 @@ def parse_args():
     ap.add_argument("--gen_mode", type=str, default="geo")
     # Optional import hook path, e.g., text_arc_unified_base:attach_ngf_hooks
     ap.add_argument("--ngf_import", type=str, default="", help="MODULE:FUNC path to attach NGF hooks (overrides auto-detect)")
+    ap.add_argument("--out_json", type=str, default="",
+                help="Optional path to write the final results JSON")
     return ap.parse_args()
 
 def ensure_pad_token(tok):
@@ -305,67 +329,58 @@ def main():
         if n_done % 10 == 0 or n_done == args.n:
             print(f"{n_done} acc_norm: {correct}/{n_done}={correct/n_done:.4f}")
 
-
-
-
-        total = min(args.n, len(ds))
-        acc = correct / total if total else 0.0
-        elapsed = time.time() - t0
-    
-        # === NEW: metrics from collected scores/labels ===
-        metrics = {}
-        if total > 0 and len(all_scores) == total:
-            scores_np = np.stack(all_scores, axis=0)                 # [N, 4], higher=better
-            probs = _softmax(scores_np, axis=1)                      # convert to probabilities
-            y_true = np.asarray(all_labels, dtype=np.int64)
-            pred = probs.argmax(axis=1)
-    
-            cm = _confusion_matrix(y_true, pred, C=scores_np.shape[1])
-            macro, micro, per_class = _prec_rec_f1_from_cm(cm)
-    
-            # Calibration + confidence shaping
-            ece_10 = _expected_calibration_error(probs, y_true, n_bins=10)
-            # Brier for multi-class (one-hot vs prob dist)
-            onehot = np.eye(probs.shape[1])[y_true]
-            brier = float(np.mean(np.sum((probs - onehot) ** 2, axis=1)))
-            # Mean top1-top2 margin and entropy
-            sorted_p = np.sort(probs, axis=1)
-            margin = float(np.mean(sorted_p[:, -1] - sorted_p[:, -2]))
-            entropy = float(np.mean(-np.sum(np.where(probs > 0, probs * np.log(probs + 1e-12), 0.0), axis=1)))
-    
-            # “Confidently wrong” rates (proxy for hallucination on MC)
-            maxp = probs.max(axis=1)
-            wrong = (pred != y_true)
-            overconf_90 = float(np.mean(wrong & (maxp >= 0.90)))
-            overconf_70 = float(np.mean(wrong & (maxp >= 0.70)))
-    
-            # Top-2 accuracy (optional but handy)
-            top2 = np.argsort(-probs, axis=1)[:, :2]
-            top2_acc = float(np.mean((top2[:, 0] == y_true) | (top2[:, 1] == y_true)))
-    
-            metrics = {
-                "accuracy_top1": float(acc),
-                "accuracy_top2": top2_acc,
-                "macro": macro,
-                "micro": micro,
-                "per_class": per_class,
-                "confusion_matrix": cm.tolist(),
-                "calibration": {
-                    "ece_10": ece_10,
-                    "brier": brier,
-                    "mean_margin": margin,
-                    "entropy": entropy,
-                },
-                "overconfidence_rate": {
-                    "wrong_p>=0.90": overconf_90,
-                    "wrong_p>=0.70": overconf_70,
-                },
-            }    
-
+    # after the for-loop ends:
     total = min(args.n, len(ds))
     acc = correct / total if total else 0.0
     elapsed = time.time() - t0
-    print(json.dumps({
+    
+    # === metrics from collected scores/labels (unchanged logic) ===
+    metrics = {}
+    if total > 0 and len(all_scores) == total:
+        scores_np = np.stack(all_scores, axis=0)                 # [N, 4]
+        probs = _softmax(scores_np, axis=1)
+        y_true = np.asarray(all_labels, dtype=np.int64)
+        pred = probs.argmax(axis=1)
+    
+        cm = _confusion_matrix(y_true, pred, C=scores_np.shape[1])
+        macro, micro, per_class = _prec_rec_f1_from_cm(cm)
+    
+        ece_10 = _expected_calibration_error(probs, y_true, n_bins=10)
+        onehot = np.eye(probs.shape[1])[y_true]
+        brier  = float(np.mean(np.sum((probs - onehot) ** 2, axis=1)))
+        sorted_p = np.sort(probs, axis=1)
+        margin = float(np.mean(sorted_p[:, -1] - sorted_p[:, -2]))
+        entropy = float(np.mean(-np.sum(np.where(probs > 0, probs*np.log(probs + 1e-12), 0.0), axis=1)))
+    
+        maxp = probs.max(axis=1)
+        wrong = (pred != y_true)
+        overconf_90 = float(np.mean(wrong & (maxp >= 0.90)))
+        overconf_70 = float(np.mean(wrong & (maxp >= 0.70)))
+    
+        top2 = np.argsort(-probs, axis=1)[:, :2]
+        top2_acc = float(np.mean((top2[:, 0] == y_true) | (top2[:, 1] == y_true)))
+    
+        metrics = {
+            "accuracy_top1": float(acc),
+            "accuracy_top2": top2_acc,
+            "macro": macro,
+            "micro": micro,
+            "per_class": per_class,
+            "confusion_matrix": cm.tolist(),
+            "calibration": {
+                "ece_10": ece_10,
+                "brier": brier,
+                "mean_margin": margin,
+                "entropy": entropy,
+            },
+            "overconfidence_rate": {
+                "wrong_p>=0.90": overconf_90,
+                "wrong_p>=0.70": overconf_70,
+            },
+        }
+    
+    # assemble result once
+    result = {
         "mode": args.mode,
         "model": args.model,
         "split": args.split,
@@ -375,8 +390,19 @@ def main():
         "elapsed_sec": elapsed,
         "device": str(device),
         "ngf_status": ngf_status or "stock",
-        "metrics": metrics,  # ← NEW
-    }, indent=2))
+        "metrics": metrics,
+    }
+    
+    # write to --out_json if provided
+    if args.out_json:
+        import os, io, json
+        os.makedirs(os.path.dirname(args.out_json) or ".", exist_ok=True)
+        with io.open(args.out_json, "w", encoding="utf-8") as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        print(f"[WRITE] Results → {args.out_json}")
+    
+    # still print to stdout
+    #print(json.dumps(result, indent=2))
 
 if __name__ == "__main__":
     main()
