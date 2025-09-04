@@ -22,21 +22,45 @@ import numpy as np  # ← NEW
 
 """
 
-# stock baseline → writes to results/stock_gpt2_n100.json
-python3 ngf_benchmark.py \
-  --mode stock --model gpt2 --split validation \
-  --n 1000 --max_length 768 --device auto \
-  --out_json benchmark_results/stock_gpt2_n1000.json
-  --out_json1 benchmark_results/stock_gpt2_n1000.json1
+MODEL=gpt2              
+SPLIT=validation
+N=1000
+MAXLEN=768
+DEVICE=auto
+OUTDIR=results/${MODEL}_n${N}
+mkdir -p "$OUTDIR"
 
-# Stage-1 geo (tap -9) → writes to results/ngf_geo_gpt2_n100.json
+python3 ngf_benchmark.py \
+  --mode stock \
+  --model $MODEL --split $SPLIT --n $N --max_length $MAXLEN --device $DEVICE \
+  --out_json  $OUTDIR/stock.json \
+  --save_jsonl $OUTDIR/stock.jsonl
+
 python3 ngf_benchmark.py \
   --mode ngf --ngf_import ngf_hooks:attach_ngf_hooks \
-  --model gpt2 --split validation --n 1000 \
-  --max_length 768 --device auto \
-  --tap -9 --alpha0 0.05 --alpha_min 0.006 --trend_tau 0.32 --k_tr 12 --ema_center_beta 0.05 \
-  --out_json benchmark_results/ngf_geo_gpt2_n1000.json
-  --out_json1 benchmark_results/ngf_geo_gpt2_n1000.json1
+  --model $MODEL --split $SPLIT --n $N --max_length $MAXLEN --device $DEVICE \
+  --tap -9 \
+  --alpha0 0.05 --alpha_min 0.006 --trend_tau 0.32 --k_tr 12 --ema_center_beta 0.05 \
+  --out_json  $OUTDIR/geo.json \
+  --save_jsonl $OUTDIR/geo.jsonl
+
+python3 ngf_benchmark.py \
+  --mode ngf --ngf_import ngf_hooks:attach_ngf_hooks \
+  --model $MODEL --split $SPLIT --n $N --max_length $MAXLEN --device $DEVICE \
+  --tap -9 \
+  --alpha0 0.05 --alpha_min 0.006 --trend_tau 0.32 --k_tr 12 --ema_center_beta 0.05 \
+  --use_detect 1 --detect_width 20 --null_K 32 --null_q 0.92 --k_det 8 \
+  --out_json  $OUTDIR/geo_detect.json \
+  --save_jsonl $OUTDIR/geo_detect.jsonl
+
+python3 ngf_benchmark.py \
+  --mode ngf --ngf_import ngf_hooks:attach_ngf_hooks \
+  --model $MODEL --split $SPLIT --n $N --max_length $MAXLEN --device $DEVICE \
+  --tap -9 \
+  --alpha0 0.05 --alpha_min 0.006 --trend_tau 0.32 --k_tr 12 --ema_center_beta 0.05 \
+  --use_detect 1 --detect_width 20 --null_K 32 --null_q 0.92 --k_det 8 \
+  --out_json  $OUTDIR/geo_detect_denoise.json \
+  --save_jsonl $OUTDIR/geo_detect_denoise.jsonl
 
 
 """

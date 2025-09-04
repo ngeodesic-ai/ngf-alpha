@@ -1,0 +1,83 @@
+{
+  "mode": "ngf",
+  "model": "gpt2",
+  "split": "validation",
+  "n": 250,
+  "accuracy": 0.292,
+  "correct": 73,
+  "elapsed_sec": 67.75473475456238,
+  "device": "cpu",
+  "ngf_status": "NGF attach failed via ngf_hooks:attach_ngf_hooks: duplicate argument 'jitter_eps' in function definition (ngf_hooks.py, line 10)",
+  "metrics": {
+    "accuracy_top1": 0.292,
+    "accuracy_top2": 0.596,
+    "macro": {
+      "precision": 0.28939743270190577,
+      "recall": 0.2865854614368518,
+      "f1": 0.28681768514976014
+    },
+    "micro": {
+      "precision": 0.2919999999999988,
+      "recall": 0.2919999999999988,
+      "f1": 0.2919999999999994
+    },
+    "per_class": [
+      {
+        "precision": 0.25423728813560587,
+        "recall": 0.22388059701493698,
+        "f1": 0.23809523809475222
+      },
+      {
+        "precision": 0.27941176470589296,
+        "recall": 0.3220338983050962,
+        "f1": 0.2992125984247104
+      },
+      {
+        "precision": 0.43750000000000877,
+        "recall": 0.3888888888888974,
+        "f1": 0.41176470588186337
+      },
+      {
+        "precision": 0.1864406779661155,
+        "recall": 0.2115384615384767,
+        "f1": 0.19819819819771467
+      }
+    ],
+    "confusion_matrix": [
+      [
+        15,
+        22,
+        9,
+        21
+      ],
+      [
+        12,
+        19,
+        12,
+        16
+      ],
+      [
+        20,
+        13,
+        28,
+        11
+      ],
+      [
+        12,
+        14,
+        15,
+        11
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.14659193215690947,
+      "brier": 0.7466699159675033,
+      "mean_margin": 0.15419883146545288,
+      "entropy": 1.2349487725624295
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.0,
+      "wrong_p>=0.70": 0.004
+    }
+  }
+}
