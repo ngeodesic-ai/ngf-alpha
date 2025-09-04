@@ -1,0 +1,384 @@
+{"id": 1, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 2, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 3, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 4, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 5, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 6, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 7, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 8, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 9, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 10, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 11, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 12, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 13, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 14, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 15, "prompt": "Q: Return only the integer 47.", "generation": "Q: Return only the integer"}
+{"id": 16, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 17, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 18, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 19, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 20, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 21, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 22, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 23, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 24, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 25, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 26, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 27, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 28, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 29, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 30, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 31, "prompt": "Q: Return only the integer 36.", "generation": "Q: Return only the integer"}
+{"id": 32, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 33, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 34, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 35, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 36, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 37, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 38, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 39, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 40, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 41, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 42, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 43, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 44, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 45, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 46, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 47, "prompt": "Q: In 'IDs: 89, 84, 11', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 48, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 49, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 50, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 51, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 52, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 53, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 54, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 55, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 56, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 57, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 58, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 59, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 60, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 61, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 62, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 63, "prompt": "Q: In 'IDs: 23, 70, 95', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 64, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 65, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 66, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 67, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 68, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 69, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 70, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 71, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 72, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 73, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 74, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 75, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 76, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 77, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 78, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 79, "prompt": "Q: Return only the integer 61.", "generation": "Q: Return only the integer"}
+{"id": 80, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 81, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 82, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 83, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 84, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 85, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 86, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 87, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 88, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 89, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 90, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 91, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 92, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 93, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 94, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 95, "prompt": "Q: Return only the integer 83.", "generation": "Q: Return only the integer"}
+{"id": 96, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 97, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 98, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 99, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 100, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 101, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 102, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 103, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 104, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 105, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 106, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 107, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 108, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 109, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 110, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 111, "prompt": "Q: In 'IDs: 30, 89, 43', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 112, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 113, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 114, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 115, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 116, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 117, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 118, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 119, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 120, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 121, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 122, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 123, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 124, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 125, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 126, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 127, "prompt": "Q: Which is larger, 9 or 31? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 128, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 129, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 130, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 131, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 132, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 133, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 134, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 135, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 136, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 137, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 138, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 139, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 140, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 141, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 142, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 143, "prompt": "Q: Which is larger, 42 or 53? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 144, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 145, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 146, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 147, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 148, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 149, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 150, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 151, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 152, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 153, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 154, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 155, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 156, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 157, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 158, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 159, "prompt": "Q: Return only the integer 29.", "generation": "Q: Return only the integer"}
+{"id": 160, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 161, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 162, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 163, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 164, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 165, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 166, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 167, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 168, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 169, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 170, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 171, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 172, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 173, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 174, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 175, "prompt": "Q: Which is larger, 74 or 93? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 176, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 177, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 178, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 179, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 180, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 181, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 182, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 183, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 184, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 185, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 186, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 187, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 188, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 189, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 190, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 191, "prompt": "Q: Return only the integer 85.", "generation": "Q: Return only the integer"}
+{"id": 192, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 193, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 194, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 195, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 196, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 197, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 198, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 199, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 200, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 201, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 202, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 203, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 204, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 205, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 206, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 207, "prompt": "Q: Return only the integer 84.", "generation": "Q: Return only the integer"}
+{"id": 208, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 209, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 210, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 211, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 212, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 213, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 214, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 215, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 216, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 217, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 218, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 219, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 220, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 221, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 222, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 223, "prompt": "Q: Return only the integer 35.", "generation": "Q: Return only the integer"}
+{"id": 224, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 225, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 226, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 227, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 228, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 229, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 230, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 231, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 232, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 233, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 234, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 235, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 236, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 237, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 238, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 239, "prompt": "Q: Return only the integer 97.", "generation": "Q: Return only the integer"}
+{"id": 240, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 241, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 242, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 243, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 244, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 245, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 246, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 247, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 248, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 249, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 250, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 251, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 252, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 253, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 254, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 255, "prompt": "Q: Return only the integer 35.", "generation": "Q: Return only the integer"}
+{"id": 256, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 257, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 258, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 259, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 260, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 261, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 262, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 263, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 264, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 265, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 266, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 267, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 268, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 269, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 270, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 271, "prompt": "Q: In 'IDs: 56, 76, 53', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 272, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 273, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 274, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 275, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 276, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 277, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 278, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 279, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 280, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 281, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 282, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 283, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 284, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 285, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 286, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 287, "prompt": "Q: Return only the integer 19.", "generation": "Q: Return only the integer"}
+{"id": 288, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 289, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 290, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 291, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 292, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 293, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 294, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 295, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 296, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 297, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 298, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 299, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 300, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 301, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 302, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 303, "prompt": "Q: Return only the integer 13.", "generation": "Q: Return only the integer"}
+{"id": 304, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 305, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 306, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 307, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 308, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 309, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 310, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 311, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 312, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 313, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 314, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 315, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 316, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 317, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 318, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 319, "prompt": "Q: In 'IDs: 16, 21, 82', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 320, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 321, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 322, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 323, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 324, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 325, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 326, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 327, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 328, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 329, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 330, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 331, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 332, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 333, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 334, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 335, "prompt": "Q: Return only the integer 89.", "generation": "Q: Return only the integer"}
+{"id": 336, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 337, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 338, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 339, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 340, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 341, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 342, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 343, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 344, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 345, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 346, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 347, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 348, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 349, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 350, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 351, "prompt": "Q: Return only the integer 10.", "generation": "Q: Return only the integer"}
+{"id": 352, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 353, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 354, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 355, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 356, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 357, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 358, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 359, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 360, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 361, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 362, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 363, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 364, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 365, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 366, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 367, "prompt": "Q: Return only the integer 78.", "generation": "Q: Return only the integer"}
+{"id": 368, "prompt": "A:", "generation": "I'm not sure if it's a"}
+{"id": 369, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 370, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 371, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 372, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 373, "prompt": "Q: Return the smallest integer: 5, 2, 8.", "generation": "A: Return the smallest integer"}
+{"id": 374, "prompt": "A: 2", "generation": ".5\n\nA: 3."}
+{"id": 375, "prompt": "Q: In 'IDs: 19, 7, 42', return the last integer.", "generation": "Q: In 'IDs:"}
+{"id": 376, "prompt": "A: 42", "generation": ".5%\n\nA: 42"}
+{"id": 377, "prompt": "Q: Compute 4+7. Return only the integer.", "generation": "Q: Compute 4+"}
+{"id": 378, "prompt": "A: 11", "generation": "/11/17\n\nA:"}
+{"id": 379, "prompt": "Q: Return only the integer 7.", "generation": "Q: Return only the integer"}
+{"id": 380, "prompt": "A: 7", "generation": ".5\n\nA: 7."}
+{"id": 381, "prompt": "Q: Which is larger, 4 or 9? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 382, "prompt": "A: 9", "generation": ".5\n\nA: 9."}
+{"id": 383, "prompt": "Q: Which is larger, 69 or 34? Return only the integer.", "generation": "Q: Which is smaller,"}
+{"id": 384, "prompt": "A:", "generation": "I'm not sure if it's a"}

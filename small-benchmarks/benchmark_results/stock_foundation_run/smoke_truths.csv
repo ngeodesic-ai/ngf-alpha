@@ -1,0 +1,7 @@
+id,truth,family
+1,83,pick_larger
+2,96,pick_larger
+3,37,pick_larger
+4,30,echo_integer
+5,19,echo_integer
+6,88,extract_last

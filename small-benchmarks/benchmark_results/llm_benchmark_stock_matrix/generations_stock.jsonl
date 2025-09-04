@@ -1,0 +1,275 @@
+{"id": 1, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 2, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 3, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 4, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 5, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 6, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 7, "prompt": "Q: Rotate the matrix [[-9, -1], [-2, -2]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-9, -1], [-2, -2]] by 90° counterclockwise. Return only the matrix"}
+{"id": 8, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 9, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 10, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 11, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 12, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 13, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 14, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 15, "prompt": "Q: Rotate the matrix [[8, -7], [9, 4]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[8, -7], [9, 4]] by 90° counterclockwise. Return only the matrix in bracket"}
+{"id": 16, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 17, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 18, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 19, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 20, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 21, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 22, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 23, "prompt": "Q: Rotate the matrix [[-7, -3], [-2, 7]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-7, -3], [-2, 7]] by 180°. Return only the matrix in bracketed form"}
+{"id": 24, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 25, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 26, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 27, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 28, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 29, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 30, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 31, "prompt": "Q: Rotate the matrix [[8, -3], [8, 4]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[8, -3], [8, 4]] by 90° counterclockwise. Return only the matrix in bracket"}
+{"id": 32, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 33, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 34, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 35, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 36, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 37, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 38, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 39, "prompt": "Q: Rotate the matrix [[9, -1, -9], [-4, 4, 1], [-1, -5, -3]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[9, -1, -9], [-4, 4, 1], [-1, -5, -3"}
+{"id": 40, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 41, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 42, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 43, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 44, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 45, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 46, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 47, "prompt": "Q: Rotate the matrix [[-7, 3], [-6, 2]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-7, 3], [-6, 2]] by 90° counterclockwise. Return only the matrix in bracket"}
+{"id": 48, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 49, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 50, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 51, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 52, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 53, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 54, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 55, "prompt": "Q: Rotate the matrix [[-8, 5, 8], [-6, 3, -7], [8, 0, 2]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-8, 5, 8], [-6, 3, -7], [8, 0, 2]] by"}
+{"id": 56, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 57, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 58, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 59, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 60, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 61, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 62, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 63, "prompt": "Q: Rotate the matrix [[-7, -8], [-2, 0]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-7, -8], [-2, 0]] by 90° counterclockwise. Return only the matrix in"}
+{"id": 64, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 65, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 66, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 67, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 68, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 69, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 70, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 71, "prompt": "Q: Rotate the matrix [[-6, 3], [-1, 5]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-6, 3], [-1, 5]] by 180°. Return only the matrix in bracketed form."}
+{"id": 72, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 73, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 74, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 75, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 76, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 77, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 78, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 79, "prompt": "Q: Rotate the matrix [[-4, 2, 2], [-3, -1, -7], [-4, 8, -2]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-4, 2, 2], [-3, -1, -7], [-4, 8, -2"}
+{"id": 80, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 81, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 82, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 83, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 84, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 85, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 86, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 87, "prompt": "Q: Rotate the matrix [[3, -1, 8], [-2, 1, -8], [-2, -8, 1]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[3, -1, 8], [-2, 1, -8], [-2, -8, 1]]"}
+{"id": 88, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 89, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 90, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 91, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 92, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 93, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 94, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 95, "prompt": "Q: Rotate the matrix [[-7, -3, 9], [1, -3, 6], [3, 5, -5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-7, -3, 9], [1, -3, 6], [3, 5, -5"}
+{"id": 96, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 97, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 98, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 99, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 100, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 101, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 102, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 103, "prompt": "Q: Rotate the matrix [[-2, 8], [8, -1]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-2, 8], [8, -1]] by 180°. Return only the matrix in bracketed form"}
+{"id": 104, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 105, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 106, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 107, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 108, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 109, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 110, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 111, "prompt": "Q: Rotate the matrix [[9, 3, 2], [-2, -5, 7], [6, -7, -8]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[9, 3, 2], [-2, -5, 7], [6, -7, -8]]"}
+{"id": 112, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 113, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 114, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 115, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 116, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 117, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 118, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 119, "prompt": "Q: Rotate the matrix [[-4, 4], [-7, 3]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-4, 4], [-7, 3]] by 90° counterclockwise. Return only the matrix in bracket"}
+{"id": 120, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 121, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 122, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 123, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 124, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 125, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 126, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 127, "prompt": "Q: Rotate the matrix [[7, -1, 8], [-9, -6, 8], [-1, 1, -6]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Rotation of the matrix [[7, -1, 8], [-9, -6, 8], [-1, 1, -6]] by"}
+{"id": 128, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 129, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 130, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 131, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 132, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 133, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 134, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 135, "prompt": "Q: Rotate the matrix [[-4, 5, -9], [-1, 7, -4], [7, -6, 0]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-4, 5, -9], [-1, 7, -4], [7, -6, 0"}
+{"id": 136, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 137, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 138, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 139, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 140, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 141, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 142, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 143, "prompt": "Q: Rotate the matrix [[-5, 2], [-4, 8]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-5, 2], [-4, 8]] by 180°. Return only the matrix in bracketed form."}
+{"id": 144, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 145, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 146, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 147, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 148, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 149, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 150, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 151, "prompt": "Q: Rotate the matrix [[1, 6], [-9, -6]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1, 6], [-9, -6]] by 90° counterclockwise. Return only the matrix in bracket"}
+{"id": 152, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 153, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 154, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 155, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 156, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 157, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 158, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 159, "prompt": "Q: Rotate the matrix [[-2, -8, -2], [9, -7, -7], [6, -7, 8]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-2, -8, -2], [9, -7, -7], [6, -7"}
+{"id": 160, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 161, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 162, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 163, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 164, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 165, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 166, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 167, "prompt": "Q: Rotate the matrix [[6, 8], [-4, -1]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[6, 8], [-4, -1]] by 180°. Return only the matrix in bracketed form."}
+{"id": 168, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 169, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 170, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 171, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 172, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 173, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 174, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 175, "prompt": "Q: Rotate the matrix [[-3, 8, -3], [0, 3, 2], [5, 7, 5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-3, 8, -3], [0, 3, 2], [5, 7, 5]] by"}
+{"id": 176, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 177, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 178, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 179, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 180, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 181, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 182, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 183, "prompt": "Q: Rotate the matrix [[-2, -7], [1, -9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-2, -7], [1, -9]] by 180°. Return only the matrix in bracketed"}
+{"id": 184, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 185, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 186, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 187, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 188, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 189, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 190, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 191, "prompt": "Q: Rotate the matrix [[9, -2], [-9, -7]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[9, -2], [-9, -7]] by 180°. Return only the matrix in bracketed form"}
+{"id": 192, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 193, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 194, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 195, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 196, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 197, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 198, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 199, "prompt": "Q: Rotate the matrix [[-2, -7], [-8, 1]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-2, -7], [-8, 1]] by 90° counterclockwise. Return only the matrix in"}
+{"id": 200, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 201, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 202, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 203, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 204, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 205, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 206, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 207, "prompt": "Q: Rotate the matrix [[-1, 6], [-3, 8]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-1, 6], [-3, 8]] by 90° counterclockwise. Return only the matrix in bracket"}
+{"id": 208, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 209, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 210, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 211, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 212, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 213, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 214, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 215, "prompt": "Q: Rotate the matrix [[-2, 6, 4], [-3, -6, -6], [4, 2, 4]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-2, 6, 4], [-3, -6, -6], [4, 2, 4]]"}
+{"id": 216, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 217, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 218, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 219, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 220, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 221, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 222, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 223, "prompt": "Q: Rotate the matrix [[-8, -6, -8], [3, 1, -6], [-2, -3, -3]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-8, -6, -8], [3, 1, -6], [-2, -3,"}
+{"id": 224, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 225, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 226, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 227, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 228, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 229, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 230, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 231, "prompt": "Q: Rotate the matrix [[-5, 4, -4], [-1, 5, -2], [-7, 5, 8]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-5, 4, -4], [-1, 5, -2], [-7, 5, 8]]"}
+{"id": 232, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 233, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 234, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 235, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 236, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 237, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 238, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 239, "prompt": "Q: Rotate the matrix [[8, -9], [-7, -2]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[8, -9], [-7, -2]] by 90° counterclockwise. Return only the matrix in"}
+{"id": 240, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 241, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 242, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 243, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 244, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 245, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 246, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 247, "prompt": "Q: Rotate the matrix [[6, 6, -3], [3, -8, -4], [3, -9, 3]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[6, 6, -3], [3, -8, -4], [3, -9, 3"}
+{"id": 248, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 249, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 250, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 251, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 252, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 253, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 254, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 255, "prompt": "Q: Rotate the matrix [[0, 4, 8], [6, -5, -3], [0, -3, -8]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[0, 4, 8], [6, -5, -3], [0, -3, -8"}
+{"id": 256, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 257, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 258, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 259, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 260, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 261, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 262, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 263, "prompt": "Q: Rotate the matrix [[1, -8], [-8, 9]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1, -8], [-8, 9]] by 90° counterclockwise. Return only the matrix in bracket"}
+{"id": 264, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 265, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 266, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 267, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 268, "prompt": "A: [[3,5],[2,4]]", "generation": "A: [[3,5],[2,4]]\n\nA: [[3,5],[2,4]]\n\nA: [[3"}
+{"id": 269, "prompt": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[1,2,3],[4,5,6],[7,8,9]] by 180°. Return"}
+{"id": 270, "prompt": "A: [[9,8,7],[6,5,4],[3,2,1]]", "generation": "A: [[9,8,7],[6,5,4],[3,2,1]]\n\nA: [[9,8,"}
+{"id": 271, "prompt": "Q: Rotate the matrix [[-8, 7], [-7, -4]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[-8, 7], [-7, -4]] by 90° counterclockwise. Return only the matrix in"}
+{"id": 272, "prompt": "A:", "generation": "I think it's a good idea to have a little bit of a buffer between the two. I think it's important to have a little bit of a buffer"}
+{"id": 273, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° clockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}
+{"id": 274, "prompt": "A: [[4,2],[5,3]]", "generation": "A: [[4,2],[5,3]]\n\nA: [[4,2],[5,3]]\n\nA: [[4"}
+{"id": 275, "prompt": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form.", "generation": "Q: Rotate the matrix [[2,3],[4,5]] by 90° counterclockwise. Return only the matrix in bracketed form"}

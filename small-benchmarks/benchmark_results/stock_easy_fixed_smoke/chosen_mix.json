@@ -1,0 +1,11 @@
+{
+  "chosen_mix": {
+    "echo_integer": 0.6,
+    "extract_last": 0.2,
+    "pick_larger": 0.2
+  },
+  "calib_metrics": {
+    "note": "fixed_mix used; no calibration"
+  },
+  "k_shot": 5
+}

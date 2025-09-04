@@ -1,0 +1,11 @@
+id,family,A,B,C,D,truth_letter
+1,add_single_digit,6,4,7,5,D
+2,min_of_three,96,100,34,33,D
+3,parity,Odd,Even,Prime,Composite,B
+4,add_single_digit,8,7,5,6,B
+5,pick_larger,97,96,8,98,B
+6,add_single_digit,9,11,5,13,B
+7,min_of_three,5,6,13,4,A
+8,min_of_three,29,30,28,31,A
+9,min_of_three,11,79,73,5,D
+10,parity,Even,Prime,Composite,Odd,D

@@ -1,0 +1,408 @@
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 68.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: In 'IDs: 33, 30, 10', return the last integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 77.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: In 'IDs: 77, 30, 2', return the last integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 82.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 10.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Which is larger, 44 or 11? Return only the integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: In 'IDs: 37, 87, 64', return the last integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 18.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Which is larger, 75 or 62? Return only the integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 62.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Which is larger, 26 or 14? Return only the integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 57.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 54.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: In 'IDs: 95, 8, 88', return the last integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: In 'IDs: 84, 14, 9', return the last integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 45.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Which is larger, 15 or 33? Return only the integer.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 70.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 56.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 61.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 11.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 72.
+A:
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+Q: Return the smallest integer: 5, 2, 8.
+A: 2
+Q: In 'IDs: 19, 7, 42', return the last integer.
+A: 42
+Q: Compute 4+7. Return only the integer.
+A: 11
+Q: Return only the integer 7.
+A: 7
+Q: Which is larger, 4 or 9? Return only the integer.
+A: 9
+
+Q: Return only the integer 85.
+A:

@@ -1,0 +1,296 @@
+#!/usr/bin/env python3
+"""
+arc_task_benchmark_v3.py  — STOCK-only (incremental step 1)
+----------------------------------------------------------------
+- Generates ARC-style math prompts + truths *inside* the script
+- Runs a STOCK model pass at tap -9 via your unified runner
+- Computes end-to-end metrics: accuracy, precision, recall, F1,
+  hallucination_rate, omission_rate (with configurable match mode)
+- Writes per-item CSV and a metrics JSON/CSV (stage11 style)
+
+You can layer in geo / geo+detect / geo+detect+denoise later.
+
+python3 arc_task_benchmark_v3.py \
+  --n 60 --tap -9 --device cuda \
+  --runner text_arc_unified_base.py \
+  --match_mode numbers_only \
+  --outdir benchmark_results/llm_benchmark_stock
+
+"""
+
+import os, re, csv, json, time, argparse, random, subprocess, sys
+from pathlib import Path
+from collections import Counter
+
+# Default to the uploaded unified runner base (override with --runner if needed)
+DEFAULT_RUNNER = "/mnt/data/text_arc_unified_base.py"
+
+def ensure_dir(p):
+    d = os.path.dirname(p) or "."
+    os.makedirs(d, exist_ok=True)
+
+# ---------- Prompt generation ----------
+
+def generate_arc_tasks(n: int, seed: int = 42):
+    """
+    Deterministic pool of math tasks (add / sub / mul) with integer answers.
+    Each prompt ends with: 'Return only the integer.'
+    IDs are 1..n.
+    """
+    rng = random.Random(seed)
+    tasks = []
+    for i in range(1, n+1):
+        kind = rng.choice(["add","sub","mul"])
+        if kind == "add":
+            a, b = rng.randint(2, 99), rng.randint(2, 99)
+            prompt = f"Compute {a}+{b}. Return only the integer."
+            truth = a + b
+        elif kind == "sub":
+            a, b = rng.randint(2, 99), rng.randint(2, 99)
+            prompt = f"Compute {a}-{b}. Return only the integer."
+            truth = a - b
+        else:
+            a, b = rng.randint(2, 20), rng.randint(2, 20)
+            prompt = f"Compute {a}*{b}. Return only the integer."
+            truth = a * b
+        tasks.append((i, prompt, truth))
+    return tasks
+
+def write_prompts_and_truths(outdir: Path, tasks):
+    prompts_path = str(outdir / "arc_prompts.txt")
+    truths_csv   = str(outdir / "arc_truths.csv")
+    ensure_dir(prompts_path)
+    with open(prompts_path, "w", encoding="utf-8") as f:
+        for _, p, _ in tasks:
+            f.write(p.strip()+"\n")
+    with open(truths_csv, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["id","truth"])
+        for i, _, t in tasks:
+            w.writerow([i, str(t)])
+    return prompts_path, truths_csv
+
+# ---------- Normalization / matching ----------
+
+def alnum_lower(s: str) -> str:
+    s = re.sub(r"[^0-9A-Za-z]+", " ", s or "")
+    return " ".join(s.lower().strip().split())
+
+_int_pat = re.compile(r"[+-]?\d+")
+def numbers_only(s: str) -> str:
+    if not s:
+        return ""
+    m = _int_pat.search(s)
+    return m.group(0) if m else ""
+
+def exact_strip(s: str) -> str:
+    return (s or "").strip()
+
+def normalize(s: str, mode: str) -> str:
+    if mode == "numbers_only":
+        return numbers_only(s)
+    if mode == "alnum_lower":
+        return alnum_lower(s)
+    return exact_strip(s)  # "exact"
+
+# ---------- I/O helpers ----------
+
+def read_generations_jsonl(path: str):
+    items = []
+    with open(path, "r", encoding="utf-8") as f:
+        for ln in f:
+            ln = ln.strip()
+            if not ln:
+                continue
+            try:
+                items.append(json.loads(ln))
+            except Exception:
+                pass
+    return items
+
+# ---------- Scoring ----------
+
+def score(items, truths_csv, match_mode="numbers_only"):
+    """
+    Per-item decision:
+      - Empty/whitespace prediction -> omission (FN)
+      - Normalized prediction == normalized truth -> TP
+      - Otherwise -> FP
+    Metrics:
+      accuracy = TP / N
+      precision = TP / (TP + FP)
+      recall = TP / (TP + FN)
+      f1 = 2PR/(P+R) if PR>0 else 0
+      hallucination_rate = FP / N
+      omission_rate = FN / N
+    """
+    # read truths
+    truths = {}
+    with open(truths_csv, "r", encoding="utf-8") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            try:
+                i = int(row["id"])
+            except Exception:
+                continue
+            truths[i] = str(row["truth"])
+
+    # iterate items
+    per_item = []
+    tp = fp = fn = 0
+    for obj in items:
+        pid = int(obj.get("id", 0) or 0)
+        prompt = str(obj.get("prompt",""))
+        pred   = str(obj.get("generation",""))
+        truth  = truths.get(pid, None)
+
+        pred_is_empty = (pred.strip() == "")
+
+        # compute normalized forms
+        pred_n  = normalize(pred, match_mode)
+        truth_n = normalize(truth, match_mode) if (truth is not None) else None
+
+        correct = None
+        if truth is not None:
+            if pred_is_empty:
+                fn += 1
+                correct = 0
+            else:
+                if pred_n == truth_n and truth_n != "":
+                    tp += 1
+                    correct = 1
+                else:
+                    fp += 1
+                    correct = 0
+
+        # simple quality proxies
+        toks = pred.strip().split()
+        n_words = len(toks)
+        adj_dup = 0.0
+        tri_rep = 0.0
+        uniq_ratio = 1.0
+        loopish = 0
+        if n_words > 1:
+            adj_dup = sum(1 for i in range(1, n_words) if toks[i]==toks[i-1]) / (n_words-1)
+            tri = [" ".join(toks[i:i+3]) for i in range(n_words-2)]
+            if tri:
+                counts = Counter(tri)
+                tri_rep = sum(max(0,c-1) for c in counts.values()) / max(1,len(tri))
+            uniq_ratio = len(set(toks)) / n_words
+            loopish = int(any(c>=6 for c in Counter(toks).values()))
+
+        per_item.append({
+            "id": pid,
+            "prompt": prompt,
+            "prediction": pred,
+            "truth": truth,
+            "correct": correct,
+            "len_words": n_words,
+            "adj_dup": round(adj_dup,4),
+            "tri_rep": round(tri_rep,4),
+            "uniq_ratio": round(uniq_ratio,4),
+            "loopish": loopish,
+        })
+
+    n = len(per_item)
+    accuracy = (tp / n) if n else 0.0
+    precision = (tp / (tp + fp)) if (tp + fp) else 0.0
+    recall = (tp / (tp + fn)) if (tp + fn) else 0.0
+    f1 = (2*precision*recall/(precision+recall)) if (precision>0 and recall>0) else 0.0
+    halluc_rate = (fp / n) if n else 0.0
+    omission_rate = (fn / n) if n else 0.0
+
+    metrics = {
+        "n": n, "tp": tp, "fp": fp, "fn": fn,
+        "accuracy": round(accuracy,6),
+        "precision": round(precision,6),
+        "recall": round(recall,6),
+        "f1": round(f1,6),
+        "hallucination_rate": round(halluc_rate,6),
+        "omission_rate": round(omission_rate,6),
+        "match_mode": match_mode,
+    }
+    return per_item, metrics
+
+# ---------- Runner ----------
+
+def run_stock(runner, prompts_path, out_jsonl, tap, device=None, extra_args=None):
+    cmd = [sys.executable, runner,
+           "--gen_mode", "stock",
+           "--prompts", prompts_path,
+           "--out", out_jsonl,
+           "--tap", str(tap)]
+    if device:
+        cmd += ["--device", device]
+    if extra_args:
+        cmd += extra_args
+    print("[RUN]", " ".join(cmd))
+    p = subprocess.run(cmd, capture_output=True, text=True)
+    if p.returncode != 0:
+        print(p.stdout)
+        print(p.stderr, file=sys.stderr)
+        raise RuntimeError(f"Runner failed (rc={p.returncode})")
+    return True
+
+# ---------- Main ----------
+
+def main():
+    ap = argparse.ArgumentParser(description="Stage‑11 Text ARC: STOCK-only benchmark with embedded scoring")
+    ap.add_argument("--runner", type=str, default=DEFAULT_RUNNER, help="Path to text_arc_unified_base.py (or similar)")
+    ap.add_argument("--n", type=int, default=60, help="How many ARC prompts to generate")
+    ap.add_argument("--seed", type=int, default=42, help="Random seed for prompt generation")
+    ap.add_argument("--tap", type=int, default=-9, help="Tap (layer index)")
+    ap.add_argument("--device", type=str, default=None, help="Device to pass to runner (e.g., cuda or cpu)")
+    ap.add_argument("--match_mode", type=str, default="numbers_only", choices=["numbers_only","alnum_lower","exact"], help="Scoring normalization mode")
+    ap.add_argument("--outdir", type=str, default="/mnt/data/arc_bench_stock", help="Output directory")
+
+    args, extra = ap.parse_known_args()
+
+    t0 = time.time()
+    outdir = Path(args.outdir)
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    # 1) Generate prompts + truths (in-script, deterministic)
+    tasks = generate_arc_tasks(args.n, args.seed)
+    prompts_path, truths_csv = write_prompts_and_truths(outdir, tasks)
+    print(f"[WRITE] Prompts → {prompts_path}")
+    print(f"[WRITE] Truths  → {truths_csv}")
+
+    # 2) Run STOCK model via the unified runner
+    generations_jsonl = str(outdir / "generations_stock.jsonl")
+    run_stock(args.runner, prompts_path, generations_jsonl, args.tap, device=args.device, extra_args=extra)
+
+    # 3) Load generations
+    items = read_generations_jsonl(generations_jsonl)
+
+    # 4) Score
+    per_item, metrics = score(items, truths_csv, match_mode=args.match_mode)
+
+    # 5) Save per-item CSV + metrics JSON/CSV
+    items_csv = str(outdir / "items_stock.csv")
+    ensure_dir(items_csv)
+    with open(items_csv, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["id","prompt","prediction","truth","correct","len_words","adj_dup","tri_rep","uniq_ratio","loopish"])
+        w.writeheader()
+        for r in per_item:
+            w.writerow(r)
+    print(f"[CSV]  {items_csv}")
+
+    metrics_json = str(outdir / "metrics_stock.json")
+    with open(metrics_json, "w", encoding="utf-8") as f:
+        json.dump(metrics, f, indent=2)
+    print(f"[JSON] {metrics_json}")
+
+    metrics_csv = str(outdir / "metrics_stock.csv")
+    with open(metrics_csv, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["n","tp","fp","fn","accuracy","precision","recall","f1","hallucination_rate","omission_rate","match_mode"])
+        w.writeheader()
+        w.writerow(metrics)
+    print(f"[CSV]  {metrics_csv}")
+
+    # 6) Console summary (stage11 style)
+    print(json.dumps({"SUMMARY": {"Stock": metrics}}, indent=2))
+    print(f"[DONE] elapsed_sec={time.time()-t0:.3f}")
+
+if __name__ == "__main__":
+    main()
