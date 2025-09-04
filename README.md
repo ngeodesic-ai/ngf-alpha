@@ -51,6 +51,12 @@ Install dependencies:
 !pip install transformers==4.55.2 torch==2.8.0 numpy==2.0.2 scikit-learn==1.6.1
 ```
 
+Alternative (reproducible env via uv + Makefile):
+```bash
+make init   # creates .venv with uv and syncs deps
+make nb     # launches Jupyter from the venv
+```
+
 ## Stage-11 (Current): Warp → Detect → Denoise
 Stage-11 introduced the breakthrough:
 * **Warp:** Embed latents into PCA(3) space, warp into a single dominant well.
