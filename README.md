@@ -118,8 +118,8 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 * Tests on simulated latent environment provided a perfect F1 score for latent-ARC tests on GPT2
 * Saw +3 incremental boost on F1 Score on HellaSwag for real LLM tests on GPT2
 * For real LLM we can see noticable difference in semantic well PCA plots post warp when comparing before vs after (see Fig below)
-* Warp-Detect-Denoise doctrine is holding; indicating a new lightweight way of upgrading LLMs by treating the underpinning geometry
-* **Nearly complete:** need to perform robustness checks on testing
+* **Warp → Detect → Denoise doctrine is holding**, establishing a lightweight, geometry-first upgrade path for LLMs
+* **Stage 11 nearly complete:** need to perform robustness checks on testing
 
 ![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
 
