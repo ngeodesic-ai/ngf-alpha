@@ -1,0 +1,4 @@
+entropy_pre:  7.780152
+entropy_post: 7.787674
+delta_sum:    0.000000
+delta_abs:    0.785709

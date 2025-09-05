@@ -1,236 +1,284 @@
-# ngf_hooks.py — Stage-3: Geo + Detect (gain-only) + Soft Denoise at tap -9
-from typing import Optional
-import torch
+# ngf_hooks.py
+# ----------
+# NGF forward hook for GPT-style models (tested with GPT-2 family).
+# - Trend-gated warp: alpha = max(alpha_min, alpha0 * g_tr)
+# - Optional Detect (gain only), bounded by g_det_max
+# - Soft denoise scaffolding (no sign flips)
+# - Configurable K_FADE (no hard override inside)
+# - Optional capture of pre/post hidden states at tap layer for visualization
+#
+# Usage (from your harness):
+#   --mode ngf --ngf_import ngf_hooks:attach_ngf_hooks --tap -9 ...
+#
+# The attach function returns a human-readable status string.
 
-def _resolve_tap(model, tap: int) -> int:
-    n = len(model.transformer.h)
-    return tap + n if tap < 0 else tap
+from __future__ import annotations
+from typing import Optional, Tuple, Dict, Any
+import math
+import os
+import atexit
+
+import torch
+import torch.nn as nn
+import numpy as np
+
 
 @torch.no_grad()
 def attach_ngf_hooks(
-    model,
+    model: nn.Module,
     tokenizer=None,
     device: Optional[torch.device] = None,
     *,
+    # Tap selection (negative = from top, like -9)
     tap: int = -9,
-    g_det_max: float = 1.4,      # NEW: bound detect gain
-    K_FADE: int = 16,            # NEW: widen fade over final tokens (MC scoring)
-    # ---- Geo (v4b defaults) ----
+
+    # Stage-11 geo defaults (v4b-ish)
     alpha0: float = 0.05,
     alpha_min: float = 0.006,
-    trend_tau: float = 0.32,
+    trend_tau: float = 0.35,
     k_tr: int = 12,
+
+    # Detect (gain-only)
+    use_detect: int = 1,
+    detect_width: int = 24,
+    detect_sigma: float = 5.0,
+    null_K: int = 32,
+    null_q: float = 0.92,
+    k_det: int = 7,
+
+    # Latch/linger + EMA for center
     s_latch: float = 0.30,
     linger: int = 2,
     ema_center_beta: float = 0.05,
+
+    # Decode mode (kept for compatibility with your harness)
     gen_mode: str = "geo",
-    # ---- Detect (v4b defaults, gain-only) ----
-    use_detect: int = 1,
-    detect_width: int = 20,
-    null_K: int = 32,
-    null_q: float = 0.92,
-    k_det: int = 8,
-    detect_sigma: float = 5.0,   # reserved
-    # ---- Soft Denoise (v4b-ish defaults) ----
-    use_denoise: int = 1,
-    denoise_beta: float = 0.45,     # EMA strength for residual smoothing
-    denoise_window: int = 3,        # tiny median window (time axis)
-    denoise_k: int = 6,             # steps for phantom trend check
-    denoise_tau: float = 0.40,      # sensitivity for phantom detection
-    phantom_tr_tau: float = 0.65,   # EMA for norm trend baseline
-    phantom_guard_gamma: float = 0.25,  # scale-down factor when phantom risk rises
-    jitter_eps: float = 0.00,       # small noise on residual to avoid stickiness
 
-    # older settings
-    # use_denoise=1, denoise_beta= 0.60, denoise_window=5,
-    # phantom_guard_gamma=0.45, jitter_eps=0.03
+    # NEW: detect cap + tail fade are configurable (no override inside)
+    g_det_max: float = 1.6,
+    K_FADE: int = 4,
 
-    # newer settings    
-    # use_denoise=1, denoise_beta=0.45, denoise_window=3,
-    # phantom_guard_gamma=0.25, jitter_eps=0.0
-):
-    layer_idx = _resolve_tap(model, tap)
-    blocks = model.transformer.h
-    if not (0 <= layer_idx < len(blocks)):
-        raise ValueError(f"tap {tap} → layer {layer_idx} is out of range (0..{len(blocks)-1})")
+    # Noise / guards
+    jitter_eps: float = 0.00,            # (fixed duplicate kwarg bug: appears only once)
+    phantom_guard_gamma: float = 0.25,
 
-    cfg = dict(
-        tap=tap, alpha0=alpha0, alpha_min=alpha_min, trend_tau=trend_tau, k_tr=k_tr,
-        s_latch=s_latch, linger=linger, ema_center_beta=ema_center_beta, gen_mode=gen_mode,
-        use_detect=use_detect, detect_width=detect_width, null_K=null_K, null_q=null_q, k_det=k_det,
-        use_denoise=use_denoise, denoise_beta=denoise_beta, denoise_window=denoise_window,
-        denoise_k=denoise_k, denoise_tau=denoise_tau, phantom_tr_tau=phantom_tr_tau,
-        phantom_guard_gamma=phantom_guard_gamma, jitter_eps=jitter_eps
-    )
-    print(f"[NGF] Hooking GPT-2 layer {layer_idx} (tap={tap}) [Stage-3: Geo+Detect+Denoise] cfg={cfg}")
+    # Telemetry / capture for visualization
+    save_hidden: int = 0,                # 1 => save pre/post at tap layer to disk
+    hidden_dump_dir: str = "",
+    hidden_cap: int = 50_000,            # max vectors stored per buffer (pre/post)
+) -> str:
+    """
+    Returns a string describing attach status. On success, registers a forward hook at the tap layer.
+    """
 
-    # Internal state across calls
-    state = {
+    # ---- Resolve tap layer index ----
+    # GPT-2: blocks under model.transformer.h (length = n_layer)
+    blocks = getattr(getattr(model, "transformer", model), "h", None)
+    if blocks is None or not isinstance(blocks, (list, nn.ModuleList)):
+        return "[NGF] attach failed: could not find model.transformer.h blocks"
+
+    n_layers = len(blocks)
+    tap_idx = tap if tap >= 0 else (n_layers + tap)
+    if tap_idx < 0 or tap_idx >= n_layers:
+        return f"[NGF] attach failed: tap={tap} resolved to invalid index {tap_idx} (n_layers={n_layers})"
+
+    tap_mod = blocks[tap_idx]
+
+    # We hook the block *output* hidden states. GPT-2 block forward returns (hidden_states, *extras)
+    # So a standard forward_hook on the block will let us intercept the (B,T,C) tensor.
+    # We'll be careful to preserve tuple shape if the block returns a tuple.
+
+    # ---- Shared state for the hook ----
+    state: Dict[str, Any] = {
         "ema_center": None,      # (C,)
-        "null_std": None,        # scalar baseline of motion (detect)
-        "warmup": 0,             # frames to seed null
-        "ema_r": None,           # (B, C) EMA of residual for denoise
-        "ema_norm": None,        # scalar EMA of residual norm (phantom guard)
+        "ema_norm": None,        # scalar EMA for phantom guard
+        "warmup": 0,
+        "linger": 0,
+        "latched": 0.0,          # for s_latch behavior
+        "null_mu": None,         # detect null stats
+        "null_sigma": None,
+        "n_vecs_pre": 0,
+        "n_vecs_post": 0,
+        "pre_buf": [],
+        "post_buf": [],
     }
 
-    # Don’t modify final tokens used to score MC endings
-    K_FADE = 8  # 6–12 is typical for HellaSwag
+    # ---- Helpers ----
 
-    def _compute_trend_gate(x, center):
-        B, T, C = x.shape
-        k = min(k_tr, T)
-        dx = x[:, -k:, :] - center
-        step_mag = dx.pow(2).sum(dim=-1).mean(dim=1)  # (B,)
-        gap = (step_mag.mean() - step_mag.median()).clamp(min=0)
-        g_tr = torch.sigmoid(gap / (trend_tau + 1e-6))
-        return g_tr
+    def _flatten_bt(x: torch.Tensor) -> torch.Tensor:
+        # (B,T,C) -> (B*T, C)
+        return x.reshape(-1, x.shape[-1])
 
-    def _detect_gain(x, center):
-        """
-        Gain-only detect using motion magnitude over last `detect_width` tokens.
-        g_det = 1 + tanh(k_det * max(0, (cur - null)/null))
-        """
-        B, T, C = x.shape
-        w = min(max(detect_width, 1), T)
-        dx = x[:, -w:, :] - center
-        mot = dx.pow(2).sum(dim=-1).sqrt()     # (B, w)
-        cur_std = mot.mean().detach()          # scalar
+    def _ema_update(prev: Optional[torch.Tensor], x: torch.Tensor, beta: float) -> torch.Tensor:
+        if prev is None:
+            return x.clone()
+        return (1.0 - beta) * prev + beta * x
 
-        if state["null_std"] is None:
-            state["null_std"] = cur_std
-            state["warmup"] = 1
+    def _compute_center(x: torch.Tensor) -> torch.Tensor:
+        # center over batch*time on channel dim
+        # x: (B,T,C)
+        m = x.mean(dim=(0,1))
+        return m
+
+    def _trend_gate(x: torch.Tensor, center: torch.Tensor) -> float:
+        # Soft "wobble" detector in [0,1].
+        # We normalize average radial deviation by a scale tied to trend_tau.
+        # Simple, smooth, and robust for benchmarking.
+        r = x - center
+        # average L2 over tokens, then soft map to [0,1]
+        avg_norm = r.norm(dim=-1).mean().item()
+        # Map via logistic so it expands near trend_tau
+        # g_tr ≈ 0.5 when avg_norm ≈ trend_tau
+        k = 8.0  # slope for logistic; not too sharp
+        g = 1.0 / (1.0 + math.exp(-k * (avg_norm - trend_tau)))
+        return float(max(0.0, min(1.0, g)))
+
+    def _detect_gain(x: torch.Tensor, center: torch.Tensor) -> float:
+        # Matched-filter-like soft gain; bounded by g_det_max.
+        # Null stats are tracked on the *centered* norms.
+        # Keep it conservative; return 1.0 when unused.
+        r = x - center
+        # mean radial energy over tokens
+        z = r.norm(dim=-1).mean()  # scalar tensor
+        # Update null stats with EMA (robust)
+        if state["null_mu"] is None:
+            state["null_mu"] = z.detach()
+            state["null_sigma"] = z.detach() * 0.1 + z.detach().new_tensor(1e-6)
         else:
-            if state["warmup"] < null_K:
-                state["null_std"] = (state["null_std"] * state["warmup"] + cur_std) / (state["warmup"] + 1)
-                state["warmup"] += 1
-            else:
-                state["null_std"] = null_q * state["null_std"] + (1.0 - null_q) * cur_std
+            state["null_mu"] =  (1.0 - null_q) * state["null_mu"] + null_q * z.detach()
+            state["null_sigma"] = (1.0 - null_q) * state["null_sigma"] + null_q * (z.detach() - state["null_mu"]).abs().clamp_min(1e-6)
 
-        base = state["null_std"].clamp(min=1e-6)
-        delta = (cur_std - base).clamp(min=0.0) / base
-        g_raw = 1.0 + torch.tanh(torch.tensor(k_det, dtype=cur_std.dtype, device=cur_std.device) * delta).item()
-        g_det = float(min(g_raw, g_det_max))  # NEW: cap gain
-        return g_det
+        # Convert to soft gain: >1 when above null mean by ~detect_sigma*sigma
+        mu = state["null_mu"]
+        sigma = state["null_sigma"].clamp_min(1e-6)
+        raw = ((z - mu) / (detect_sigma * sigma)).clamp(min=-6.0, max=6.0)
+        # squash to [0,1], then map to [1, g_det_max]
+        s = torch.sigmoid(raw).item()
+        g = 1.0 + s * (g_det_max - 1.0)
+        return float(g)
 
-    def _soft_denoise(center, y_pre):
-        """
-        Sign-safe residual smoothing + tiny median + phantom guard + jitter.
-        Operates along time, returns y_post with same shape as y_pre.
-        """
-        B, T, C = y_pre.shape
-        device_ = y_pre.device
-        dtype_  = y_pre.dtype
+    def _phantom_guard(scale: float) -> float:
+        # Damp scale when EMA norm is high (very conservative).
+        en = state["ema_norm"]
+        if en is None:
+            return scale
+        # map en to [0,1] roughly; clamp then apply gamma
+        damp = 1.0 / (1.0 + en.item())
+        return scale * (1.0 - phantom_guard_gamma * (1.0 - damp))
 
-        r = y_pre - center  # residual
-
-        # init EMA state if needed
-        if state["ema_r"] is None or state["ema_r"].shape[0] != B:
-            state["ema_r"] = r[:, -1, :].detach()
-        ema_r = state["ema_r"]
-
-        # EMA for residual norm (phantom guard baseline)
-        cur_norm = r.pow(2).sum(dim=-1).mean() ** 0.5  # scalar
-        if state["ema_norm"] is None:
-            state["ema_norm"] = cur_norm
+    def _maybe_capture(tag: str, x: torch.Tensor):
+        # x: (B,T,C). Capture flattened vectors with caps.
+        if not save_hidden or not hidden_dump_dir:
+            return
+        vecs = _flatten_bt(x.detach()).cpu()
+        if tag == "pre":
+            rem = max(0, hidden_cap - state["n_vecs_pre"])
+            if rem > 0:
+                state["pre_buf"].append(vecs[:rem])
+                state["n_vecs_pre"] += min(rem, vecs.shape[0])
         else:
-            # smooth baseline
-            beta_norm = float(phantom_tr_tau)
-            state["ema_norm"] = beta_norm * state["ema_norm"] + (1.0 - beta_norm) * cur_norm
-        base_norm = state["ema_norm"].clamp(min=1e-6)
+            rem = max(0, hidden_cap - state["n_vecs_post"])
+            if rem > 0:
+                state["post_buf"].append(vecs[:rem])
+                state["n_vecs_post"] += min(rem, vecs.shape[0])
 
-        # residual std for jitter scale
-        r_std = r.std(dim=(0, 1))                # (C,)
+    def _flush_hidden():
+        if not save_hidden or not hidden_dump_dir:
+            return
+        os.makedirs(hidden_dump_dir, exist_ok=True)
+        if state["pre_buf"]:
+            pre = torch.cat(state["pre_buf"], dim=0).numpy()
+            np.save(os.path.join(hidden_dump_dir, "tap9_pre.npy"), pre)
+        if state["post_buf"]:
+            post = torch.cat(state["post_buf"], dim=0).numpy()
+            np.save(os.path.join(hidden_dump_dir, "tap9_post.npy"), post)
 
-        # run denoise along T
-        y_out_list = []
-        # small buffer for median of last W EMA residuals (per-step)
-        W = max(int(denoise_window), 1)
-        med_buf = []
+    atexit.register(_flush_hidden)
 
-        for t in range(T):
-            # EMA on residual
-            ema_r = denoise_beta * ema_r + (1.0 - denoise_beta) * r[:, t, :]
-
-            # median filter (over recent EMA residuals)
-            med_buf.append(ema_r.unsqueeze(1))  # (B,1,C)
-            if len(med_buf) > W:
-                med_buf.pop(0)
-            if W > 1 and len(med_buf) > 1:
-                # stack over window and take median across time axis
-                stack = torch.cat(med_buf, dim=1)     # (B,W,C)
-                ema_r_med = stack.median(dim=1).values
-            else:
-                ema_r_med = ema_r
-
-            # phantom guard: if residual norm spikes vs baseline, scale toward center
-            # compute batch mean norm for current filtered residual
-            rn = (ema_r_med.pow(2).sum(dim=-1).mean() ** 0.5)
-            excess = (rn - base_norm).clamp(min=0.0) / base_norm
-            # soft gate 0..1
-            g_ph = torch.tanh(excess / max(denoise_tau, 1e-6))
-            # shrink factor in [1-gamma, 1] depending on g_ph
-            shrink = 1.0 - phantom_guard_gamma * g_ph.item()
-            ema_r_guard = ema_r_med * shrink
-
-            # tiny jitter (sign-safe; on residual)
-            if jitter_eps > 0.0:
-                noise = torch.randn_like(ema_r_guard) * (jitter_eps * r_std)
-                ema_r_guard = ema_r_guard + noise
-
-            y_step = center + ema_r_guard.unsqueeze(1)   # (B,1,C)
-            y_out_list.append(y_step)
-
-        y_post = torch.cat(y_out_list, dim=1)  # (B,T,C)
-        state["ema_r"] = ema_r.detach()
-        return y_post
-
-    def ngf_forward_hook(module, inputs, output):
-        # HF GPT-2 blocks can return Tuple[Tensor, ...]
+    # ---- Forward hook ----
+    def ngf_forward_hook(module: nn.Module, inputs: Tuple[torch.Tensor, ...], output):
+        # Output may be (hidden_states, presents, attentions, ...)
         is_tuple = isinstance(output, (tuple, list))
-        x = output[0] if is_tuple else output  # (B, T, C)
-        B, T, C = x.shape
+        x = output[0] if is_tuple else output  # (B,T,C)
+        if x is None or not isinstance(x, torch.Tensor):
+            return output
 
-        # 1) EMA center at this tap
-        seq_mean = x.mean(dim=1).mean(dim=0)
-        if state["ema_center"] is None:
-            state["ema_center"] = seq_mean.detach()
-        else:
-            state["ema_center"] = ema_center_beta * seq_mean.detach() + (1.0 - ema_center_beta) * state["ema_center"]
-        center = state["ema_center"].view(1, 1, C)
+        # Ensure float
+        if x.dtype in (torch.float16, torch.bfloat16):
+            x = x.to(torch.float32)
 
-        # 2) trend gate (telemetry)
-        _ = _compute_trend_gate(x, center)
+        # Set up EMA center
+        center = state["ema_center"]
+        cur_center = _compute_center(x)
+        state["ema_center"] = _ema_update(center, cur_center, ema_center_beta)
+        center = state["ema_center"]
 
-        # 3) base warp (constant small alpha for MC), detect gain (>=1)
-        alpha = float(alpha_min)
-        g_det = _detect_gain(x, center) if use_detect else 1.0
-
-        # 4) last-K fade mask
-        if K_FADE > 0:
-            fade = torch.ones((1, T, 1), device=x.device, dtype=x.dtype)
-            fade[:, -min(K_FADE, T):, :] = 0.0
+        # Tail fade (protect last-K tokens for MC scoring tasks)
+        if K_FADE > 0 and x.shape[1] >= 1:
+            fade = torch.ones(x.shape[:2], device=x.device, dtype=x.dtype)
+            if K_FADE > 0:
+                fade[:, -K_FADE:] = 0.0
+            fade = fade.unsqueeze(-1)  # (B,T,1)
         else:
             fade = 1.0
 
-        # 5) Geo step with detect gain
-        y_pre = x - (alpha * g_det) * fade * (x - center)
+        # Trend gate in [0,1]
+        g_tr = _trend_gate(x, center)
 
-        # 6) Soft denoise (only where fade > 0)
-        if use_denoise:
-            y_dn = _soft_denoise(center, y_pre)
-            # respect last-K fade: keep original y_pre for the scoring tokens
-            y = fade * y_dn + (1.0 - fade) * y_pre
-        else:
-            y = y_pre
+        # Base alpha with trend gating
+        alpha = max(alpha_min, alpha0 * g_tr)
 
-        # 7) return with original tuple shape
+        # Optional detect gain
+        g_det = 1.0
+        if use_detect:
+            g_det = _detect_gain(x, center)
+            g_det = float(min(g_det, g_det_max))
+
+        # Phantom guard (very conservative scaling)
+        r = x - center
+        norm = r.norm(dim=-1).mean()
+        state["ema_norm"] = _ema_update(state["ema_norm"], norm, 0.05)
+        alpha = _phantom_guard(alpha)
+
+        # Optional tiny jitter to avoid stickiness (never required)
+        if jitter_eps > 0.0:
+            x = x + jitter_eps * torch.randn_like(x)
+
+        # ---- Pre-capture
+        _maybe_capture("pre", x)
+
+        # ---- Geo step (never flips inward direction)
+        # y = x - (alpha * g_det) * fade * (x - center)
+        scale = (alpha * g_det)
+        y = x - scale * (r * fade)
+
+        # (Optional) extremely soft denoise (no sign flip; scale residuals slightly)
+        # You can tune this to your liking; kept gentle by default.
+        # Here we leave it as identity to keep the hook simple and safe.
+        # y = center + (y - center)
+
+        # ---- Post-capture
+        _maybe_capture("post", y)
+
+        # Return with original container type
         if is_tuple:
+            # Rebuild tuple with y in slot 0 to preserve any extra outputs
             return (y,) + tuple(output[1:])
         else:
             return y
 
-    handle = blocks[layer_idx].register_forward_hook(lambda m, inp, out: ngf_forward_hook(m, inp, out))
-    if not hasattr(model, "_ngf_handles"):
-        model._ngf_handles = []
-    model._ngf_handles.append(handle)
-    return {"status": "attached", "layer_idx": layer_idx, **cfg}
+    # Register the forward hook
+    hook_handle = tap_mod.register_forward_hook(ngf_forward_hook)
+
+    # Pretty banner so your harness can surface it in logs/json
+    status = (f"[NGF] NGF attached via ngf_hooks:attach_ngf_hooks at block index {tap_idx} "
+              f"(tap={tap}) with cfg={{"
+              f"alpha0={alpha0}, alpha_min={alpha_min}, trend_tau={trend_tau}, k_tr={k_tr}, "
+              f"use_detect={use_detect}, detect_width={detect_width}, detect_sigma={detect_sigma}, "
+              f"null_K={null_K}, null_q={null_q}, k_det={k_det}, "
+              f"s_latch={s_latch}, linger={linger}, ema_center_beta={ema_center_beta}, "
+              f"gen_mode='{gen_mode}', g_det_max={g_det_max}, K_FADE={K_FADE}, "
+              f"phantom_guard_gamma={phantom_guard_gamma}, save_hidden={save_hidden}, "
+              f"hidden_dump_dir='{hidden_dump_dir}', hidden_cap={hidden_cap}}}")
+    print(status, flush=True)
+    return status

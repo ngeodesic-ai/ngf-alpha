@@ -1,0 +1,157 @@
+# Create a 2D contour visualizer for tap −9 pre/post manifolds.
+# - PCA→2D (fit on pre by default, or combined/post)
+# - Side-by-side filled contours (pre, post) and a delta heatmap (post - pre)
+# - Common axis limits & color scales for fair comparison
+# - Saves PNG + PDF + a TXT sidecar with simple stats
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+from pathlib import Path
+
+import argparse, os, numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+
+def pca_fit_transform(X, k=2):
+    Xc = X - X.mean(axis=0, keepdims=True)
+    U, S, Vt = np.linalg.svd(Xc, full_matrices=False)
+    W = Vt[:k].T  # [C, k]
+    Z = Xc @ W
+    return Z, W
+
+def pca_transform(X, W):
+    Xc = X - X.mean(axis=0, keepdims=True)
+    return Xc @ W
+
+def subsample(X, n, seed=0):
+    if X is None: return None
+    if X.shape[0] <= n: return X
+    rng = np.random.default_rng(seed)
+    idx = rng.choice(X.shape[0], size=n, replace=False)
+    return X[idx]
+
+def common_limits(Z1, Z2, pad=0.05):
+    x_all = np.concatenate([Z1[:,0], Z2[:,0]])
+    y_all = np.concatenate([Z1[:,1], Z2[:,1]])
+    x_min, x_max = np.quantile(x_all, [0.01, 0.99])
+    y_min, y_max = np.quantile(y_all, [0.01, 0.99])
+    dx, dy = x_max - x_min, y_max - y_min
+    return (x_min - pad*dx, x_max + pad*dx, y_min - pad*dy, y_max + pad*dy)
+
+def hist2d(Z, bins=160, extent=None):
+    x = Z[:,0]; y = Z[:,1]
+    if extent is None:
+        x_min, x_max = np.min(x), np.max(x)
+        y_min, y_max = np.min(y), np.max(y)
+    else:
+        x_min, x_max, y_min, y_max = extent
+    H, xe, ye = np.histogram2d(x, y, bins=bins, range=[[x_min,x_max],[y_min,y_max]])
+    H = H.T  # for imshow orientation
+    return H, (x_min, x_max, y_min, y_max)
+
+def normalize(H):
+    s = H.sum()
+    return H / max(1e-12, s)
+
+def plot_contour(ax, H, extent, title, levels=12):
+    x_min, x_max, y_min, y_max = extent
+    im = ax.contourf(
+        np.linspace(x_min, x_max, H.shape[1]),
+        np.linspace(y_min, y_max, H.shape[0]),
+        H, levels=levels
+    )
+    ax.set_title(title)
+    ax.set_xlabel("PC1"); ax.set_ylabel("PC2")
+    return im
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pre", required=True, help="tap9_pre.npy (N,C)")
+    ap.add_argument("--post", required=True, help="tap9_post.npy (N,C)")
+    ap.add_argument("--out_png", default="tap9_contours2d.png")
+    ap.add_argument("--out_pdf", default="tap9_contours2d.pdf")
+    ap.add_argument("--sample", type=int, default=60000)
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--fit_on", choices=["pre","post","combined"], default="pre")
+    ap.add_argument("--bins", type=int, default=160)
+    ap.add_argument("--levels", type=int, default=12)
+    args = ap.parse_args()
+
+    pre = np.load(args.pre)
+    post = np.load(args.post)
+
+    pre_s  = subsample(pre, args.sample, args.seed)
+    post_s = subsample(post, args.sample, args.seed)
+
+    # PCA to 2D
+    if args.fit_on == "combined":
+        Zc, W = pca_fit_transform(np.vstack([pre_s, post_s]), k=2)
+        Z_pre  = Zc[:pre_s.shape[0]]
+        Z_post = Zc[pre_s.shape[0]:]
+    elif args.fit_on == "post":
+        Z_post, W = pca_fit_transform(post_s, k=2)
+        Z_pre = pca_transform(pre_s, W)
+    else:
+        Z_pre, W = pca_fit_transform(pre_s, k=2)
+        Z_post = pca_transform(post_s, W)
+
+    extent = common_limits(Z_pre, Z_post, pad=0.05)
+
+    H_pre, _  = hist2d(Z_pre,  bins=args.bins, extent=extent)
+    H_post, _ = hist2d(Z_post, bins=args.bins, extent=extent)
+
+    # normalize to probability densities
+    P_pre  = normalize(H_pre)
+    P_post = normalize(H_post)
+    D = P_post - P_pre  # signed change
+
+    # Render
+    fig = plt.figure(figsize=(15,4.8))
+    ax1 = fig.add_subplot(1,3,1)
+    ax2 = fig.add_subplot(1,3,2)
+    ax3 = fig.add_subplot(1,3,3)
+
+    im1 = plot_contour(ax1, P_pre,  extent, "Pre-warp density (PCA-2)", levels=args.levels)
+    im2 = plot_contour(ax2, P_post, extent, "Post-warp density (PCA-2)", levels=args.levels)
+
+    # Delta map: diverging colormap
+    x_min, x_max, y_min, y_max = extent
+    im3 = ax3.imshow(
+        D, origin="lower", extent=(x_min, x_max, y_min, y_max),
+        aspect="auto", cmap="coolwarm"
+    )
+    ax3.set_title("Delta (post - pre)")
+    ax3.set_xlabel("PC1"); ax3.set_ylabel("PC2")
+
+    # Colorbars
+    cbar1 = fig.colorbar(im1, ax=ax1, fraction=0.046, pad=0.04)
+    cbar1.set_label("density")
+    cbar2 = fig.colorbar(im2, ax=ax2, fraction=0.046, pad=0.04)
+    cbar2.set_label("density")
+    cbar3 = fig.colorbar(im3, ax=ax3, fraction=0.046, pad=0.04)
+    cbar3.set_label("Δ density")
+
+    fig.tight_layout()
+    fig.savefig(args.out_png, dpi=220)
+    pp = PdfPages(args.out_pdf); pp.savefig(fig, dpi=300); pp.close()
+
+    # Simple stats sidecar
+    meta_path = os.path.splitext(args.out_png)[0] + ".txt"
+    def entropy(p):
+        p = p.reshape(-1)
+        p = p[p>0]
+        return float(-(p*np.log(p)).sum())
+    with open(meta_path, "w") as f:
+        f.write(f"entropy_pre:  {entropy(P_pre):.6f}\n")
+        f.write(f"entropy_post: {entropy(P_post):.6f}\n")
+        f.write(f"delta_sum:    {D.sum():.6f}\n")
+        f.write(f"delta_abs:    {np.abs(D).sum():.6f}\n")
+
+    print(f"[WRITE] {args.out_png}")
+    print(f"[WRITE] {args.out_pdf}")
+    print(f"[WRITE] {meta_path}")
+
+if __name__ == "__main__":
+    main()
+

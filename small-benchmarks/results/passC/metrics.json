@@ -5,16 +5,16 @@
   "n": 1000,
   "accuracy": 0.32,
   "correct": 320,
-  "elapsed_sec": 277.26647996902466,
+  "elapsed_sec": 257.45338582992554,
   "device": "cpu",
-  "ngf_status": "NGF attached via ngf_hooks:attach_ngf_hooks with cfg={'tap': -9, 'alpha0': 0.05, 'alpha_min': 0.006, 'trend_tau': 0.32, 'k_tr': 12, 'use_detect': 1, 'detect_width': 20, 'detect_sigma': 5.0, 'null_K': 32, 'null_q': 0.92, 'k_det': 8, 's_latch': 0.3, 'linger': 2, 'ema_center_beta': 0.05, 'gen_mode': 'geo', 'save_hidden': 0, 'hidden_dump_dir': ''}",
+  "ngf_status": "NGF attached via ngf_hooks:attach_ngf_hooks with cfg={'tap': -9, 'alpha0': 0.06, 'alpha_min': 0.01, 'trend_tau': 0.3, 'k_tr': 12, 'use_detect': 1, 'detect_width': 20, 'detect_sigma': 4.0, 'null_K': 48, 'null_q': 0.94, 'k_det': 9, 's_latch': 0.35, 'linger': 3, 'ema_center_beta': 0.04, 'gen_mode': 'geo', 'save_hidden': 1, 'hidden_dump_dir': 'results/passC'}",
   "metrics": {
     "accuracy_top1": 0.32,
-    "accuracy_top2": 0.608,
+    "accuracy_top2": 0.607,
     "macro": {
-      "precision": 0.3193341508329738,
+      "precision": 0.31931497265018227,
       "recall": 0.3193342961130197,
-      "f1": 0.3192513598918285
+      "f1": 0.31925402637918
     },
     "micro": {
       "precision": 0.3199999999999997,
@@ -23,9 +23,9 @@
     },
     "per_class": [
       {
-        "precision": 0.32472324723247475,
+        "precision": 0.3259259259259284,
         "recall": 0.33460076045627624,
-        "f1": 0.329588014980776
+        "f1": 0.3302063789863694
       },
       {
         "precision": 0.2857142857142887,
@@ -38,9 +38,9 @@
         "f1": 0.35785288270328
       },
       {
-        "precision": 0.3083333333333362,
+        "precision": 0.30705394190871654,
         "recall": 0.2924901185770779,
-        "f1": 0.30020283975609546
+        "f1": 0.299595141699908
       }
     ],
     "confusion_matrix": [
@@ -53,8 +53,8 @@
       [
         60,
         68,
-        46,
-        58
+        45,
+        59
       ],
       [
         63,
@@ -63,17 +63,17 @@
         50
       ],
       [
-        60,
+        59,
         57,
-        62,
+        63,
         74
       ]
     ],
     "calibration": {
-      "ece_10": 0.11494704856941909,
-      "brier": 0.7492122724369326,
-      "mean_margin": 0.15954052727540335,
-      "entropy": 1.2293320887754975
+      "ece_10": 0.1148163855703889,
+      "brier": 0.7490991430011872,
+      "mean_margin": 0.15943642474419886,
+      "entropy": 1.229529919588136
     },
     "overconfidence_rate": {
       "wrong_p>=0.90": 0.0,

@@ -63,6 +63,34 @@ python3 ngf_benchmark.py \
   --save_jsonl $OUTDIR/geo_detect_denoise.jsonl
 
 
+OUT=results/gpt2_n1000
+mkdir -p "$OUT"
+
+python3 ngf_benchmark.py \
+  --mode ngf --ngf_import ngf_hooks:attach_ngf_hooks \
+  --model gpt2 --split validation --n 1000 --max_length 768 --device auto \
+  --tap -9 \
+  --alpha0 0.05 --alpha_min 0.006 --trend_tau 0.32 --k_tr 12 \
+  --use_detect 1 --detect_width 20 --null_K 32 --null_q 0.92 --k_det 8 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 --gen_mode geo \
+  --save_hidden 1 --hidden_dump_dir "$OUT" \
+  --out_json "$OUT/geo_detect_denoise.json"
+
+
+export NGF_RENO_CFG="alpha_r_gamma=0.25 alpha_r_p=1.3 squeeze_orth_lambda=0.12 \
+phantom_k=3 phantom_lambda=0.14 winsor_q=0.99 g_det_max=1.35 \
+anneal_tokens=12 anneal_scale=1.35"
+
+python3 ngf_benchmark.py \
+  --mode ngf --ngf_import ngf_hooks_v1:attach_ngf_hooks \
+  --model gpt2 --tap -9 --n 1000 \
+  --alpha0 0.06 --alpha_min 0.012 --trend_tau 0.30 --k_tr 12 \
+  --use_detect 1 --detect_width 22 --detect_sigma 4.5 --k_det 8 \
+  --s_latch 0.35 --linger 3 --ema_center_beta 0.04 \
+  --gen_mode geo --save_hidden 1 --hidden_dump_dir results/renoR1 \
+  --out_json results/renoR1/metrics.json
+  
+
 """
 
 
@@ -92,6 +120,8 @@ def parse_args():
     ap.add_argument("--linger", type=int, default=2)
     ap.add_argument("--ema_center_beta", type=float, default=0.05)
     ap.add_argument("--gen_mode", type=str, default="geo")
+    ap.add_argument("--save_hidden", type=int, default=0, help="1=save tap-9 pre/post states to disk")
+    ap.add_argument("--hidden_dump_dir", type=str, default="", help="dir for tap9_pre.npy / tap9_post.npy") 
     # Optional import hook path, e.g., text_arc_unified_base:attach_ngf_hooks
     ap.add_argument("--ngf_import", type=str, default="", help="MODULE:FUNC path to attach NGF hooks (overrides auto-detect)")
     ap.add_argument("--out_json", type=str, default="",
@@ -267,6 +297,8 @@ def try_attach_ngf(model, tokenizer, device, args) -> Optional[str]:
         "linger": args.linger,
         "ema_center_beta": args.ema_center_beta,
         "gen_mode": args.gen_mode,
+        "save_hidden": args.save_hidden,
+        "hidden_dump_dir": args.hidden_dump_dir
     }
     # 1) explicit path via --ngf_import MODULE:FUNC
     if args.ngf_import:
