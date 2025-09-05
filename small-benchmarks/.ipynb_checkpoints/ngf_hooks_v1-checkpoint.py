@@ -237,6 +237,46 @@ def attach_ngf_hooks(model, **cfg):
 
         h_new = state.center + (1.0 - alpha_eff) * delta_mod
 
+
+        # ----------------- SoftDenoiser (optional) -----------------
+        if int(cfg['use_denoise']) == 1:
+            # residual after warp
+            r = (h_new - state.center)
+        
+            # (a) phantom-direction damping on residual
+            if state.U_ph is not None and float(cfg['denoise_ph_lambda']) > 0:
+                Pph = state.U_ph @ state.U_ph.T
+                r = r - float(cfg['denoise_ph_lambda']) * (r @ Pph)
+        
+            mode = cfg['denoise_mode']
+            if mode == 'ema':
+                beta = float(cfg['denoise_beta'])
+                if state.ema_residual is None:
+                    state.ema_residual = r.detach()
+                else:
+                    state.ema_residual = (1.0 - beta) * state.ema_residual + beta * r.detach()
+                r = r - beta * (r - state.ema_residual)  # pull toward EMA smoothed residual
+        
+            elif mode == 'median':
+                # Keep a small window of residuals across time; add tiny jitter to avoid ties
+                k = max(3, int(cfg['denoise_window']) | 1)  # make odd
+                jitter = float(cfg['jitter_std'])
+                # Store a shallow copy (detach to freeze for window)
+                state._median_buf.append((r.detach() + jitter * torch.randn_like(r)))
+                if len(state._median_buf) > k:
+                    state._median_buf.pop(0)
+                # Compute elementwise median across window
+                stack = torch.stack(state._median_buf, dim=0)  # [k,B,T,D]
+                r_med, _ = torch.median(stack, dim=0)          # [B,T,D]
+                # Blend current residual toward median
+                beta = float(cfg['denoise_beta'])
+                r = r - beta * (r - r_med)
+        
+            h_new = state.center + r
+        # ----------------------------------------------------------
+
+        
+
         if save_hidden:
             take = min(64, B*T)
             idx = torch.randperm(B*T, device=h.device)[:take]

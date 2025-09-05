@@ -13,11 +13,11 @@ from matplotlib.backends.backend_pdf import PdfPages
 from scipy.ndimage import gaussian_filter
 
 """
-OUT=results/passA
+OUT=results/maxwarpC_tap9_noOutlier
 
 python3 plot_tap9_contour_well.py \
-  --pre "$OUT/tap9_pre.npy" \
-  --post "$OUT/tap9_post.npy" \
+  --pre "$OUT/tap-9_pre.npy" \
+  --post "$OUT/tap-9_post.npy" \
   --out_png "$OUT/tap9_well_compare.png" \
   --out_pdf "$OUT/tap9_well_compare.pdf" \
   --fit_on post \

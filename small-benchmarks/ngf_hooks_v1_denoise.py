@@ -1,3 +1,4 @@
+# Create a patched hook file with denoiser state properly initialized and guarded.
 
 import torch
 from torch import nn
@@ -66,6 +67,11 @@ class _RenoV1State:
         self.linger_left = 0
         self.cap_pre = []
         self.cap_post = []
+        self.ema_vec = None       # [1,1,D], shape-agnostic EMA over features
+        self._median_vecs = []    # list of [1,1,D] for median mode
+        # ---- denoiser state (fix for AttributeError) ----
+        self.ema_residual = None
+        self._median_buf = []
 
 def _pca_plane(X: torch.Tensor, k: int = 2) -> torch.Tensor:
     U,S,Vh = torch.linalg.svd(X, full_matrices=False)
@@ -100,6 +106,7 @@ def attach_ngf_hooks(model, **cfg):
     device = next(model.parameters()).device
     cfg = _merge_env_overrides(cfg)
 
+    # --- core knobs ---
     cfg.setdefault('tap', -9)
     cfg.setdefault('alpha0', 0.05)
     cfg.setdefault('alpha_min', 0.006)
@@ -127,6 +134,14 @@ def attach_ngf_hooks(model, **cfg):
     cfg.setdefault('anneal_tokens', 12)
     cfg.setdefault('anneal_scale', 1.35)
     cfg.setdefault('calib_max_tokens', 12000)
+
+    # --- denoiser knobs (defaults) ---
+    cfg.setdefault('use_denoise', 0)          # 0/1
+    cfg.setdefault('denoise_mode', 'ema')     # 'ema' or 'median'
+    cfg.setdefault('denoise_beta', 0.15)      # smoothing strength
+    cfg.setdefault('denoise_window', 5)       # for median
+    cfg.setdefault('jitter_std', 0.02)        # for median
+    cfg.setdefault('denoise_ph_lambda', 0.35) # extra damping along phantom dirs
 
     save_hidden = int(cfg.get('save_hidden', 0)) == 1
     dump_dir = cfg.get('hidden_dump_dir', None)
@@ -237,45 +252,44 @@ def attach_ngf_hooks(model, **cfg):
 
         h_new = state.center + (1.0 - alpha_eff) * delta_mod
 
-
         # ----------------- SoftDenoiser (optional) -----------------
         if int(cfg['use_denoise']) == 1:
-            # residual after warp
             r = (h_new - state.center)
-        
-            # (a) phantom-direction damping on residual
+
+
+            
             if state.U_ph is not None and float(cfg['denoise_ph_lambda']) > 0:
                 Pph = state.U_ph @ state.U_ph.T
                 r = r - float(cfg['denoise_ph_lambda']) * (r @ Pph)
-        
-            mode = cfg['denoise_mode']
+
+            mode = str(cfg.get('denoise_mode', 'ema'))
+            beta = float(cfg['denoise_beta'])
+            
+            # Compute a pooled feature vector m_cur of shape [1,1,D]
+            # (mean over batch & time; detach to stop gradients in the stat)
+            m_cur = r.detach().mean(dim=(0,1), keepdim=True)  # [1,1,D]
+            
             if mode == 'ema':
-                beta = float(cfg['denoise_beta'])
-                if state.ema_residual is None:
-                    state.ema_residual = r.detach()
+                if state.ema_vec is None:
+                    state.ema_vec = m_cur
                 else:
-                    state.ema_residual = (1.0 - beta) * state.ema_residual + beta * r.detach()
-                r = r - beta * (r - state.ema_residual)  # pull toward EMA smoothed residual
-        
+                    state.ema_vec = (1.0 - beta) * state.ema_vec + beta * m_cur
+                # pull residual toward EMA feature vector
+                r = r - beta * (r - state.ema_vec)
+            
             elif mode == 'median':
-                # Keep a small window of residuals across time; add tiny jitter to avoid ties
-                k = max(3, int(cfg['denoise_window']) | 1)  # make odd
+                k = max(3, int(cfg['denoise_window']) | 1)   # force odd
                 jitter = float(cfg['jitter_std'])
-                # Store a shallow copy (detach to freeze for window)
-                state._median_buf.append((r.detach() + jitter * torch.randn_like(r)))
-                if len(state._median_buf) > k:
-                    state._median_buf.pop(0)
-                # Compute elementwise median across window
-                stack = torch.stack(state._median_buf, dim=0)  # [k,B,T,D]
-                r_med, _ = torch.median(stack, dim=0)          # [B,T,D]
-                # Blend current residual toward median
-                beta = float(cfg['denoise_beta'])
-                r = r - beta * (r - r_med)
-        
+                # add a tiny jitter to avoid ties in median
+                state._median_vecs.append(m_cur + jitter * torch.randn_like(m_cur))
+                if len(state._median_vecs) > k:
+                    state._median_vecs.pop(0)
+                stack = torch.stack(state._median_vecs, dim=0)  # [k,1,1,D]
+                m_med, _ = torch.median(stack, dim=0)           # [1,1,D]
+                r = r - beta * (r - m_med)
+
             h_new = state.center + r
         # ----------------------------------------------------------
-
-        
 
         if save_hidden:
             take = min(64, B*T)
@@ -299,8 +313,8 @@ def attach_ngf_hooks(model, **cfg):
             os.makedirs(dump_dir, exist_ok=True)
             pre = np.concatenate(state.cap_pre, axis=1) if len(state.cap_pre) else np.zeros((1,0,state._d))
             post = np.concatenate(state.cap_post, axis=1) if len(state.cap_post) else np.zeros((1,0,state._d))
-            pre  = pre.reshape(-1, pre.shape[-1])    # <-- ensure (N,C)
-            post = post.reshape(-1, post.shape[-1])  # <-- ensure (N,C)
+            pre  = pre.reshape(-1, pre.shape[-1])
+            post = post.reshape(-1, post.shape[-1])
             np.save(os.path.join(dump_dir, f"tap{tap}_pre.npy"), pre)
             np.save(os.path.join(dump_dir, f"tap{tap}_post.npy"), post)
         except Exception as e:
@@ -308,6 +322,6 @@ def attach_ngf_hooks(model, **cfg):
 
     atexit.register(_save_hidden)
 
-    print(f"[NGF] Hooking GPT-2 layer {layer_idx} (tap={tap}) [Reno-v1] cfg={cfg}")
-    print("[NGF] NGF attached via ngf_hooks_v1:attach_ngf_hooks with cfg=" + str(cfg))
+    print(f"[NGF] Hooking GPT-2 layer {layer_idx} (tap={tap}) [Reno-v1 + Denoiser-capable] cfg={cfg}")
     return {"handle": handle, "layer_idx": layer_idx, "cfg": cfg}
+
