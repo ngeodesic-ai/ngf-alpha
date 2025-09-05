@@ -1,26 +1,22 @@
-
-# basic_script_ngf_v8.py
-# HellaSwag benchmark for GPT-2 family with optional NGF tap-9 warp.
-# - Uses correct P(ending | context) scoring via CE over ending tokens only.
-# - Robust truncation + attention + duplication-safe prefix.
-# - Adds --mode {stock,ngf}. In ngf mode, attempts to attach NGF hooks to the model.
-#
-# Usage examples:
-#   python3 basic_script_ngf_v8.py --mode stock --model gpt2-medium --split validation --n 200 --max_length 768 --device auto
-#   python3 basic_script_ngf_v8.py --mode ngf   --model gpt2-medium --split validation --n 200 --max_length 768 --device auto
-#
-# If NGF code is available in your PYTHONPATH (e.g., text_arc_unified_base.py with an attach function),
-# this script will try to import it automatically. Otherwise it falls back to stock.
-import argparse, json, time, importlib, sys
-from typing import List, Tuple, Optional
-import torch
-import torch.nn.functional as F
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
-from datasets import load_dataset
-import numpy as np  # ← NEW
-
-
 """
+# ==============================================================================
+# Apache 2.0 License (ngeodesic.ai)
+# ==============================================================================
+# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726, #63/865,437, #63/871,647 and #63/872,334)
+# Email: ngeodesic@gmail.com
+# Part of Noetic Geodesic Framework (NGF)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 MODEL=gpt2              
 SPLIT=validation
@@ -92,6 +88,14 @@ python3 ngf_benchmark.py \
   
 
 """
+
+import argparse, json, time, importlib, sys
+from typing import List, Tuple, Optional
+import torch
+import torch.nn.functional as F
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
+from datasets import load_dataset
+import numpy as np  # ← NEW
 
 
 def parse_args():

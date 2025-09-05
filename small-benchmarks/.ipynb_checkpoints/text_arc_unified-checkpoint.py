@@ -1,13 +1,24 @@
-# Create a unified Stage-11 runner that covers steps 1–6:
-# - Steps 1–4: always-on warp with PCA-2 plane + EMA center (already in previous script)
-# - Step 5: soft Detect (gain-only) via matched-filter + null model → g_det
-# - Step 6: Soft Denoiser that smooths/scales residuals (never flips sign)
-# The script keeps stock vs geo decode via --gen_mode and emits ARC-compatible JSONL.
-# Defaults mirror the v4b baseline where reasonable.
-
-
 # -*- coding: utf-8 -*-
 """
+# ==============================================================================
+# Apache 2.0 License (ngeodesic.ai)
+# ==============================================================================
+# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726, #63/865,437, #63/871,647 and #63/872,334)
+# Email: ngeodesic@gmail.com
+# Part of Noetic Geodesic Framework (NGF)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 text_arc_unified_steps1_6.py
 Stage-11 unified text runner (Steps 1–6): Warp + soft trend gate + Detect (gain) + Soft Denoiser.
 
@@ -214,6 +225,7 @@ def build_parser():
     ap = argparse.ArgumentParser(description="Stage-11 (Steps 1–6) unified runner: warp + detect + denoise")
     # model / io
     ap.add_argument("--model", type=str, default="gpt2")
+    #ap.add_argument("--model", type=str, default="gpt2-medium")
     ap.add_argument("--tap", type=int, default=-9)
     ap.add_argument("--device", type=str, default="auto", choices=["auto","cpu","cuda","mps"])
     ap.add_argument("--seed", type=int, default=20259)

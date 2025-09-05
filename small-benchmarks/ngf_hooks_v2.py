@@ -1,17 +1,23 @@
-# Write a new Stage‑11 "Reno" hook with Detect, Denoiser, and OutlierGuard.
-# File: /mnt/data/ngf_hooks_v2.py
-
-
-import torch
-from torch import nn
-import numpy as np
-import atexit, os, re
-from typing import Optional, Tuple
-
-EPS = 1e-8
-
-
 """
+# ==============================================================================
+# Apache 2.0 License (ngeodesic.ai)
+# ==============================================================================
+# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726, #63/865,437, #63/871,647 and #63/872,334)
+# Email: ngeodesic@gmail.com
+# Part of Noetic Geodesic Framework (NGF)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 # stock model run
 python3 ngf_benchmark.py \
   --mode stock --model gpt2 --split validation --n 1000 --max_length 768 --device auto \
@@ -85,6 +91,14 @@ anneal_tokens=40 anneal_scale=1.85 tap=-9"
 done
 
 """
+
+import torch
+from torch import nn
+import numpy as np
+import atexit, os, re
+from typing import Optional, Tuple
+
+EPS = 1e-8
 
 # ------------------------ Utilities ------------------------
 
