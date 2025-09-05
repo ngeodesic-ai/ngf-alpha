@@ -36,7 +36,7 @@ Highlights
 - CSV/JSON report outputs; optional replay via --in_truth
 
 Example (baseline report only):
-  python3 stage11-benchmark-v2.py  \
+  python3 stage11_benchmark_v2.py  \
     --samples 200 --seed 42 --T 720 --sigma 9 \
     --out_plot manifold_pca3_mesh_warped.png \
     --out_csv stage11_metrics.csv \
@@ -44,12 +44,12 @@ Example (baseline report only):
     --use_funnel_prior 0
 
 Example (with funnel prior rescoring):
-  python3 stage11-benchmark-v2.py   \
+  python3 stage11_benchmark_v2.py   \
     --samples 200 --seed 42 --use_funnel_prior 1 --alpha 0.05 --beta_s 0.25 --q_s 2 \
     --tau_rel 0.60 --tau_abs_q 0.93 --null_K 40
 
 Example (denoiser run + manifold renders):
-  python3 stage11-benchmark-v2.py  \
+  python3 stage11_benchmark_v2.py  \
     --samples 200 --seed 42 --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
     --probe_k 5 --probe_eps 0.02 --conf_gate 0.65 --noise_floor 0.03 --seed_jitter 2 \
     --render_well --render_samples 1500 --render_grid 120 --render_quantile 0.8 \

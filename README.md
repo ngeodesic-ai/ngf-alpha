@@ -63,13 +63,19 @@ Stage-11 introduced the breakthrough:
 * **Detect:** Use matched filters with null calibration to identify the true well.
 * **Denoise:** Apply smoothing, phantom guards, and jitter averaging to suppress false wells.
 
-
 #### Latent-ARC Results (n=100)
 | Model            | Exact Acc | Precision | Recall | F1     | Halluc. | Omission |
 |------------------|-----------|-----------|--------|--------|---------|----------|
 | Denoise (Stage 11)| **1.000** | 0.9977    | 0.9989 | 0.9983 | 0.0045  | 0.0023   |
 | Geodesic (pre)   | 0.640     | 0.8450    | 1.0000 | 0.8980 | 0.1550  | 0.0000   |
 | Stock baseline   | 0.490     | 0.8900    | 0.7767 | 0.7973 | 0.1100  | 0.2233   |
+
+#### LMM-HellaSwag Results (n=1000)
+| Model            | F1 | ECE (Caliibration) | Brier Score | Overconfidence >0.70  |
+|------------------|-----------|-----------|--------|--------|
+| MaxWarp (Stage 11)| **0.355** | 0.080   | 0.743 | 1.2% | 
+| Stock baseline   | 0.324    | 0.122   | 0.750 | 0.7% | 
+| $\delta$   | +0.031 (good)   | -0.032 (good)   | -0.007 (good) | 0.5% | 
 
 **Note**: Stock baseline approximates what you’d see if you used simple thresholds on LLM latents/logits without NGF’s Warp→Detect→Denoise.
 
@@ -79,9 +85,9 @@ Stage-11 introduced the breakthrough:
 * **Example**: an LLM provides hidden states → NGF warps them → trajectories follow deterministic geodesics instead of drifting probabilistically.
 This separation is critical: LLMs handle language; NGF handles geometry.
 
-#### Run latest benchmark:
+#### Run latest benchmark on latents:
 ```bash
-python -u arc-benchmark-latest.py \
+python -u small_benchmark/stage11_benchmark_latest.py \
       --samples 100 --seed 42 \
       --latent_arc --latent_dim 64 --latent_arc_noise 0.05 \
       --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
@@ -90,10 +96,31 @@ python -u arc-benchmark-latest.py \
       --out_json latent_arc_denoise_100.json --out_csv latent_arc_denoise_100.csv
 ```
 
-## Stage-11 (What’s Next): Deploying NGF with Real LLMs
-* Hook NGF into LLM hidden states – tap embeddings from mid/upper layers of GPT-2/GPT-Neo, warp into a single cognition well, and apply the Warp → Detect → Denoise pipeline.
-* Compare NGF-augmented vs stock outputs – run side-by-side on MMLU, ARC, or QA tasks, measuring exact accuracy, hallucination rates, and stability.
-* Iterate lightweight integration modes – start with scoring-only (rerank logits), then projection alignment, and finally soft attention gating, balancing determinism with compute cost.
+#### Run latest benchmark on LMM:
+
+```bash
+export NGF_RENO_CFG="use_denoise=1 denoise_mode=ema denoise_beta=0.22 denoise_ph_lambda=0.35 \
+phantom_k=8 phantom_lambda=0.28 squeeze_orth_lambda=0.20 \
+k_det=9 g_det_max=1.26 det_robust=mad winsor_q=0.985 \
+alpha_min=0.034 alpha0=0.14 alpha_r_gamma=0.45 alpha_r_p=1.6 \
+anneal_tokens=40 anneal_scale=1.85 outlier_q=1.0 outlier_alpha_scale=1.0 tap=-9"
+
+python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:attach_ngf_hooks \
+      --model gpt2 --tap -9 --n 1000 \
+      --alpha0 0.06 --alpha_min 0.012 --trend_tau 0.30 --k_tr 12 \
+      --use_detect 1 --detect_width 22 --detect_sigma 4.5 --k_det 8 \
+      --s_latch 0.35 --linger 3 --ema_center_beta=0.04 \
+      --gen_mode geo --save_hidden 1 --hidden_dump_dir results/maxwarpC_tap9_noOutlier \
+      --out_json results/maxwarpC_tap9_noOutlier/metrics.json
+```
+
+## Stage-11 (Summary / What’s Next)
+* Tests on simluated latent environemtn came out perfect on F1 score for latent-ARC tests on GPT2
+* Saw +3 incremental boost on F1 Score on HellaSwag for real LLM tests on GPT2
+* Fot real LLM we can see noticable difference of well post warp
+* Need to perform robusteness check
+
+![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
 
 ## Technical Paper - WORK IN PROGRESS
 - Moore, I. C. (2025). *Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.

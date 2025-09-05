@@ -35,7 +35,7 @@ Highlights
 - CSV/JSON report outputs; optional replay via --in_truth
 
 Baseline Report only (apples-to-apples ARC testbed)
-    python3 stage11-benchmark-latest.py \
+    python3 stage11_benchmark_latest.py \
       --samples 200 --seed 42 --T 720 --sigma 9 \
       --out_plot manifold_pca3_mesh_warped.png \
       --out_csv stage11_metrics.csv \
@@ -43,13 +43,13 @@ Baseline Report only (apples-to-apples ARC testbed)
       --use_funnel_prior 0
 
 Report + Funnel Prior Rescoring
-    python3 stage11-benchmark-latest.py \
+    python3 stage11_benchmark_latest.py \
       --samples 200 --seed 42 --use_funnel_prior 1 \
       --alpha 0.05 --beta_s 0.25 --q_s 2 \
       --tau_rel 0.60 --tau_abs_q 0.93 --null_K 40  
 
 Denoiser Path (latent tests only, fully isolated from ARC generator):
-    python3 stage11-benchmark-latest.py \
+    python3 stage11_benchmark_latest.py \
       --samples 5 --seed 42 \
       --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \
       --probe_k 5 --probe_eps 0.02 --conf_gate 0.65 --noise_floor 0.03 \
@@ -59,7 +59,7 @@ Denoiser Path (latent tests only, fully isolated from ARC generator):
       --out_json latent_arc_denoise.json
 
 Benchmark
-    python3 -u stage11-benchmark-latest.py \
+    python3 -u stage11_benchmark_latest.py \
       --samples 100 --seed 42 \
       --latent_arc --latent_dim 64 --latent_arc_noise 0.05 \
       --denoise_mode hybrid --ema_decay 0.85 --median_k 3 \

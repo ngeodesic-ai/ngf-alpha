@@ -1,59 +1,132 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Stage‑11 A/B harness — persist+debug build
------------------------------------------
-Adds four fixes:
-1) **PCA small‑K guard**: avoids q=2 error when <2 samples in the window.
-2) **Correct PCs**: uses V[:, :2] from pca_lowrank (feature PCs), not U.
-3) **Stepwise scorer**: measures Δlogprob token‑by‑token so hook effects register.
-4) **Center control**: optional --freeze_center to forbid runtime overwrites; optional --scan to inject center into calib if missing.
+# Stage-11 A/B/C Eval — with integrated Denoiser
+# - Always-on warp (alpha_min > 0), soft trend gate, optional Detect (gain-only).
+# - Integrated SoftDenoiser that smooths/scales residuals (never flips direction).
+# - gen_mode: {stock|geo} to decide whether decoding happens under warp.
+# - Telemetry includes denoiser counters and norms.
 
-Also: cache disabled in config and generate(); explicit GPT‑2 block bind with fallback; per‑prompt stats; aggregate totals across prompts.
-
-python3 stage11_ab_eval.py \
-  --model gpt2 --layer -9 \
-  --calib resources/calib_t-9_k12.json \
-  --prompts prompts.txt \
-  --alpha 0.06 --eps 0.25 --trend_tau 0.50 \
-  --freeze_center \
-  --out_json ab_results.json
-
-python3 stage11_ab_eval.py \
-  --model gpt2 --layer -9 \
-  --calib resources/calib_t-9_k12.json \
-  --prompts prompts.txt \
-  --alpha 0.06 --eps 0.25 --k_last 12 --trend_tau 0.35 \
-  --detect_width 60 --detect_sigma 9 --null_K 40 --null_q 0.93 --tau_rel 0.60 \
-  --freeze_center \
-  --out_json ab_results.json
 
 """
-from __future__ import annotations
-import argparse, json, os
+
+# Quick run, GPU-friendly
+python3 stage11_ab_eval.py \
+  --model gpt2 --layer -9 \
+  --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 32 --null_q 0.92 --k_det 7 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda --print_every 128 \
+  --use_denoise 1 \
+  --denoise_beta 0.6 --denoise_window 3 \
+  --denoise_k 8.0 --denoise_tau 0.35 \
+  --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
+  --jitter_eps 0.03 \
+  --out_json ab_results_geo_v4b_denoise_wobble_v1.json
+
+#2 Disable Detect, prove burst capacity (denoiser ON)
+python3 stage11_ab_eval.py \
+  --model gpt2 --layer -9 \
+  --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 0 \
+  --linger 3 --s_latch 0.30 --ema_center_beta 0.05 \
+  --eps 0.25 --burst_thr 0.30 \
+  --gen_mode geo --device cuda \
+  --use_denoise 1 --denoise_beta 0.6 --denoise_window 3 \
+  --denoise_k 8.0 --denoise_tau 0.35 --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
+  --jitter_eps 0.03 \
+  --out_json ab_geo_v4b_denoise_noDetect.json
+
+#3 Soften Detect, extend linger
+python3 stage11_ab_eval.py \
+  --model gpt2 --layer -9 \
+  --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 24 --null_q 0.88 --k_det 9 \
+  --linger 4 --s_latch 0.25 --ema_center_beta 0.05 \
+  --eps 0.25 --burst_thr 0.30 \
+  --gen_mode geo --device cuda \
+  --use_denoise 1 --denoise_beta 0.6 --denoise_window 3 \
+  --denoise_k 8.0 --denoise_tau 0.35 --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
+  --jitter_eps 0.03 \
+  --out_json ab_geo_v4b_denoise_softDetect.json
+
+
+
+# Simple A/B/C tests
+
+# STOCK
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v2.txt --max_new_tokens 64 \
+  --gen_mode stock --device cuda \
+  --out_json ab_stock_patterned.json
+
+# GEO (Warp only)
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v1.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --out_json ab_geo_patterned.json
+
+# GEO+Detect (Warp + Detect, no denoise)
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v2.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 32 --null_q 0.92 --k_det 7 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --out_json ab_geo_detect_patterned.json
+
+python3 stage11_ab_eval_base_denoise.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v1.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 24 --null_q 0.88 --k_det 9 \
+  --linger 4 --s_latch 0.25 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --use_denoise 1 \
+  --denoise_beta 0.6 --denoise_window 3 \
+  --denoise_k 8.0 --denoise_tau 0.35 \
+  --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
+  --jitter_eps 0.03 \
+  --out_json ab_geo_detect_denoise_patterned.json
+
+  
+"""
+
+import argparse, json, os, random
 from dataclasses import dataclass
-from typing import List, Tuple, Optional
-import numpy as np
+from typing import List, Dict, Tuple, Optional
 from collections import deque
 
+import numpy as np
+
+try:
+    from sklearn.decomposition import PCA
+except Exception:
+    PCA = None
+
 import torch
-import torch.nn as nn
+from torch import nn
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
-# -------------------------
-# Utils
-# -------------------------
-
-def read_prompts(path_or_inline: str) -> List[str]:
-    if os.path.isfile(path_or_inline):
-        with open(path_or_inline, 'r') as f:
-            lines = [ln.strip("\n") for ln in f]
-        return [x for x in lines if x.strip()]
-    if "\n" in path_or_inline:
-        return [s.strip() for s in path_or_inline.split("\n") if s.strip()]
-    if "," in path_or_inline:
-        return [s.strip() for s in path_or_inline.split(",") if s.strip()]
-    return [path_or_inline.strip()]
+# ------------------------------ Utilities ------------------------------
 
 def moving_average(x: np.ndarray, k: int = 9) -> np.ndarray:
     if k <= 1: return x.copy()
@@ -61,13 +134,16 @@ def moving_average(x: np.ndarray, k: int = 9) -> np.ndarray:
     xp = np.pad(x, (pad, pad), mode="reflect")
     return np.convolve(xp, np.ones(k)/k, mode="valid")
 
+
 def half_sine_proto(width: int) -> np.ndarray:
-    P = np.sin(np.linspace(0, np.pi, int(width)))
+    P = np.sin(np.linspace(0, np.pi, int(max(2, width))))
     P = P / (np.linalg.norm(P) + 1e-8)
     return P
 
+
 def xcorr_same(sig: np.ndarray, proto: np.ndarray) -> np.ndarray:
-    T = len(sig); L = min(len(proto), T)
+    T = len(sig)
+    L = min(len(proto), T)
     pr = proto[:L] - np.mean(proto[:L])
     prn = pr / (np.linalg.norm(pr) + 1e-8)
     out = np.zeros(T, dtype=float)
@@ -80,454 +156,578 @@ def xcorr_same(sig: np.ndarray, proto: np.ndarray) -> np.ndarray:
         out[i] = float(np.dot(wn, prn[:len(wn)]) / denom)
     return out
 
-def null_threshold(sig: np.ndarray, proto: np.ndarray, K: int = 40, q: float = 0.93, rng=None) -> float:
+
+def null_threshold(sig: np.ndarray, proto: np.ndarray, K: int = 24, q: float = 0.90, rng=None) -> float:
     rng = rng or np.random.default_rng(20259)
-    T = len(sig); vals = []
-    L = min(len(proto), T)
+    T = len(sig); L = min(len(proto), T)
+    vals = []
     for _ in range(int(K)):
         s = int(rng.integers(1, max(2, T-1)))
         xs = np.roll(sig, s)
         vals.append(float(np.max(xcorr_same(xs[-L:], proto[:L]))))
     return float(np.quantile(vals, q))
 
-@dataclass
-class Calib:
-    center: Optional[Tuple[float,float]] = None
-    k_last: int = 12
-    alpha: float = 0.05
-    eps: float = 0.25
-    trend_tau: float = 0.60
+
+def sigmoid(x: float) -> float:
+    return 1.0 / (1.0 + np.exp(-x))
+
+# ------------------------------ Soft Denoiser ------------------------------
+
+class SoftDenoiser:
+    """
+    Smooth & scale the warp residual (never flip direction).
+    - EMA smoothing on residual vector
+    - Soft confidence gate (sigmoid of evidence)
+    - Phantom guard: attenuate isolated spikes with low evidence
+    - Micro-jitter averaging (stabilizes brittle spikes)
+    """
+    def __init__(self, beta=0.6, window=3, k=8.0, tau=0.35,
+                 phantom_tr_tau=0.60, phantom_guard_gamma=0.35,
+                 jitter_eps=0.03):
+        from collections import deque as _dq
+        self.beta=float(beta); self.window=int(window)
+        self.k=float(k); self.tau=float(tau)
+        self.phantom_tr_tau=float(phantom_tr_tau)
+        self.phantom_guard_gamma=float(phantom_guard_gamma)
+        self.jitter_eps=float(jitter_eps)
+        self._ema=None
+        self._buf=_dq(maxlen=self.window)
 
     @staticmethod
-    def load(path: Optional[str]) -> 'Calib':
-        if not path:
-            return Calib()
-        with open(path, 'r') as f:
-            obj = json.load(f)
-        c = obj.get('center', None)
-        if c is not None and len(c) >= 2:
-            center = (float(c[0]), float(c[1]))
+    def _sigmoid(x): return 1.0/(1.0+np.exp(-x))
+    def reset(self):
+        self._ema=None; self._buf.clear()
+
+    def step(self, resid_vec: np.ndarray, tr: float, g_det: float, s: float, prev_s: float):
+        if resid_vec is None:  # defensive
+            return None, dict(dn_gain=0.0, dn_guard=0, dn_ema_norm=0.0, dn_med_norm=0.0)
+        r=resid_vec
+        rn=float(np.linalg.norm(r)+1e-12)
+        self._buf.append(rn)
+        med=float(np.median(self._buf))
+        # EMA smoothing
+        if self._ema is None: self._ema=r.copy()
+        else: self._ema=self.beta*self._ema+(1.0-self.beta)*r
+        ema=float(np.linalg.norm(self._ema)+1e-12)
+        # Phantom guard: low evidence + isolated → attenuate
+        guard=0
+        if (g_det<0.25) and (s<0.15) and (abs(tr)>self.phantom_tr_tau) and (prev_s<0.15):
+            self._ema*=self.phantom_guard_gamma; guard=1
+        # Soft confidence gate (scale only)
+        score=0.6*float(g_det)+0.4*float(s)
+        gain=float(self._sigmoid(self.k*(score-self.tau)))
+        out=self._ema*gain
+        # Micro-jitter averaging (single-pass; cheap)
+        if self.jitter_eps>0:
+            j=self.jitter_eps
+            out=0.5*(out*(1.0+j)+out*(1.0-j))
+        return out, dict(dn_gain=gain, dn_guard=int(guard), dn_ema_norm=ema, dn_med_norm=med)
+
+# ------------------------------ PCA-2 projector ------------------------------
+
+@dataclass
+class PCA2Projector:
+    pca: Optional[PCA]
+    center: Optional[np.ndarray]
+    warm: List[np.ndarray]
+    max_warm: int
+    ema_center_beta: float
+    ema_c: Optional[np.ndarray]
+
+    @classmethod
+    def make(cls, max_warm: int = 256, center_xy: Optional[Tuple[float,float]] = None, ema_center_beta: float = 0.0):
+        c = np.array(center_xy, dtype=float) if center_xy is not None else None
+        return cls(pca=None, center=c, warm=[], max_warm=max_warm, ema_center_beta=float(ema_center_beta), ema_c=None)
+
+    def update_fit(self, vec: np.ndarray):
+        if len(self.warm) < self.max_warm:
+            self.warm.append(vec.astype(np.float32))
+            if PCA is not None and self.pca is None and len(self.warm) >= max(32, self.max_warm//4):
+                X = np.stack(self.warm, 0)
+                self.pca = PCA(n_components=2, whiten=True, random_state=0).fit(X)
+
+    def project(self, vec: np.ndarray) -> Tuple[np.ndarray, float]:
+        x = vec.astype(np.float32)
+        if self.pca is None and PCA is not None and len(self.warm) >= 8:
+            X = np.stack(self.warm, 0)
+            self.pca = PCA(n_components=2, whiten=True, random_state=0).fit(X)
+        if self.pca is not None:
+            y2 = self.pca.transform(x[None, :])[0]
         else:
-            center = None
-        return Calib(
-            center=center,
-            k_last=int(obj.get('k_last', 12)),
-            alpha=float(obj.get('alpha', obj.get('α', 0.05))),
-            eps=float(obj.get('eps', 0.25)),
-            trend_tau=float(obj.get('tau', obj.get('trend_tau', 0.60))),
-        )
+            y2 = x[:2].copy()
+        if self.ema_center_beta > 0.0:
+            if self.ema_c is None:
+                self.ema_c = y2.copy()
+            else:
+                self.ema_c = (1.0 - self.ema_center_beta) * self.ema_c + self.ema_center_beta * y2
+            c = self.ema_c
+        else:
+            if self.center is not None:
+                c = self.center
+            elif self.warm:
+                c = np.mean(np.stack(self.warm,0)[:,:2], axis=0)
+            else:
+                c = np.zeros(2, dtype=float)
+        r = float(np.linalg.norm(y2 - c) + 1e-9)
+        return y2, r
 
-# -------------------------
-# Scan importer
-# -------------------------
+# ------------------------------ Terraform Hook (with Denoiser) ------------------------------
 
-def _extract_center_from_scan(path: str) -> Optional[Tuple[float,float]]:
-    try:
-        with open(path, 'r') as f:
-            obj = json.load(f)
-    except Exception:
-        return None
-    for k in ['center','pca_center','c_star','c*']:
-        v = obj.get(k)
-        if isinstance(v, (list,tuple)) and len(v) >= 2:
-            return (float(v[0]), float(v[1]))
-    for sect in ['info','warp','detect','denoise','metrics','profile','calib','terraform']:
-        d = obj.get(sect, {})
-        if isinstance(d, dict):
-            for k in ['center','pca_center','c_star','c*']:
-                v = d.get(k)
-                if isinstance(v, (list,tuple)) and len(v) >= 2:
-                    return (float(v[0]), float(v[1]))
-    rows = obj.get('rows')
-    if isinstance(rows, list) and rows:
-        r0 = rows[0]
-        if isinstance(r0, dict):
-            for k in ['center','pca_center','c_star','c*']:
-                v = r0.get(k)
-                if isinstance(v, (list,tuple)) and len(v) >= 2:
-                    return (float(v[0]), float(v[1]))
-    return None
-
-# -------------------------
-# Hook
-# -------------------------
-
-class TerraformHook(nn.Module):
-    def __init__(self, layer_module: nn.Module, calib: Calib, alpha_max: float, device: torch.device, verbose: bool=False,
-                 detect_width: int = 60, detect_sigma: int = 9, null_K: int = 40, null_q: float = 0.93, tau_rel: float = 0.60):
-        super().__init__()
-        self.layer = layer_module
-        self.calib = calib
-        self.alpha_max = float(alpha_max)
-        self.device = device
-        self.buf: List[torch.Tensor] = []  # (hidden_dim,) per token
-        self.center2d: Optional[torch.Tensor] = None  # (2,)
-        self.handle = None
-        self.verbose = verbose
-        # live stats
-        self.steps_seen = 0
-        self.steps_applied = 0
-        self.last_trend = 0.0
-        self.last_alpha = 0.0
-        self.last_radius = 0.0
-        self.last_step_norm = 0.0
-        self._printed = 0
+class TerraformHook:
+    def __init__(self, layer_module: nn.Module, projector: PCA2Projector,
+                 alpha0: float = 0.06, alpha_min: float = 0.01,
+                 trend_tau: float = 0.32, k_tr: float = 8.0,
+                 use_detect: int = 0, detect_width: int = 40, detect_sigma: int = 7,
+                 null_K: int = 24, null_q: float = 0.90, k_det: float = 8.0,
+                 linger: int = 2, s_latch: float = 0.6,
+                 eps: float = 0.0,  # relative step clip; 0 disables
+                 print_every: int = 32,
+                 log_prefix: str = "[HOOK]",
+                 denoiser: Optional[SoftDenoiser]=None):
+        self.layer_module = layer_module
+        self.projector = projector
+        self.denoiser = denoiser
+        self.alpha0 = float(alpha0)
+        self.alpha_min = float(alpha_min)
+        self.trend_tau = float(trend_tau)
+        self.k_tr = float(k_tr)
+        self.use_detect = int(use_detect)
         self.detect_sigma = int(detect_sigma)
-        self.proto = half_sine_proto(int(detect_width))
+        self.proto = half_sine_proto(int(detect_width)) if use_detect else None
         self.null_K = int(null_K)
         self.null_q = float(null_q)
-        self.tau_rel = float(tau_rel)
-        self.trend_hist = deque(maxlen=max(192, int(detect_width)))
+        self.k_det = float(k_det)
+        self.trend_hist = deque(maxlen=max(192, int(detect_width))) if use_detect else None
         self.rng = np.random.default_rng(20259)
-
-    def reset_stats(self):
+        self.prev_r = None
+        self.linger = int(linger)
+        self.s_latch = float(s_latch)
+        self.linger_left = 0
+        self.eps = float(eps)
+        self.print_every = int(print_every)
+        # stats
         self.steps_seen = 0
         self.steps_applied = 0
-        self.last_trend = 0.0
-        self.last_alpha = 0.0
-        self.last_radius = 0.0
-        self.last_step_norm = 0.0
-        self._printed = 0
-        if hasattr(self, "trend_hist"): self.trend_hist.clear()
+        self.alpha_last = 0.0
+        self.trend_last = 0.0
+        self.radius_last = 0.0
+        self.step_norm_last = 0.0
+        self.g_tr_last = 0.0
+        self.g_det_last = 1.0 if not use_detect else 0.0
+        # sequences (fresh per prompt)
+        self.last_print_T = -1
+        self.alpha_seq: List[float] = []
+        self.s_seq: List[float] = []
+        self.trend_seq: List[float] = []
+        self.g_tr_seq: List[float] = []
+        self.g_det_seq: List[Optional[float]] = []
+        self.detect_score_seq: List[Optional[float]] = []
+        self.tau_abs_seq: List[Optional[float]] = []
+        self.radius_seq: List[float] = []
+        # denoiser telemetry
+        self.dn_gain_seq: List[float] = []
+        self.dn_guard_seq: List[int] = []
+        self.dn_ema_norm_seq: List[float] = []
+        self.dn_med_norm_seq: List[float] = []
+        self._prev_s = 0.0
+        self.enabled = True
+        self.log_prefix = log_prefix
+        self._hook_handle = None
 
-    def _pca2(self, X: torch.Tensor):
-        mu = X.mean(dim=0)
-        Xc = X - mu
-        # PCs from feature space (V), not U
-        U, S, V = torch.pca_lowrank(Xc, q=2, center=False)
-        PCs = V[:, :2]               # (D,2)
-        Z = Xc @ PCs                 # (K,2)
-        return mu, PCs, Z
+    def reset_for_prompt(self):
+        self.prev_r = None
+        self.linger_left = 0
+        self.steps_seen = 0
+        self.steps_applied = 0
+        self.alpha_last = 0.0
+        self.trend_last = 0.0
+        self.radius_last = 0.0
+        self.step_norm_last = 0.0
+        self.g_tr_last = 0.0
+        self.g_det_last = 1.0 if not self.use_detect else 0.0
+        # new lists (no aliasing)
+        self.alpha_seq = []
+        self.s_seq = []
+        self.trend_seq = []
+        self.g_tr_seq = []
+        self.g_det_seq = []
+        self.detect_score_seq = []
+        self.tau_abs_seq = []
+        self.radius_seq = []
+        self.dn_gain_seq = []
+        self.dn_guard_seq = []
+        self.dn_ema_norm_seq = []
+        self.dn_med_norm_seq = []
+        self._prev_s = 0.0
+        self.last_print_T = -1
+        if self.trend_hist is not None:
+            self.trend_hist.clear()
+        if self.denoiser is not None:
+            self.denoiser.reset()
 
-    def _detect_ok(self) -> bool:
-        if len(self.trend_hist) < 8:
-            return False
+    def _detect_soft(self) -> Tuple[float, Optional[float], Optional[float]]:
+        if not self.use_detect:
+            return 1.0, None, None
+        if self.trend_hist is None or len(self.trend_hist) < 8:
+            return 0.0, None, None
         sig = np.asarray(self.trend_hist, dtype=float)
         S = moving_average(sig, k=self.detect_sigma)
         L = min(len(self.proto), len(S))
         proto = self.proto[:L]
-        # use the most recent L samples for correlation
         seg = S[-L:]
         corr = xcorr_same(seg, proto)
         score = float(np.max(corr))
-        # absolute gate from circular-shift nulls
         tau_abs = null_threshold(seg, proto, K=self.null_K, q=self.null_q, rng=self.rng)
-        abs_ok = (score >= tau_abs)
-        # relative gate (single-channel => trivial; keep a mild margin)
-        rel_ok = (score >= self.tau_rel * max(score, 1e-12))
-        return abs_ok and rel_ok
+        g_det = float(sigmoid(self.k_det * (score - tau_abs)))
+        return g_det, score, tau_abs
 
-    def _trend(self, R: torch.Tensor) -> float:
-        if R.numel() < 3:
-            return 0.0
-        r = R.detach().float()
-        t = torch.linspace(1.0, 0.0, steps=r.numel(), device=r.device)
-        num = torch.dot(r - r.mean(), t - t.mean())
-        den = torch.linalg.vector_norm(r - r.mean()) * torch.linalg.vector_norm(t - t.mean()) + 1e-8
-        return float((num / den).clamp(-1, 1).item())
-
-    def enable(self):
-        if self.handle is not None:
+    def attach(self):
+        if self._hook_handle is not None:
             return
-        self.reset_stats()
 
-        def _hook(module, inputs, output):
-            try:
-                hidden = output[0] if isinstance(output, tuple) else output
-                if hidden.dim() != 3:
-                    return output
-                B, T, D = hidden.shape
-                last = hidden[:, -1, :]
-                # append last-token state(s)
-                for b in range(B):
-                    self.buf.append(last[b].detach().to(self.device))
-                # keep last-k
-                K = max(4, int(self.calib.k_last))
-                if len(self.buf) > K:
-                    self.buf = self.buf[-K:]
-                # small-K guard: need >=2 to fit 2D PCA
-                if len(self.buf) < 2:
-                    self.steps_seen += 1
-                    self.last_trend = 0.0
-                    self.last_alpha = 0.0
-                    return output
-                X = torch.stack(self.buf, dim=0)  # (k,D)
-                mu, PCs, Z = self._pca2(X)
-                # ensure shapes are aligned
-                if PCs.shape[0] != D or PCs.shape[1] != 2:
-                    return output
-                z_t = (last[-1] - mu) @ PCs       # (2,)
-                # center selection
-                if self.center2d is None:
-                    if self.calib.center is not None:
-                        self.center2d = torch.tensor(self.calib.center, device=self.device, dtype=z_t.dtype)
-                    else:
-                        self.center2d = Z.mean(dim=0)
-                d = (self.center2d - z_t)
-                r = torch.linalg.vector_norm(d) + 1e-9
-                u = d / r
-                # trend over window radii
-                Rwin = torch.linalg.vector_norm(Z - self.center2d, dim=1)
-                tr = self._trend(Rwin)
+        def _unwrap(out):
+            if isinstance(out, (tuple, list)): return out[0]
+            return out
+        def _rewrap(new_hs, out_orig):
+            if isinstance(out_orig, tuple): return (new_hs,) + tuple(out_orig[1:])
+            if isinstance(out_orig, list):  return [new_hs] + list(out_orig[1:])
+            return new_hs
 
-                # keep a history of the scalar trend per step
-                self.trend_hist.append(float(tr))
-                
-                # DETECT + trend gate
-                detect_ok = self._detect_ok()
-                if tr < self.calib.trend_tau or (not detect_ok):
-                    alpha = 0.0
-                else:
-                    base = min(self.alpha_max, max(0.0, self.calib.alpha))
-                    alpha = float(base * (0.5 + 0.5*tr))
-                
-                # gate + step
-                if tr < self.calib.trend_tau:
-                    alpha = 0.0
-                else:
-                    base = min(self.alpha_max, max(0.0, self.calib.alpha))
-                    alpha = float(base * (0.5 + 0.5*tr))
-                step2d = alpha * torch.clamp(r, max=self.calib.eps) * u  # (2,)
-                stepD = step2d @ PCs.T                                   # (D,)
-                # stats
-                self.steps_seen += 1
-                self.last_trend = float(tr)
-                self.last_alpha = float(alpha)
-                self.last_radius = float(r)
-                self.last_step_norm = float(torch.linalg.vector_norm(stepD).item()) if alpha > 0 else 0.0
-                if self.verbose and self._printed < 5:
-                    print(f"[HOOK] fired: shape={tuple(hidden.shape)} tr={tr:.3f} alpha={alpha:.4f}")
-                    self._printed += 1
-                # apply
-                if alpha > 0.0:
-                    last = last.clone(); last[-1] = last[-1] + stepD
-                    self.steps_applied += 1
-                    hidden = hidden.clone(); hidden[:, -1, :] = last
-                return (hidden, *output[1:]) if isinstance(output, tuple) else hidden
-            except Exception as e:
-                if self.verbose:
-                    print("[HOOK] error:", repr(e))
+        def _forward_hook(module, inputs, output):
+            if not self.enabled:
                 return output
-        self.handle = self.layer.register_forward_hook(_hook)
+            hs = _unwrap(output)
+            if not torch.is_tensor(hs):
+                return output
+            self.steps_seen += 1
+            with torch.no_grad():
+                h_last = hs[:, -1, :]
+                h_np = h_last[0].detach().cpu().float().numpy()
+                self.projector.update_fit(h_np)
+                _, r = self.projector.project(h_np)
+                if self.prev_r is None:
+                    trend = 0.0
+                else:
+                    trend = max(0.0, float((self.prev_r - r) / max(self.prev_r, 1e-6)))
+                self.prev_r = r
+                self.trend_last = float(trend)
+                self.radius_last = float(r)
+                self.trend_seq.append(self.trend_last)
+                self.radius_seq.append(self.radius_last)
+                if self.trend_hist is not None:
+                    self.trend_hist.append(self.trend_last)
 
-    def disable(self):
-        if self.handle is not None:
-            try:
-                self.handle.remove()
-            except Exception:
-                pass
-            self.handle = None
+                g_det, score, tau_abs = self._detect_soft()
+                g_tr = float(sigmoid(self.k_tr * (self.trend_last - self.trend_tau)))
+                self.g_tr_last = g_tr
+                self.g_det_last = g_det
+                if (g_tr * g_det) >= 0.5:
+                    self.linger_left = max(self.linger_left, self.linger)
+                g_latch = self.s_latch if self.linger_left > 0 else 0.0
+                if self.linger_left > 0:
+                    self.linger_left -= 1
+                s_pre = g_tr * g_det
+                s = max(s_pre, g_latch)
 
-# -------------------------
-# Model & eval
-# -------------------------
+                alpha_t = float(self.alpha_min + (self.alpha0 - self.alpha_min) * s)
+                dx = -alpha_t * h_last
+                # relative step clip if requested
+                if self.eps > 0.0:
+                    hnorm = torch.norm(h_last, dim=-1, keepdim=True) + 1e-9
+                    dnorm = torch.norm(dx, dim=-1, keepdim=True)
+                    ratio = (dnorm / hnorm).clamp_min(1e-9)
+                    scale = torch.clamp(self.eps / ratio, max=1.0)
+                    dx = dx * scale
+                    # revise alpha to reflect the effective step size
+                    alpha_t = float((dx.norm().item() / (hnorm.squeeze().item() + 1e-9)))
 
-def get_block(module: nn.Module, layer_index: int) -> nn.Module:
-    for attr in ["transformer", "model"]:
-        if hasattr(module, attr):
-            root = getattr(module, attr)
-            break
-    else:
-        root = module
-    for name in ["h", "layers", "decoder.layers"]:
-        obj = root
-        for part in name.split('.'):
-            if hasattr(obj, part):
-                obj = getattr(obj, part)
-            else:
-                obj = None; break
-        if obj is not None:
-            blocks = obj
-            break
-    else:
-        raise RuntimeError("Could not locate transformer blocks on this model")
-    n = len(blocks)
-    idx = layer_index if layer_index >= 0 else (n + layer_index)
-    if idx < 0 or idx >= n:
-        raise IndexError(f"layer index out of range: {layer_index} in [0,{n-1}]")
-    return blocks[idx]
+                # ---- DENOISE residual (vector-level smoothing & scaling) ----
+                dn_gain=0.0; dn_guard=0; dn_ema=0.0; dn_med=0.0
+                if self.denoiser is not None:
+                    dx_np = dx[0].detach().cpu().float().numpy()
+                    r_dn, meta = self.denoiser.step(dx_np, self.trend_last,
+                                                    self.g_det_last if self.use_detect else 1.0,
+                                                    s, self._prev_s)
+                    if r_dn is not None:
+                        r_t = torch.from_numpy(r_dn).to(hs.device).view_as(dx[0])
+                        dx = dx.clone(); dx[0] = r_t
+                    dn_gain=float(meta["dn_gain"]); dn_guard=int(meta["dn_guard"])
+                    dn_ema=float(meta["dn_ema_norm"]); dn_med=float(meta["dn_med_norm"])
+                    self._prev_s = float(s)
+
+                hs_new = hs.clone()
+                hs_new[:, -1, :] = hs_new[:, -1, :] + dx
+
+                self.step_norm_last = float(torch.norm(dx).item())
+                self.alpha_last = alpha_t
+                self.steps_applied += int(alpha_t > 0.0)
+                self.alpha_seq.append(self.alpha_last)
+                self.s_seq.append(float(s))
+                self.g_tr_seq.append(self.g_tr_last)
+                self.g_det_seq.append(float(g_det) if self.use_detect else None)
+                self.detect_score_seq.append(float(score) if score is not None else None)
+                self.tau_abs_seq.append(float(tau_abs) if tau_abs is not None else None)
+                self.dn_gain_seq.append(dn_gain)
+                self.dn_guard_seq.append(dn_guard)
+                self.dn_ema_norm_seq.append(dn_ema)
+                self.dn_med_norm_seq.append(dn_med)
+
+                T = hs.shape[1]
+                if self.print_every > 0 and (self.steps_seen % self.print_every) == 0 and (self.last_print_T != T):
+                    self.last_print_T = T
+                    gdet_print = (g_det if self.use_detect else 1.0)
+                    print(f"{self.log_prefix} fired: shape={tuple(hs.shape)} tr={self.trend_last:.3f} g_tr={g_tr:.3f} g_det={gdet_print:.3f} s_pre={s_pre:.3f} s={s:.3f} alpha={self.alpha_last:.4f}")
+                return _rewrap(hs_new, output)
+
+        self._hook_handle = self.layer_module.register_forward_hook(_forward_hook)
+
+    def detach(self):
+        if self._hook_handle is not None:
+            self._hook_handle.remove()
+            self._hook_handle = None
+
+# ------------------------------ Scoring ------------------------------
 
 @torch.no_grad()
-def greedy_generate(model, tokenizer, prompt, max_new_tokens=64, use_cache=False):
-    device = next(model.parameters()).device
-    ids = tokenizer(prompt, return_tensors='pt').to(device)
-    out_ids = model.generate(**ids, do_sample=False, max_new_tokens=max_new_tokens, use_cache=use_cache)
-    text = tokenizer.decode(out_ids[0], skip_special_tokens=True)
-    comp_ids = out_ids[0][ids['input_ids'].shape[1]:]
-    return text, out_ids[0], comp_ids
-
-@torch.no_grad()
-def mean_logprob_on_tokens_stepwise(model, full_ids: torch.Tensor, target_tail: torch.Tensor) -> float:
-    device = next(model.parameters()).device
-    L = full_ids.shape[0]
-    T = target_tail.shape[0]
-    start = L - T
-    if start < 1:
-        return float('nan')
-    total = 0.0
-    for i in range(start, L):
-        ctx = full_ids[:i].unsqueeze(0).to(device)
-        out = model(ctx)  # hook runs here on last position
-        logits = out.logits[:, -1, :]
-        lp = logits.log_softmax(dim=-1)[0, target_tail[i - start].to(device)]
-        total += float(lp.item())
-    return total / T
-
-# -------------------------
-# Main A/B
-# -------------------------
-
-def run_ab(args):
-    device = torch.device('cuda' if torch.cuda.is_available() and not args.cpu else 'cpu')
-    set_seed(args.seed)
-    tok = AutoTokenizer.from_pretrained(args.model)
-    if tok.pad_token is None and tok.eos_token is not None:
-        tok.pad_token = tok.eos_token
-    model_stock = AutoModelForCausalLM.from_pretrained(args.model).to(device)
-    model_geo   = AutoModelForCausalLM.from_pretrained(args.model).to(device)
+def score_stepwise_dlp(model_stock, model_geo, tok, prompt: str, max_new_tokens: int,
+                       hook: TerraformHook, device: str, gen_mode: str, burst_thr: float) -> Dict:
     model_stock.eval(); model_geo.eval()
+    enc = tok(prompt, return_tensors="pt").to(device)
 
-    # Disable cache so forwards traverse the full stack and our hook runs
-    model_geo.config.use_cache = False
-    if hasattr(model_geo, "generation_config"):
-        model_geo.generation_config.use_cache = False
+    # Greedy continuation under chosen generator
+    out_ids = enc.input_ids
+    gen_model = model_stock if (gen_mode == "stock") else model_geo
+    for _ in range(max_new_tokens):
+        logits = gen_model(input_ids=out_ids).logits[:, -1, :]
+        next_id = torch.argmax(logits, dim=-1, keepdim=True)
+        out_ids = torch.cat([out_ids, next_id], dim=1)
+    gen_ids = out_ids
 
-    # Load/adjust calib
-    calib = Calib.load(args.calib)
-    if args.force_fire:
-        calib.trend_tau = -1.0
+    def _token_logprob(model, ids_ctx, next_id):
+        logits = model(input_ids=ids_ctx).logits[:, -1, :]
+        logprobs = torch.log_softmax(logits, dim=-1)
+        return float(logprobs[0, int(next_id.item())].item())
 
-    # Inject center from scan if missing
-    if calib.center is None and args.scan:
-        ctry = _extract_center_from_scan(args.scan)
-        if ctry is not None:
-            calib.center = (ctry[0], ctry[1])
-            # persist back to file for reproducibility
-            try:
-                with open(args.calib, 'r') as f:
-                    _cal = json.load(f)
-            except Exception:
-                _cal = {}
-            _cal['center'] = [ctry[0], ctry[1]]
-            with open(args.calib, 'w') as f:
-                json.dump(_cal, f, indent=2)
-            print(f"[CALIB] Injected center from scan {os.path.abspath(args.scan)} -> {tuple(calib.center)}")
+    hook.reset_for_prompt()
+    dlp_seq = []
+    for t in range(enc.input_ids.shape[1], gen_ids.shape[1]):
+        ctx = gen_ids[:, :t]
+        nxt = gen_ids[:, t:t+1]
+        lp_stock = _token_logprob(model_stock, ctx, nxt)
+        lp_geo   = _token_logprob(model_geo,   ctx, nxt)  # hook runs here
+        dlp_seq.append(lp_geo - lp_stock)
 
-    # Block bind (explicit GPT‑2 first, fallback otherwise)
-    try:
-        block = model_geo.transformer.h[(model_geo.config.n_layer + args.layer) if args.layer < 0 else args.layer]
-    except Exception:
-        block = get_block(model_geo, args.layer)
+    txt = tok.decode(gen_ids[0], skip_special_tokens=True)
+    dlp = np.array(dlp_seq, dtype=float) if dlp_seq else np.zeros(0)
 
-    # hook = TerraformHook(block, calib, alpha_max=args.alpha, device=device, verbose=True)
+    def _safe_mean(x):
+        x = np.asarray([v for v in x if v is not None], dtype=float)
+        return float(x.mean()) if x.size else 0.0
 
-    hook = TerraformHook(
-        block, calib, alpha_max=args.alpha, device=device, verbose=True,
-        detect_width=args.detect_width, detect_sigma=args.detect_sigma,
-        null_K=args.null_K, null_q=args.null_q, tau_rel=args.tau_rel
+    # Split by burst membership (s ≥ burst_thr)
+    s_arr = np.array(hook.s_seq, dtype=float)
+    if s_arr.size:
+        inside = s_arr >= float(burst_thr)
+    else:
+        inside = np.zeros_like(dlp, dtype=bool)
+    dlp_in  = _safe_mean([dlp[i] for i in range(min(len(dlp), len(inside))) if inside[i]])
+    dlp_out = _safe_mean([dlp[i] for i in range(min(len(dlp), len(inside))) if not inside[i]])
+
+    # Convergence metrics
+    r = np.array(hook.radius_seq, dtype=float)
+    if r.size >= 2:
+        shrink = (r[:-1] - r[1:]) / np.maximum(r[:-1], 1e-9)
+        mean_shrink = float(np.mean(shrink))
+        start_r, end_r = float(r[0]), float(r[-1])
+    else:
+        mean_shrink = 0.0; start_r = end_r = float(r[0]) if r.size else 0.0
+
+    # Burst metrics from inside mask
+    def _runs(mask: np.ndarray) -> List[int]:
+        lens = []
+        cnt = 0
+        for v in mask.tolist():
+            if v:
+                cnt += 1
+            else:
+                if cnt>0: lens.append(cnt)
+                cnt = 0
+        if cnt>0: lens.append(cnt)
+        return lens
+    runs = _runs(inside) if s_arr.size else []
+    mean_burst = float(np.mean(runs)) if runs else 0.0
+    n_bursts = int(len(runs))
+    inside_tokens = int(np.sum(inside)) if s_arr.size else 0
+    adjacency_ratio = float((inside_tokens - n_bursts) / max(1, inside_tokens)) if inside_tokens>0 else 0.0
+
+    steps_seen = hook.steps_seen
+    steps_applied = int(np.sum(np.array(hook.alpha_seq) > 0.0))
+
+    return dict(
+        text=txt,
+        dlp=float(dlp.mean()) if dlp.size else 0.0,
+        dlp_seq=dlp_seq,
+        dlp_in=dlp_in,
+        dlp_out=dlp_out,
+        mean_shrink=mean_shrink,
+        start_r=start_r,
+        end_r=end_r,
+        mean_burst_len=mean_burst,
+        n_bursts=n_bursts,
+        adjacency_ratio=adjacency_ratio,
+        steps_seen=steps_seen,
+        steps_applied=steps_applied,
+        applied_rate=float(steps_applied / max(1, steps_seen)),
+        alpha_seq=hook.alpha_seq,
+        s_seq=hook.s_seq,
+        trend_seq=hook.trend_seq,
+        g_tr_seq=hook.g_tr_seq,
+        g_det_seq=hook.g_det_seq,
+        detect_score_seq=hook.detect_score_seq,
+        tau_abs_seq=hook.tau_abs_seq,
+        radius_seq=hook.radius_seq,
+        dn_gain_seq=hook.dn_gain_seq,
+        dn_guard_seq=hook.dn_guard_seq,
+        dn_ema_norm_seq=hook.dn_ema_norm_seq,
+        dn_med_norm_seq=hook.dn_med_norm_seq,
     )
-    
-    hook.enable()
 
-    prompts = read_prompts(args.prompts)
+# ------------------------------ Runner ------------------------------
+
+def load_prompts(path: str) -> List[str]:
+    with open(path, "r") as f:
+        lines = [ln.strip() for ln in f.readlines()]
+    return [ln for ln in lines if ln]
+
+
+def choose_layer(model, idx: int) -> nn.Module:
+    h = model.transformer.h
+    n = len(h)
+    i = idx if idx >= 0 else n + idx
+    i = max(0, min(n-1, i))
+    return h[i]
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", type=str, default="gpt2")
+    ap.add_argument("--layer", type=int, default=-9)
+    ap.add_argument("--prompts", type=str, required=True)
+    ap.add_argument("--max_new_tokens", type=int, default=96)
+    ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
+    # Always-on + soft gating
+    ap.add_argument("--alpha0", type=float, default=0.07)
+    ap.add_argument("--alpha_min", type=float, default=0.012)
+    ap.add_argument("--trend_tau", type=float, default=0.30)
+    ap.add_argument("--k_tr", type=float, default=10.0)
+    ap.add_argument("--ema_center_beta", type=float, default=0.05, help="EMA center adapt rate in PCA-2 (0 disables)")
+    ap.add_argument("--eps", type=float, default=0.25, help="Relative step clip; 0 disables")
+    # Detect (optional, soft)
+    ap.add_argument("--use_detect", type=int, default=0)
+    ap.add_argument("--detect_width", type=int, default=40)
+    ap.add_argument("--detect_sigma", type=int, default=7)
+    ap.add_argument("--null_K", type=int, default=24)
+    ap.add_argument("--null_q", type=float, default=0.88)
+    ap.add_argument("--k_det", type=float, default=9.0)
+    # Bursts
+    ap.add_argument("--linger", type=int, default=3)
+    ap.add_argument("--s_latch", type=float, default=0.7)
+    ap.add_argument("--burst_thr", type=float, default=0.5)
+    # Denoiser
+    ap.add_argument("--use_denoise", type=int, default=0)
+    ap.add_argument("--denoise_beta", type=float, default=0.6)
+    ap.add_argument("--denoise_window", type=int, default=3)
+    ap.add_argument("--denoise_k", type=float, default=8.0)
+    ap.add_argument("--denoise_tau", type=float, default=0.35)
+    ap.add_argument("--phantom_tr_tau", type=float, default=0.60)
+    ap.add_argument("--phantom_guard_gamma", type=float, default=0.35)
+    ap.add_argument("--jitter_eps", type=float, default=0.03)
+    # Logging / decode mode
+    ap.add_argument("--gen_mode", type=str, default="stock", choices=["stock","geo"], help="Decode tokens with stock (baseline) or geo (warp-on) model")
+    ap.add_argument("--print_every", type=int, default=32)
+    # Output
+    ap.add_argument("--out_json", type=str, default="ab_results.json")
+    args = ap.parse_args()
+
+    set_seed(args.seed); random.seed(args.seed); np.random.seed(args.seed)
+    device = args.device
+
+    tok = AutoTokenizer.from_pretrained(args.model)
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token
+    stock = AutoModelForCausalLM.from_pretrained(args.model).to(device)
+    geo   = AutoModelForCausalLM.from_pretrained(args.model).to(device)
+
+    layer = choose_layer(geo, args.layer)
+    projector = PCA2Projector.make(max_warm=256, center_xy=None, ema_center_beta=args.ema_center_beta)
+    denoiser = None
+    if int(args.use_denoise) == 1:
+        denoiser = SoftDenoiser(beta=args.denoise_beta, window=args.denoise_window,
+                                 k=args.denoise_k, tau=args.denoise_tau,
+                                 phantom_tr_tau=args.phantom_tr_tau,
+                                 phantom_guard_gamma=args.phantom_guard_gamma,
+                                 jitter_eps=args.jitter_eps)
+    hook = TerraformHook(layer, projector,
+                         alpha0=args.alpha0, alpha_min=args.alpha_min,
+                         trend_tau=args.trend_tau, k_tr=args.k_tr,
+                         use_detect=args.use_detect, detect_width=args.detect_width, detect_sigma=args.detect_sigma,
+                         null_K=args.null_K, null_q=args.null_q, k_det=args.k_det,
+                         linger=args.linger, s_latch=args.s_latch,
+                         eps=args.eps, print_every=args.print_every,
+                         denoiser=denoiser)
+    hook.attach()
+
+    prompts = load_prompts(args.prompts)
     rows = []
-    dlp_sum = 0.0
-    total_seen = 0
-    total_applied = 0
+    for i, prompt in enumerate(prompts, 1):
+        try:
+            rec = dict(idx=i, prompt=prompt)
+            out = score_stepwise_dlp(stock, geo, tok, prompt, args.max_new_tokens, hook, device, args.gen_mode, args.burst_thr)
+            rec.update(out)
+        except Exception as e:
+            rec = dict(idx=i, prompt=prompt, error=str(e))
+        rows.append(rec)
 
-    for i, p in enumerate(prompts, 1):
-        hook.reset_stats()
-        stock_text, stock_full_ids, comp_ids = greedy_generate(model_stock, tok, p, args.max_new_tokens, use_cache=False)
-        lp_stock = mean_logprob_on_tokens_stepwise(model_stock, stock_full_ids, comp_ids)
-        lp_geo   = mean_logprob_on_tokens_stepwise(model_geo,   stock_full_ids, comp_ids)
-        dlp = lp_geo - lp_stock
-        dlp_sum += dlp
-        geo_text, _, _ = greedy_generate(model_geo, tok, p, args.max_new_tokens, use_cache=False)
-        rows.append(dict(
-            idx=i,
-            prompt=p,
-            dlp=dlp,
-            stock_text=stock_text,
-            geo_text=geo_text,
-            trend_last=hook.last_trend,
-            alpha_last=hook.last_alpha,
-            radius_last=hook.last_radius,
-            step_norm_last=hook.last_step_norm,
-            steps_seen=hook.steps_seen,
-            steps_applied=hook.steps_applied,
-            applied_rate=(hook.steps_applied / hook.steps_seen if hook.steps_seen else 0.0),
-        ))
-        total_seen += hook.steps_seen
-        total_applied += hook.steps_applied
+    def _safe_mean(xs):
+        xs = [x for x in xs if isinstance(x, (int,float))]
+        return float(np.mean(xs)) if xs else 0.0
 
-    # Optionally persist learned center only if not frozen and if calib.center was None
-    if (not args.freeze_center) and hook.center2d is not None and calib.center is None:
-        calib.center = tuple(float(x) for x in hook.center2d.detach().cpu().tolist())
+    dlp_mean = _safe_mean([r.get("dlp") for r in rows])
+    mean_shrink_mean = _safe_mean([r.get("mean_shrink") for r in rows])
+    steps_seen_total = int(sum(r.get("steps_seen", 0) for r in rows))
+    steps_applied_total = int(sum(r.get("steps_applied", 0) for r in rows))
+    applied_rate = float(steps_applied_total / max(1, steps_seen_total))
 
-    agg = dict(
-        n=len(prompts),
-        dlp_mean=(dlp_sum/len(prompts) if prompts else 0.0),
-        steps_seen_total=int(total_seen),
-        steps_applied_total=int(total_applied),
-        applied_rate=(float(total_applied) / float(total_seen) if total_seen else 0.0),
-        trend_tau=float(calib.trend_tau),
-    )
-
-    result = dict(
-        config=dict(model=args.model, layer=args.layer, alpha=args.alpha, eps=args.eps,
-                    k_last=calib.k_last, trend_tau=calib.trend_tau, center=calib.center),
-        aggregate=agg,
+    out = dict(
+        config=dict(model=args.model, layer=args.layer,
+                    alpha0=args.alpha0, alpha_min=args.alpha_min,
+                    trend_tau=args.trend_tau, k_tr=args.k_tr,
+                    use_detect=args.use_detect, detect_width=args.detect_width, detect_sigma=args.detect_sigma,
+                    null_K=args.null_K, null_q=args.null_q, k_det=args.k_det,
+                    linger=args.linger, s_latch=args.s_latch,
+                    ema_center_beta=args.ema_center_beta,
+                    eps=args.eps, burst_thr=args.burst_thr,
+                    gen_mode=args.gen_mode, print_every=args.print_every,
+                    max_new_tokens=args.max_new_tokens,
+                    prompts_file=args.prompts,
+                    use_denoise=int(args.use_denoise),
+                    denoise=dict(beta=args.denoise_beta, window=args.denoise_window,
+                                 k=args.denoise_k, tau=args.denoise_tau,
+                                 phantom_tr_tau=args.phantom_tr_tau,
+                                 phantom_guard_gamma=args.phantom_guard_gamma,
+                                 jitter_eps=args.jitter_eps) if int(args.use_denoise)==1 else None),
+        aggregate=dict(n=len(rows), dlp_mean=dlp_mean, mean_shrink_mean=mean_shrink_mean,
+                       steps_seen_total=steps_seen_total, steps_applied_total=steps_applied_total,
+                       applied_rate=applied_rate),
         rows=rows,
     )
 
     if args.out_json:
-        with open(args.out_json, 'w') as f:
-            json.dump(result, f, indent=2)
-    print("[A/B] n=%d | mean Δlogprob@chosen=%+0.4f | applied_rate=%.3f | steps_total=%d" % (
-        agg['n'], agg['dlp_mean'], agg['applied_rate'], agg['steps_seen_total']))
-    if args.out_json:
+        os.makedirs(os.path.dirname(args.out_json) or ".", exist_ok=True)
+        with open(args.out_json, "w") as f:
+            json.dump(out, f, indent=2)
         print(f"[JSON] {args.out_json}")
 
-# -------------------------
-# CLI
-# -------------------------
-
-def build_argparser():
-    ap = argparse.ArgumentParser(description="Stage‑11 A/B — persist+debug build")
-    ap.add_argument('--model', type=str, default='gpt2')
-    ap.add_argument('--layer', type=int, default=-9)
-    ap.add_argument('--calib', type=str, required=True, help='path to calibration JSON (may have center:null)')
-    ap.add_argument('--scan', type=str, default='', help='optional layer-scan JSON to import center if calib.center is null')
-    ap.add_argument('--prompts', type=str, required=True)
-    ap.add_argument('--alpha', type=float, default=0.05)
-    ap.add_argument('--eps', type=float, default=0.25)
-    ap.add_argument('--k_last', type=int, default=12)
-    ap.add_argument('--trend_tau', type=float, default=0.60)
-    ap.add_argument('--max_new_tokens', type=int, default=64)
-    ap.add_argument('--seed', type=int, default=42)
-    ap.add_argument('--cpu', action='store_true')
-    ap.add_argument('--out_json', type=str, default='ab_results.json')
-    ap.add_argument('--force_fire', action='store_true')
-    ap.add_argument('--freeze_center', action='store_true', help='do not persist any learned center; honor calib center only')
-    ap.add_argument('--detect_width', type=int, default=60)
-    ap.add_argument('--detect_sigma', type=int, default=9)
-    ap.add_argument('--null_K', type=int, default=40)
-    ap.add_argument('--null_q', type=float, default=0.93)
-    ap.add_argument('--tau_rel', type=float, default=0.60)
-    return ap
-
-if __name__ == '__main__':
-    args = build_argparser().parse_args()
-    # Hard fail if calib path is wrong (prevents accidental null stub regen elsewhere)
-    if not os.path.isfile(args.calib):
-        raise FileNotFoundError(f"--calib not found: {args.calib}")
-    # Optionally synchronize tau in the calib file to make runs reproducible from JSON alone
-    try:
-        with open(args.calib, 'r') as f:
-            _cal = json.load(f)
-        _cal['tau'] = float(args.trend_tau)
-        with open(args.calib, 'w') as f:
-            json.dump(_cal, f, indent=2)
-    except Exception:
-        pass
-    run_ab(args)
+if __name__ == "__main__":
+    main()

@@ -11,7 +11,7 @@
 """
 
 # Quick run, GPU-friendly
-python3 stage11_ab_eval_base_denoise.py \
+python3 stage11_ab_eval.py \
   --model gpt2 --layer -9 \
   --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
   --alpha0 0.05 --alpha_min 0.006 \
@@ -28,7 +28,7 @@ python3 stage11_ab_eval_base_denoise.py \
   --out_json ab_results_geo_v4b_denoise_wobble_v1.json
 
 #2 Disable Detect, prove burst capacity (denoiser ON)
-python3 stage11_ab_eval_base_denoise.py \
+python3 stage11_ab_eval.py \
   --model gpt2 --layer -9 \
   --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
   --alpha0 0.05 --alpha_min 0.006 \
@@ -43,7 +43,7 @@ python3 stage11_ab_eval_base_denoise.py \
   --out_json ab_geo_v4b_denoise_noDetect.json
 
 #3 Soften Detect, extend linger
-python3 stage11_ab_eval_base_denoise.py \
+python3 stage11_ab_eval.py \
   --model gpt2 --layer -9 \
   --prompts wobble_prompts_v1.txt --max_new_tokens 96 \
   --alpha0 0.05 --alpha_min 0.006 \

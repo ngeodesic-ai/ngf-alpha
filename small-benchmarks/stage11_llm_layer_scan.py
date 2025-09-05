@@ -12,7 +12,7 @@ from scipy.ndimage import gaussian_filter, minimum_filter
 """
 for t in {-12..-6}; do
   for k in 8 12; do
-    python3 stage11_llm_layer_scan_plus.py \
+    python3 stage11_llm_layer_scan.py \
       --model gpt2 --tap_range "$t" \
       --calib calib/calib_prompts_v2_900.txt --eval calib/calib_eval_style_200.txt \
       --pool_mode lastk --k_last $k \
@@ -24,7 +24,7 @@ for t in {-12..-6}; do
   done
 done
 
-python3 stage11_llm_layer_scan_plus.py \
+python3 stage11_llm_layer_scan.py \
       --model gpt2 --tap_range -9 \
       --calib calib/calib_prompts_v2_900.txt --eval calib/calib_eval_style_200.txt \
       --pool_mode lastk --k_last 12 \

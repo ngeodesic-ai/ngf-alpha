@@ -15,7 +15,7 @@ from scipy.ndimage import gaussian_filter
 """
 OUT=results/maxwarpC_tap9_noOutlier
 
-python3 plot_tap9_contour_well.py \
+python3 plot_contour_well.py \
   --pre "$OUT/tap-9_pre.npy" \
   --post "$OUT/tap-9_post.npy" \
   --out_png "$OUT/tap9_well_compare.png" \
@@ -29,7 +29,7 @@ python3 plot_tap9_contour_well.py \
 
 OUT=results/gpt2_n1000  
 
-python3 plot_tap9_contour_well.py \
+python3 plot_contour_well.py \
   --pre "$OUT/tap9_pre.npy" \
   --post "$OUT/tap9_post.npy" \
   --out_png "$OUT/tap9_well_compare.png" \
