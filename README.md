@@ -110,8 +110,8 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
       --alpha0 0.06 --alpha_min 0.012 --trend_tau 0.30 --k_tr 12 \
       --use_detect 1 --detect_width 22 --detect_sigma 4.5 --k_det 8 \
       --s_latch 0.35 --linger 3 --ema_center_beta=0.04 \
-      --gen_mode geo --save_hidden 1 --hidden_dump_dir results/maxwarpC_tap9_noOutlier \
-      --out_json results/maxwarpC_tap9_noOutlier/metrics.json
+      --gen_mode geo --save_hidden 1 --hidden_dump_dir small_benchmark/results/maxwarpC_tap9_noOutlier \
+      --out_json small_benchmark/results/maxwarpC_tap9_noOutlier/metrics.json
 ```
 
 ## Stage-11 (Summary / What’s Next)
