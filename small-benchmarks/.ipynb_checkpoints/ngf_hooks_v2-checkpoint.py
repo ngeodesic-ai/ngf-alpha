@@ -51,6 +51,24 @@ python3 ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:attach_ngf_hooks \
 
 F1: 0.3570
 
+export NGF_RENO_CFG="use_denoise=1 denoise_mode=ema denoise_beta=0.26 denoise_ph_lambda=0.42 \
+phantom_k=12 phantom_lambda=0.36 squeeze_orth_lambda=0.26 \
+k_det=9 g_det_max=1.36 det_robust=mad winsor_q=0.985 \
+alpha_min=0.038 alpha0=0.18 alpha_r_gamma=0.55 alpha_r_p=1.80 \
+anneal_tokens=56 anneal_scale=1.95 outlier_q=1.0 outlier_alpha_scale=1.0 tap=-9"
+
+python3 ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:attach_ngf_hooks \
+  --model gpt2 --tap -9 --n 1000 \
+  --alpha0 0.06 --alpha_min 0.012 --trend_tau 0.30 --k_tr 12 \
+  --use_detect 1 --detect_width 22 --detect_sigma 4.5 --k_det 8 \
+  --s_latch 0.35 --linger 3 --ema_center_beta=0.04 \
+  --gen_mode geo --save_hidden 1 \
+  --hidden_dump_dir results/maxwarpD_<D1|D2|D3> \
+  --out_json results/maxwarpD_<D1|D2|D3>/metrics.json
+  
+F1: 3560
+
+
 for S in 0 1 2 3 4; do
   OUT="results/maxwarpC_tap9_s${S}"
   export PYTHONHASHSEED=$S; export CUDA_VISIBLE_DEVICES=0
