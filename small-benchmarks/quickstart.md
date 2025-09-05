@@ -5,11 +5,11 @@ These “small benchmarks” provide reproducible experiments on compact dataset
 
 ## Contents
 
-- **`ngf_benchmark.py`** — HellaSwag benchmark runner. Supports both stock GPT-2 and NGF-augmented runs.
-- **`ngf_hooks_v2.py`** — Stage-11 Reno v2 hook (warp, detect, denoise, outlier guard).
-- **`stage11_ab_eval_base_denoise.py`** — A/B/C evaluation framework with integrated denoiser.
-- **`stage11_llm_layer_scan_plus.py`** — Layer scan tool for phantom index, margin, and trend metrics.
-- **`plot_tap9_contour_well.py`** — PCA-2 visualization of “semantic wells” (pre vs post warp).
+- **`[ngf_benchmark.py](ngf_benchmark.py)`** — HellaSwag benchmark runner. Supports both stock GPT-2 and NGF-augmented runs.
+- **`[ngf_hooks_v2.py](ngf_hooks_v2.py)`** — Stage-11 Reno v2 hook (warp, detect, denoise, outlier guard).
+- **`[stage11_ab_eval.py](stage11_ab_eval.py)`** — A/B/C evaluation framework with integrated denoiser.
+- **`[stage11_llm_layer_scan.py](stage11_llm_layer_scan.py)`** — Layer scan tool for phantom index, margin, and trend metrics.
+- **`[plot_contour_well.py](plot_contour_well.py)`** — PCA-2 visualization of “semantic wells” (pre vs post warp).
 - **Results files** (`*.json`, `*.pdf`, `*.png`) — Example benchmark outputs and comparison reports.
 
 ## Usage
