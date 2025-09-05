@@ -51,12 +51,15 @@ Install dependencies:
 !pip install transformers==4.55.2 torch==2.8.0 numpy==2.0.2 scikit-learn==1.6.1
 ```
 
+<<<<<<< HEAD
 Alternative (reproducible env via uv + Makefile):
 ```bash
 make init   # creates .venv with uv and syncs deps
 make nb     # launches Jupyter from the venv
 ```
 
+=======
+>>>>>>> hook-ngf
 ## Stage-11 (Current): Warp → Detect → Denoise
 Stage-11 introduced the breakthrough:
 * **Warp:** Embed latents into PCA(3) space, warp into a single dominant well.
@@ -96,8 +99,13 @@ python -u arc-benchmark-latest.py \
 * Iterate lightweight integration modes – start with scoring-only (rerank logits), then projection alignment, and finally soft attention gating, balancing determinism with compute cost.
 
 ## Technical Paper - WORK IN PROGRESS
+<<<<<<< HEAD
 - Moore, I. C. (2025). *Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
 - **Disclaimer**: This is a preliminary alpha-stage document (Sept 1, 2025) avaliable [here](docs/article_latest.pdf) from repos , subject to change. Feedback is welcome! 
+=======
+- Moore, I. C. (2025). *[Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)](docs/article_latest.pdf)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
+- **Disclaimer**: This is a preliminary alpha-stage document (Sept 1, 2025), subject to change. Feedback is welcome! 
+>>>>>>> hook-ngf
 - Provisional patents filed as #63/864,726, #63/865,437, 63/871,647, and 63/872,334.
 
 ## References

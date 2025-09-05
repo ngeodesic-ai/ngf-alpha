@@ -1,0 +1,350 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Stage-11 layer hook A/B harness (tap -9 by default)
+---------------------------------------------------
+- Loads an HF causal LM (e.g., gpt2)
+- Installs a forward hook at a target transformer block that applies a small, clamped
+  nudge in a 2D PCA chart toward a calibrated center c* (terraform@-9)
+- Guardrails: confidence/trend gate, epsilon clamp, annealed alpha, optional phantom-guard lite
+- Runs clean A/B on fixed prompts: (A) stock, (B) terraform@-9
+- Computes Δlogprob on the SAME completion tokens (stock’s greedy output), plus
+  side-by-side generations for inspection
+
+USAGE (example):
+  python3 stage11_ab_eval.py \
+    --model gpt2 \
+    --layer -9 \
+    --calib /content/wdd_t-9_k12.json \
+    --prompts "prompts.txt" \
+    --alpha 0.05 --eps 0.25 --k_last 12 --trend_tau 0.60 \
+    --max_new_tokens 64 --temperature 0.7 --top_p 0.95 \
+    --out_json ab_results.json
+
+Notes:
+- Calibration JSON schema (flexible):
+  {
+    "center": [cx, cy],              # required or will be estimated online
+    "k_last": 12,                    # optional (decision window size)
+    "trend": 0.62,                   # optional (for logging/reference)
+    "alpha": 0.05, "eps": 0.25,     # optional defaults
+    "tau": 0.60                      # optional (trend gate)
+  }
+- If no center is provided, we initialize c* to the online PCA mean of the decision window.
+- PCA is computed online per prompt via torch.pca_lowrank (no sklearn dependency).
+
+"""
+from __future__ import annotations
+import argparse, json, os, math, random, sys
+from dataclasses import dataclass
+from typing import List, Tuple, Optional, Dict
+
+import torch
+import torch.nn as nn
+from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
+
+# -------------------------
+# Utils
+# -------------------------
+
+def read_prompts(path_or_inline: str) -> List[str]:
+    if os.path.isfile(path_or_inline):
+        with open(path_or_inline, 'r') as f:
+            lines = [ln.strip("\n") for ln in f]
+        return [x for x in lines if x.strip()]
+    # allow comma-separated inline
+    if "\n" in path_or_inline:
+        return [s.strip() for s in path_or_inline.split("\n") if s.strip()]
+    if "," in path_or_inline:
+        return [s.strip() for s in path_or_inline.split(",") if s.strip()]
+    return [path_or_inline.strip()]
+
+@dataclass
+class Calib:
+    center: Optional[Tuple[float,float]] = None
+    k_last: int = 12
+    alpha: float = 0.05
+    eps: float = 0.25
+    trend_tau: float = 0.60
+
+    @staticmethod
+    def load(path: Optional[str]) -> 'Calib':
+        if not path: return Calib()
+        with open(path, 'r') as f:
+            obj = json.load(f)
+        c = obj.get('center', None)
+        if c is not None and len(c) >= 2:
+            center = (float(c[0]), float(c[1]))
+        else:
+            center = None
+        return Calib(
+            center=center,
+            k_last=int(obj.get('k_last', 12)),
+            alpha=float(obj.get('alpha', obj.get('α', 0.05))),
+            eps=float(obj.get('eps', 0.25)),
+            trend_tau=float(obj.get('tau', obj.get('trend_tau', 0.60)))
+        )
+
+# -------------------------
+# Stage-11 Hook
+# -------------------------
+
+class TerraformHook(nn.Module):
+    """Applies a tiny, clamped 2D inward nudge toward c* on the residual stream,
+    with online PCA over the last-k token states in the tapped block.
+    """
+    def __init__(self, layer_module: nn.Module, calib: Calib, alpha_max: float, device: torch.device):
+        super().__init__()
+        self.layer = layer_module
+        self.calib = calib
+        self.alpha_max = float(alpha_max)
+        self.device = device
+        self.buf: List[torch.Tensor] = []  # (hidden_dim,) per token
+        self.center2d: Optional[torch.Tensor] = None  # (2,)
+        self.handle = None
+
+    def _pca2(self, X: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        """Return mean μ (D,), PCs U (D,2), and projected Z (N,2) for X (N,D)."""
+        mu = X.mean(dim=0)
+        Xc = X - mu
+        # torch.pca_lowrank for stability on small N
+        U, S, V = torch.pca_lowrank(Xc, q=2, center=False)
+        U2 = U[:, :2]  # (D,2)
+        Z = Xc @ U2    # (N,2)
+        return mu, U2, Z
+
+    def _trend(self, R: torch.Tensor) -> float:
+        """Simple inward trend metric on radius over the buffer."""
+        if R.numel() < 3:
+            return 0.0
+        r = R.detach().float()
+        n = r.numel()
+        # correlate with descending ramp
+        t = torch.linspace(1.0, 0.0, steps=n, device=r.device)
+        num = torch.dot(r - r.mean(), t - t.mean())
+        den = torch.linalg.vector_norm(r - r.mean()) * torch.linalg.vector_norm(t - t.mean()) + 1e-8
+        return float((num / den).clamp(-1, 1).item())  # Pearson-like
+
+    def enable(self):
+        if self.handle is not None:
+            return
+        # Hook the block output (residual stream). We assume module returns a tuple (hidden, ...)
+        def _hook(module, inputs, output):
+            try:
+                if isinstance(output, tuple):
+                    hidden = output[0]
+                    rest = output[1:]
+                else:
+                    hidden = output
+                    rest = None
+                # hidden: (B,T,D) — apply only to the last position during generation
+                if hidden.dim() != 3:
+                    return output
+                B, T, D = hidden.shape
+                last = hidden[:, -1, :]  # (B,D)
+                for b in range(B):
+                    x = last[b]
+                    self.buf.append(x.detach().to(self.device))
+                # keep recent k_last per sequence (approx by global buffer limit)
+                K = max(4, int(self.calib.k_last))
+                if len(self.buf) > K:
+                    self.buf = self.buf[-K:]
+                X = torch.stack(self.buf, dim=0)  # (K,D)
+                mu, U2, Z = self._pca2(X)  # project buffer
+                z_t = (last[-1] - mu) @ U2  # (2,)
+                # determine center
+                if self.center2d is None:
+                    if self.calib.center is not None:
+                        self.center2d = torch.tensor(self.calib.center, device=self.device, dtype=z_t.dtype)
+                    else:
+                        # default to mean of window in 2D
+                        self.center2d = Z.mean(dim=0)
+                # inward vector
+                d = (self.center2d - z_t)
+                r = torch.linalg.vector_norm(d) + 1e-9
+                u = d / r
+                # compute trend over window radii
+                Rwin = torch.linalg.vector_norm(Z - self.center2d, dim=1)
+                tr = self._trend(Rwin)
+                # eligibility gate
+                if tr < self.calib.trend_tau:
+                    alpha = 0.0
+                else:
+                    # small annealing based on radius & trend
+                    base = min(self.alpha_max, max(0.0, self.calib.alpha))
+                    alpha = float(base * (0.5 + 0.5*tr))
+                # clamp step in 2D (eps in chart units)
+                step2d = alpha * torch.clamp(r, max=self.calib.eps) * u  # (2,)
+                # map back to D via PCs
+                stepD = step2d @ U2.T  # (D,)
+                # apply to last token only
+                last = last.clone()
+                last[-1] = last[-1] + stepD
+                hidden = hidden.clone()
+                hidden[:, -1, :] = last
+                if rest is None:
+                    return hidden
+                return (hidden, *rest)
+            except Exception:
+                # fail-open on any error
+                return output
+        self.handle = self.layer.register_forward_hook(_hook)
+
+    def disable(self):
+        if self.handle is not None:
+            try:
+                self.handle.remove()
+            except Exception:
+                pass
+            self.handle = None
+
+# -------------------------
+# Model & eval
+# -------------------------
+
+def get_block(module: nn.Module, layer_index: int) -> nn.Module:
+    # Try common names across GPT-2/OPT/Llama-ish architectures
+    for attr in ["transformer", "model"]:
+        if hasattr(module, attr):
+            root = getattr(module, attr)
+            break
+    else:
+        root = module
+    # candidate children with blocks
+    for name in ["h", "layers", "decoder.layers"]:
+        obj = root
+        for part in name.split('.'):
+            if hasattr(obj, part):
+                obj = getattr(obj, part)
+            else:
+                obj = None; break
+        if obj is not None:
+            blocks = obj
+            break
+    else:
+        raise RuntimeError("Could not locate transformer blocks on this model")
+    n = len(blocks)
+    idx = layer_index if layer_index >= 0 else (n + layer_index)
+    if idx < 0 or idx >= n:
+        raise IndexError(f"layer index out of range: {layer_index} in [0,{n-1}]")
+    return blocks[idx]
+
+@torch.no_grad()
+def greedy_generate(model, tokenizer, prompt, max_new_tokens=64):
+    device = next(model.parameters()).device
+    ids = tokenizer(prompt, return_tensors='pt').to(device)
+    out_ids = model.generate(**ids, do_sample=False, max_new_tokens=max_new_tokens)
+    text = tokenizer.decode(out_ids[0], skip_special_tokens=True)
+    # return only the completion for Δlogprob scoring
+    comp_ids = out_ids[0][ids['input_ids'].shape[1]:]
+    return text, out_ids[0], comp_ids
+
+@torch.no_grad()
+def mean_logprob_on_tokens(model, input_ids: torch.Tensor, target_tail: torch.Tensor) -> float:
+    """Compute mean logprob of target_tail tokens under the model, conditioning on full prefix."""
+    device = next(model.parameters()).device
+    full = input_ids.unsqueeze(0).to(device)
+    outputs = model(full)
+    logits = outputs.logits  # (1, L, V)
+    # shift logits to align with next-token targets
+    L = full.shape[1]
+    # targets are the tail tokens continuation; align indices
+    start = L - target_tail.shape[0]
+    if start < 1:
+        return float('nan')
+    logits_tail = logits[0, start-1:L-1, :]  # next token for each position
+    probs = logits_tail.log_softmax(dim=-1)
+    lp = probs[torch.arange(logits_tail.shape[0]), target_tail.to(device)]
+    return float(lp.mean().item())
+
+# -------------------------
+# Main A/B
+# -------------------------
+
+def run_ab(args):
+    device = torch.device('cuda' if torch.cuda.is_available() and not args.cpu else 'cpu')
+    set_seed(args.seed)
+    tok = AutoTokenizer.from_pretrained(args.model)
+    if tok.pad_token is None and tok.eos_token is not None:
+        tok.pad_token = tok.eos_token
+    model_stock = AutoModelForCausalLM.from_pretrained(args.model).to(device)
+    model_geo   = AutoModelForCausalLM.from_pretrained(args.model).to(device)
+    model_stock.eval(); model_geo.eval()
+
+    # Hook install on model_geo
+    block = get_block(model_geo, args.layer)
+    calib = Calib.load(args.calib)
+    hook = TerraformHook(block, calib, alpha_max=args.alpha, device=device)
+    hook.enable()
+
+    prompts = read_prompts(args.prompts)
+    rows = []
+    agg = dict(n=len(prompts), dlp_mean=0.0, trend_gate_hits=0)
+
+    for i, p in enumerate(prompts, 1):
+        # A) STOCK greedy completion and fixed tokens
+        stock_text, stock_full_ids, comp_ids = greedy_generate(model_stock, tok, p, args.max_new_tokens)
+        # B) Δlogprob on SAME tokens under both models
+        lp_stock = mean_logprob_on_tokens(model_stock, stock_full_ids, comp_ids)
+        lp_geo   = mean_logprob_on_tokens(model_geo,   stock_full_ids, comp_ids)
+        dlp = lp_geo - lp_stock
+        # Also get a geo completion for eyeball sanity
+        geo_text, _, _ = greedy_generate(model_geo, tok, p, args.max_new_tokens)
+        rows.append(dict(idx=i, prompt=p, dlp=dlp, stock_text=stock_text, geo_text=geo_text))
+        agg['dlp_mean'] += dlp
+        # trend gate count is approximated by alpha==0 events; expose via hook.calib.trend_tau but we need live stat
+        # For simplicity, log alpha>0 if the center was set and buffer length reached K
+        # (A more detailed per-step log would require deeper integration.)
+
+    if rows:
+        agg['dlp_mean'] = float(agg['dlp_mean'] / len(rows))
+
+    result = dict(
+        config=dict(model=args.model, layer=args.layer, alpha=args.alpha, eps=args.eps,
+                    k_last=calib.k_last, trend_tau=calib.trend_tau, center=calib.center),
+        aggregate=agg,
+        rows=rows,
+    )
+    if args.out_json:
+        with open(args.out_json, 'w') as f:
+            json.dump(result, f, indent=2)
+    # pretty print summary
+    print("[A/B] n=%d prompts | mean Δlogprob@chosen = %+0.4f" % (agg['n'], agg['dlp_mean']))
+    if args.out_json:
+        print(f"[JSON] {args.out_json}")
+
+# -------------------------
+# CLI
+# -------------------------
+
+def build_argparser():
+    ap = argparse.ArgumentParser(description="Stage-11 layer-9 A/B harness (terraform hook)")
+    ap.add_argument('--model', type=str, default='gpt2')
+    ap.add_argument('--layer', type=int, default=-9, help='tap index (negative allowed)')
+    ap.add_argument('--calib', type=str, default='', help='path to calibration JSON (center, k_last, etc.)')
+    ap.add_argument('--prompts', type=str, required=True, help='file path or comma/\n-separated inline prompts')
+    ap.add_argument('--alpha', type=float, default=0.05, help='base nudge scale')
+    ap.add_argument('--eps', type=float, default=0.25, help='2D clamp for step length')
+    ap.add_argument('--k_last', type=int, default=12, help='decision window if calib missing')
+    ap.add_argument('--trend_tau', type=float, default=0.60, help='eligibility gate if calib missing')
+    ap.add_argument('--max_new_tokens', type=int, default=64)
+    ap.add_argument('--temperature', type=float, default=0.7)
+    ap.add_argument('--top_p', type=float, default=0.95)
+    ap.add_argument('--seed', type=int, default=42)
+    ap.add_argument('--cpu', action='store_true')
+    ap.add_argument('--out_json', type=str, default='ab_results.json')
+    return ap
+
+if __name__ == '__main__':
+    args = build_argparser().parse_args()
+    # Allow CLI knobs to override missing calib fields
+    if args.calib and os.path.isfile(args.calib):
+        pass
+    else:
+        # synthesize a minimal calib inline
+        obj = dict(center=None, k_last=args.k_last, alpha=args.alpha, eps=args.eps, tau=args.trend_tau)
+        tmp = '_calib_tmp.json'
+        with open(tmp, 'w') as f:
+            json.dump(obj, f)
+        args.calib = tmp
+    run_ab(args)

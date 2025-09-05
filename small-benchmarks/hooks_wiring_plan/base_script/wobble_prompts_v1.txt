@@ -1,0 +1,56 @@
+Continue the list of weekdays starting with Monday; alternate UPPERCASE/lowercase for each day and append the ISO week number in parentheses.
+Count upward where every 4th number is Roman numerals and every 5th number is spelled-out English; continue the pattern.
+Generate an alternating sequence of words in pairs: alpha alpha beta beta; continue for at least 80 words.
+Print a chessboard row pattern repeating 'WB' eight times per line for eight lines; continue the grid without explanations.
+Continue the Fibonacci sequence, inserting the next prime in brackets between each Fibonacci number; begin with 1, 1.
+Write numbers from 1 upward; replace any number containing digit 7 with 'buzz'; continue.
+Produce the cycle A, B, C, D, then reverse D, C, B, A, then repeat; continue for 60 tokens.
+Repeat the sentence 'time bends' exactly 12 times; every third repetition append the count in square brackets.
+Continue a rhyme with AABB scheme and include the refrain '— keep it straight —' every 4th line.
+Extend CSV rows with header: id,name,value,start,end; id+=1 each row, value +=3, start = prev end, end = start + 5; continue 20 rows.
+Continue a JSON array of objects with keys 'i','parity','square'; ensure valid JSON with no trailing comma; start at i=1.
+Alternate languages per item: English 'cat', Spanish 'gato', German 'Katze', French 'chat'; loop and number each item.
+Produce nested parentheses increasing to 8 levels then decreasing: (), (()), ((())), ... mirror cleanly.
+Arithmetic progression starting at 2 difference 3; every 5th term write in binary prefixed by 0b.
+Continue a markdown checklist '- [ ] task n'; every 7th item mark '- [x] task n (done)'.
+Generate lines of 'la' syllables: first line 2 'la', second 3, up to 12, then back down to 2; keep pyramid centered.
+Alternate JSON and YAML snippets for the same key 'i' incrementing; ensure both are syntactically valid.
+Continue the color cycle 'red, red, blue'; every 10th color is 'green' instead.
+Interleave even numbers ascending from 2 with odd numbers descending from 99.
+Cycle through consonant letters only; skip vowels; insert '*' whenever you wrap from 'z' to 'b'.
+Spell numbers one to twenty, then twenty to one; repeat; separate with commas.
+Generate clock times starting 00:00 increasing by 7 minutes each step; wrap at 24:00.
+Continue the bracket sequence [], {}, (), <> repeating; concatenate without spaces; newline after every 16 brackets.
+Produce hex bytes 0x00..0x3F, 16 per line separated by spaces; then wrap and continue.
+Compose an acrostic: each line starts with the next letter of the alphabet; loop after Z.
+Generate musical scale degrees I, ii, iii, IV, V, vi, vii°, then transpose up a semitone and repeat.
+Alternate persona lines: 'You are concise.' then 'You are verbose.'; number each line; continue.
+Write each sentence followed by its Pig Latin translation on the next line; start counting from 1.
+Generate pseudo-IPs: 192.168.x.y with x cycling 0–9 fastest and y incrementing when x wraps; show 50 entries.
+Produce Pascal's triangle rows 1–12, replacing even numbers with '.'; continue.
+Output a binary counter padded to 8 bits from 00000000 upward; insert a hyphen between nybbles.
+Continue the Hailstone (Collatz) sequence starting at 27 with arrows '->' separators.
+Write palindromic strings of increasing length using 'ab' mirrored exactly.
+Alternate metric and imperial lengths, converting 1 m = 3.28084 ft; start at 1 m; continue.
+Continue a table: idx | letter | idx%3 ; keep '|' alignment; start at idx=1.
+Generate dates from 2025-01-01 increasing by 5 days; append ISO weekday in parentheses; handle month changes.
+Write coordinates tracing a square spiral from (0,0): right 1, up 1, left 2, down 2, right 3, ... continue.
+Alternate uppercase/lowercase characters for the word 'stability' repeated; keep spacing consistent.
+Continue a sentence where every 8th word is exactly 'ANCHOR'; maintain word counts.
+Cycle emojis 😀😐😞😐; repeat and insert 🔁 after every 8 emojis.
+Generate directory paths: /a, /a/b, /a/b/c up to depth 10, then step back up one at a time.
+Output the repeating decimal expansion of 1/7 grouped in blocks of 6 digits; space between blocks.
+Continue a mixed list numbering: 1., a), i), 2., b), ii), ... with proper nesting.
+Alternate open/close curly quotes across words starting with “ and matching with ” correctly.
+List U.S. states alphabetically but remove every 5th item; after reaching the end, repeat the cycle with the remaining list.
+Render tiny XML empty elements <i n='k'/> for k=1..; ensure valid XML and no stray text.
+Compose couplets where line 2 repeats line 1 with the last word swapped for a rhyme; continue.
+Interleave the word 'echo' exactly three times after every sentence; preserve punctuation.
+Output primes, but replace any prime ending in 3 with '[p3]'.
+Generate alternating hex strings: length 8 then length 16, only [0-9a-f]; continue.
+Flip 'yes'/'no' every token; insert 'maybe' every 13th token.
+Create a CSV of n,n^2,n^3 starting from 1; one row per line; no trailing comma.
+Repeat the pattern 'tap tap pause'; every 5th cycle use 'long pause' instead of 'pause'.
+Write Roman numerals for 1..50; any multiple of 9 must be lowercase.
+Produce a deterministic sequence: start x0=42; x_{t+1}=(x_t*1664525+1013904223) mod 2^32; print x_t; continue.
+Continue alternating two-letter syllables 'ba', 'be', 'bi', 'bo', 'bu', then reverse, and repeat.

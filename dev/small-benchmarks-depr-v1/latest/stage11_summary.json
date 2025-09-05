@@ -1,0 +1,52 @@
+{
+  "samples": 200,
+  "geodesic": {
+    "accuracy_exact": 0.56,
+    "precision": 0.8008333333333337,
+    "recall": 0.995,
+    "f1": 0.8659999999999998,
+    "jaccard": 0.8008333333333337,
+    "hallucination_rate": 0.1991666666666666,
+    "omission_rate": 0.005
+  },
+  "stock": {
+    "accuracy_exact": 0.415,
+    "precision": 0.8566666666666667,
+    "recall": 0.7891666666666666,
+    "f1": 0.7828333333333337,
+    "jaccard": 0.6991666666666668,
+    "hallucination_rate": 0.1433333333333333,
+    "omission_rate": 0.21083333333333343
+  },
+  "phantom_index": 0.028852886258795837,
+  "margin": 0.016051339566431566,
+  "center": [
+    -0.0025841956578855334,
+    0.6223056823233436
+  ],
+  "sigma": 1.139084112909666,
+  "plot_raw": "manifold_pca3_mesh_warped.png",
+  "plot_fitted": "manifold_pca3_mesh_warped_fit.png",
+  "geometry": {
+    "fit_quantile": 0.65,
+    "rbf_bw": 0.3,
+    "core_k": 0.18,
+    "core_p": 1.7,
+    "core_r0_frac": 0.14,
+    "blend_core": 0.25,
+    "template_D": 1.2,
+    "template_p": 1.6,
+    "n_theta": 160,
+    "n_r": 220
+  },
+  "parser_prior": {
+    "use_funnel_prior": true,
+    "alpha": 0.05,
+    "beta_s": 0.25,
+    "q_s": 2,
+    "tau_rel": 0.6,
+    "tau_abs_q": 0.93,
+    "null_K": 40
+  },
+  "csv": "stage11_metrics.csv"
+}

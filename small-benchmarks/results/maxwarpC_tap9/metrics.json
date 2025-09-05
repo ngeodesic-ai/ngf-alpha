@@ -1,0 +1,83 @@
+{
+  "mode": "ngf",
+  "model": "gpt2",
+  "split": "validation",
+  "n": 1000,
+  "accuracy": 0.354,
+  "correct": 354,
+  "elapsed_sec": 253.8955008983612,
+  "device": "cpu",
+  "ngf_status": "NGF attached via ngf_hooks_v2:attach_ngf_hooks with cfg={'tap': -9, 'alpha0': 0.06, 'alpha_min': 0.012, 'trend_tau': 0.3, 'k_tr': 12, 'use_detect': 1, 'detect_width': 22, 'detect_sigma': 4.5, 'null_K': 32, 'null_q': 0.92, 'k_det': 8, 's_latch': 0.35, 'linger': 3, 'ema_center_beta': 0.04, 'gen_mode': 'geo', 'save_hidden': 1, 'hidden_dump_dir': 'results/maxwarpA'}",
+  "metrics": {
+    "accuracy_top1": 0.354,
+    "accuracy_top2": 0.621,
+    "macro": {
+      "precision": 0.35380776981449263,
+      "recall": 0.3538620156285684,
+      "f1": 0.3537526546599522
+    },
+    "micro": {
+      "precision": 0.35399999999999965,
+      "recall": 0.35399999999999965,
+      "f1": 0.3539999999999998
+    },
+    "per_class": [
+      {
+        "precision": 0.35937500000000244,
+        "recall": 0.34980988593156137,
+        "f1": 0.35452793834246976
+      },
+      {
+        "precision": 0.3292181069958875,
+        "recall": 0.34482758620689935,
+        "f1": 0.33684210526266095
+      },
+      {
+        "precision": 0.3607843137254927,
+        "recall": 0.3650793650793676,
+        "f1": 0.36291913214940397
+      },
+      {
+        "precision": 0.3658536585365879,
+        "recall": 0.35573122529644524,
+        "f1": 0.3607214428852742
+      }
+    ],
+    "confusion_matrix": [
+      [
+        92,
+        63,
+        61,
+        47
+      ],
+      [
+        59,
+        80,
+        42,
+        51
+      ],
+      [
+        54,
+        48,
+        92,
+        58
+      ],
+      [
+        51,
+        52,
+        60,
+        90
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.08109190150341879,
+      "brier": 0.7436838168414257,
+      "mean_margin": 0.16525946993976723,
+      "entropy": 1.2355190116063302
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.0,
+      "wrong_p>=0.70": 0.012
+    }
+  }
+}

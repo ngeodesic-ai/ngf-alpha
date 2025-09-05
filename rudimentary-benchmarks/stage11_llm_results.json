@@ -1,0 +1,214 @@
+{
+  "rows": [
+    {
+      "sample": 1,
+      "input": "urllw",
+      "order_true": "sort",
+      "order_pred": "reverse",
+      "ok": false,
+      "areas": {
+        "reverse": 0.30125767376939033,
+        "uppercase": 0.3810004584220832,
+        "sort": 0.513872213065719
+      },
+      "corr": {
+        "reverse": 0.18313923506831326,
+        "uppercase": 0.12146892435654172,
+        "sort": 0.1949173837458826
+      }
+    },
+    {
+      "sample": 2,
+      "input": "cnztt",
+      "order_true": "sort|reverse|uppercase",
+      "order_pred": "uppercase",
+      "ok": false,
+      "areas": {
+        "reverse": 0.2367574246209525,
+        "uppercase": 0.35585671795896556,
+        "sort": 0.1617355164881763
+      },
+      "corr": {
+        "reverse": 0.05331666045775287,
+        "uppercase": 0.08714998423223173,
+        "sort": -0.21886874500072365
+      }
+    },
+    {
+      "sample": 3,
+      "input": "eyuqkv",
+      "order_true": "reverse|uppercase",
+      "order_pred": "uppercase",
+      "ok": false,
+      "areas": {
+        "reverse": 0.8670424434918494,
+        "uppercase": 1.1992463043190822,
+        "sort": 1.0345005554123583
+      },
+      "corr": {
+        "reverse": -0.08934534138845465,
+        "uppercase": -0.0027479226922770454,
+        "sort": -0.0340827696471525
+      }
+    },
+    {
+      "sample": 4,
+      "input": "xbwvhqe",
+      "order_true": "reverse|uppercase|sort",
+      "order_pred": "uppercase",
+      "ok": false,
+      "areas": {
+        "reverse": 0.5671764099263721,
+        "uppercase": 2.482396893347576,
+        "sort": 0.5922988151523398
+      },
+      "corr": {
+        "reverse": -0.3002121296135847,
+        "uppercase": -0.041251606796601566,
+        "sort": -0.23998975500468228
+      }
+    },
+    {
+      "sample": 5,
+      "input": "utfjmmb",
+      "order_true": "sort|reverse",
+      "order_pred": "uppercase",
+      "ok": false,
+      "areas": {
+        "reverse": 0.23210788512787647,
+        "uppercase": 1.6732293477250806,
+        "sort": 0.16988902248629884
+      },
+      "corr": {
+        "reverse": -0.24109510062267256,
+        "uppercase": 0.06061725689969957,
+        "sort": -0.41194537851611684
+      }
+    },
+    {
+      "sample": 6,
+      "input": "jzkixjb",
+      "order_true": "uppercase|reverse",
+      "order_pred": "uppercase",
+      "ok": false,
+      "areas": {
+        "reverse": 0.41346975307861783,
+        "uppercase": 1.4155670172181019,
+        "sort": 0.5108558348409592
+      },
+      "corr": {
+        "reverse": -0.06983491365681824,
+        "uppercase": -0.024518288631700226,
+        "sort": -0.15729680124961165
+      }
+    },
+    {
+      "sample": 7,
+      "input": "miforyl",
+      "order_true": "sort",
+      "order_pred": "uppercase",
+      "ok": false,
+      "areas": {
+        "reverse": 0.2135341307957217,
+        "uppercase": 0.3702908677717191,
+        "sort": 0.25017798767953586
+      },
+      "corr": {
+        "reverse": -0.12182229539634509,
+        "uppercase": -0.05312347429049864,
+        "sort": -0.28158863416273977
+      }
+    },
+    {
+      "sample": 8,
+      "input": "scitvlu",
+      "order_true": "uppercase|reverse|sort",
+      "order_pred": "uppercase",
+      "ok": false,
+      "areas": {
+        "reverse": 0.13404276942877286,
+        "uppercase": 0.34244283594912156,
+        "sort": 0.13605373046851246
+      },
+      "corr": {
+        "reverse": -0.16711016488928937,
+        "uppercase": 0.02021831698333726,
+        "sort": -0.46130464263072923
+      }
+    },
+    {
+      "sample": 9,
+      "input": "vfuau",
+      "order_true": "reverse|uppercase|sort",
+      "order_pred": "reverse",
+      "ok": false,
+      "areas": {
+        "reverse": 0.25279614818901774,
+        "uppercase": 0.17909128841124772,
+        "sort": 0.14622286123950606
+      },
+      "corr": {
+        "reverse": 0.21010175126864072,
+        "uppercase": 0.041884757353901486,
+        "sort": -0.3346426804327429
+      }
+    },
+    {
+      "sample": 10,
+      "input": "lnoadgc",
+      "order_true": "uppercase|sort",
+      "order_pred": "reverse",
+      "ok": false,
+      "areas": {
+        "reverse": 0.524624640896107,
+        "uppercase": 0.4319439744727253,
+        "sort": 0.6881293728448351
+      },
+      "corr": {
+        "reverse": 0.16349155233254087,
+        "uppercase": 0.07817714374925737,
+        "sort": 0.0675528146808859
+      }
+    },
+    {
+      "sample": 11,
+      "input": "ctoqooc",
+      "order_true": "uppercase|reverse",
+      "order_pred": "sort",
+      "ok": false,
+      "areas": {
+        "reverse": 0.2349528887316878,
+        "uppercase": 0.7804024116434249,
+        "sort": 0.19274266012441088
+      },
+      "corr": {
+        "reverse": 0.05664299033596439,
+        "uppercase": 0.0790355640447194,
+        "sort": 0.15003695319448668
+      }
+    },
+    {
+      "sample": 12,
+      "input": "lzfhkz",
+      "order_true": "uppercase|sort|reverse",
+      "order_pred": "sort",
+      "ok": false,
+      "areas": {
+        "reverse": 0.45711294047356393,
+        "uppercase": 1.6009432279812892,
+        "sort": 0.4321992883636321
+      },
+      "corr": {
+        "reverse": -0.20114181310466256,
+        "uppercase": -0.10514750667007648,
+        "sort": -0.07568130098219016
+      }
+    }
+  ],
+  "summary": {
+    "model": "gpt2",
+    "layer": 8,
+    "samples": 12,
+    "accuracy_exact": 0.0
+  }
+}

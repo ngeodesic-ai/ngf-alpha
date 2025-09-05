@@ -1,0 +1,83 @@
+{
+  "mode": "ngf",
+  "model": "gpt2",
+  "split": "validation",
+  "n": 1000,
+  "accuracy": 0.32,
+  "correct": 320,
+  "elapsed_sec": 277.26647996902466,
+  "device": "cpu",
+  "ngf_status": "NGF attached via ngf_hooks:attach_ngf_hooks with cfg={'tap': -9, 'alpha0': 0.05, 'alpha_min': 0.006, 'trend_tau': 0.32, 'k_tr': 12, 'use_detect': 1, 'detect_width': 20, 'detect_sigma': 5.0, 'null_K': 32, 'null_q': 0.92, 'k_det': 8, 's_latch': 0.3, 'linger': 2, 'ema_center_beta': 0.05, 'gen_mode': 'geo', 'save_hidden': 0, 'hidden_dump_dir': ''}",
+  "metrics": {
+    "accuracy_top1": 0.32,
+    "accuracy_top2": 0.608,
+    "macro": {
+      "precision": 0.3193341508329738,
+      "recall": 0.3193342961130197,
+      "f1": 0.3192513598918285
+    },
+    "micro": {
+      "precision": 0.3199999999999997,
+      "recall": 0.3199999999999997,
+      "f1": 0.31999999999999984
+    },
+    "per_class": [
+      {
+        "precision": 0.32472324723247475,
+        "recall": 0.33460076045627624,
+        "f1": 0.329588014980776
+      },
+      {
+        "precision": 0.2857142857142887,
+        "recall": 0.2931034482758651,
+        "f1": 0.28936170212716267
+      },
+      {
+        "precision": 0.3585657370517954,
+        "recall": 0.3571428571428597,
+        "f1": 0.35785288270328
+      },
+      {
+        "precision": 0.3083333333333362,
+        "recall": 0.2924901185770779,
+        "f1": 0.30020283975609546
+      }
+    ],
+    "confusion_matrix": [
+      [
+        88,
+        64,
+        53,
+        58
+      ],
+      [
+        60,
+        68,
+        46,
+        58
+      ],
+      [
+        63,
+        49,
+        90,
+        50
+      ],
+      [
+        60,
+        57,
+        62,
+        74
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.11494704856941909,
+      "brier": 0.7492122724369326,
+      "mean_margin": 0.15954052727540335,
+      "entropy": 1.2293320887754975
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.0,
+      "wrong_p>=0.70": 0.008
+    }
+  }
+}

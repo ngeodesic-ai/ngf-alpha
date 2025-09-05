@@ -1,0 +1,1 @@
+{"train": [{"input": [[5, 4], [1, 3]], "output": [[1, 4], [5, 3]]}, {"input": [[5, 1], [4, 3]], "output": [[1, 5], [4, 3]]}], "test": [{"input": [[5, 3], [4, 1]], "output": [[1, 3], [4, 5]]}], "meta": {"transform": "color_swap", "params": {"a": 1, "b": 5}}}

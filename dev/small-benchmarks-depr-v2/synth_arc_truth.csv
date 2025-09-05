@@ -1,0 +1,201 @@
+prompt,true
+Compute 22*49. Return only the integer.,1078
+"Given a 3x3 grid of integers, perform rotate_90. Return only the final operation name in snake_case.",rotate_90
+"Normalize to lowercase, remove duplicates, and sort: pear, Melon, Pear, APPLE, Orange, Banana, Apple. Return comma-separated","apple,banana,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: grape, pear, APPLE, kiwi, orange. Return comma-separated","apple,grape,kiwi,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: pear, Apple, Melon, kiwi, orange, Orange. Return comma-separated","apple,kiwi,melon,orange,pear"
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+Compute 31+66. Return only the integer.,97
+"Normalize to lowercase, remove duplicates, and sort: Apple, orange, Melon, pear, kiwi, melon, Orange. Return comma-separated","apple,kiwi,melon,orange,pear"
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Normalize to lowercase, remove duplicates, and sort: Banana, orange, grape, Apple, kiwi. Return comma-separated","apple,banana,grape,kiwi,orange"
+"Normalize to lowercase, remove duplicates, and sort: Banana, melon, Apple, banana, Pear. Return comma-separated","apple,banana,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: Melon, kiwi, banana, Pear, orange. Return comma-separated","banana,kiwi,melon,orange,pear"
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Normalize to lowercase, remove duplicates, and sort: orange, melon, Orange, pear, banana, Pear. Return comma-separated","banana,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: banana, APPLE, pear, orange, Pear, Orange. Return comma-separated","apple,banana,orange,pear"
+Compute 66*15. Return only the integer.,990
+"Normalize to lowercase, remove duplicates, and sort: pear, Pear, APPLE, orange, Banana, banana, kiwi. Return comma-separated","apple,banana,kiwi,orange,pear"
+Compute 67+65. Return only the integer.,132
+"Normalize to lowercase, remove duplicates, and sort: Pear, banana, Orange, kiwi, Apple. Return comma-separated","apple,banana,kiwi,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: Apple, banana, Pear, APPLE, Melon, grape. Return comma-separated","apple,banana,grape,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: Orange, APPLE, orange, Apple, kiwi, Melon. Return comma-separated","apple,kiwi,melon,orange"
+Compute 59*77. Return only the integer.,4543
+Compute 89*70. Return only the integer.,6230
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Normalize to lowercase, remove duplicates, and sort: APPLE, kiwi, pear, melon, Melon, orange. Return comma-separated","apple,kiwi,melon,orange,pear"
+Compute 84-60. Return only the integer.,24
+"Normalize to lowercase, remove duplicates, and sort: melon, Banana, Orange, APPLE, Pear, orange, Apple. Return comma-separated","apple,banana,melon,orange,pear"
+Compute 28*87. Return only the integer.,2436
+Compute 98+8. Return only the integer.,106
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+"Normalize to lowercase, remove duplicates, and sort: orange, banana, Apple, Melon, Orange, grape, melon. Return comma-separated","apple,banana,grape,melon,orange"
+Compute 89+56. Return only the integer.,145
+Compute 96-37. Return only the integer.,59
+"Normalize to lowercase, remove duplicates, and sort: Orange, Apple, pear, orange. Return comma-separated","apple,orange,pear"
+Compute 21-82. Return only the integer.,-61
+"Normalize to lowercase, remove duplicates, and sort: banana, Orange, kiwi, Melon, APPLE. Return comma-separated","apple,banana,kiwi,melon,orange"
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+Compute 30+19. Return only the integer.,49
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+Compute 5-13. Return only the integer.,-8
+"Normalize to lowercase, remove duplicates, and sort: grape, APPLE, kiwi, melon, Melon, pear, banana. Return comma-separated","apple,banana,grape,kiwi,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: Banana, Pear, Apple, melon. Return comma-separated","apple,banana,melon,pear"
+"Given a 3x3 grid of integers, perform rotate_90. Return only the final operation name in snake_case.",rotate_90
+"Normalize to lowercase, remove duplicates, and sort: Pear, melon, kiwi, APPLE, Banana, Melon. Return comma-separated","apple,banana,kiwi,melon,pear"
+Compute 82*81. Return only the integer.,6642
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Normalize to lowercase, remove duplicates, and sort: banana, Pear, pear, grape, Banana, kiwi, Melon. Return comma-separated","banana,grape,kiwi,melon,pear"
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+Compute 51/3. Return only the integer.,17
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Normalize to lowercase, remove duplicates, and sort: grape, orange, APPLE, melon, Apple. Return comma-separated","apple,grape,melon,orange"
+"Normalize to lowercase, remove duplicates, and sort: Apple, kiwi, melon, Melon. Return comma-separated","apple,kiwi,melon"
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Normalize to lowercase, remove duplicates, and sort: melon, grape, Melon, Apple, banana, Banana, Orange. Return comma-separated","apple,banana,grape,melon,orange"
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Normalize to lowercase, remove duplicates, and sort: Melon, APPLE, pear, Banana, banana, Pear, grape. Return comma-separated","apple,banana,grape,melon,pear"
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+Compute 66-99. Return only the integer.,-33
+"Normalize to lowercase, remove duplicates, and sort: grape, APPLE, Pear, orange, Melon, banana. Return comma-separated","apple,banana,grape,melon,orange,pear"
+"Given a 3x3 grid of integers, perform rotate_90. Return only the final operation name in snake_case.",rotate_90
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Normalize to lowercase, remove duplicates, and sort: Pear, melon, Orange, orange. Return comma-separated","melon,orange,pear"
+Compute 29/1. Return only the integer.,29
+Compute 7-86. Return only the integer.,-79
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Normalize to lowercase, remove duplicates, and sort: Apple, APPLE, Pear, pear, kiwi. Return comma-separated","apple,kiwi,pear"
+Compute 47*46. Return only the integer.,2162
+"Normalize to lowercase, remove duplicates, and sort: banana, Orange, Apple, APPLE, Pear, kiwi. Return comma-separated","apple,banana,kiwi,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: melon, APPLE, kiwi, Orange, Banana. Return comma-separated","apple,banana,kiwi,melon,orange"
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Given a 3x3 grid of integers, perform rotate_90. Return only the final operation name in snake_case.",rotate_90
+"Normalize to lowercase, remove duplicates, and sort: APPLE, kiwi, Pear, pear, grape, melon. Return comma-separated","apple,grape,kiwi,melon,pear"
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+Compute 35-19. Return only the integer.,16
+"Normalize to lowercase, remove duplicates, and sort: Orange, orange, banana, Pear, kiwi, Banana, Apple. Return comma-separated","apple,banana,kiwi,orange,pear"
+Compute 77+56. Return only the integer.,133
+Compute 97*73. Return only the integer.,7081
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Normalize to lowercase, remove duplicates, and sort: orange, Apple, banana, Orange, Banana, APPLE, melon. Return comma-separated","apple,banana,melon,orange"
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+Compute 83-66. Return only the integer.,17
+Compute 83+16. Return only the integer.,99
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+Compute 2-99. Return only the integer.,-97
+"Normalize to lowercase, remove duplicates, and sort: Apple, banana, APPLE, Banana, Orange, Melon. Return comma-separated","apple,banana,melon,orange"
+Compute 60*83. Return only the integer.,4980
+"Normalize to lowercase, remove duplicates, and sort: orange, grape, Pear, Apple, kiwi, Orange. Return comma-separated","apple,grape,kiwi,orange,pear"
+Compute 39-12. Return only the integer.,27
+Compute 91*56. Return only the integer.,5096
+"Normalize to lowercase, remove duplicates, and sort: kiwi, Banana, grape, banana, Melon. Return comma-separated","banana,grape,kiwi,melon"
+Compute 29*74. Return only the integer.,2146
+Compute 70-95. Return only the integer.,-25
+"Normalize to lowercase, remove duplicates, and sort: Pear, Orange, Apple, Melon, grape, melon, Banana. Return comma-separated","apple,banana,grape,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: pear, orange, Pear, Banana. Return comma-separated","banana,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: grape, Orange, orange, Pear, Melon, banana. Return comma-separated","banana,grape,melon,orange,pear"
+Compute 99+45. Return only the integer.,144
+"Normalize to lowercase, remove duplicates, and sort: Orange, orange, grape, Melon, Pear, melon. Return comma-separated","grape,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: melon, Pear, Banana, grape. Return comma-separated","banana,grape,melon,pear"
+Compute 73/1. Return only the integer.,73
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Normalize to lowercase, remove duplicates, and sort: Orange, orange, Banana, Pear, Melon, Apple. Return comma-separated","apple,banana,melon,orange,pear"
+Compute 48-30. Return only the integer.,18
+Compute 71+69. Return only the integer.,140
+"Normalize to lowercase, remove duplicates, and sort: melon, kiwi, orange, grape, Banana, pear, Apple. Return comma-separated","apple,banana,grape,kiwi,melon,orange,pear"
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Normalize to lowercase, remove duplicates, and sort: Apple, Melon, Orange, grape, Banana, melon. Return comma-separated","apple,banana,grape,melon,orange"
+Compute 16*48. Return only the integer.,768
+Compute 32-9. Return only the integer.,23
+Compute 39-57. Return only the integer.,-18
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+Compute 22/11. Return only the integer.,2
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Normalize to lowercase, remove duplicates, and sort: APPLE, kiwi, Apple, orange, Orange. Return comma-separated","apple,kiwi,orange"
+Compute 21-49. Return only the integer.,-28
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+Compute 7/7. Return only the integer.,1
+Compute 31*6. Return only the integer.,186
+Compute 14*50. Return only the integer.,700
+"Normalize to lowercase, remove duplicates, and sort: Orange, pear, banana, APPLE, orange, melon. Return comma-separated","apple,banana,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: Banana, banana, Orange, melon. Return comma-separated","banana,melon,orange"
+Compute 97/1. Return only the integer.,97
+"Normalize to lowercase, remove duplicates, and sort: melon, banana, Banana, APPLE, Melon, Apple. Return comma-separated","apple,banana,melon"
+Compute 75+26. Return only the integer.,101
+"Normalize to lowercase, remove duplicates, and sort: pear, kiwi, banana, APPLE, grape, Orange. Return comma-separated","apple,banana,grape,kiwi,orange,pear"
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+Compute 50*12. Return only the integer.,600
+Compute 83-90. Return only the integer.,-7
+"Normalize to lowercase, remove duplicates, and sort: Banana, melon, APPLE, Melon, grape, Orange. Return comma-separated","apple,banana,grape,melon,orange"
+"Normalize to lowercase, remove duplicates, and sort: Pear, Orange, melon, Apple. Return comma-separated","apple,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: Pear, melon, Orange, kiwi, Melon, orange, grape. Return comma-separated","grape,kiwi,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: orange, banana, Banana, Orange, kiwi, grape. Return comma-separated","banana,grape,kiwi,orange"
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Normalize to lowercase, remove duplicates, and sort: kiwi, Melon, melon, orange. Return comma-separated","kiwi,melon,orange"
+"Normalize to lowercase, remove duplicates, and sort: kiwi, banana, melon, Pear, pear, Melon, orange. Return comma-separated","banana,kiwi,melon,orange,pear"
+"Normalize to lowercase, remove duplicates, and sort: Apple, kiwi, grape, banana. Return comma-separated","apple,banana,grape,kiwi"
+"Normalize to lowercase, remove duplicates, and sort: Apple, orange, melon, kiwi, pear, Orange, Melon. Return comma-separated","apple,kiwi,melon,orange,pear"
+Compute 79-83. Return only the integer.,-4
+"Normalize to lowercase, remove duplicates, and sort: Pear, grape, melon, kiwi, Melon. Return comma-separated","grape,kiwi,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: Orange, Pear, pear, Melon. Return comma-separated","melon,orange,pear"
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+"Normalize to lowercase, remove duplicates, and sort: melon, pear, banana, orange, Melon, Apple, kiwi. Return comma-separated","apple,banana,kiwi,melon,orange,pear"
+Compute 13+50. Return only the integer.,63
+Compute 37-21. Return only the integer.,16
+"Normalize to lowercase, remove duplicates, and sort: Orange, Melon, Pear, pear, Apple, kiwi, Banana. Return comma-separated","apple,banana,kiwi,melon,orange,pear"
+Compute 53+36. Return only the integer.,89
+"Normalize to lowercase, remove duplicates, and sort: orange, kiwi, Melon, APPLE. Return comma-separated","apple,kiwi,melon,orange"
+Compute 88+96. Return only the integer.,184
+"Given a 3x3 grid of integers, perform rotate_90. Return only the final operation name in snake_case.",rotate_90
+Compute 72+3. Return only the integer.,75
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+Compute 74+12. Return only the integer.,86
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Normalize to lowercase, remove duplicates, and sort: grape, banana, APPLE, kiwi, Orange, Banana. Return comma-separated","apple,banana,grape,kiwi,orange"
+Compute 91+89. Return only the integer.,180
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Normalize to lowercase, remove duplicates, and sort: melon, kiwi, Pear, pear. Return comma-separated","kiwi,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: melon, Melon, APPLE, grape, pear. Return comma-separated","apple,grape,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: Pear, Apple, grape, kiwi. Return comma-separated","apple,grape,kiwi,pear"
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Normalize to lowercase, remove duplicates, and sort: Banana, Pear, Melon, APPLE, grape, banana, Apple. Return comma-separated","apple,banana,grape,melon,pear"
+Compute 78/2. Return only the integer.,39
+"Normalize to lowercase, remove duplicates, and sort: Melon, Pear, grape, orange, kiwi. Return comma-separated","grape,kiwi,melon,orange,pear"
+Compute 84+45. Return only the integer.,129
+"Normalize to lowercase, remove duplicates, and sort: pear, banana, kiwi, Melon, APPLE. Return comma-separated","apple,banana,kiwi,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: APPLE, Pear, grape, Apple, melon. Return comma-separated","apple,grape,melon,pear"
+"Given a 3x3 grid of integers, perform transpose_anti_diag. Return only the final operation name in snake_case.",transpose_anti_diag
+Compute 60*2. Return only the integer.,120
+Compute 89+43. Return only the integer.,132
+Compute 95+64. Return only the integer.,159
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Normalize to lowercase, remove duplicates, and sort: grape, kiwi, pear, APPLE, Orange. Return comma-separated","apple,grape,kiwi,orange,pear"
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Normalize to lowercase, remove duplicates, and sort: melon, Melon, Pear, Banana, grape, banana. Return comma-separated","banana,grape,melon,pear"
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Normalize to lowercase, remove duplicates, and sort: APPLE, Melon, Orange, kiwi, pear. Return comma-separated","apple,kiwi,melon,orange,pear"
+"Given a 3x3 grid of integers, perform rotate_90. Return only the final operation name in snake_case.",rotate_90
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h
+"Normalize to lowercase, remove duplicates, and sort: Apple, grape, Orange, banana. Return comma-separated","apple,banana,grape,orange"
+"Normalize to lowercase, remove duplicates, and sort: melon, Melon, APPLE, orange, grape. Return comma-separated","apple,grape,melon,orange"
+"Normalize to lowercase, remove duplicates, and sort: Melon, Apple, banana, melon, Pear, pear, Banana. Return comma-separated","apple,banana,melon,pear"
+"Given a 3x3 grid of integers, perform transpose_main_diag. Return only the final operation name in snake_case.",transpose_main_diag
+"Normalize to lowercase, remove duplicates, and sort: Banana, Melon, Pear, Apple, melon. Return comma-separated","apple,banana,melon,pear"
+"Normalize to lowercase, remove duplicates, and sort: grape, Banana, Melon, orange. Return comma-separated","banana,grape,melon,orange"
+"Given a 3x3 grid of integers, perform rotate_180. Return only the final operation name in snake_case.",rotate_180
+"Given a 3x3 grid of integers, perform flip_v. Return only the final operation name in snake_case.",flip_v
+"Normalize to lowercase, remove duplicates, and sort: Pear, Melon, orange, Orange, kiwi, grape. Return comma-separated","grape,kiwi,melon,orange,pear"
+"Given a 3x3 grid of integers, perform flip_h. Return only the final operation name in snake_case.",flip_h

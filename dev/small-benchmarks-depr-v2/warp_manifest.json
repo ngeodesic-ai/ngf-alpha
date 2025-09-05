@@ -1,0 +1,16 @@
+{
+  "model": "gpt2",
+  "tap": -9,
+  "layer_idx": 3,
+  "alpha": 0.6,
+  "r0": 1.138835314435974,
+  "pool_mode": "lastk",
+  "k_last": 8,
+  "nbins": 96,
+  "sigma_px": 5.0,
+  "density_floor": 4.0,
+  "min_prom": 0.55,
+  "calib_count": 900,
+  "eval_count": 200,
+  "notes": "Use stage11_warp_run.py with this NPZ to register the warp hook."
+}
