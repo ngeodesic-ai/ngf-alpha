@@ -26,7 +26,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | LLM System | CPU | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/stage9.py) | LLM System | CPU | warp-interference/ |
 | 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | LLM System  | CPU | rudimentary-interference/ |
-| 11 | [Small Benchmarks](small-benchmarks/ngf_benchmark.py) | LLM System   | CPU | small-benchmarks/ |
+| 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | LLM System   | CPU | small-benchmarks/ |
 | 12 | Large Benchmark (coming) | LLM System* | A100 | milestone-benchmark/ |
 
 (*) **Note**: Integration of NGF with LLM pending
