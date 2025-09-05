@@ -73,9 +73,9 @@ Stage-11 introduced the breakthrough:
 #### LMM-HellaSwag Results (n=1000)
 | Model            | F1 | ECE (Caliibration) | Brier Score | Overconfidence >0.70  |
 |------------------|-----------|-----------|--------|--------|
-| MaxWarp (Stage 11)| **0.355** | 0.080   | 0.743 | 1.2% | 
+| MaxWarp (Stage 11)| **0.356** | 0.080   | 0.743 | 1.2% | 
 | Stock baseline   | 0.324    | 0.122   | 0.750 | 0.7% | 
-| Change ($\Delta$)   | +0.031 (good)   | -0.032 (good)   | -0.007 (good) | 0.5% | 
+| Change ($\Delta$)   | +0.032 (good)   | -0.032 (good)   | -0.007 (good) | 0.5% | 
 
 **Note**: Stock baseline approximates what you’d see if you used simple thresholds on LLM latents/logits without NGF’s Warp→Detect→Denoise.
 
