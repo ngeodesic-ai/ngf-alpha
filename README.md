@@ -117,15 +117,14 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 ## Stage-11 (Summary / What’s Next)
 * Tests on simulated latent environment provided a perfect F1 score for latent-ARC tests on GPT2
 * Saw +3 incremental boost on F1 Score on HellaSwag for real LLM tests on GPT2
-* For real LLM we can see noticable difference of well post warp when comparing before vs after PCA plots (see Fig below)
-* **Nearly complete** as need to perform robustness check on testing
+* For real LLM we can see noticable difference in semantic well PCA plots post warp when comparing before vs after (see Fig below)
+* **Nearly complete:** need to perform robustness checks on testing
 
 ![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
 
 ## Technical Paper - WORK IN PROGRESS
 - Moore, I. C. (2025). *Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
 - **Disclaimer**: This is a preliminary alpha-stage document (Sept 1, 2025) avaliable [here](docs/article_latest.pdf) from repos , subject to change. Feedback is welcome! 
-=======
 - Moore, I. C. (2025). *[Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)](docs/article_latest.pdf)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
 - **Disclaimer**: This is a preliminary alpha-stage document (Sept 1, 2025), subject to change. Feedback is welcome! 
 - Provisional patents filed as #63/864,726, #63/865,437, #63/871,647, and #63/872,334.
