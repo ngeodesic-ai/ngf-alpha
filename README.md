@@ -115,9 +115,9 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 ```
 
 ## Stage-11 (Summary / What’s Next)
-* Tests on simluated latent environemtn came out perfect on F1 score for latent-ARC tests on GPT2
+* Tests on simulated latent environment provided a perfect F1 score for latent-ARC tests on GPT2
 * Saw +3 incremental boost on F1 Score on HellaSwag for real LLM tests on GPT2
-* Fot real LLM we can see noticable difference of well post warp
+* For real LLM we can see noticable difference of well post warp when comparing before vs after PCA plots (see Fig below)
 * **Nearly complete** as need to perform robustness check on testing
 
 ![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
