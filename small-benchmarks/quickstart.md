@@ -19,7 +19,7 @@ These “small benchmarks” provide reproducible experiments on compact dataset
 python3 ngf_benchmark.py \
   --mode stock --model gpt2 --split validation --n 1000 \
   --max_length 768 --device auto \
-  --out_json results/stock/stock_gpt2_n1000.json
+  --out_json results/stock/metrics.json
 ```
 
 ### 2. NGF Warp + Detect + Denoise
