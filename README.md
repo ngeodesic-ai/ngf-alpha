@@ -123,13 +123,13 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 * See [Stage 11 quickstart](small-benchmarks/quickstart.md) for more info
 
 
+<div class="img-center">
+![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
+**Fig 1.** PCA-2 visualization of “semantic wells” (pre vs post warp) 
+</div>
 
 
-<figure style="text-align: center;">
-  <img src="docs/img/stage11_well_compare.png" alt="well" width="800"/>
-  <figcaption>**Fig 1.** PCA-2 visualization of “semantic wells” (pre vs post warp) n</figcaption>
-</figure>
-
+ 
 
 ## Technical Paper - WORK IN PROGRESS
 - Moore, I. C. (2025). *Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
