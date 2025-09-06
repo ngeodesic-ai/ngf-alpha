@@ -70,14 +70,14 @@ Stage-11 introduced the breakthrough:
 | Geodesic (pre)   | 0.640     | 0.8450    | 1.0000 | 0.8980 | 0.1550  | 0.0000   |
 | Stock baseline   | 0.490     | 0.8900    | 0.7767 | 0.7973 | 0.1100  | 0.2233   |
 
+**Note (Part A)**: Stock baseline approximates what you’d see if you used simple thresholds on LLM latents/logits without NGF’s Warp→Detect→Denoise.
+
 #### (Part B) LMM-HellaSwag Results (n=1000)
 | Model            | F1 | ECE (Caliibration) | Brier Score | Overconfidence >0.70  |
 |------------------|-----------|-----------|--------|--------|
 | MaxWarp (Stage 11)| **0.356** | 0.080   | 0.743 | 1.2% | 
 | Stock baseline   | 0.324    | 0.122   | 0.750 | 0.7% | 
 | Change ($\Delta$)   | +0.032 (good)   | -0.032 (good)   | -0.007 (good) | 0.5% | 
-
-**Note**: Stock baseline approximates what you’d see if you used simple thresholds on LLM latents/logits without NGF’s Warp→Detect→Denoise.
 
 #### How This Relates to LLMs
 * NGF is not a new LLM. It is a geometry-on-latents module.
