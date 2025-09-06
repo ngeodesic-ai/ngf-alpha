@@ -25,7 +25,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 7 | [ARC Question](rudimentary-arc/stage7.ipynb) | Embedding / $R^9$ | CPU | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | Embedding / LLM-ext | CPU | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/stage9.py) | Embedding / LLM-warp | CPU | warp-interference/ |
-| 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | Latent / live LLM  | CPU | rudimentary-interference/ |
+| 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | Embedding / parser   | CPU | rudimentary-interference/ |
 | 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | Latent / live LLM  | CPU | small-benchmarks/ |
 | 12 | Large Benchmark (coming) | Latent / live LLM  | A100/T4 | milestone-benchmark/ |
 
