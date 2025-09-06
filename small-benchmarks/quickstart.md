@@ -6,10 +6,10 @@ These “small benchmarks” provide reproducible experiments on compact dataset
 ## Contents
 - **[stage11_benchmark_latest.py](stage11_benchmark_latest.py)** — (Part A) Benchmark runner; latent-ARC simulations.
 - **[ngf_benchmark.py](ngf_benchmark.py)** — (Part B) Benchmark runner; supports both stock GPT-2 and NGF-augmented runs.
-- **[ngf_hooks_v2.py](ngf_hooks_v2.py)** — Stage-11 Reno v2 hook (warp, detect, denoise, outlier guard).
-- **[stage11_ab_eval.py](stage11_ab_eval.py)** — Stage-11 A/B test evaluation framework.
-- **[stage11_llm_layer_scan.py](stage11_llm_layer_scan.py)** — Layer scan tool for phantom index, margin, and trend metrics.
-- **[plot_contour_well.py](plot_contour_well.py)** — PCA-2 visualization of “semantic wells” (pre vs post warp).
+- **[ngf_hooks_v2.py](ngf_hooks_v2.py)** — (Part B) Stage-11 Reno v2 hook (warp, detect, denoise, outlier guard).
+- **[stage11_ab_eval.py](stage11_ab_eval.py)** — (Part B) Stage-11 A/B test evaluation framework.
+- **[stage11_llm_layer_scan.py](stage11_llm_layer_scan.py)** — (Part B) Layer scan tool for phantom index, margin, and trend metrics.
+- **[plot_contour_well.py](plot_contour_well.py)** — (Part B) PCA-2 visualization of “semantic wells” (pre vs post warp).
 - **Results files** (`*.json`, `*.pdf`, `*.png`) — Example benchmark outputs and comparison reports.
 
 ## Usage
