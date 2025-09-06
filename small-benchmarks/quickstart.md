@@ -13,6 +13,7 @@ These “small benchmarks” provide reproducible experiments on compact dataset
 - **Results files** (`*.json`, `*.pdf`, `*.png`) — Example benchmark outputs and comparison reports.
 
 ## Basic Usage
+Use this for running stage 11 benchmarks
 
 ### 1. Stock Baseline
 ```bash
