@@ -29,7 +29,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | Latent / LLM  | CPU | small-benchmarks/ |
 | 12 | Large Benchmark (coming) | Latent / LLM  | A100/T4 | milestone-benchmark/ |
 
-**Summary Note:** Stages 1–10 proved that warping is real; in toy R⁴ and R⁹ spaces we saw clean, causal effects, however in external LLM embeddings we validated that the same principles held under noise and larger dimensions. Without this scaffolding, we would not have had the confidence to push through Stage 11 when the messy latents looked bleak. In short, stage 11 transformed that conviction into the working doctrine — Warp → Detect → Denoise — inside a live LLM.
+**Summary Note:** Stages 1–10 proved that warping is real; in toy R⁴ and R⁹ spaces we saw clean, causal effects, however in external LLM embeddings we validated that the same principles held under noise and larger dimensions. Without this scaffolding, we would not have had the confidence to push through Stage 11 when the messy latents looked bleak. In short, stage 11 transformed that conviction into the working doctrine, Warp → Detect → Denoise, inside a live LLM.
 
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
 
