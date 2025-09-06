@@ -83,7 +83,7 @@ python3 plot_contour_well.py \
 | Macro F1          | 0.323       | 0.355                 | +0.032 |
 | ECE (Calibration) | 0.112       | 0.080                 | −0.032 |
 
-_Source: [Stock_vs_MaxWarp Report.pdf](./Stock_vs_MaxWarpC_Report.pdf)_
+_Source: [Stock_vs_MaxWarp Report.pdf](./benchmark_report.pdf)_
 
 **Interpretation:** Aggressive warp reshaping yields a +3 F1 point improvement, with better calibration and stability.
 
