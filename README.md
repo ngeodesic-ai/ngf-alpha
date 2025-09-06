@@ -16,13 +16,13 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 
 | Stage | Description | Level | Hardware | Folder/Code |
 |-------|-------------|-------------|-------------|-------------|
-| 1 | [Toy Example](toy-example/stage1.ipynb) | Embedding / Toy $R^4$ | CPU | toy-example/ |
-| 2 | [Embed Grid Intelligently](embed-grid/stage2.ipynb) | Embedding / Toy $R^4$ | CPU | embed-grid/ |
-| 3 | [Rotation Matrix Integration](rotation-matrix/stage3.ipynb) | Embedding / Toy $R^4$ | CPU | rotation-matrix/ |
-| 4 | [Simulate Pattern Completion](pattern-completion/stage4.ipynb) | Embedding / Toy $R^4$ | CPU | pattern-completion/ |
-| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/stage5.ipynb) | Embedding / Toy $R^9$ | CPU | higher-dim-embeddings/ |
-| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/stage6.ipynb) | Embedding / Toy $R^9$ | CPU | dynamic-intelligence/ |
-| 7 | [ARC Question](rudimentary-arc/stage7.ipynb) | Embedding / Toy $R^9$ | CPU | rudimentary-arc/ |
+| 1 | [Toy Example](toy-example/stage1.ipynb) | Embedding / toy $R^4$ | CPU | toy-example/ |
+| 2 | [Embed Grid Intelligently](embed-grid/stage2.ipynb) | Embedding / toy $R^4$ | CPU | embed-grid/ |
+| 3 | [Rotation Matrix Integration](rotation-matrix/stage3.ipynb) | Embedding / toy $R^4$ | CPU | rotation-matrix/ |
+| 4 | [Simulate Pattern Completion](pattern-completion/stage4.ipynb) | Embedding / toy $R^4$ | CPU | pattern-completion/ |
+| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/stage5.ipynb) | Embedding / toy $R^9$ | CPU | higher-dim-embeddings/ |
+| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/stage6.ipynb) | Embedding / toy $R^9$ | CPU | dynamic-intelligence/ |
+| 7 | [ARC Question](rudimentary-arc/stage7.ipynb) | Embedding / toy $R^9$ | CPU | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | Embedding / external | CPU | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/stage9.py) | Embedding / external | CPU | warp-interference/ |
 | 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | Embedding / external  | CPU | rudimentary-interference/ |
