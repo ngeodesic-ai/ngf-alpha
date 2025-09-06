@@ -63,14 +63,14 @@ Stage-11 introduced the breakthrough:
 * **Detect:** Use matched filters with null calibration to identify the true well.
 * **Denoise:** Apply smoothing, phantom guards, and jitter averaging to suppress false wells.
 
-#### Latent-ARC Results (n=100)
+#### (Part A) Latent-ARC Results (n=100)
 | Model            | Exact Acc | Precision | Recall | F1     | Halluc. | Omission |
 |------------------|-----------|-----------|--------|--------|---------|----------|
 | Denoise (Stage 11)| **1.000** | 0.9977    | 0.9989 | 0.9983 | 0.0045  | 0.0023   |
 | Geodesic (pre)   | 0.640     | 0.8450    | 1.0000 | 0.8980 | 0.1550  | 0.0000   |
 | Stock baseline   | 0.490     | 0.8900    | 0.7767 | 0.7973 | 0.1100  | 0.2233   |
 
-#### LMM-HellaSwag Results (n=1000)
+#### (Part B) LMM-HellaSwag Results (n=1000)
 | Model            | F1 | ECE (Caliibration) | Brier Score | Overconfidence >0.70  |
 |------------------|-----------|-----------|--------|--------|
 | MaxWarp (Stage 11)| **0.356** | 0.080   | 0.743 | 1.2% | 
@@ -85,7 +85,7 @@ Stage-11 introduced the breakthrough:
 * **Example**: an LLM provides hidden states → NGF warps them → trajectories follow deterministic geodesics instead of drifting probabilistically.
 This separation is critical: LLMs handle language; NGF handles geometry.
 
-#### Run latest benchmark on latents:
+#### (Part A) Run latest benchmark on latents:
 ```bash
 python -u small_benchmark/stage11_benchmark_latest.py \
       --samples 100 --seed 42 \
@@ -96,7 +96,7 @@ python -u small_benchmark/stage11_benchmark_latest.py \
       --out_json latent_arc_denoise_100.json --out_csv latent_arc_denoise_100.csv
 ```
 
-#### Run latest benchmark on LMM:
+#### (Part B) Run latest benchmark on LMM:
 
 ```bash
 export NGF_RENO_CFG="use_denoise=1 denoise_mode=ema denoise_beta=0.22 denoise_ph_lambda=0.35 \
