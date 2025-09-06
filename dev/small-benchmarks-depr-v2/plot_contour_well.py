@@ -1,11 +1,60 @@
-# Update script to center the white point at the midpoint of the scalar range.
+"""
+# ==============================================================================
+# Apache 2.0 License (ngeodesic.ai)
+# ==============================================================================
+# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726, #63/865,437, #63/871,647 and #63/872,334)
+# Email: ngeodesic@gmail.com
+# Part of Noetic Geodesic Framework (NGF)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+OUT=results/maxwarpC_tap9_noOutlier
+
+python3 plot_contour_well.py \
+  --pre "$OUT/tap-9_pre.npy" \
+  --post "$OUT/tap-9_post.npy" \
+  --out_png "$OUT/tap9_well_compare.png" \
+  --out_pdf "$OUT/tap9_well_compare.pdf" \
+  --fit_on post \
+  --sample 80000 \
+  --bins 220 \
+  --sigma 2.0 \
+  --clip_q 0.01 \
+  --levels 14
+
+OUT=results/gpt2_n1000  
+
+python3 plot_contour_well.py \
+  --pre "$OUT/tap9_pre.npy" \
+  --post "$OUT/tap9_post.npy" \
+  --out_png "$OUT/tap9_well_compare.png" \
+  --out_pdf "$OUT/tap9_well_compare.pdf" \
+  --fit_on post \
+  --sample 80000 \
+  --bins 220 \
+  --sigma 2.0 \
+  --clip_q 0.01 \
+  --levels 14
+
+"""
+
 import argparse, os, numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
-from matplotlib.colors import TwoSlopeNorm
 from scipy.ndimage import gaussian_filter
+
 
 # ---------- PCA helpers ----------
 def pca_fit_transform(X, k=2):
@@ -58,8 +107,8 @@ def normalize(H):
 def to_well_field(P, sigma):
     if sigma and sigma > 0:
         P = gaussian_filter(P, sigma=sigma, mode="nearest")
-    # “well” = negative of centered density; scale to [0, 1]
-    F = (P.max() - P)
+    # “well” = negative of centered density; scale to [-1, 1]
+    F = -(P - P.max())
     F /= max(1e-12, np.abs(F).max())
     return F
 
@@ -129,9 +178,8 @@ def main():
         P_pre    = normalize(H_pre)
         F_pre    = to_well_field(P_pre, sigma=args.sigma)
 
-    # Diverging normalization centered at mid (white at 0.5)
-    norm = TwoSlopeNorm(vmin=0.0, vcenter=0.5, vmax=1.0)
-    cmap = "RdBu_r"  # low→blue, mid→white, high→red
+    # Shared color scale for fair comparison
+    vmin = -1.0; vmax = 1.0
 
     # Render
     def render(ax, F, title):
@@ -139,7 +187,7 @@ def main():
         im = ax.contourf(
             np.linspace(x_min, x_max, F.shape[1]),
             np.linspace(y_min, y_max, F.shape[0]),
-            F, levels=args.levels, cmap=cmap, norm=norm, alpha=0.9, extend="neither"
+            F, levels=args.levels, cmap="RdBu_r", vmin=vmin, vmax=vmax, alpha=0.9
         )
         ax.contour(
             np.linspace(x_min, x_max, F.shape[1]),
@@ -151,17 +199,20 @@ def main():
         return im
 
     if F_pre is not None:
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5.4), layout="constrained")
+        fig = plt.figure(figsize=(12,5.4))
+        ax1 = fig.add_subplot(1,2,1); ax2 = fig.add_subplot(1,2,2)
         im1 = render(ax1, F_pre,  "Tap −9 Pre-warp: Semantic Field (PCA-2)")
         im2 = render(ax2, F_post, "Tap −9 Post-warp: Semantic Well (PCA-2)")
-        cbar = fig.colorbar(im2, ax=ax2, location="right", fraction=0.046, pad=0.04)
+        cbar = fig.colorbar(im2, ax=[ax1, ax2], fraction=0.046, pad=0.04)
         cbar.set_label("well depth (relative)")
     else:
-        fig, ax = plt.subplots(1, 1, figsize=(7.5, 6.2), layout="constrained")
+        fig = plt.figure(figsize=(7.5,6.2))
+        ax  = fig.add_subplot(1,1,1)
         im  = render(ax, F_post, "Tap −9 Post-warp: Semantic Well (PCA-2)")
-        cbar = fig.colorbar(im, ax=ax, location="right", fraction=0.046, pad=0.04)
+        cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
         cbar.set_label("well depth (relative)")
 
+    fig.tight_layout()
     fig.savefig(args.out_png, dpi=240)
     with PdfPages(args.out_pdf) as pp:
         pp.savefig(fig, dpi=320)
@@ -172,4 +223,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
