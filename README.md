@@ -127,8 +127,6 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 ## Technical Paper - WORK IN PROGRESS
 - Moore, I. C. (2025). *Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
 - **Disclaimer**: This is a preliminary alpha-stage document (Sept 1, 2025) avaliable [here](docs/article_latest.pdf) from repos , subject to change. Feedback is welcome! 
-- Moore, I. C. (2025). *[Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)](docs/article_latest.pdf)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
-- **Disclaimer**: This is a preliminary alpha-stage document (Sept 1, 2025), subject to change. Feedback is welcome! 
 - Provisional patents filed as #63/864,726, #63/865,437, #63/871,647, and #63/872,334.
 
 ## References
