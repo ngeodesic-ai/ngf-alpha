@@ -14,7 +14,7 @@ NGF builds on two key pillars:
 ## Research Plan Stages
 The NGF follows a 12-step research plan, with 10 completed stages posted here. Step 10 is the public rollout with NVIDIA A100 results. Steps 11-12 (milestone reports) are in progress.
 
-| Stage | Description | Phase | Hardware | Folder/Code |
+| Stage | Description | Level | Hardware | Folder/Code |
 |-------|-------------|-------------|-------------|-------------|
 | 1 | [Toy Example](toy-example/stage1.ipynb) | Embedding / $R^4$ | CPU | toy-example/ |
 | 2 | [Embed Grid Intelligently](embed-grid/stage2.ipynb) | Embedding / $R^4$ | CPU | embed-grid/ |
