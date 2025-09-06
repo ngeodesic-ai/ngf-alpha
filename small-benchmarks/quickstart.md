@@ -144,9 +144,9 @@ for t in {-12..-6}; do
       --pool_mode lastk --k_last $k \
       --sigma_px 5.0 --density_floor 4.0 --min_prom 0.55 \
       --with_detect --with_denoise \
-      --out_csv logs/wdd_t${t}_k${k}.csv \
-      --out_png logs/wdd_t${t}_k${k}.png \
-      --out_json logs/wdd_t${t}_k${k}.json
+      --out_csv results/logs/wdd_t${t}_k${k}.csv \
+      --out_png results/logs/wdd_t${t}_k${k}.png \
+      --out_json results/logs/wdd_t${t}_k${k}.json
   done
 done
 
