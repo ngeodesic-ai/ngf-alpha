@@ -13,7 +13,7 @@ These “small benchmarks” provide reproducible experiments on compact dataset
 - **Results files** (`*.json`, `*.pdf`, `*.png`) — Example benchmark outputs and comparison reports.
 
 ## Basic Usage
-Use this for running stage 11 benchmarks
+Use this section for running stage 11 benchmarks
 
 ### 1. Stock Baseline
 ```bash
@@ -77,7 +77,7 @@ python3 plot_contour_well.py \
 ```
 
 ## Advanced Usage
-Use this for scoping new models (eg, GPT-large)
+Use this section for scoping new models (eg, GPT-large)
 
 ### 4. A/B test evaluation
 Runs Stage-11 A/B evaluation tests on GPT-2 with NGF hooks. Supports multiple modes (Stock, Warp, Warp+Detect, Warp+Detect+Denoise) and logs convergence metrics, burst dynamics, and denoiser telemetry for prompt sets. Useful for side-by-side comparisons of baseline vs NGF-augmented reasoning.
