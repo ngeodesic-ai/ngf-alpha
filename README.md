@@ -120,6 +120,7 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 * For real LLM we can see noticable difference in semantic well PCA plots post warp when comparing before vs after (see Fig below)
 * **Stage 11 nearly complete:** need to perform robustness checks on testing
 * **Warp → Detect → Denoise doctrine is holding**, thus marking the first lightweight, geometry-driven path to upgrade LLMs by reshaping their latent manifolds for stability and truth alignment
+* See [Stage 11 quickstart](small-benchmarks/quickstart.md) for more info
 
 
 ![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
