@@ -16,20 +16,19 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 
 | Stage | Description | Phase | Hardware | Folder/Code |
 |-------|-------------|-------------|-------------|-------------|
-| 1 | [Toy Example](toy-example/stage1.ipynb) | Toy Example $R^4$ | CPU | toy-example/ |
-| 2 | [Embed Grid Intelligently](embed-grid/stage2.ipynb) | Toy Example $R^4$ | CPU | embed-grid/ |
-| 3 | [Rotation Matrix Integration](rotation-matrix/stage3.ipynb) | Toy Example $R^4$ | CPU | rotation-matrix/ |
-| 4 | [Simulate Pattern Completion](pattern-completion/stage4.ipynb) | Toy Example $R^4$ | CPU | pattern-completion/ |
-| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/stage5.ipynb) | Higher Dim $R^9$ | CPU | higher-dim-embeddings/ |
-| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/stage6.ipynb) | Higher Dim $R^9$ | CPU | dynamic-intelligence/ |
-| 7 | [ARC Question](rudimentary-arc/stage7.ipynb) | Higher Dim $R^9$ | CPU | rudimentary-arc/ |
-| 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | LLM System | CPU | llm-latent-embedding/ |
-| 9 | [Warp LLM Interference](warp-interference/stage9.py) | Latents | CPU | warp-interference/ |
-| 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | Latents  | CPU | rudimentary-interference/ |
-| 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | LLM System   | CPU | small-benchmarks/ |
-| 12 | Large Benchmark (coming) | LLM System* | A100/T4 | milestone-benchmark/ |
+| 1 | [Toy Example](toy-example/stage1.ipynb) | Embedding / $R^4$ | CPU | toy-example/ |
+| 2 | [Embed Grid Intelligently](embed-grid/stage2.ipynb) | Embedding / $R^4$ | CPU | embed-grid/ |
+| 3 | [Rotation Matrix Integration](rotation-matrix/stage3.ipynb) | Embedding / $R^4$ | CPU | rotation-matrix/ |
+| 4 | [Simulate Pattern Completion](pattern-completion/stage4.ipynb) | Embedding / $R^4$ | CPU | pattern-completion/ |
+| 5 | [Higher-Dim Embeddings](higher-dim-embeddings/stage5.ipynb) | Embedding / $R^9$ | CPU | higher-dim-embeddings/ |
+| 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/stage6.ipynb) | Embedding / $R^9$ | CPU | dynamic-intelligence/ |
+| 7 | [ARC Question](rudimentary-arc/stage7.ipynb) | Embedding / $R^9$ | CPU | rudimentary-arc/ |
+| 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | Embedding / LLM-ext | CPU | llm-latent-embedding/ |
+| 9 | [Warp LLM Interference](warp-interference/stage9.py) | Embedding / LLM-warp | CPU | warp-interference/ |
+| 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | Latent (live LLM)  | CPU | rudimentary-interference/ |
+| 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | Latent (live LLM)  | CPU | small-benchmarks/ |
+| 12 | Large Benchmark (coming) | Latent (live LLM) | A100/T4 | milestone-benchmark/ |
 
-(*) **Note**: Integration of NGF with LLM pending
 
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
 
