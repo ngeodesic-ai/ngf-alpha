@@ -19,7 +19,7 @@ These “small benchmarks” provide reproducible experiments on compact dataset
 python3 ngf_benchmark.py \
   --mode stock --model gpt2 --split validation --n 1000 \
   --max_length 768 --device auto \
-  --out_json results/stock_gpt2_n1000.json
+  --out_json results/stock/stock_gpt2_n1000.json
 ```
 
 ### 2. NGF Warp + Detect + Denoise
@@ -44,6 +44,20 @@ python3 ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:attach_ngf_hooks \
 
 ### 3. PCA Visualization
 ```bash
+
+OUT=results/stock
+
+python3 plot_contour_well.py \
+  --pre "$OUT/tap-9_pre.npy" \
+  --post "$OUT/tap-9_post.npy" \
+  --out_png "$OUT/tap9_well_compare.png" \
+  --out_pdf "$OUT/tap9_well_compare.pdf" \
+  --fit_on post \
+  --sample 80000 \
+  --bins 220 \
+  --sigma 2.0 \
+  --clip_q 0.01 \
+  --levels 14
 
 OUT=results/maxwarp
 
