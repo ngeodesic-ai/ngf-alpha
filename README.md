@@ -121,9 +121,10 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 * **Stage 11 nearly complete:** need to perform robustness checks on testing
 * **Warp → Detect → Denoise doctrine is holding**, thus marking the first lightweight, geometry-driven path to upgrade LLMs by reshaping their latent manifolds for stability and truth alignment
 * See [Stage 11 quickstart](small-benchmarks/quickstart.md) for more info
-
+* 
+<br />
 ![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
-<h3 align="center">Fig 1. PCA-2 visualization of “semantic wells” (pre vs post warp)</h3>
+<h5 align="center">Fig 1. PCA-2 visualization of “semantic wells” (pre vs post warp)</h3>
 
 ## Technical Paper - WORK IN PROGRESS
 - Moore, I. C. (2025). *Noetic Geodesic Framework: Deterministic AI Reasoning via Warped Manifolds (Early Preprint)*. Zenodo. https://zenodo.org/records/17032117 (DOI: 10.5281/zenodo.17032116), Sept 2025.
