@@ -24,7 +24,7 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 6 | [Integrate Dynamic Intelligence](dynamic-intelligence/stage6.ipynb) | Higher Dim $R^9$ | CPU | dynamic-intelligence/ |
 | 7 | [ARC Question](rudimentary-arc/stage7.ipynb) | Higher Dim $R^9$ | CPU | rudimentary-arc/ |
 | 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | LLM System | CPU | llm-latent-embedding/ |
-| 9 | [Warp LLM Interference](warp-interference/stage9.py) | LLM System | CPU | warp-interference/ |
+| 9 | [Warp LLM Interference](warp-interference/stage9.py) | Latents | CPU | warp-interference/ |
 | 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | Latents  | CPU | rudimentary-interference/ |
 | 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | LLM System   | CPU | small-benchmarks/ |
 | 12 | Large Benchmark (coming) | LLM System* | A100/T4 | milestone-benchmark/ |
