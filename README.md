@@ -12,7 +12,7 @@ NGF builds on two key pillars:
 **NGF operates at the embedding level**, not at the text level. This means NGF methods are pluggable into any LLM or embedding model. Instead of manipulating prompts or fine-tuning weights, NGF directly reshapes latent trajectories in vector space.
 
 ## Research Plan Stages
-The NGF follows a 12-step research plan, with 10 completed stages posted here. Step 10 is the public rollout with NVIDIA A100 results. Steps 11-12 (milestone reports) are in progress.
+The NGF follows a 12-step research plan, with 10 completed stages posted here where step 10 marked the public rollout. Steps 11-12 (milestone reports) are in progress.
 
 | Stage | Description | Level | Hardware | Folder/Code |
 |-------|-------------|-------------|-------------|-------------|
