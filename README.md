@@ -122,11 +122,13 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 * **Warp → Detect → Denoise doctrine is holding**, thus marking the first lightweight, geometry-driven path to upgrade LLMs by reshaping their latent manifolds for stability and truth alignment
 * See [Stage 11 quickstart](small-benchmarks/quickstart.md) for more info
 
-<p align="center">
-  <img src="docs/img/stage11_well_compare.png" alt="description" width="400"/>
-    **Fig 1.** PCA-2 visualization of “semantic wells” (pre vs post warp) 
-</p>
 
+
+
+<figure style="text-align: center;">
+  <img src="docs/img/stage11_well_compare.png" alt="well" width="800"/>
+  <figcaption>**Fig 1.** PCA-2 visualization of “semantic wells” (pre vs post warp) n</figcaption>
+</figure>
 
 
 ## Technical Paper - WORK IN PROGRESS
