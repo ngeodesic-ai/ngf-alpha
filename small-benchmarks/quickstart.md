@@ -1,4 +1,4 @@
-# Small Benchmarks (Stage-11)
+# Small Benchmarks Quickstart (Stage-11)
 
 This folder contains Stage-11 benchmark scripts and results for the **Noetic Geodesic Framework (NGF)**.  
 These “small benchmarks” provide reproducible experiments on compact datasets (HellaSwag, ARC-style prompts) to validate the **Warp → Detect → Denoise** doctrine.
