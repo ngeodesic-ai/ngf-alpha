@@ -17,16 +17,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""
 
-import argparse, os, numpy as np
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
-from scipy.ndimage import gaussian_filter
-
-"""
 OUT=results/maxwarpC_tap9_noOutlier
 
 python3 plot_contour_well.py \
@@ -54,8 +45,16 @@ python3 plot_contour_well.py \
   --sigma 2.0 \
   --clip_q 0.01 \
   --levels 14
-  
+
 """
+
+import argparse, os, numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+from scipy.ndimage import gaussian_filter
+
 
 # ---------- PCA helpers ----------
 def pca_fit_transform(X, k=2):

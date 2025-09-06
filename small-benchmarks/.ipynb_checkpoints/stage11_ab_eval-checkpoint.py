@@ -17,7 +17,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""
 
 # Quick run, GPU-friendly
 python3 stage11_ab_eval.py \
@@ -68,18 +67,17 @@ python3 stage11_ab_eval.py \
   --out_json ab_geo_v4b_denoise_softDetect.json
 
 
-
-# Simple A/B/C tests
+# A/B evaluation tests
 
 # STOCK
-python3 stage11_ab_eval_base_denoise.py \
+python3 stage11_ab_eval.py \
   --model gpt2 --layer -9 \
   --prompts simple_arc_prompts_v2.txt --max_new_tokens 64 \
   --gen_mode stock --device cuda \
   --out_json ab_stock_patterned.json
 
 # GEO (Warp only)
-python3 stage11_ab_eval_base_denoise.py \
+python3 stage11_ab_eval.py \
   --model gpt2 --layer -9 \
   --prompts simple_arc_prompts_v1.txt --max_new_tokens 64 \
   --alpha0 0.05 --alpha_min 0.006 \
@@ -89,7 +87,7 @@ python3 stage11_ab_eval_base_denoise.py \
   --out_json ab_geo_patterned.json
 
 # GEO+Detect (Warp + Detect, no denoise)
-python3 stage11_ab_eval_base_denoise.py \
+python3 stage11_ab_eval.py \
   --model gpt2 --layer -9 \
   --prompts simple_arc_prompts_v2.txt --max_new_tokens 64 \
   --alpha0 0.05 --alpha_min 0.006 \
@@ -100,7 +98,7 @@ python3 stage11_ab_eval_base_denoise.py \
   --gen_mode geo --device cuda \
   --out_json ab_geo_detect_patterned.json
 
-python3 stage11_ab_eval_base_denoise.py \
+python3 stage11_ab_eval.py \
   --model gpt2 --layer -9 \
   --prompts simple_arc_prompts_v1.txt --max_new_tokens 64 \
   --alpha0 0.05 --alpha_min 0.006 \

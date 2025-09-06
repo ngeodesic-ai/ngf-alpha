@@ -12,7 +12,7 @@ These “small benchmarks” provide reproducible experiments on compact dataset
 - **[plot_contour_well.py](plot_contour_well.py)** — (Part B) PCA-2 visualization of “semantic wells” (pre vs post warp).
 - **Results files** (`*.json`, `*.pdf`, `*.png`) — Example benchmark outputs and comparison reports.
 
-## Usage
+## Basic Usage
 
 ### 1. Stock Baseline
 ```bash
@@ -72,6 +72,82 @@ python3 plot_contour_well.py \
   --sigma 2.0 \
   --clip_q 0.01 \
   --levels 14
+
+```
+
+## Advanced Usage
+Use this for scoping new models (eg, GPT-large)
+
+### 4. A/B test evaluation
+Runs Stage-11 A/B evaluation tests on GPT-2 with NGF hooks. Supports multiple modes (Stock, Warp, Warp+Detect, Warp+Detect+Denoise) and logs convergence metrics, burst dynamics, and denoiser telemetry for prompt sets. Useful for side-by-side comparisons of baseline vs NGF-augmented reasoning.
+
+```bash
+
+# STOCK
+python3 stage11_ab_eval.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v2.txt --max_new_tokens 64 \
+  --gen_mode stock --device cuda \
+  --out_json ab_stock_patterned.json
+
+# GEO (Warp only)
+python3 stage11_ab_eval.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v1.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --out_json ab_geo_patterned.json
+
+# GEO+Detect (Warp + Detect, no denoise)
+python3 stage11_ab_eval.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v2.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 32 --null_q 0.92 --k_det 7 \
+  --s_latch 0.30 --linger 2 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --out_json ab_geo_detect_patterned.json
+  
+# GEO+Detect+Denoise 
+python3 stage11_ab_eval.py \
+  --model gpt2 --layer -9 \
+  --prompts simple_arc_prompts_v1.txt --max_new_tokens 64 \
+  --alpha0 0.05 --alpha_min 0.006 \
+  --trend_tau 0.35 --k_tr 12 \
+  --use_detect 1 --detect_width 24 --detect_sigma 5 \
+  --null_K 24 --null_q 0.88 --k_det 9 \
+  --linger 4 --s_latch 0.25 --ema_center_beta 0.05 \
+  --gen_mode geo --device cuda \
+  --use_denoise 1 \
+  --denoise_beta 0.6 --denoise_window 3 \
+  --denoise_k 8.0 --denoise_tau 0.35 \
+  --phantom_tr_tau 0.60 --phantom_guard_gamma 0.35 \
+  --jitter_eps 0.03 \
+  --out_json ab_geo_detect_denoise_patterned.json
+
+```
+
+### 5. LLM Layer Scan
+Scans GPT-2 layers to measure warp, detect, and denoise effects. Computes phantom index, margin, and inward-trend metrics across hidden states, saving results as CSV/JSON and plotting layer-wise stability curves. Helps identify optimal tap layers for NGF integration.
+
+```bash
+for t in {-12..-6}; do
+  for k in 8 12; do
+    python3 stage11_llm_layer_scan.py \
+      --model gpt2 --tap_range "$t" \
+      --calib calib/calib_prompts_v2_900.txt --eval calib/calib_eval_style_200.txt \
+      --pool_mode lastk --k_last $k \
+      --sigma_px 5.0 --density_floor 4.0 --min_prom 0.55 \
+      --with_detect --with_denoise \
+      --out_csv logs/wdd_t${t}_k${k}.csv \
+      --out_png logs/wdd_t${t}_k${k}.png \
+      --out_json logs/wdd_t${t}_k${k}.json
+  done
+done
 
 ```
 
