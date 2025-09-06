@@ -21,8 +21,6 @@
 # Stage9 exectution
 python3 stage9.py
 
-"""
-
 RESULTS — NOT LLM
 • These are from a latent-vector embedded model (Latent-ARC), not an LLM.
 • The Warp→Detect→Denoise stack behaves as intended in this controlled latent space (near-zero hallucinations with an abstain path).
@@ -31,6 +29,9 @@ RESULTS — NOT LLM
 NEXT (LLM port)
 • Hook NGF into LLM hidden states – tap embeddings from mid/upper layers of GPT-2/GPT-Neo, warp into a single cognition well, and apply the Warp → Detect → Denoise pipeline.
 • Compare NGF-augmented vs stock outputs – run side-by-side on MMLU, ARC, or QA tasks, measuring exact accuracy, hallucination rates, and stability.
+
+"""
+
 
 import os
 import re
