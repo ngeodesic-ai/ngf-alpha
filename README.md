@@ -26,8 +26,8 @@ The NGF follows a 12-step research plan, with 10 completed stages posted here. S
 | 8 | [LLM Latent Embedding](llm-latent-embedding/stage8.ipynb) | Embedding / external | CPU | llm-latent-embedding/ |
 | 9 | [Warp LLM Interference](warp-interference/stage9.py) | Embedding / external | CPU | warp-interference/ |
 | 10 | [Rudimentary Benchmarks](rudimentary-benchmarks/stage10-benchmark-latest.py) | Embedding / external  | CPU | rudimentary-interference/ |
-| 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | Latent / live LLM  | CPU | small-benchmarks/ |
-| 12 | Large Benchmark (coming) | Latent / live LLM  | A100/T4 | milestone-benchmark/ |
+| 11 | [Small Benchmarks](small-benchmarks/quickstart.md) | Latent / LLM  | CPU | small-benchmarks/ |
+| 12 | Large Benchmark (coming) | Latent / LLM  | A100/T4 | milestone-benchmark/ |
 
 
 ## Illustration: NGF Warped vs Flat Paths (Re: Stage 5)
