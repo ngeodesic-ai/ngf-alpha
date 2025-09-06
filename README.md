@@ -125,7 +125,7 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 <br/>
 
 ![NGF Warped vs Flat Paths](docs/img/stage11_well_compare.png)
-<h4 align="center">Fig 1. PCA-2 visualization of “semantic wells” (pre vs post warp)</h3>
+<h4 align="center">Fig 1. PCA-2 visualization of “semantic wells” (pre vs post warp) on GPT2 - tap 9</h3>
 
 <br/>
 
