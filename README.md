@@ -144,7 +144,7 @@ python3 small_benchmark/ngf_benchmark.py --mode ngf --ngf_import ngf_hooks_v2:at
 
 
 ## Onboarding
-As these techniques are uncommon in AI, onboarding requires some prerequisites background knowledge in general relativity and differential geometry, coupled with a good understanding of the objectives behind each of the steps in the [12-staged research plan](#research-plan-stages). If this interests you, please see the **[onboarding docs](docs/onboarding.md)** for further detail.
+As these techniques are uncommon in AI, onboarding requires some prerequisites background knowledge in general relativity, differential geometry, and signal proccessing coupled with a good understanding of the objectives behind each of the steps in the [12-staged research plan](#research-plan-stages). If this interests you, please see the **[onboarding docs](docs/onboarding.md)** for further detail.
 
 ## Contribute
 This is alpha software! Help us refine prompts, test on other hardware, or improve the nudge. **Contributors must sign the [CLA](CLA.md) and email it to ngeodesic@gmail.com before submitting pull requests.**
