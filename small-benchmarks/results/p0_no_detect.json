@@ -1,0 +1,83 @@
+{
+  "mode": "ngf",
+  "model": "gpt2",
+  "split": "validation",
+  "n": 200,
+  "accuracy": 0.305,
+  "correct": 61,
+  "elapsed_sec": 53.6338050365448,
+  "device": "cpu",
+  "ngf_status": "NGF attached via ngf_hooks_v3:attach_ngf_hooks with cfg={'tap': -9, 'alpha0': 0.1, 'alpha_min': 0.016, 'trend_tau': 0.5, 'k_tr': 12, 'use_detect': 0, 'detect_width': 24, 'detect_sigma': 5.0, 'null_K': 32, 'null_q': 0.92, 'k_det': 7, 's_latch': 0.5, 'linger': 3, 'ema_center_beta': 0.08, 'gen_mode': 'geo', 'save_hidden': 0, 'hidden_dump_dir': ''}",
+  "metrics": {
+    "accuracy_top1": 0.305,
+    "accuracy_top2": 0.62,
+    "macro": {
+      "precision": 0.2989920037782697,
+      "recall": 0.29832322469265166,
+      "f1": 0.2974864860126864
+    },
+    "micro": {
+      "precision": 0.3049999999999985,
+      "recall": 0.3049999999999985,
+      "f1": 0.3049999999999992
+    },
+    "per_class": [
+      {
+        "precision": 0.25581395348838937,
+        "recall": 0.2075471698113357,
+        "f1": 0.22916666666618815
+      },
+      {
+        "precision": 0.31372549019609186,
+        "recall": 0.3404255319149076,
+        "f1": 0.32653061224441254
+      },
+      {
+        "precision": 0.4464285714285813,
+        "recall": 0.43103448275863043,
+        "f1": 0.43859649122758015
+      },
+      {
+        "precision": 0.1800000000000164,
+        "recall": 0.21428571428573298,
+        "f1": 0.19565217391256476
+      }
+    ],
+    "confusion_matrix": [
+      [
+        11,
+        17,
+        8,
+        17
+      ],
+      [
+        8,
+        16,
+        9,
+        14
+      ],
+      [
+        14,
+        9,
+        25,
+        10
+      ],
+      [
+        10,
+        9,
+        14,
+        9
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.14301877816015365,
+      "brier": 0.7453393711802906,
+      "mean_margin": 0.15613881422563425,
+      "entropy": 1.2324756883767969
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.0,
+      "wrong_p>=0.70": 0.005
+    }
+  }
+}

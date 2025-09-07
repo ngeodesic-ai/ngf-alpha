@@ -1,0 +1,83 @@
+{
+  "mode": "ngf",
+  "model": "gpt2",
+  "split": "validation",
+  "n": 1000,
+  "accuracy": 0.352,
+  "correct": 352,
+  "elapsed_sec": 270.4219949245453,
+  "device": "cpu",
+  "ngf_status": "NGF attached via ngf_hooks_v2_pca5:attach_ngf_hooks with cfg={'tap': -9, 'alpha0': 0.1, 'alpha_min': 0.014, 'trend_tau': 0.3, 'k_tr': 14, 'use_detect': 1, 'detect_width': 36, 'detect_sigma': 7.0, 'null_K': 32, 'null_q': 0.95, 'k_det': 9, 's_latch': 0.35, 'linger': 3, 'ema_center_beta': 0.03, 'gen_mode': 'geo', 'save_hidden': 0, 'hidden_dump_dir': ''}",
+  "metrics": {
+    "accuracy_top1": 0.352,
+    "accuracy_top2": 0.619,
+    "macro": {
+      "precision": 0.35190277029137546,
+      "recall": 0.3515461765993726,
+      "f1": 0.35157737818191725
+    },
+    "micro": {
+      "precision": 0.35199999999999965,
+      "recall": 0.35199999999999965,
+      "f1": 0.3519999999999998
+    },
+    "per_class": [
+      {
+        "precision": 0.3629343629343653,
+        "recall": 0.3574144486692039,
+        "f1": 0.3601532567044833
+      },
+      {
+        "precision": 0.3104838709677447,
+        "recall": 0.3318965517241408,
+        "f1": 0.32083333333283676
+      },
+      {
+        "precision": 0.3690476190476215,
+        "recall": 0.3690476190476215,
+        "f1": 0.3690476190471215
+      },
+      {
+        "precision": 0.3651452282157703,
+        "recall": 0.3478260869565243,
+        "f1": 0.35627530364322757
+      }
+    ],
+    "confusion_matrix": [
+      [
+        94,
+        62,
+        59,
+        48
+      ],
+      [
+        59,
+        77,
+        43,
+        53
+      ],
+      [
+        55,
+        52,
+        93,
+        52
+      ],
+      [
+        51,
+        57,
+        57,
+        88
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.08619689266894053,
+      "brier": 0.7449249889816242,
+      "mean_margin": 0.16425174011549412,
+      "entropy": 1.2331155656764823
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.0,
+      "wrong_p>=0.70": 0.014
+    }
+  }
+}

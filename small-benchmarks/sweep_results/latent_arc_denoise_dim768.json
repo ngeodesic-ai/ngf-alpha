@@ -22,7 +22,7 @@
   "margin": 0.043999901748191794,
   "plot_raw": "manifold_pca3_mesh_warped.png",
   "plot_fitted": "manifold_pca3_mesh_warped_fit.png",
-  "csv": "latent_arc_denoise_100.csv",
+  "csv": "sweep_results/latent_arc_denoise_dim768.csv",
   "denoise": {
     "accuracy_exact": 0.0,
     "precision": 0.9922729043286631,
