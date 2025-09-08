@@ -1,0 +1,13 @@
+{
+  "items": 5,
+  "accepted": 0,
+  "abstained": 5,
+  "coverage": 0.0,
+  "acc_on_accepted": 0.0,
+  "z_mean": 0.04723826175885874,
+  "z_median": -0.014220975522120623,
+  "detect_z": 0.5,
+  "pca_k": 32,
+  "tap": -9,
+  "k_last": 16
+}

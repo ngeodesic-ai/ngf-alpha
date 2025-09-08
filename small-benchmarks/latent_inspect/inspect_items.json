@@ -1,0 +1,224 @@
+{
+  "items": [
+    {
+      "index": 0,
+      "gold": 3,
+      "ctx": "A man is sitting on a roof. he",
+      "endings": [
+        "is using wrap to wrap a pair of skis.",
+        "is ripping level tiles off.",
+        "is holding a rubik's cube.",
+        "starts pulling up roofing on a roof."
+      ],
+      "Y2": [
+        [
+          0.07015712559223175,
+          1.8070197105407715
+        ],
+        [
+          13.49727725982666,
+          -0.7777937650680542
+        ],
+        [
+          -0.058165159076452255,
+          2.177583932876587
+        ],
+        [
+          0.07462762296199799,
+          2.017329692840576
+        ]
+      ],
+      "depth_raw": [
+        -1.8083810806274414,
+        -13.519669532775879,
+        -2.1783607006073,
+        -2.018709659576416
+      ],
+      "depth01": [
+        0.0,
+        1.0,
+        0.031591709703207016,
+        0.0179594736546278
+      ],
+      "z": 41.642558569562695,
+      "pick": 1,
+      "abstain": false
+    },
+    {
+      "index": 1,
+      "gold": 3,
+      "ctx": "A lady walks to a barbell. She bends down and grabs the pole. the lady",
+      "endings": [
+        "swings and lands in her arms.",
+        "pulls the barbell forward.",
+        "pulls a rope attached to the barbell.",
+        "stands and lifts the weight over her head."
+      ],
+      "Y2": [
+        [
+          0.17525067925453186,
+          1.0149002075195312
+        ],
+        [
+          0.35766732692718506,
+          1.1571840047836304
+        ],
+        [
+          0.2937355935573578,
+          0.8482900261878967
+        ],
+        [
+          0.17858557403087616,
+          0.7596884369850159
+        ]
+      ],
+      "depth_raw": [
+        -1.029919981956482,
+        -1.211198091506958,
+        -0.8977062702178955,
+        -0.7803968787193298
+      ],
+      "depth01": [
+        0.5792070627212524,
+        1.0,
+        0.2723051607608795,
+        0.0
+      ],
+      "z": 1.3374222448535174,
+      "pick": 1,
+      "abstain": false
+    },
+    {
+      "index": 2,
+      "gold": 2,
+      "ctx": "Two women in a child are shown in a canoe while a man pulls the canoe while standing in the water, with other individuals visible in the background. the child and a different man",
+      "endings": [
+        "are then shown paddling down a river in a boat while a woman talks.",
+        "are driving the canoe, they go down the river flowing side to side.",
+        "sit in a canoe while the man paddles.",
+        "walking go down the rapids, while the man in his helicopter almost falls and goes out of canoehood."
+      ],
+      "Y2": [
+        [
+          -0.05482036620378494,
+          -0.7371084094047546
+        ],
+        [
+          -0.22962915897369385,
+          -0.738125205039978
+        ],
+        [
+          -0.03873031958937645,
+          -0.23402340710163116
+        ],
+        [
+          -0.19404102861881256,
+          -1.3159420490264893
+        ]
+      ],
+      "depth_raw": [
+        -0.7391441464424133,
+        -0.773019015789032,
+        -0.23720665276050568,
+        -1.3301712274551392
+      ],
+      "depth01": [
+        0.45924410223960876,
+        0.49023765325546265,
+        0.0,
+        1.0
+      ],
+      "z": 1.4453497422842947,
+      "pick": 3,
+      "abstain": false
+    },
+    {
+      "index": 3,
+      "gold": 2,
+      "ctx": "A boy is running down a track. the boy",
+      "endings": [
+        "runs into a car.",
+        "gets in a mat.",
+        "lifts his body above the height of a pole.",
+        "stands on his hands and springs."
+      ],
+      "Y2": [
+        [
+          13.447966575622559,
+          -0.8065089583396912
+        ],
+        [
+          13.357864379882812,
+          -0.80086350440979
+        ],
+        [
+          0.019316669553518295,
+          1.719754934310913
+        ],
+        [
+          -0.05805303528904915,
+          2.00470232963562
+        ]
+      ],
+      "depth_raw": [
+        -13.472128868103027,
+        -13.381851196289062,
+        -1.7198634147644043,
+        -2.005542755126953
+      ],
+      "depth01": [
+        1.0,
+        0.9923182129859924,
+        0.0,
+        0.024308446794748306
+      ],
+      "z": 0.679801098341401,
+      "pick": 0,
+      "abstain": true
+    },
+    {
+      "index": 4,
+      "gold": 1,
+      "ctx": "The boy lifts his body above the height of a pole. The boy lands on his back on to a red mat. the boy",
+      "endings": [
+        "turns his body around on the mat.",
+        "gets up from the mat.",
+        "continues to lift his body over the pole.",
+        "wiggles out of the mat."
+      ],
+      "Y2": [
+        [
+          -0.0854700356721878,
+          0.3667620122432709
+        ],
+        [
+          -0.09817010164260864,
+          0.5662795901298523
+        ],
+        [
+          0.05392986908555031,
+          0.24430440366268158
+        ],
+        [
+          -0.10647166520357132,
+          0.4778812825679779
+        ]
+      ],
+      "depth_raw": [
+        -0.376589298248291,
+        -0.5747259855270386,
+        -0.25018608570098877,
+        -0.4895985424518585
+      ],
+      "depth01": [
+        0.38948434591293335,
+        1.0,
+        0.0,
+        0.7376980781555176
+      ],
+      "z": 0.96427887409959,
+      "pick": 1,
+      "abstain": false
+    }
+  ]
+}

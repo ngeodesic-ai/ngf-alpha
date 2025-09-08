@@ -1,0 +1,22 @@
+{
+  "items": 5,
+  "accepted": 0,
+  "abstained": 5,
+  "coverage": 0.0,
+  "acc_on_accepted": 0.0,
+  "z_mean": -0.07703459713483798,
+  "z_median": -0.1382057162381443,
+  "detect_z": 0.25,
+  "pca_k": 5,
+  "tap": -9,
+  "k_last": 64,
+  "sigma_scale": 0.8,
+  "depth_scale": 2.5,
+  "mix_z": 0.06,
+  "z_gamma": 1.0,
+  "ending_only": 1,
+  "taps": [
+    -9
+  ],
+  "ensemble": "mean_depth"
+}
