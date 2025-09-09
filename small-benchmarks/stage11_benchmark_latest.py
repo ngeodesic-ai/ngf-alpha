@@ -30,7 +30,7 @@ Highlights
 - Baseline parsers: stock, geodesic (report), optional funnel-prior rescoring
 - PCA(3) → warped single-well manifold, fitted 360° funnel surface (saved as PNGs)
 - Denoiser & guards: EMA+median smoothing, confidence gate, noise floor, phantom guard,
-  MC jitter averaging, SNR instrumentation
+  MC jitter averaging, SNR instrument ation
 - Apples-to-apples metrics vs stock parser
 - CSV/JSON report outputs; optional replay via --in_truth
 
