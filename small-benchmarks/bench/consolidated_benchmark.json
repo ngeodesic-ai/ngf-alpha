@@ -1,0 +1,10 @@
+{
+  "latent_arc": {
+    "sim_denoiser": {},
+    "micro_llm": {}
+  },
+  "report_path": {
+    "sim": {}
+  },
+  "seeds": 3
+}

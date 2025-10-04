@@ -182,9 +182,26 @@ if __name__ == "__main__":
         S = np.load(args.load_stats)
         mu, sigma = S["mu"], S["sigma"]
         train_idx, val_idx = S["train_idx"], S["val_idx"]
-        Xz = (X - mu) / sigma
+        Xz = (X - mu) / (sigma + 1e-8)
+
+
+
+    n = len(X)
+    use_saved_split = False
+    if "train_idx" in S.files and "val_idx" in S.files:
+        ti, vi = S["train_idx"], S["val_idx"]
+        # Only use saved split if it matches the current data size and we're training
+        if (len(ti) + len(vi) == n) and (not args.eval_only):
+            use_saved_split = True
     
-    Xtr, Ytr = Xz[train_idx], y[train_idx]
+    if use_saved_split:
+        train_idx, val_idx = ti, vi
+    else:
+        # For eval on a fresh NPZ, make the **entire** set the val split
+        train_idx = np.array([], dtype=int)
+        val_idx   = np.arange(n, dtype=int)
+    
+    Xtr, Ytr = Xz[train_idx], y[train_idx] if len(train_idx) else (np.zeros((0, Xz.shape[1]), np.float32), np.zeros((0,), np.int64))
     Xva, Yva = Xz[val_idx], y[val_idx]
 
     # Generate data
@@ -198,20 +215,22 @@ if __name__ == "__main__":
                                 jitter_sigma=args.jitter_sigma)
     val_ds   = LatentARCDataset(Xva, Yva)  # no jitter on val
     
-    # dataloaders (use args.batch_size)
-    train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    val_loader   = DataLoader(val_ds, batch_size=args.batch_size, shuffle=False, num_workers=0)
 
-    # train_loader = DataLoader(LatentARCDataset(Xtr, Ytr), batch_size=args.batch_size, shuffle=True, num_workers=0)
-    # val_loader   = DataLoader(LatentARCDataset(Xva, Yva), batch_size=args.batch_size, shuffle=False, num_workers=0)
-
+    # Train loader only if we have a non-empty train split
+    if len(train_idx):
+        train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    else:
+        train_loader = None
+    
+    val_loader = DataLoader(val_ds, batch_size=args.batch_size, shuffle=False, num_workers=0)
+    
+        
 
     # model (use args.num_classes)
     model = MicroLLM(input_dim=Xz.shape[1], num_classes=args.num_classes)
     
-    # training (use args.lr/weight_decay)
-    model = train(model, train_loader, epochs=args.epochs, lr=args.lr, weight_decay=args.weight_decay)
-
+    if (not args.eval_only) and args.epochs > 0 and (train_loader is not None):
+        model = train(model, train_loader, epochs=args.epochs, lr=args.lr, weight_decay=args.weight_decay)    
 
     if not args.eval_only and args.epochs > 0:
         model = train(model, train_loader, epochs=args.epochs, lr=args.lr, weight_decay=args.weight_decay)

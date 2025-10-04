@@ -1,0 +1,82 @@
+{
+  "samples": 100,
+  "geodesic": {
+    "accuracy_exact": 0.54,
+    "precision": 0.7966666666666665,
+    "recall": 1.0,
+    "f1": 0.865,
+    "jaccard": 0.7966666666666665,
+    "hallucination_rate": 0.2033333333333334,
+    "omission_rate": 0.0
+  },
+  "stock": {
+    "accuracy_exact": 0.51,
+    "precision": 0.8499999999999999,
+    "recall": 0.8083333333333331,
+    "f1": 0.7969999999999999,
+    "jaccard": 0.7283333333333333,
+    "hallucination_rate": 0.15,
+    "omission_rate": 0.19166666666666668
+  },
+  "phantom_index": 0.005491746952651985,
+  "margin": 0.0028228619443034786,
+  "plot_raw": "manifold_pca3_mesh_warped.png",
+  "plot_fitted": "manifold_pca3_mesh_warped_fit.png",
+  "csv": "stage11_metrics.csv",
+  "denoise": {
+    "accuracy_exact": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 0.9999999995000002,
+    "jaccard": 0.9999999979999995,
+    "hallucination_rate": 3.304062157712288e-16,
+    "omission_rate": 1.652031078856144e-16,
+    "latent_arc_breakdown": {
+      "axis_pull": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9999999999999998,
+        "recall": 1.0,
+        "f1": 0.9999999994999996,
+        "jaccard": 0.9999999979999998,
+        "hallucination_rate": 3.3931643397200613e-16,
+        "omission_rate": 1.6965821698600306e-16
+      },
+      "quad_NE": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9999999999999998,
+        "recall": 0.9999999999999998,
+        "f1": 0.9999999994999996,
+        "jaccard": 0.9999999979999998,
+        "hallucination_rate": 2.987120343780752e-16,
+        "omission_rate": 1.493560171890376e-16
+      },
+      "ring_SW": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9999999999999998,
+        "recall": 0.9999999999999998,
+        "f1": 0.9999999994999996,
+        "jaccard": 0.9999999979999996,
+        "hallucination_rate": 3.595963246747086e-16,
+        "omission_rate": 1.797981623373543e-16
+      },
+      "shallow_origin": {
+        "accuracy_exact": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 0.9999999994999996,
+        "jaccard": 0.9999999979999998,
+        "hallucination_rate": 6.662373730123298e-17,
+        "omission_rate": 3.331186865061649e-17
+      },
+      "deep_edge": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9999999999999998,
+        "recall": 0.9999999999999998,
+        "f1": 0.9999999994999994,
+        "jaccard": 0.9999999979999996,
+        "hallucination_rate": 5.877825485301213e-16,
+        "omission_rate": 2.9389127426506064e-16
+      }
+    }
+  }
+}

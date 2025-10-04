@@ -149,6 +149,8 @@ def make_synthetic_traces(rng, T=720, noise=0.02, cm_amp=0.02, overlap=0.5,
 
     return traces, tasks
 
+
+
 # ----------------------------
 # Energy features (H/E) for manifold viz
 # ----------------------------
