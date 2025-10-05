@@ -95,6 +95,7 @@ import torch
 import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
 from datasets import load_dataset
+from wdd_stage11 import attach_wdd, STAGE11_PRESET
 import numpy as np  # ← NEW
 
 
@@ -128,10 +129,15 @@ def parse_args():
     ap.add_argument("--gen_mode", type=str, default="geo")
     ap.add_argument("--save_hidden", type=int, default=0, help="1=save tap-9 pre/post states to disk")
     ap.add_argument("--hidden_dump_dir", type=str, default="", help="dir for tap9_pre.npy / tap9_post.npy") 
+    ap.add_argument("--wellmetric_ckpt", type=str, default="",
+                    help="Path to WellMetric checkpoint (optional). If set, attach at layer_idx in ckpt.")
     # Optional import hook path, e.g., text_arc_unified_base:attach_ngf_hooks
     ap.add_argument("--ngf_import", type=str, default="", help="MODULE:FUNC path to attach NGF hooks (overrides auto-detect)")
     ap.add_argument("--out_json", type=str, default="",
                 help="Optional path to write the final results JSON")
+    ap.add_argument("--wdd_stage11", action="store_true",
+                        help="Enable full WDD (Warp+Detect+Denoise) at --layer_idx using Stage-11 preset.")
+    ap.add_argument("--layer_idx", type=int, default=9)
     return ap.parse_args()
 
 def ensure_pad_token(tok):
@@ -346,6 +352,23 @@ def main():
     ensure_pad_token(tok)
     model = AutoModelForCausalLM.from_pretrained(args.model, config=cfg).to(device)
     model.eval()
+
+    # after: model = AutoModelForCausalLM.from_pretrained(args.model) ...
+    if args.wellmetric_ckpt:
+        from wellmetric_ft import attach_wellmetric
+        ckpt = torch.load(args.wellmetric_ckpt, map_location="cpu")
+        wm, cache, handle = attach_wellmetric(model, layer_idx=ckpt["layer_idx"])
+        wm.load_state_dict(ckpt["state_dict"])
+        model.eval()
+        print(f"[WellMetric] attached at layer {ckpt['layer_idx']} from {args.wellmetric_ckpt}")
+
+    if args.wdd_stage11:
+        mods, cache, handle = attach_wdd(model, layer_idx=args.layer_idx,
+                                         alpha=1.0, beta=0.5,
+                                         preset=STAGE11_PRESET,
+                                         device=str(model.device) if hasattr(model, "device") else "cpu")
+        print(f"[WDD] enabled at layer {args.layer_idx} with Stage-11 preset")
+
 
     ngf_status = try_attach_ngf(model, tok, device, args)
     if ngf_status:

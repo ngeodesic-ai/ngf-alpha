@@ -5,6 +5,32 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, AutoModelForCausalLM, default_data_collator
 from datasets import load_dataset
 
+"""
+
+python wellmetric_ft.py --model_name gpt2 --layer_idx 9 --max_steps 1200
+
+# HellaSwag
+python3 ngf_benchmark.py --dataset hellaswag --mode stock \
+  --model gpt2 --split validation --n 1000 --max_length 128 --device auto \
+  --out_json results/hella_stock.json
+
+python3 ngf_benchmark.py --dataset hellaswag --mode stock \
+  --model gpt2 --split validation --n 1000 --max_length 128 --device auto \
+  --wellmetric_ckpt wellmetric_gpt2_layer9.pt \
+  --out_json results/hella_warp.json
+
+# WinoGrande (same pattern)
+python3 ngf_benchmark.py --dataset winogrande --mode stock \
+  --model gpt2 --split validation --n 1200 --max_length 512 --device auto \
+  --out_json results/wg_stock.json
+
+python3 ngf_benchmark.py --dataset winogrande --mode stock \
+  --model gpt2 --split validation --n 1200 --max_length 512 --device auto \
+  --wellmetric_ckpt wellmetric_gpt2_layer9.pt \
+  --out_json results/wg_warp.json
+
+"""
+
 # ---------------------------
 # 0) Angle-preserving warp
 # ---------------------------

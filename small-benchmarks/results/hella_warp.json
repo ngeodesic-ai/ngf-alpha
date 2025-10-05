@@ -1,0 +1,58 @@
+{
+  "mode": "stock",
+  "dataset": "boolq",
+  "model": "gpt2",
+  "split": "validation",
+  "n": 1000,
+  "accuracy": 0.432,
+  "correct": 432,
+  "elapsed_sec": 421.608628988266,
+  "device": "cpu",
+  "ngf_status": "stock",
+  "metrics": {
+    "accuracy_top1": 0.432,
+    "accuracy_top2": 1.0,
+    "macro": {
+      "precision": 0.5229437229437243,
+      "recall": 0.5141333333333342,
+      "f1": 0.40833333333294886
+    },
+    "micro": {
+      "precision": 0.43199999999999955,
+      "recall": 0.43199999999999955,
+      "f1": 0.43199999999999983
+    },
+    "per_class": [
+      {
+        "precision": 0.6628571428571448,
+        "recall": 0.1856000000000013,
+        "f1": 0.28999999999966
+      },
+      {
+        "precision": 0.3830303030303038,
+        "recall": 0.8426666666666671,
+        "f1": 0.5266666666662377
+      }
+    ],
+    "confusion_matrix": [
+      [
+        116,
+        509
+      ],
+      [
+        59,
+        316
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.20301666357787487,
+      "brier": 0.5992258443080435,
+      "mean_margin": 0.2697091989439498,
+      "entropy": 0.6378443505693188
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.0,
+      "wrong_p>=0.70": 0.15
+    }
+  }
+}

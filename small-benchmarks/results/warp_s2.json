@@ -1,0 +1,58 @@
+{
+  "mode": "stock",
+  "dataset": "winogrande",
+  "model": "gpt2",
+  "split": "validation",
+  "n": 250,
+  "accuracy": 0.548,
+  "correct": 137,
+  "elapsed_sec": 23.80183720588684,
+  "device": "cpu",
+  "ngf_status": "stock",
+  "metrics": {
+    "accuracy_top1": 0.548,
+    "accuracy_top2": 1.0,
+    "macro": {
+      "precision": 0.5447853604843187,
+      "recall": 0.5417602155366,
+      "f1": 0.5367257580473627
+    },
+    "micro": {
+      "precision": 0.5479999999999978,
+      "recall": 0.5479999999999978,
+      "f1": 0.5479999999999989
+    },
+    "per_class": [
+      {
+        "precision": 0.532608695652179,
+        "recall": 0.4117647058823579,
+        "f1": 0.4644549763028309
+      },
+      {
+        "precision": 0.5569620253164584,
+        "recall": 0.6717557251908421,
+        "f1": 0.6089965397918945
+      }
+    ],
+    "confusion_matrix": [
+      [
+        49,
+        70
+      ],
+      [
+        43,
+        88
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.2896668531152288,
+      "brier": 0.703843992896629,
+      "mean_margin": 0.6242062637830547,
+      "entropy": 0.40531854117072436
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.188,
+      "wrong_p>=0.70": 0.352
+    }
+  }
+}
