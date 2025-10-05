@@ -1,0 +1,58 @@
+{
+  "mode": "ngf",
+  "dataset": "copa",
+  "model": "gpt2",
+  "split": "train",
+  "n": 400,
+  "accuracy": 0.585,
+  "correct": 234,
+  "elapsed_sec": 27.208388090133667,
+  "device": "cpu",
+  "ngf_status": "NGF attached via ngf_hooks:attach_ngf_hooks with cfg={'tap': -9, 'alpha0': 0.05, 'alpha_min': 0.006, 'trend_tau': 0.32, 'k_tr': 12, 'use_detect': 1, 'detect_width': 24, 'detect_sigma': 5.0, 'null_K': 32, 'null_q': 0.92, 'k_det': 7, 's_latch': 0.3, 'linger': 2, 'ema_center_beta': 0.05, 'gen_mode': 'geo', 'save_hidden': 0, 'hidden_dump_dir': ''}",
+  "metrics": {
+    "accuracy_top1": 0.585,
+    "accuracy_top2": 1.0,
+    "macro": {
+      "precision": 0.5846662161147427,
+      "recall": 0.5846153846153868,
+      "f1": 0.5846261635466945
+    },
+    "micro": {
+      "precision": 0.5849999999999985,
+      "recall": 0.5849999999999985,
+      "f1": 0.5849999999999993
+    },
+    "per_class": [
+      {
+        "precision": 0.5751295336787586,
+        "recall": 0.5692307692307714,
+        "f1": 0.5721649484531103
+      },
+      {
+        "precision": 0.5942028985507266,
+        "recall": 0.600000000000002,
+        "f1": 0.5970873786402786
+      }
+    ],
+    "confusion_matrix": [
+      [
+        111,
+        84
+      ],
+      [
+        82,
+        123
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.08150953441532308,
+      "brier": 0.5156214856482814,
+      "mean_margin": 0.30100424655585734,
+      "entropy": 0.6223151141568708
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.01,
+      "wrong_p>=0.70": 0.1325
+    }
+  }
+}

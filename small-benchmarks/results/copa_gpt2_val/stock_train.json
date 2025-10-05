@@ -1,0 +1,58 @@
+{
+  "mode": "stock",
+  "dataset": "copa",
+  "model": "gpt2",
+  "split": "train",
+  "n": 400,
+  "accuracy": 0.5875,
+  "correct": 235,
+  "elapsed_sec": 26.13187527656555,
+  "device": "cpu",
+  "ngf_status": "stock",
+  "metrics": {
+    "accuracy_top1": 0.5875,
+    "accuracy_top2": 1.0,
+    "macro": {
+      "precision": 0.5872034831348234,
+      "recall": 0.5871794871794893,
+      "f1": 0.5871878107814058
+    },
+    "micro": {
+      "precision": 0.5874999999999985,
+      "recall": 0.5874999999999985,
+      "f1": 0.5874999999999992
+    },
+    "per_class": [
+      {
+        "precision": 0.5773195876288681,
+        "recall": 0.5743589743589765,
+        "f1": 0.5758354755779083
+      },
+      {
+        "precision": 0.5970873786407787,
+        "recall": 0.600000000000002,
+        "f1": 0.5985401459849033
+      }
+    ],
+    "confusion_matrix": [
+      [
+        112,
+        83
+      ],
+      [
+        82,
+        123
+      ]
+    ],
+    "calibration": {
+      "ece_10": 0.08686482583233517,
+      "brier": 0.5150030321600505,
+      "mean_margin": 0.3012314631091005,
+      "entropy": 0.622203151911516
+    },
+    "overconfidence_rate": {
+      "wrong_p>=0.90": 0.0125,
+      "wrong_p>=0.70": 0.135
+    }
+  }
+}

@@ -101,6 +101,8 @@ import numpy as np  # ← NEW
 def parse_args():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", default="stock", choices=["stock", "ngf"], help="stock baseline or NGF-warped model")
+    ap.add_argument("--dataset", default="hellaswag", choices=["hellaswag","winogrande","commonsenseqa","boolq"],
+                    help="benchmark dataset to run (defaults to hellaswag)")
     ap.add_argument("--model", default="gpt2-medium")
     ap.add_argument("--split", default="validation", choices=["train", "validation", "test"])
     ap.add_argument("--n", type=int, default=100)
@@ -183,9 +185,10 @@ def build_choice_batch(tokenizer, prefix: str, endings: List[str], max_len: int)
 
     T = min(max(len(r) for r in rows), max_len)
     pad_id = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id
-    tokens = torch.full((4, T), pad_id, dtype=torch.long)
-    labs   = torch.full((4, T), -100, dtype=torch.long)
-    attn   = torch.zeros((4, T), dtype=torch.long)
+    C = len(rows)  # number of choices (4 for HellaSwag, 2 for PIQA)
+    tokens = torch.full((C, T), pad_id, dtype=torch.long)
+    labs   = torch.full((C, T), -100, dtype=torch.long)
+    attn   = torch.zeros((C, T), dtype=torch.long)
 
     for i, (r, l) in enumerate(zip(rows, labels)):
         if len(r) > T:
@@ -228,7 +231,7 @@ def score_choices(model, tokens, labs, attn, length_normalize=True, return_count
     return scores.detach().cpu()
 
 
-# === Metrics helpers (MC classification on 4 choices) ===
+# === Metrics helpers (MC classification on C choices) ===
 def _softmax(x, axis=-1):
     x = x - np.max(x, axis=axis, keepdims=True)
     e = np.exp(x)
@@ -348,7 +351,24 @@ def main():
     if ngf_status:
         print(f"[NGF] {ngf_status}")
 
-    ds = load_dataset("hellaswag", split=args.split)
+    # ---- Load dataset (hellaswag or piqa) ----
+    if args.dataset == "hellaswag":
+        ds = load_dataset("Rowan/hellaswag", split=args.split)  # parquet-backed on HF :contentReference[oaicite:1]{index=1}
+    elif args.dataset == "winogrande":
+        ds = load_dataset("winogrande", "winogrande_debiased", split="validation")
+    elif args.dataset == "commonsenseqa":
+        # CommonsenseQA: 5-choice MC; fields:
+        # ex["question"] (str)
+        # ex["choices"] = {"label": ["A","B","C","D","E"], "text": [str,...]}
+        # ex["answerKey"] = "A".."E" (not present in test)
+        split = "validation" if args.split == "validation" else args.split
+        ds = load_dataset("commonsense_qa", split=split)
+    elif args.dataset == "boolq":
+        # google/boolq: fields {question, passage, answer(bool)}
+        ds = load_dataset("google/boolq", split="validation" if args.split=="validation" else args.split)
+    else:
+        raise ValueError(f"Unsupported dataset: {args.dataset}")
+
     if args.n and args.n < len(ds):
         ds = ds.select(range(args.n))
 
@@ -362,9 +382,46 @@ def main():
     for i, ex in enumerate(ds):
         if i >= args.n:
             break
-        prefix = safe_prefix(ex.get("ctx", ""), ex.get("ctx_a", ""))
-        endings = list(ex["endings"])
-        label = int(ex["label"])
+        if args.dataset == "hellaswag":
+            prefix = safe_prefix(ex.get("ctx", ""), ex.get("ctx_a", ""))
+            endings = list(ex["endings"])
+            label = int(ex["label"])
+        elif args.dataset == "winogrande":
+            # WinoGrande (debiased) – binary coreference
+            # Each example has a sentence with a blank ("_"), and two candidate options.
+            # 'answer' is "1" or "2" (string) → convert to int-1
+            prefix = (ex.get("sentence") or ex.get("sentence_with_blank") or "").replace("_", "_____")
+            endings = [ex.get("option1", ""), ex.get("option2", "")]
+            try:
+                label = int(ex.get("answer", "1")) - 1
+            except Exception:
+                label = 0
+        elif args.dataset == "commonsenseqa":
+            q = (ex.get("question") or "").strip()
+            ch = ex.get("choices", {})
+            texts = ch.get("text", []) or []
+            labels = ch.get("label", []) or []
+            # ensure we order choices by label A..E
+            if labels and texts and len(labels) == len(texts):
+                # pair and sort by label
+                pairs = sorted(zip(labels, texts), key=lambda t: t[0])
+                endings = [t for _, t in pairs]                 # ["optA","optB",...]
+                # gold label → index 0..4
+                gold = (ex.get("answerKey") or "A").strip()
+                mapping = {lbl:i for i, lbl in enumerate(sorted(set(labels)))}
+                label = mapping.get(gold, 0)
+            else:
+                # fallback (shouldn't happen on val): skip
+                continue
+            prefix = f"Question: {q}\nAnswer:"
+        else:  # BOOLQ → create MC-2: "Yes." / "No."
+            passage = (ex.get("passage") or "").strip()
+            question = (ex.get("question") or "").strip()
+            ans = bool(ex.get("answer"))
+            # Simple prompt; keep it short & consistent
+            prefix = f"{passage}\nQ: {question}\nAnswer:"
+            endings = [" Yes.", " No."]
+            label = 0 if ans else 1
 
         tokens, labs, attn = build_choice_batch(tok, prefix, endings, args.max_length)
         scores, counts = score_choices(model, tokens, labs, attn, length_normalize=True, return_counts=True)
@@ -402,7 +459,8 @@ def main():
         y_true = np.asarray(all_labels, dtype=np.int64)
         pred = probs.argmax(axis=1)
     
-        cm = _confusion_matrix(y_true, pred, C=scores_np.shape[1])
+        C = scores_np.shape[1]
+        cm = _confusion_matrix(y_true, pred, C=C)
         macro, micro, per_class = _prec_rec_f1_from_cm(cm)
     
         ece_10 = _expected_calibration_error(probs, y_true, n_bins=10)
@@ -416,10 +474,11 @@ def main():
         wrong = (pred != y_true)
         overconf_90 = float(np.mean(wrong & (maxp >= 0.90)))
         overconf_70 = float(np.mean(wrong & (maxp >= 0.70)))
-    
-        top2 = np.argsort(-probs, axis=1)[:, :2]
-        top2_acc = float(np.mean((top2[:, 0] == y_true) | (top2[:, 1] == y_true)))
-    
+      
+        # Top-2 is mostly meaningful for C>=3; we still compute for consistency
+        top2 = np.argsort(-probs, axis=1)[:, :min(2, C)]
+        top2_acc = float(np.mean((top2[:, 0] == y_true) | ((top2.shape[1] > 1) & (top2[:, 1] == y_true))))
+
         metrics = {
             "accuracy_top1": float(acc),
             "accuracy_top2": top2_acc,
@@ -442,6 +501,7 @@ def main():
     # assemble result once
     result = {
         "mode": args.mode,
+        "dataset": args.dataset,
         "model": args.model,
         "split": args.split,
         "n": total,
