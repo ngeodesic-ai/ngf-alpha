@@ -6,7 +6,7 @@
   "n": 1200,
   "accuracy": 0.28833333333333333,
   "correct": 346,
-  "elapsed_sec": 209.42073798179626,
+  "elapsed_sec": 159.6200180053711,
   "device": "cpu",
   "ngf_status": "stock",
   "metrics": {

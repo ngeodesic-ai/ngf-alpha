@@ -358,7 +358,14 @@ def main():
         from wellmetric_ft import attach_wellmetric
         ckpt = torch.load(args.wellmetric_ckpt, map_location="cpu")
         wm, cache, handle = attach_wellmetric(model, layer_idx=ckpt["layer_idx"])
-        wm.load_state_dict(ckpt["state_dict"])
+        sd = ckpt["state_dict"]
+        # drop anything the current WellMetric doesn't define (e.g., "_cm_stack")
+        sd = {k: v for k, v in sd.items() if k in wm.state_dict()}
+        missing, unexpected = wm.load_state_dict(sd, strict=False)
+        if unexpected:
+            print(f"[WARP] Ignored unexpected keys: {unexpected}")
+        if missing:
+            print(f"[WARP] Missing keys filled by defaults: {missing}")
         model.eval()
         print(f"[WellMetric] attached at layer {ckpt['layer_idx']} from {args.wellmetric_ckpt}")
 

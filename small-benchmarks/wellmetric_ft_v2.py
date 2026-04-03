@@ -7,7 +7,7 @@ from datasets import load_dataset
 
 """
 
-python wellmetric_ft.py --model_name gpt2 --layer_idx 9 --max_steps 1200
+python3 wellmetric_ft_v2.py --model_name gpt2 --layer_idx 9 --max_steps 1200
 
 # HellaSwag
 python3 ngf_benchmark.py --dataset hellaswag --mode stock \
@@ -19,15 +19,36 @@ python3 ngf_benchmark.py --dataset hellaswag --mode stock \
   --wellmetric_ckpt wellmetric_gpt2_layer9.pt \
   --out_json results/hella_warp.json
 
-# WinoGrande (same pattern)
-python3 ngf_benchmark.py --dataset winogrande --mode stock \
+# HellaSwag
+python3 ngf_benchmark.py --dataset hellaswag --mode stock \
+  --model gpt2 --split validation --n 1000 --max_length 128 --device auto \
+  --out_json results/hella_stock.json
+
+python3 ngf_benchmark.py --dataset hellaswag --mode stock \
+  --model gpt2 --split validation --n 1000 --max_length 128 --device auto \
+  --wellmetric_ckpt wellmetric_gpt2_layer9.pt \
+  --out_json results/hella_warp.json
+
+# Boolq (same pattern)
+python3 ngf_benchmark.py --dataset boolq --mode stock \
   --model gpt2 --split validation --n 1200 --max_length 512 --device auto \
   --out_json results/wg_stock.json
 
-python3 ngf_benchmark.py --dataset winogrande --mode stock \
+python3 ngf_benchmark.py --dataset boolq --mode stock \
   --model gpt2 --split validation --n 1200 --max_length 512 --device auto \
   --wellmetric_ckpt wellmetric_gpt2_layer9.pt \
   --out_json results/wg_warp.json
+
+# commonsenseqa (same pattern)
+python3 ngf_benchmark.py --dataset commonsenseqa --mode stock \
+  --model gpt2 --split validation --n 1200 --max_length 512 --device auto \
+  --out_json results/wg_stock.json
+
+python3 ngf_benchmark.py --dataset commonsenseqa --mode stock \
+  --model gpt2 --split validation --n 1200 --max_length 512 --device auto \
+  --wellmetric_ckpt wellmetric_gpt2_layer9.pt \
+  --out_json results/wg_warp.json
+
 
 """
 
@@ -42,6 +63,16 @@ class WellMetric(nn.Module):
         self.beta   = nn.Parameter(torch.tensor(float(beta)))
         self.eps    = 1e-8
         self.enabled = True
+        self.register_buffer("_cm_stack", torch.tensor(0))  # placeholder
+
+    @contextlib.contextmanager
+    def disabled(self):
+        prev = self.enabled
+        self.enabled = False
+        try:
+            yield
+        finally:
+            self.enabled = prev
 
     def forward(self, h):  # h: [B,T,D] or [T,D]
         if not self.enabled:
@@ -56,33 +87,17 @@ class WellMetric(nn.Module):
             raise ValueError(f"Unsupported h.dim()={h.dim()} (expected 2 or 3)")
 
         v = h - c
-        r = torch.linalg.vector_norm(v, dim=-1, keepdim=True)       # [...,1]
-        # Safe softplus
-        a = F.softplus(self.alpha).to(h.dtype)
-        b = F.softplus(self.beta).to(h.dtype)
-
-        # Numerically safe gain: handle tiny r explicitly
-        num = a * torch.tanh(b * r)
-        den = torch.clamp(r, min=self.eps)
-        gain = num / den                                             # [...,1]
-
-        # Where r is ~0, use first-order limit tanh(b r)/r -> b
-        gain = torch.where(r <= 1e-6, a * b, gain)
-
-        z = c + gain * v
+        r = torch.linalg.vector_norm(v, dim=-1, keepdim=True)              # [...,1]
+        a0 = F.softplus(self.alpha).to(h.dtype)                             # max warp
+        b  = F.softplus(self.beta).to(h.dtype)                              # slope
+        # radius-conditioned alpha: small near the apex, capped globally
+        alpha_r = torch.clamp(a0 * (1.0 - torch.exp(-b * r)), 0.0, 0.25)   # ≤ 0.25
+        # apply toward center (angle-preserving)
+        z = c + (1.0 - alpha_r) * v
 
         # Final NaN guard (shouldn’t trigger, but belt & suspenders)
         z = torch.nan_to_num(z, nan=0.0, posinf=1e6, neginf=-1e6)
         return z
-
-    @contextlib.contextmanager
-    def disabled(self):
-        prev = self.enabled
-        self.enabled = False
-        try:
-            yield
-        finally:
-            self.enabled = prev
 
 
 # ---------------------------
@@ -207,6 +222,11 @@ def phaseA_distill(args):
     Hs = torch.cat(samples, dim=0)
     mu, W, Winv = fit_whitener(Hs, q=min(128, Hs.size(1)))
     mu, W, Winv = mu.to(device), W.to(device), Winv.to(device)
+    # initialize center from measured μ
+    with torch.no_grad():
+        wm.center.copy_(mu.view(1,1,-1))
+    # (optional) freeze the center during Phase-A for stability
+    wm.center.requires_grad_(False)
 
     # --- Phase A: distill shape + logit consistency
     for step, batch in enumerate(dl, start=1):
@@ -230,11 +250,27 @@ def phaseA_distill(args):
         # Distill: make WellMetric(H_raw) ≈ H_tgt
         H_warp = wm(H_raw)  # apply module explicitly to the same H_raw
         loss_mse = F.mse_loss(H_warp, H_tgt)
+        # direction alignment (cosine), guard tiny norms
+        eps = 1e-6
+        v_w = H_warp - wm.center; v_t = H_tgt - wm.center
+        cos = F.cosine_similarity(v_w, v_t, dim=-1)
+        loss_dir = (1.0 - cos).mean()
+
+
 
         # Guard: keep behavior similar
-        loss_kl = kl_pre_post(logits_pre, logits_post, T=args.kl_T)
+        # mask: only score positions that predict the next token
+        shift_p = logits_pre[:, :-1]; shift_q = logits_post[:, :-1]
+        mask    = attn[:, 1:].float()
+        p = F.log_softmax(shift_p / args.kl_T, dim=-1).exp()
+        q = F.log_softmax(shift_q / args.kl_T, dim=-1)
+        kl_tok = (p * (p.log() - q)).sum(dim=-1) * mask
+        loss_kl = kl_tok.sum() / (mask.sum() + 1e-6)
+        # KL warmup (prevents early over-regularization)
+        kl_w = min(1.0, step / max(50, args.log_every)) * args.kl_lambda
+        loss = loss_mse + 0.1 * loss_dir + kl_w * loss_kl
 
-        loss = loss_mse + args.kl_lambda * loss_kl
+        loss = loss_mse + 0.1 * loss_dir + args.kl_lambda * loss_kl
 
         opt.zero_grad(set_to_none=True)
         loss.backward()
@@ -255,8 +291,11 @@ def phaseA_distill(args):
     # Save just the tiny module (and center)
     torch.save({"state_dict": wm.state_dict(),
                 "layer_idx": args.layer_idx,
-                "model_name": args.model_name},
-               args.out_path)
+                "model_name": args.model_name,
+                "mu": wm.center.detach().cpu().squeeze(0).squeeze(0),   # [D]
+                "alpha": float(F.softplus(wm.alpha).item()),
+                "beta":  float(F.softplus(wm.beta).item())},
+                args.out_path)
     print(f"[✓] Saved WellMetric to {args.out_path}")
 
 # ---------------------------
